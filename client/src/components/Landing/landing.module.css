@@ -1,0 +1,65 @@
+.NavLan{
+    position: relative;
+    box-sizing: border-box;
+    padding: 20px;
+    width: 100%;
+    background-color: rgb(231, 231, 231) ;
+}
+
+.TitleLand{
+    font-weight: 700;
+    font-size: 25px;
+}
+
+.iconFeet{
+    font-size: 32px;
+    color: black;
+}
+.iconRedes1{
+    margin-left: 1200px;
+    font-size: 28px;
+}
+.iconRedes{
+    font-size: 28px;
+    margin-left: 25px;
+}
+.text{
+    margin-top: 200px;
+    margin-left: 150px;
+    font-size: 100px;
+    color: rgb(33, 31, 31)
+}
+.textP{
+    margin-left: 150px;
+    text-align: left;
+}
+.buttonLan{
+    margin-left: 150px;
+    margin-top: 100px;
+    width:154px;
+    text-align: center;
+    height: 48px;
+    border-radius: 6px;
+    border: none;
+    background: #8B90FF;
+    color: #fff;
+    cursor: pointer
+}
+.buttonLan:hover{
+    background: #5c60a9;
+}
+.LanDad{
+    margin: 0px;
+    width: 100%;
+}
+.img1{
+    position: absolute;
+    width: 503.24px;
+    height: 492.53px;
+    left: 861px;
+    top: 220.72px;
+    
+    background: url(../../img/e17e13c695f6c35d4756d7da29b6bf7f.jpg);
+    border-radius: 25px;
+    transform: rotate(-9deg);
+}
