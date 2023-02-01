@@ -1,0 +1,33 @@
+.container {
+  width: 375px;
+  height: 530px;
+  background: #46c0d9;
+  border-radius: 0px 0px 187.5px 31px;
+}
+
+.input {
+  width: 331px;
+  height: 56px;
+  background: #f7f8f9;
+  border: 1px solid #e8ecf4;
+  border-radius: 8px;
+}
+
+.btn {
+  width: 41px;
+  height: 41px;
+  background: #ffffff;
+  border: 1px solid #e8ecf4;
+  border-radius: 12px;
+  margin-left: 21px;
+  margin-top: 87px;
+}
+
+.submit{
+Width:331px;
+Height: 56px;
+background: #1E232C;
+border-radius: 8px;
+font-size: 15px;
+color:#ffffff;
+}
