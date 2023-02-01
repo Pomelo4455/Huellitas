@@ -1,0 +1,41 @@
+.container{
+display: flex;
+flex-direction: column;
+align-content: center;
+width: 308px;
+height: 460px;
+background: #C2F4FF;
+box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+border-radius: 0px 0px 187.5px 31px;
+
+}
+
+.selectBox{
+width: 184px;
+height: 44px;
+margin-left: 50px;
+margin-top: 30px;
+background-color: #8B90FF;
+box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+border-radius: 6px;
+color: #ffffff;
+text-align: center;
+
+}
+
+.btn{
+width: 184px;
+height: 44px; 
+margin-top: 30px; 
+background: #8B90FF;
+box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+border-radius: 20px;
+margin-left: 50px;
+border: #6a6fca 1px solid;
+color: #ffffff;
+}
+
+.btn:active {
+    transform: scale(0.97);
+    box-shadow: 3px 2px 22px 1px rgba(0, 0, 0, 0.24);
+    }
