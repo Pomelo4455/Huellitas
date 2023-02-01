@@ -22,7 +22,7 @@ const NavBar = () => {
 
     return (
       <nav className={styles.nav}>
-        <ul>
+        <ul className={styles.leftContainer}>
           <li>
             <Link to="/adoptar" className={styles.link}>Adoptar</Link>
           </li>
@@ -34,18 +34,20 @@ const NavBar = () => {
                 <img className={styles.img} src={img} alt="Img Not Found"></img>
                 <h1 className={styles.txt}>Huellitas</h1>
             </div>
-        <button className={styles.button} onClick={handleLogin}>Iniciar Sesión</button>
-        <button className={styles.button} onClick={handleLogin}>Registrarse</button>
-        <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          placeholder="Buscar..."
-          value={searchTerm}
-          onChange={handleSearch}
-          className={styles.search}
-        />
-        <button type="submit" className={styles.searchButton}>Buscar...</button>
-      </form>
+        <div className={styles.buttonContainer}>
+          <button className={styles.button} onClick={handleLogin}>Iniciar Sesión</button>
+          <button className={styles.button} onClick={handleLogin}>Registrarse</button>
+          <form onSubmit={handleSubmit} className={styles.form}>
+          <input
+            type="text"
+            placeholder="Buscar..."
+            value={searchTerm}
+            onChange={handleSearch}
+            className={styles.search}
+          />
+          <button type="submit" className={styles.searchButton}>Buscar...</button>
+        </form>
+        </div>
       </nav>
     );
   };

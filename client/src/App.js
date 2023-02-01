@@ -1,12 +1,12 @@
 import { Route, Routes } from 'react-router-dom';
-import Landing from './components/Landing';
+import NavBar from './componentes/NavBar/NavBar';
 import './App.css';
 
 function App() {
   return (
 
 <Routes>
-<Route path="/" element={<Landing/>} />
+  <Route path="/" element={<NavBar/>} />
 </Routes>
 
   );
