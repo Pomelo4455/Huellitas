@@ -1,0 +1,43 @@
+.footer{
+    background-color: rgb(40, 40, 128);
+    width: 100%;
+    display: flex;
+}
+.grupo1{
+    width: 100%;
+    max-width: 1200px;
+    margin:auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 50px;
+    padding: 8px 0px;
+
+}
+.box{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.texts{
+    margin-left: 15px;
+    color: #D9DBE1;
+    font-size: 14px;
+    font-weight: 400;
+}
+.box1{
+    width: 100%;
+    height: 100%;
+    display: flex;
+}
+.feeticon{
+    color:  #D9DBE1;
+    font-size: 30px;
+}
+.iconSocial{
+    color: #D9DBE1;
+    font-size: 25px;
+    justify-content: space-between;
+    margin-left: 30px;
+}
