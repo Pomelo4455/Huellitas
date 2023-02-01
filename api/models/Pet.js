@@ -5,24 +5,24 @@ module.exports = (sequelize) => {
   sequelize.define(
     "pet",
     {
-      nombre: {
+      name: {
         type: DataTypes.STRING,
         allowNull: false,
       },
-      edad: {
+      age: {
         type: DataTypes.STRING,
         allowNull: false,
       },
-      especie: {
+      species: {
         type: DataTypes.ENUM("perro", "gato", "conejo", "tortuga", "cobayo"),
         allowNull: false,
       },
-      imagen: {
+      image: {
         type: DataTypes.STRING,
         defaultValue: "https://acortar.link/HBTGez",
         allowNull: false,
       },
-      tamaño: {
+      size: {
         type: DataTypes.ENUM("pequeño", "mediano", "grande"),
         allowNull: false,
       },
@@ -30,15 +30,15 @@ module.exports = (sequelize) => {
         type: DataTypes.STRING,
         allowNull: false,
       },
-      sexo: {
+      sex: {
         type: DataTypes.ENUM("hembra", "macho"),
         allowNull: false
       },
-      temperamento: {
+      temperament: {
         type: DataTypes.STRING,
         allowNull: false,
       },
-      adoptado: {
+      adopted: {
         type: DataTypes.BOOLEAN,
         defaultValue: false,
       },

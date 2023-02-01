@@ -1,3 +1,6 @@
 const { User, Pet, Campaign, Adoption } = require('../db.js');
 
-module.exports={}
+const getAllPets = async () => {
+};
+
+module.exports={getAllPets}
