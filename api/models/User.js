@@ -5,11 +5,11 @@ module.exports = (sequelize) => {
   sequelize.define(
     "user",
     {
-      tipo: {
+      type: {
         type: DataTypes.ENUM("fundacion", "usuario", "admin"),
         allowNull: false,
       },
-      nombre: {
+      name: {
         type: DataTypes.STRING,
         allowNull: false,
       },
@@ -18,18 +18,18 @@ module.exports = (sequelize) => {
         allowNull: false,
         unique: true,
       },
-      telefono: {
+      phone: {
         type: DataTypes.INTEGER,
       },
-      contraseña: {
+      password: {
         type: DataTypes.STRING,
         allowNull: false,
       },
-      direccion: {
+      address: {
         type: DataTypes.STRING,
         allowNull: false,
       },
-      descripcion: {
+      description: {
         type: DataTypes.TEXT,
       },
       facebook: {
@@ -44,14 +44,14 @@ module.exports = (sequelize) => {
       tiktok: {
         type: DataTypes.STRING,
       },
-      imagen: {
+      image: {
         type: DataTypes.STRING,
         defaultValue: "https://acortar.link/JjnSW3",
       },
       CVU: {
         type: DataTypes.STRING,
       },
-      estado: {
+      status: {
         type: DataTypes.ENUM("activo", "inactivo", "baneado"),
         defaultValue: "activo",
       },
