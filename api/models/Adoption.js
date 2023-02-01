@@ -4,11 +4,11 @@ module.exports = (sequelize) => {
   sequelize.define(
     "adoption",
     {
-      fecha: {
+      date: {
         type: DataTypes.DATEONLY,
         defaultValue: DataTypes.NOW,
       },
-      // estado: {
+      // state: {
       //   type: DataTypes.TEXT,
       //   allowNull: false,
       // },

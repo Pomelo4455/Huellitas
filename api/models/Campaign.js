@@ -4,19 +4,19 @@ module.exports = (sequelize) => {
   sequelize.define(
     "campaign",
     {
-      titulo: {
+      title: {
         type: DataTypes.STRING,
         allowNull: false,
       },
-      motivo: {
+      reason: {
         type: DataTypes.TEXT,
         allowNull: false,
       },
-      descripcion: {
+      description: {
         type: DataTypes.TEXT,
         allowNull: false,
       },
-      meta: {
+      goal: {
         type: DataTypes.INTEGER,
         allowNull: false,
       },
