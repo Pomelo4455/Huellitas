@@ -30,6 +30,10 @@ module.exports = (sequelize) => {
         type: DataTypes.STRING,
         allowNull: false,
       },
+      sexo: {
+        type: DataTypes.ENUM("hembra", "macho"),
+        allowNull: false,
+      },
       temperamento: {
         type: DataTypes.STRING,
         allowNull: false,
