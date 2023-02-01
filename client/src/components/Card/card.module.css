@@ -1,4 +1,4 @@
-.tarjeta {
+.card {
     display: flex;
     justify-content: center;
     margin: 1rem;
@@ -10,7 +10,7 @@
     transition: transform 0.5s, filter 1.5s ease-in-out;
   }
 
-.tarjeta:hover{
+.card:hover{
     transform: scale(1.05);
   }
 
@@ -27,11 +27,11 @@
     align-content: center;
     border-radius: 9px;
     border: 3px solid #5b6367;
-    /* border: 3px solid #2AADF6; */
-    /* border: 3px solid #e56ad5 */
+    /* border: 3px solid #2AADF6; /
+    / border: 3px solid #e56ad5 */
   }
 
-  .nombre{
+  .name{
     display: flex;
     justify-content: center;
   }
