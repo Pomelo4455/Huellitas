@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import styles from './NavBar.module.css';
+import img from "../../imagenes/Huellita.png";
 
-const Navbar = () => {
+const NavBar = () => {
 
     const [searchTerm, setSearchTerm] = useState('');
 
@@ -15,6 +16,10 @@ const Navbar = () => {
       // Acá se realiza la búsqueda usando el valor ingresado.
     };
 
+    const handleLogin = () => {
+        window.location.href = '/login';
+    };
+
     return (
       <nav className={styles.nav}>
         <ul>
@@ -25,6 +30,10 @@ const Navbar = () => {
             <Link to="/sobreNosotros" className={styles.link}>SobreNosotros</Link>
           </li>
         </ul>
+        <div className={styles.title}>
+                <img className={styles.img} src={img} alt="Img Not Found"></img>
+                <h1 className={styles.txt}>Huellitas</h1>
+            </div>
         <button className={styles.button} onClick={handleLogin}>Iniciar Sesión</button>
         <button className={styles.button} onClick={handleLogin}>Registrarse</button>
         <form onSubmit={handleSubmit}>
@@ -41,4 +50,4 @@ const Navbar = () => {
     );
   };
 
-export default Navbar;
+export default NavBar;
