@@ -1,0 +1,61 @@
+.home {
+    width: 100%;
+    min-height: 100vh;
+    background-color: #F7F8F9;
+}
+
+/* ESTILOS PARA LA PRESENTACION */
+
+.presentation {
+    /* background-color: rgba(0, 0, 255, 0.317); */
+    width: 70%;
+    height: auto;
+    margin: 1em auto;
+    padding: .3em;
+}
+
+.title {
+    /* background-color: bisque; */
+}
+.title h1 {
+    font-size: 3em;    
+    text-align: center;
+    font-weight: 600;
+}
+
+.description {
+    /* background-color: cadetblue; */
+    width: 80%;
+    margin: 0 auto;
+}
+
+.description h4 {
+    font-weight: 400;
+    font-size: 1.6em;
+}
+
+/* ESTILOS PARA MOSTRAR LOS BOTONES */
+
+.btnS{
+    /* background-color: rgba(137, 43, 226, 0.568); */
+    width: 90%;
+    height: auto;
+    margin: 2em auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+
+/* ESTILOS PARA MOSTRAR LAS TARJETAS */
+
+.cards {
+    /* background-color: beige; */
+    width: 90%;
+    height: auto;
+    margin: 2em auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
