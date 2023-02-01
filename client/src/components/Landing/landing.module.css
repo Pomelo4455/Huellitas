@@ -1,24 +1,25 @@
 .NavLan{
     position: relative;
+    box-sizing: border-box;
     padding: 20px;
     width: 100%;
     background-color: rgb(231, 231, 231) ;
 }
 
-.Title-land{
+.TitleLand{
     font-weight: 700;
     font-size: 25px;
 }
 
-.icon-feet{
+.iconFeet{
     font-size: 32px;
     color: black;
 }
-.icon-redes1{
+.iconRedes1{
     margin-left: 1200px;
     font-size: 28px;
 }
-.icon-redes{
+.iconRedes{
     font-size: 28px;
     margin-left: 25px;
 }
@@ -28,7 +29,7 @@
     font-size: 100px;
     color: rgb(33, 31, 31)
 }
-.text-p{
+.textP{
     margin-left: 150px;
     text-align: left;
 }
@@ -47,7 +48,7 @@
 .buttonLan:hover{
     background: #5c60a9;
 }
-.Lan-dad{
+.LanDad{
     margin: 0px;
     width: 100%;
 }
