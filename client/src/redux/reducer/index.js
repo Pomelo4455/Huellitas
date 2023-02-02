@@ -11,7 +11,7 @@ const initialState = {
 }
 
 const rootReducer = (state = initialState, action) => {
-    switch(action.payload) {
+    switch(action.type) {
         case GET_PETS:
             return {
                 ...state,

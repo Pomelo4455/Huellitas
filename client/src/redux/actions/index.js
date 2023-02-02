@@ -8,9 +8,11 @@ export const getPets = () => {
     return async function(dispatch) {
         try {
             const pets = await axios.get('http://localhost:3001/pets');
+            console.log(pets.data)
+
             return dispatch({
                 type: GET_PETS,
-                payload: pets
+                payload: pets.data
             })
         } catch (error) {
             console.log(error)
