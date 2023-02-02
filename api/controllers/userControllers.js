@@ -33,7 +33,10 @@ const getAllUser = async () => {
       },
       {
         model: Campaign,
-        attributes: ["title", "reason", "description", "goal"],
+        attributes: ["title", "reason", "description", "goal", "status"],
+        // where: {
+        //   status: "activo",
+        // },
       },
       {
         model: Adoption,
