@@ -3,6 +3,10 @@ import Footer from '../Footer/Footer';
 import NavBar from '../NavBar/NavBar';
 import BtnHome from '../BtnHome/BtnHome';
 import Card from '../Card/Card';
+
+import { Link } from 'react-router-dom';
+import { pets } from '../../data';
+
 import styles from './home.module.css';
 
 
@@ -33,9 +37,13 @@ const Home = () => {
 
             <div className={styles.cards}>
                 {/* reemplazar tarjetas por una sola    cuando este la logica resuelta */}
-                <Card />
-                <Card />
-                <Card />
+                {
+                    pets.map(pet => (
+                        
+                        <Card pets={pet} key={pet.id}/>
+                        
+                    ))
+                }
             </div>
             <Footer />
         </div>
