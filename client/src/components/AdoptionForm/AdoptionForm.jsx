@@ -1,12 +1,12 @@
 import React from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import styles from "./adoptionForm.module.css";
-
+import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 
 export default function AdoptionForm() {
   const [sent, setSent] = useState(false);
-
+  const navigate = useNavigate();
   return (
     <>
       <Formik
@@ -37,10 +37,12 @@ export default function AdoptionForm() {
           return errors;
         }}
         onSubmit={(values, { resetForm }) => {
+          // Agregar action para mandar a la db
           console.log(values);
           resetForm();
           setSent(true);
           setTimeout(() => setSent(false), 2000);
+          setTimeout(() => navigate("/home"), 2000);
         }}
       >
         {({ errors }) => (
@@ -49,7 +51,12 @@ export default function AdoptionForm() {
               <div className={styles.divinput}>
                 <label>¿Como se llama? </label>
                 <br />
-                <Field className={styles.input} type="text" name="name" placeholder="Nombre"></Field>
+                <Field
+                  className={styles.input}
+                  type="text"
+                  name="name"
+                  placeholder="Nombre"
+                ></Field>
                 <ErrorMessage
                   name="name"
                   component={() => (
@@ -128,10 +135,11 @@ export default function AdoptionForm() {
                 <hr />
                 <Field type="file" accept="image/*" name="img" multiple></Field>
               </div>
-              {sent && <p className={styles.exito}>Formulario enviado con exito!</p>}
+              {sent && (
+                <p className={styles.exito}>Formulario enviado con exito!</p>
+              )}
               <br />
               <div className={styles.divinput}>
-              
                 <button type="submit" className={styles.btn}>
                   {" "}
                   Dar en adopción
