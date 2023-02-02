@@ -15,7 +15,7 @@ router.get("/", async (req, res) => {
     const users = await getAllUser();
     res.status(200).send(users);
   } catch (error) {
-    res.status(404).send("No se encontraron los datos");
+    res.status(404).send(error.message);
   }
 });
 
