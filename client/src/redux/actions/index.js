@@ -8,7 +8,7 @@ export const getPets = () => {
     return async function(dispatch) {
         try {
             const pets = await axios.get('http://localhost:3001/pets');
-            console.log(pets.data)
+            // console.log(pets.data)
 
             return dispatch({
                 type: GET_PETS,
@@ -23,7 +23,7 @@ export const getPets = () => {
 export const getPetsDetail = (id) => {
     return async function(dispatch) {
         try {
-            const data = await axios.get(`http://localhost:3001/pets/${id}`);
+            const { data } = await axios.get(`http://localhost:3001/pets/${id}`);
             return dispatch({
                 type: GET_PETS_DETAIL,
                 payload: data

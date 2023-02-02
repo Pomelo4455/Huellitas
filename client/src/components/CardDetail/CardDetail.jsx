@@ -1,4 +1,8 @@
 import React from "react";
+import { useEffect } from "react";
+import { useParams } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+
 import Footer from "../Footer/Footer";
 import NavBar from "../NavBar/NavBar";
 import niceDog from "../../img/niceDog.png";
@@ -6,20 +10,30 @@ import niceDog from "../../img/niceDog.png";
 
 
 import style from "./cardDetail.module.css";
+import { getPetsDetail } from "../../redux/actions";
 
 const CardDetail = () => {
+
+  const dispatch = useDispatch();
+  const pet = useSelector(state => state.pet);
+  
+  const { id } = useParams();
+
+  useEffect(()=> {
+    dispatch(getPetsDetail(id))
+  },[dispatch, id])
   
 
-    return (
+  return (
     <>
       <NavBar />
       <div className={style.detailContainer}>
         <div className={style.detailInformation}>
           <div className={style.petName}>
-            <h2>Mancha</h2>
+            <h2>{pet.name}</h2>
           </div>
           <div className={style.petImage}>
-            <img src={niceDog} alt="" />
+            <img src={pet.image} alt={`Imagen de ${pet.name}`} />
           </div>
 
           <div className={style.btnContainer}>
@@ -30,18 +44,18 @@ const CardDetail = () => {
         <div className={style.detailDescription}>
           <div className={style.descriptionContainer}>
             <p>
-              <span>Nombre:</span> Mancha
+              <span>Nombre:</span> {pet.name}
             </p>
             <p>
-              <span>Edad:</span> 4 meses
+              <span>Edad:</span> {pet.age}
             </p>
             <p>
-              <span>Tamaño:</span> mediano
+              <span>Tamaño:</span> {pet.size}
             </p>
             <p>
-              <span>Color:</span> blanco y negro
+              <span>Color:</span> {pet.color}
             </p>
-            <p><span>Descripcion:</span> Mancha es un perrito muy sociable</p>
+            <p><span>Descripcion:</span> {pet.temperament}</p>
           </div>
         </div>
       </div>

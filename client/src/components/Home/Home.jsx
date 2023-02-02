@@ -9,7 +9,7 @@ import BtnHome from '../BtnHome/BtnHome';
 import Card from '../Card/Card';
 
 import { getPets } from '../../redux/actions';
-import { pets } from '../../data';
+// import { pets } from '../../data';
 
 import styles from './home.module.css';
 
@@ -55,7 +55,7 @@ const Home = () => {
                 {
                 
                     allPets?.slice(0, 3).map(pet => {
-                        console.log(pet.name)
+                        // console.log(pet.name)
                         return (
                             <Card pets={pet} key={pet.id} />
                         )
