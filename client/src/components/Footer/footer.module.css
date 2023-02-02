@@ -1,13 +1,14 @@
 .footer{
     background-color: #253066;
     width: 100%;
-    display: flex;
-    bottom: 0;
-    position: fixed;
+    left: 0px;
+    position: relative;
+    padding-bottom: 5em ;
 }
 .grupo1{
     width: 100%;
-    max-width: 1200px;
+    bottom: 0;
+    position: absolute;
     margin:auto;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
