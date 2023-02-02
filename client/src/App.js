@@ -1,5 +1,5 @@
 import { Route, Routes } from "react-router-dom";
-import Login from './componentes/Login/Login';
+// import Login from './componentes/Login/Login';
 // import Sidebar from './components/Sidebar/Sidebar';
 import Footer from "./components/Footer/Footer";
 import Landing from "./components/Landing/Landing";
