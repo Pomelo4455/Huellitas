@@ -1,0 +1,92 @@
+/* CONTENEDOR GENERAL */
+
+.detailContainer {
+    /* background-color: beige; */
+    background-color: #FFFF;
+    width: 100%;
+    min-height: 75vh;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+}
+
+/* ESTILOS PARA CONTENEDOR DE TITULO E IMAGEN */
+
+.detailInformation {
+    /* background-color: aquamarine; */
+    width: 40%;
+    height: auto;
+    padding: .5em 5em;
+}
+
+.petName {
+    /* background-color: azure; */
+    width: 100%;
+    height: auto;
+}
+
+.petName h2 {
+    font-size: 2em;
+    text-align: center;
+}
+
+.petImage {
+    /* background-color: tomato; */
+    width: 100%;
+    height: 24em;
+    display: flex;
+    justify-content: center;
+}
+
+.petImage img {
+    width: 385px;
+    height: 385px;
+}
+
+.btnContainer {
+    /* background-color: blanchedalmond; */
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin: 1em 0;
+}
+
+.btnContact {
+    width: 15em;
+    border: none;
+    border-radius: 10px;
+    background-color: #2AADF6;
+    color: #FFF;
+    padding: .2em;
+    font-size: 2.4em;
+}
+
+/* ESTILOS PARA EL CONTENEDOR DE DETALLE DE LA MASCOTA */
+
+.detailDescription {
+    /* background-color: azure; */
+    width: 60%;
+    height: auto;
+    padding: .5em 5em;
+    padding-top: 5.5em;
+}
+
+.descriptionContainer {
+    /* background-color: rgba(165, 42, 42, 0.552); */
+    background-color: #F8F8F8;
+    width: 100%;
+    height: auto;
+    padding: 1em 2em;
+    border-radius: 16px;
+}
+
+.descriptionContainer p {
+    /* background-color: rgba(137, 43, 226, 0.499); */
+    font-size: 1.8em;
+}
+
+.descriptionContainer p span {
+    font-weight: bold;
+}
