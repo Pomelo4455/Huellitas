@@ -2,6 +2,8 @@
     background-color: #253066;
     width: 100%;
     display: flex;
+    bottom: 0;
+    position: fixed;
 }
 .grupo1{
     width: 100%;

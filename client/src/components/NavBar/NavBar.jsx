@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import styles from "./navBar.module.css";
 import img from "../../img/Huellita.png";
+import { Icon } from "@iconify/react";
 
 const NavBar = () => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -12,7 +13,7 @@ const NavBar = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    // Acá se realiza la búsqueda usando el valor ingresado.
+    // Aca se realiza la búsqueda usando el valor ingresado.
   };
 
   const handleLogin = () => {
@@ -23,19 +24,21 @@ const NavBar = () => {
     <nav className={styles.nav}>
       <ul className={styles.leftContainer}>
         <li>
-          <Link to="/adoptar" className={styles.link}>
-            Adoptar
+          <Link to="/home" className={styles.link}>
+            Home
           </Link>
         </li>
         <li>
           <Link to="/sobreNosotros" className={styles.link}>
-            SobreNosotros
+            Sobre Nosotros
           </Link>
         </li>
       </ul>
       <div className={styles.title}>
         <img className={styles.img} src={img} alt="Img Not Found"></img>
-        <h1 className={styles.txt}>Huellitas</h1>
+        <h1 className={styles.txt}>
+          <Link to="/home">Huellitas</Link>
+        </h1>
       </div>
       <div className={styles.buttonContainer}>
         <button className={styles.button} onClick={handleLogin}>
@@ -44,17 +47,19 @@ const NavBar = () => {
         <button className={styles.button} onClick={handleLogin}>
           Registrarse
         </button>
-        <form onSubmit={handleSubmit} className={styles.form}>
-          <input
-            type="text"
-            placeholder="Buscar..."
-            value={searchTerm}
-            onChange={handleSearch}
-            className={styles.search}
-          />
-          <button type="submit" className={styles.searchButton}>
-            Buscar...
-          </button>
+        <form onSubmit={handleSubmit}>
+          <div className={styles.searchContainer}>
+            <input
+              type="text"
+              placeholder="Buscar..."
+              value={searchTerm}
+              onChange={handleSearch}
+              className={styles.search}
+            />
+            <button type="submit" className={styles.searchButton}>
+              <Icon icon="fa6-solid:magnifying-glass" />
+            </button>
+          </div>
         </form>
       </div>
     </nav>
