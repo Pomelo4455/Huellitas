@@ -12,6 +12,7 @@ module.exports = (sequelize) => {
       name: {
         type: DataTypes.STRING,
         allowNull: false,
+        unique: true,
       },
       email: {
         type: DataTypes.STRING,
@@ -19,7 +20,8 @@ module.exports = (sequelize) => {
         unique: true,
       },
       phone: {
-        type: DataTypes.INTEGER,
+        type: DataTypes.STRING,
+        defaultValue: "",
       },
       password: {
         type: DataTypes.STRING,
@@ -31,18 +33,23 @@ module.exports = (sequelize) => {
       },
       description: {
         type: DataTypes.TEXT,
+        defaultValue: "",
       },
       facebook: {
         type: DataTypes.STRING,
+        defaultValue: "",
       },
       instagram: {
         type: DataTypes.STRING,
+        defaultValue: "",
       },
       twitter: {
         type: DataTypes.STRING,
+        defaultValue: "",
       },
       tiktok: {
         type: DataTypes.STRING,
+        defaultValue: "",
       },
       image: {
         type: DataTypes.STRING,
@@ -50,6 +57,7 @@ module.exports = (sequelize) => {
       },
       CVU: {
         type: DataTypes.STRING,
+        defaultValue: "",
       },
       status: {
         type: DataTypes.ENUM("activo", "inactivo", "baneado"),
