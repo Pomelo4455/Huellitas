@@ -24,6 +24,9 @@ export default function Landing() {
       </Link>
       <div className={styles.img1}></div>
       <div className={styles.Banner}></div>
+      <div className={styles.Circle}></div>
+      <div className={styles.Circle2}></div>
+      <div className={styles.Circle3}></div>
     </div>
   );
 }
