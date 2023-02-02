@@ -9,7 +9,7 @@ export default function Card({pets}) {
 
    return (
       <Link 
-         to='/detail'
+         to={`/detail/${pets.id}`}
          key={pets.id} 
       >
          <div className={styles.card}>

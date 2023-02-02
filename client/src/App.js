@@ -17,8 +17,10 @@ function App() {
         <Route path="/Footer" element={<Footer />} />
         <Route path="/SobreNosotros" element={<SobreNosotros />} />
         <Route path="/home" element={<Home />} />
+        <Route path="/detail/:id" element={<CardDetail />} />
         <Route path="/detail" element={<CardDetail />} />
         <Route path="/Adoptar" element={<AllCards />} />
+
       </Routes>
     </>
   );
