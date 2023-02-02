@@ -29,7 +29,9 @@ const Home = () => {
             </div>
 
             <div className={styles.btnS}>
-                <BtnHome text='Adoptar' />
+                <Link to='/adoptar'>
+                    <BtnHome text='Adoptar' />
+                </Link>
                 <BtnHome text='Dar en adopcion' />
                 <BtnHome text='Donaciones' />
                 <BtnHome text='Apoyar una campaña' />
@@ -38,7 +40,7 @@ const Home = () => {
             <div className={styles.cards}>
                 {/* reemplazar tarjetas por una sola    cuando este la logica resuelta */}
                 {
-                    pets.map(pet => (
+                    pets.slice(0, 3).map(pet => (
                         
                         <Card pets={pet} key={pet.id}/>
                         
