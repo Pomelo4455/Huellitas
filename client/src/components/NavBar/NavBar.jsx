@@ -13,7 +13,7 @@ const NavBar = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    // Acá se realiza la búsqueda usando el valor ingresado.
+    // Aca se realiza la búsqueda usando el valor ingresado.
   };
 
   const handleLogin = () => {
