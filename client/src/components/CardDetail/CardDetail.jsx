@@ -3,10 +3,14 @@ import Footer from "../Footer/Footer";
 import NavBar from "../NavBar/NavBar";
 import niceDog from "../../img/niceDog.png";
 
+
+
 import style from "./cardDetail.module.css";
 
 const CardDetail = () => {
-  return (
+  
+
+    return (
     <>
       <NavBar />
       <div className={style.detailContainer}>
