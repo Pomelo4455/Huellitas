@@ -29,7 +29,9 @@ const Home = () => {
             </div>
 
             <div className={styles.btnS}>
+                <Link to ="/Adoptar">
                 <BtnHome text='Adoptar' />
+                </Link>
                 <BtnHome text='Dar en adopcion' />
                 <BtnHome text='Donaciones' />
                 <BtnHome text='Apoyar una campaña' />
