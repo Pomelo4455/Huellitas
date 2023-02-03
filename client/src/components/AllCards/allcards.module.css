@@ -1,5 +1,6 @@
 .adoptar{
     display: grid;
-    grid-template-columns: repeat(4, 8fr);
+    grid-template-columns: repeat(3, 8fr);
     max-height: 100vh;
+    position: relative;
 }

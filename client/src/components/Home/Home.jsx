@@ -28,6 +28,7 @@ const Home = () => {
         <div className={styles.title}>
           <h1>Cada patita cuenta</h1>
         </div>
+
         <div className={styles.description}>
           <h4>
             ¡Hola! Acá vas a poder encontrar a tu mejor amigo, ayudar a refugios
