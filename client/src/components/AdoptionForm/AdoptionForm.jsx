@@ -7,6 +7,8 @@ import { useDispatch } from "react-redux";
 import { Widget } from "@uploadcare/react-widget";
 import { postNewPet } from "../../redux/actions";
 import effects from 'uploadcare-widget-tab-effects/react'
+import Footer from "../Footer/Footer";
+import NavBar from "../NavBar/NavBar";
 
 export default function AdoptionForm() {
   
@@ -16,6 +18,7 @@ export default function AdoptionForm() {
   
   return (
     <>
+    <NavBar />
       <Formik
         initialValues={{
           name: "",
@@ -36,11 +39,26 @@ export default function AdoptionForm() {
           } else if (!/^[a-zA-ZÀ-ÿ\s]{1,40}$/.test(values.name)) {
             errors.name = "El nombre solo puede contener letras y espacios";
           }
-
-          // Validacion temper
+          if (!values.age) {
+            errors.age = "Por favor selecciona un rango de edad";
+          }
+          if (!values.species) {
+            errors.species = "Por favor selecciona un tipo de animal";
+          }if (!values.size) {
+            errors.size = "Por favor selecciona un tamaño";
+          }if (!values.color) {
+            errors.color = "Por favor escribe un color";
+          } else if (!/^[a-zA-ZÀ-ÿ\s]{1,40}$/.test(values.color)) {
+            errors.color = "El color solo puede contener letras y espacios";
+          }if (!values.sex) {
+            errors.sex = "Por favor selecciona una opción";
+          }
           if (!values.temperament) {
             errors.temperament = "Por favor escribe una descripcion";
+          } else if (values.temperament.length < 120){
+            errors.temperament = "Por favor escribe una descripcion más detallada (120 caracteres al menos)";
           }
+        
 
           return errors;
         }}
@@ -85,6 +103,12 @@ export default function AdoptionForm() {
                   <option value="tortuga">Tortuga</option>
                   <option value="cobayo">Cobayo</option>
                 </Field>
+                <ErrorMessage
+                  name="species"
+                  component={() => (
+                    <div className={styles.error}>{errors.species}</div>
+                  )}
+                />
               </div>
               <div className={styles.divinput}>
                 <label>¿De que color es? </label>
@@ -95,6 +119,12 @@ export default function AdoptionForm() {
                   name="color"
                   placeholder="color"
                 ></Field>
+                <ErrorMessage
+                  name="color"
+                  component={() => (
+                    <div className={styles.error}>{errors.color}</div>
+                  )}
+                />
               </div>
               <div className={styles.divinput}>
                 <label>¿Que rango de edad tiene? </label>
@@ -107,6 +137,12 @@ export default function AdoptionForm() {
                   <option value="1to2">Entre 1 y 2 años</option>
                   <option value="2plus">Más de 2 años</option>
                 </Field>
+                <ErrorMessage
+                  name="age"
+                  component={() => (
+                    <div className={styles.error}>{errors.age}</div>
+                  )}
+                />
               </div>
               <div className={styles.divinput}>
                 <label>¿Que tamaño alcanzará? </label>
@@ -119,6 +155,12 @@ export default function AdoptionForm() {
                   <option value="mediano">Mediano</option>
                   <option value="grande">Grande</option>
                 </Field>
+                <ErrorMessage
+                  name="size"
+                  component={() => (
+                    <div className={styles.error}>{errors.size}</div>
+                  )}
+                />
               </div>
               <label>¿De que sexo es? </label>
               <div className={styles.divradio}>
@@ -129,6 +171,12 @@ export default function AdoptionForm() {
                 <label>
                   <Field type="radio" name="sex" value="hembra" /> Hembra
                 </label>
+                <ErrorMessage
+                  name="sex"
+                  component={() => (
+                    <div className={styles.error}>{errors.sex}</div>
+                  )}
+                />
               </div>
               <div className={styles.divinput}>
                 <label>Cuentanos un poco sobre su personalidad:</label>
@@ -188,6 +236,7 @@ export default function AdoptionForm() {
           </div>
         )}
       </Formik>
+      <Footer />
     </>
   );
 }

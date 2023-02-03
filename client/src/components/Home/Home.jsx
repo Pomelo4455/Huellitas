@@ -42,7 +42,9 @@ const Home = () => {
         <Link to="/Adoptar">
           <BtnHome text="Adoptar" />
         </Link>
+        <Link to="/PublicarAdopcion">
         <BtnHome text="Dar en adopcion" />
+        </Link>
         <BtnHome text="Donaciones" />
         <BtnHome text="Apoyar una campaña" />
       </div>
