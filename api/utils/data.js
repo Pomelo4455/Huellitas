@@ -1,4 +1,4 @@
-export const petsData=[
+const petsData=[
     {
         "name": "Toby",
         "age":"8 años",
@@ -8,7 +8,8 @@ export const petsData=[
         "color": "negro",
         "sex": "macho",
         "temperament":"tranquilo",
-        "adopted": false
+        "adopted": false,
+        "userId": 1
     },
     {
         "name": "Thor",
@@ -19,7 +20,8 @@ export const petsData=[
         "color": "marron y blanco",
         "sex": "macho",
         "temperament":"inquieto",
-        "adopted": false
+        "adopted": false,
+        "userId": 2
     },
     {
         "name": "Chipirón",
@@ -30,18 +32,20 @@ export const petsData=[
         "color": "blanco",
         "sex": "macho",
         "temperament":"alegre",
-        "adopted": false
+        "adopted": false,
+        "userId": 3
     },
     {
         "name": "Bimba",
         "age":"3 años",
         "species": "perro",
-        "image": "",
+        "image": "https://www.molaunhuevo.com/wp-content/uploads/2014/06/border-collie.jpg",
         "size": "mediano",
         "color": "blanco y negro",
         "sex": "hembra",
         "temperament":"confiable",
-        "adopted": false
+        "adopted": false,
+        "userId": 4
     },
     {
         "name": "Trufa",
@@ -52,18 +56,20 @@ export const petsData=[
         "color": "negro con manchas blancas",
         "sex": "hembra",
         "temperament":"cuidadora",
-        "adopted": false
+        "adopted": false,
+        "userId": 5
     },
     {
         "name": "Pupi",
         "age":"9 meses",
         "species": "perro",
         "image": "https://acortar.link/BuCrm0",
-        "size": "chico",
+        "size": "pequeño",
         "color": "blanco",
         "sex": "hembra",
         "temperament":"afable",
-        "adopted": false
+        "adopted": false,
+        "userId": 6
     },
     {
         "name": "Bigotes",
@@ -74,7 +80,8 @@ export const petsData=[
         "color": "anaranjado",
         "sex": "hembra",
         "temperament":"jugueton",
-        "adopted": false
+        "adopted": false,
+        "userId": 7
     },
     {
         "name": "Manchas",
@@ -85,7 +92,8 @@ export const petsData=[
         "color": "tricolor",
         "sex": "macho",
         "temperament":"",
-        "adopted": false
+        "adopted": false,
+        "userId": 8
     },
     {
         "name": "Café con leche",
@@ -96,7 +104,8 @@ export const petsData=[
         "color": "cafe y blanco",
         "sex": "macho",
         "temperament":"jugueton",
-        "adopted": false
+        "adopted": false,
+        "userId": 1
     },
     {
         "name": "Ron",
@@ -107,7 +116,8 @@ export const petsData=[
         "color": "naranja",
         "sex": "macho",
         "temperament":"inquieto",
-        "adopted": false
+        "adopted": false,
+        "userId": 2
     },
     {
         "name": "Simba",
@@ -118,7 +128,8 @@ export const petsData=[
         "color": "gris",
         "sex": "macho",
         "temperament":"relajado",
-        "adopted": false
+        "adopted": false,
+        "userId": 3
     },
     {
         "name": "Minnie",
@@ -129,11 +140,12 @@ export const petsData=[
         "color": "siamesa",
         "sex": "hembra",
         "temperament":"juguetona",
-        "adopted": false
+        "adopted": false,
+        "userId": 5
     },
 ]
 
-export const usersData=[
+const usersData=[
     {
         "type": "admin",
         "name": "Leanne Graham",
@@ -149,10 +161,11 @@ export const usersData=[
         "description": "Atropellé a un pitufo debajo de tu cama porque las voces me lo dijeron",
         "image":"https://this-person-does-not-exist.com/img/avatar-6491ce771e39d7585a5a54d31a5317d7.jpg",
         "CVU": "826221765285480",
-        "status": "activo"
+        "status": "activo",
+        "password": "1234"
     },
     {
-        "type": "user",
+        "type": "usuario",
         "name": "Ervin Howell",
         "email": "Shanna@melissa.tv",
         "address": "Victor Plains 879, Wisokyburgh, Cordoba",
@@ -165,10 +178,11 @@ export const usersData=[
         "description": "Almorcé con una llama debajo de tu cama porque puedo",
         "image":  "https://this-person-does-not-exist.com/img/avatar-6be0ff0121b792fe397ba3e3b96e28fb.jpg",
         "CVU": "",
-        "status": "activo"
+        "status": "activo",
+        "password": "1234"
     },
     {
-        "type": "user",
+        "type": "usuario",
         "name": "Clementine Bauch",
         "username": "Samantha",
         "email": "Nathan@yesenia.net",
@@ -182,11 +196,12 @@ export const usersData=[
         "description": "Recibí una fuerte multa pero no logró aplastar mi espíritu",
         "image":  "https://this-person-does-not-exist.com/img/avatar-e49f2c746f6d712ce4261659c0430d79.jpg",
         "CVU": "",
-        "status": "activo"
+        "status": "activo",
+        "password": "1234"
       
     },
     {
-        "type": "user",
+        "type": "usuario",
         "name": "Patricia Lebsack",
         "username": "Karianne",
         "email": "Julianne.OConner@kory.org",
@@ -201,9 +216,10 @@ export const usersData=[
         "description": "Ella insistió en que limpiar tu armario era la clave para una buena conducción",
         "image":  "https://this-person-does-not-exist.com/img/avatar-ab54e9a5a41010f6a08b075319bd36e4.jpg",
         "CVU": "",
+        "password": "1234"
     },
     {
-        "type": "user",
+        "type": "usuario",
         "name": "Chelsey Dietrich",
         "username": "Kamren",
         "email": "Lucio_Hettinger@annie.ca",
@@ -218,9 +234,10 @@ export const usersData=[
         "description": "Ella le pidió prestado el libro hace muchos años y aún no lo ha devuelto",
         "image":  "https://this-person-does-not-exist.com/img/avatar-dc4c055e1246d39761bd6af9381a1ae9.jpg",
         "CVU": "",
+        "password": "1234"
     },
     {
-        "type": "user",
+        "type": "usuario",
         "name": "Mrs. Dennis Schulist",
         "username": "Leopoldo_Corkery",
         "email": "Karley_Dach@jasper.info",
@@ -235,9 +252,10 @@ export const usersData=[
         "description": "Tu novia compró tu cereal crujiente de galleta favorito pero se olvidó de comprar leche",
         "image":  "https://this-person-does-not-exist.com/img/avatar-105b76fcb7bc230cbb0368d85d72621d.jpg",
         "CVU": "",
+        "password": "1234"
     },
     {
-        "type": "user",
+        "type": "usuario",
         "name": "Kurtis Weissnat",
         "username": "Elwyn.Skiles",
         "email": "Telly.Hoeger@billy.biz",
@@ -252,9 +270,10 @@ export const usersData=[
         "description": "Seamos todos únicos juntos hasta que nos demos cuenta de que todos somos iguales",
         "image":  "https://this-person-does-not-exist.com/img/avatar-6b8e21a0a1a6b92dee39b6b8aa7c592e.jpg",
         "CVU": "",
+        "password": "1234"
     },
     {
-        "type": "user",
+        "type": "usuario",
         "name": "Nicholas Runolfsdottir V",
         "username": "Maxime_Nienow",
         "email": "Sherwood@rosamond.me",
@@ -269,9 +288,10 @@ export const usersData=[
         "description": "Aunque pensaba que el mundo era plano, no veía la ironía de querer viajar alrededor del mundo",
         "image":  "https://this-person-does-not-exist.com/img/avatar-f5a693b6ed7623e837d11f04015a9c06.jpg",
         "CVU": "",
+        "password": "1234"
     },
     {
-        "type": "user",
+        "type": "usuario",
         "name": "Glenna Reichert",
         "username": "Delphine",
         "email": "Chaim_McDermott@dana.io",
@@ -285,9 +305,10 @@ export const usersData=[
         "description": "Solo quería decirte que pude ver el amor que sientes por tu hija por la forma en que la miras",
         "image":  "https://this-person-does-not-exist.com/img/avatar-2bb874b50c274716b5a6e3e6e41ec0ae.jpg",
         "CVU": "",
+        "password": "1234"
     },
     {
-        "type": "user",
+        "type": "usuario",
         "name": "Clementina DuBuque",
         "username": "Moriah.Stanton",
         "email": "Rey.Padberg@karina.biz",
@@ -301,6 +322,7 @@ export const usersData=[
         "description": "En el momento en que aterrizó comprendió la razón por la que se trataba de un estado de sobrevuelo",
         "image":  "https://this-person-does-not-exist.com/img/avatar-b43dff51af55240892c6c1505327b914.jpg",
         "CVU": "",
+        "password": "1234"
     },
     {
         "type": "fundacion",
@@ -317,6 +339,7 @@ export const usersData=[
         "description": "Nuestro Centro de Adopciones está siempre abierto a quienes estén buscando una mascota para amar y cuidar.  Durante todo el año hay perritos de todas las edades, tamaños y colores esperando que lleguen sus nuevos humanos. ",
         "image":  "https://png.pngtree.com/template/20191017/ourlarge/pngtree-logo-illustration-dog-outline-pet-design-on-white-background-image_319750.jpg",
         "CVU": "596013402768904",
+        "password": "1234"
     },
     {
         "type": "fundacion",
@@ -333,6 +356,7 @@ export const usersData=[
         "description": "AYUDANOS A AYUDAR!Somos un Grupo que trabaja Ad Honorem, RESCATANDO,AYUDANDO ,CONCIENTIZANDO,",
         "image":  "https://villaelisacdn.s3.fr-par.scw.cloud/municipalidad/feriapatitas.jpg",
         "CVU": "948360284814368",
+        "password": "1234"
     },
     {
         "type": "fundacion",
@@ -349,6 +373,7 @@ export const usersData=[
         "description": "El rescate y adopción de gatos es una experiencia gratificante y gratificante. Como todos los animales, los gatos requieren cuidado y atención. También son una delicia para tener en la familia.",
         "image":  "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRSOP2ddW8Ud2NC3k7zuo3PvCPESmflx5WLEQ&usqp=CAU",
         "CVU": "842254369748662",
+        "password": "1234"
     },
     {
         "type": "fundacion",
@@ -365,22 +390,27 @@ export const usersData=[
         "description": "Fundación Vidanimal es una organización no gubernamental sin fines de lucro abocada a difundir, proteger y promover los derechos de los animales.",
         "image":  "https://www.vidanimal.org.ar/wp-content/uploads/2019/04/logo-vidanimal-blanco-original-300x268.png",
         "CVU": "106672908060515",
+        "password": "1234"
     },
   ]
 
-export const campaignsData=[
+const campaignsData=[
     {
         "title": "Lola necesita una operacion",
         "reason": "Recaudar fondos para operación",
         "description": "Lola es una perrita muy buena que fue rescatada hace poco, necesita una operacion de cadera porque fue atropellada. Por favor ayudanos a recaudar fondos para cubrir los gastos veterinarios",
-        "goal": "$100000",
-        "image": "https://infofunes.com.ar/uploads/Marga%20perrita%20rescatada%202.png"
+        "goal": 100000,
+        "image": "https://infofunes.com.ar/uploads/Marga%20perrita%20rescatada%202.png",
+        "userId": 11
     },
     {
         "title": "Refugio necesita dinero para alimento",
         "reason": "Recaudar fondos para gastos diarios",
         "description": "El refugio animal 'Patitas Frias' recibe hasta 10 animales rescatados por día. Son muchas bocas para alimentar asi que necesitamos colaboracion para poder darles de comer a todos",
-        "goal": "$150000",
-        "image": "https://diarioresumen.com.ar/static/old/uploads/2020/01/Perros-calle-web.jpg"
+        "goal": 150000,
+        "image": "https://diarioresumen.com.ar/static/old/uploads/2020/01/Perros-calle-web.jpg",
+        "userId": 12
     },
 ]
+
+module.exports={petsData,usersData,campaignsData}

@@ -1,13 +1,16 @@
 const { Router } = require("express");
 const { getAllPets, getPetById } = require("../controllers/petControllers.js");
 const { User, Pet, Campaign, Adoption } = require("../db.js");
-// const {getAllPets} =require("..controllers/index.js")
+const {createFilters, setOrder}=require("../utils/functions.js")
 
 const router = Router();
 
 router.get("/", async (req, res) => {
   try {
-    let allPets = await getAllPets();
+    const {name,species,sex,size,order}=req.query;
+    const filters=createFilters(name,species,sex,size)
+    const settOrder = setOrder(order);
+    let allPets = await getAllPets(filters,settOrder);
     res.status(200).send(allPets);
   } catch (error) {
     res.status(404).send(error.message);
@@ -91,9 +94,10 @@ router.put("/:id", async (req, res) => {
 router.delete("/:id", async (req, res) => {
   try {
     let { id } = req.params;
+    let { status } = req.query;
     Pet.update(
       {
-        deleted: true,
+        deleted: status === "true" ? true : false,
       },
       {
         where: {

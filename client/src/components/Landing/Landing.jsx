@@ -2,6 +2,8 @@ import React from "react";
 import { Icon } from "@iconify/react";
 import { Link } from "react-router-dom";
 import styles from "./landing.module.css";
+/* eslint-disable jsx-a11y/anchor-is-valid */
+/* No borrar comentario arriba, es para evitar que aparezcan warnings que no aplican al proyecto al compilar*/
 
 export default function Landing() {
   return (
@@ -20,10 +22,13 @@ export default function Landing() {
         </a>
       </div>
       <Link to="/home">
-        <button className={styles.buttonLan}>Get Started</button>
+        <button className={styles.buttonLan}>¡Empezemos!</button>
       </Link>
       <div className={styles.img1}></div>
       <div className={styles.Banner}></div>
+      <div className={styles.Circle}></div>
+      <div className={styles.Circle2}></div>
+      <div className={styles.Circle3}></div>
     </div>
   );
 }

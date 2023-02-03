@@ -5,6 +5,7 @@ import NavBar from '../NavBar/NavBar'
 import Paginado from '../Paginado/Paginado'
 import Sidebar from '../Sidebar/Sidebar'
 import styles from './allcards.module.css'
+import { pets } from '../../data';
 
 function Adoptar() {
   return (
@@ -12,19 +13,17 @@ function Adoptar() {
     <NavBar />
     <div className={styles.adoptar} >
     <Sidebar />
-    <Card />
-    <Card />
-    <Card />
-    <Card />
-    <Card />
-    <Card />
-    <Card />
-    <Card />
-    <Card />
-    <Card />
+    { pets.map(pet => (
+                        
+                        <Card pets={pet} key={pet.id}/>
+                        
+                        ))}
+    
+                    
+    
     </div>
     <Paginado />
-    <Footer />
+    {/* <Footer /> */}
     </>
     )
 }
