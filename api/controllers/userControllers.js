@@ -49,7 +49,9 @@ const getAllUser = async (filters) => {
 };
 
 const getUserDetail = async (id) => {
-  const userDetail = await User.findByPk(id);
+  const allUser = await getAllUser();
+  const filterDetail = allUser.map((e) => e.dataValues);
+  const userDetail = filterDetail.find((e) => e.id === Number(id));
   if (!userDetail) throw new Error("No existe el id definido");
   return userDetail;
 };
