@@ -1,6 +1,6 @@
 import React from "react";
 import { useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 
 import Footer from "../Footer/Footer";
@@ -9,7 +9,6 @@ import { getPetsDetail } from "../../redux/actions";
 
 
 import style from "./cardDetail.module.css";
-
 
 const CardDetail = () => {
 
@@ -37,6 +36,11 @@ const CardDetail = () => {
 
           <div className={style.btnContainer}>
             <button className={style.btnContact}>Contactar</button>
+          </div>
+          <div className={style.btnContainer}>
+           <Link to='/Adoptar'>
+              <button className={style.btnContactBack}>Volver</button>
+           </Link>
           </div>
         </div>
 
