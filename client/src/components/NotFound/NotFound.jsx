@@ -26,7 +26,7 @@ export default function NotFound() {
                 Lo lamento, esta pagina no existe 
               </h1>
               <h3>
-                Todos estas mascotas estan necesitando tu ayuda
+                Todas estas mascotas estan necesitando tu ayuda
               </h3>
             </div>
 

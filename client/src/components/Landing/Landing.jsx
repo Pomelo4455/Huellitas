@@ -22,7 +22,7 @@ export default function Landing() {
         </a>
       </div>
       <Link to="/home">
-        <button className={styles.buttonLan}>¡Empezemos!</button>
+        <button className={styles.buttonLan}>¡Empecemos!</button>
       </Link>
       <div className={styles.img1}></div>
       <div className={styles.Banner}></div>
