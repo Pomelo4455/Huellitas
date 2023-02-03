@@ -61,10 +61,10 @@ const updateUser = async (id, data) => {
   return updatedUser;
 };
 
-const deleteUser = async (id) => {
+const deleteUser = async (id, status) => {
   if (!id) throw new Error("No se envio el id a eliminar");
   const userDelete = await User.update(
-    { status: "inactivo" },
+    { status: status },
     {
       where: {
         id,
