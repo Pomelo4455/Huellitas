@@ -133,9 +133,9 @@ export default function AdoptionForm() {
                   <option disabled hidden value="">
                     Elige una opción
                   </option>
-                  <option value="less1">Menos de un año</option>
-                  <option value="1to2">Entre 1 y 2 años</option>
-                  <option value="2plus">Más de 2 años</option>
+                  <option value="Menos de un año">Menos de un año</option>
+                  <option value="Entre 1 y 2 años">Entre 1 y 2 años</option>
+                  <option value="Mas de 2 años">Más de 2 años</option>
                 </Field>
                 <ErrorMessage
                   name="age"
