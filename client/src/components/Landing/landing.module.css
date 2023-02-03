@@ -1,57 +1,74 @@
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@500&family=Noto+Sans:wght@300&family=Poppins:ital,wght@0,300;0,400;0,500;1,200;1,300;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dosis&family=Noto+Sans+JP:wght@500;900&family=Noto+Sans:wght@300;700&family=Poppins:ital,wght@0,300;0,400;0,500;1,200;1,300;1,400&family=Ubuntu&display=swap');
 
 .NavLan {
   display: flex;
   align-items: center;
   position: relative;
-  box-sizing: border-box;
-  padding: 20px;
-  width: 100%;
+  box-sizing: content-box;
+  justify-content: center;
+  padding: 1%;
   background-color: transparent;
+  width: 100%;
   z-index: 3;
 }
 
-.TitleLand {
-  font-weight: 300;
-  font-size: 30px;
-  margin-left: 10px;
-  font-family: "Noto Sans JP", sans-serif;
+.Title {
+  display: flex;
+  justify-content: center;
+  margin-left: 10%;
+}
+
+.TitleTxt {
+  font-weight: 800;
+  font-size: 200%;
+  margin-left: 5%;
+  font-family: "Noto Sans";
 }
 
 .iconFeet {
-  font-size: 35px;
+  font-size: 300%;
   color: black;
-  margin-left: 500px;
 }
+
 .iconRedes1 {
-  margin-left: 1150px;
-  font-size: 28px;
+  margin-left: 50%;
+  margin-right: 2.5%;
+  font-size: 200%;
 }
 .iconRedes {
-  font-size: 28px;
-  margin-left: 25px;
+  font-size: 200%;
+  margin-right: 2.5%;
 }
+
 .text {
-  margin-top: 200px;
-  margin-left: 250px;
-  font-size: 70px;
-  font-family: "Noto Sans JP", sans-serif;
+  margin-top: 10%;
+  margin-left: 10%;
+  margin-right: 10%;
+  margin-bottom: 2%;
+  font-size: 600%;
+  font-family: "Noto Sans JP";
+  font-weight: 800;
   color: rgb(33, 31, 31);
+
 }
+
 .textP {
-  margin-left: 250px;
-  font-size: 20px;
+  margin-left: 10%;
+  margin-right: 10%;
+  font-size: 130%;
   font-family: "Poppins", sans-serif;
   font-weight: 400;
   text-align: left;
 }
+
 .buttonLan {
-  margin-left: 250px;
-  margin-top: 50px;
-  width: 154px;
+  margin-left: 10%;
+  margin-right: 10%;
+  margin-top: 2.3%;
+  width: 150px;
   text-align: center;
   font-family: "Poppins";
-  font-size: large;
+  font-size: larger;
   font-weight: 400;
   height: 48px;
   border-radius: 6px;
@@ -60,54 +77,453 @@
   color: #fff;
   cursor: pointer;
 }
+
 .buttonLan:hover {
   background: #5c60a9;
 }
-.LanDad {
-  margin: 0px;
-  width: 100%;
-}
+
 .img1 {
   position: absolute;
-  width: 505px;
-  height: 505px;
-  left: 1150px;
-  top: 230px;
+  width: 30%;
+  height: 60%;
+  min-width: 30%;
+  min-height: 60%;
+  right: 10%;
+  top: 15%;
   background: url(../../img/e17e13c695f6c35d4756d7da29b6bf7f.jpg);
-  border-radius: 25px;
+  background-size: cover;
+  border-radius: 5%;
   transform: rotate(-9deg);
   z-index: 2;
 }
 
 .Circle {
   position: fixed;
-  top: 150px;
-  right: -600px;
-  width: 1000px;
-  height: 1000px;
+  top: 20%;
+  right: -55%;
+  width: 60%;
+  height: 120%;
   background-color: #04a5ff;
-  z-index: 1;
+  z-index: 0;
   opacity: 0.5;
   border-radius: 50%;
   transform: translate(-50%, -50%);
 }
+
 .Circle2 {
   position: fixed;
-  top: 660px;
-  right: 390px;
-  width: 92px;
-  height: 92px;
-  border-radius: 100%;
+  top: 68%;
+  right: 18%;
+  width: 5%;
+  height: 10%;
+  border-radius: 50%;
   background-color: #75e3ea;
-  z-index: 0;
+  z-index: 1;
 }
+
 .Circle3 {
   position: fixed;
-  top: 433px;
-  right: 860px;
-  width: 92px;
-  height: 92px;
-  border-radius: 100%;
+  top: 50%;
+  right: 37%;
+  width: 5%;
+  height: 10%;
+  border-radius: 50%;
   background-color: #788eff;
   z-index: 0;
+}
+
+@media screen and (max-width: 1400px) {
+  .NavLan {
+    display: flex;
+    align-items: center;
+    position: relative;
+    box-sizing: content-box;
+    justify-content: center;
+    padding: 1%;
+    background-color: transparent;
+    width: 100%;
+    z-index: 3;
+  }
+  
+  .Title {
+    display: flex;
+    justify-content: center;
+    margin-left: 10%;
+  }
+  
+  .TitleTxt {
+    font-weight: 800;
+    font-size: 150%;
+    margin-left: 5%;
+    font-family: "Noto Sans";
+  }
+  
+  .iconFeet {
+    font-size: 225%;
+    color: black;
+  }
+  
+  .iconRedes1 {
+    margin-left: 50%;
+    margin-right: 2.5%;
+    font-size: 150%;
+  }
+  .iconRedes {
+    font-size: 150%;
+    margin-right: 2.5%;
+  }
+  
+  .text {
+    margin-top: 10%;
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-bottom: 2%;
+    font-size: 400%;
+    font-family: "Noto Sans JP";
+    font-weight: 800;
+    color: rgb(33, 31, 31);
+  
+  }
+  
+  .textP {
+    margin-left: 10%;
+    margin-right: 10%;
+    font-size: 100%;
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    text-align: left;
+  }
+  
+  .buttonLan {
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-top: 2.3%;
+    width: 120px;
+    text-align: center;
+    font-family: "Poppins";
+    font-size: medium;
+    font-weight: 400;
+    height: 38px;
+    border-radius: 6px;
+    border: none;
+    background: #8b90ff;
+    color: #fff;
+    cursor: pointer;
+  }
+  
+  .buttonLan:hover {
+    background: #5c60a9;
+  }
+  
+  .img1 {
+    position: absolute;
+    width: 30%;
+    height: 60%;
+    right: 10%;
+    top: 15%;
+    background: url(../../img/e17e13c695f6c35d4756d7da29b6bf7f.jpg);
+    background-size: cover;
+    border-radius: 5%;
+    transform: rotate(-9deg);
+    z-index: 2;
+  }
+  
+  .Circle {
+    position: fixed;
+    top: 20%;
+    right: -55%;
+    width: 60%;
+    height: 120%;
+    background-color: #04a5ff;
+    z-index: 0;
+    opacity: 0.5;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+  }
+  
+  .Circle2 {
+    position: fixed;
+    top: 68%;
+    right: 18%;
+    width: 5%;
+    height: 10%;
+    border-radius: 50%;
+    background-color: #75e3ea;
+    z-index: 1;
+  }
+  
+  .Circle3 {
+    position: fixed;
+    top: 50%;
+    right: 37%;
+    width: 5%;
+    height: 10%;
+    border-radius: 50%;
+    background-color: #788eff;
+    z-index: 0;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .NavLan {
+    display: flex;
+    align-items: center;
+    position: relative;
+    box-sizing: content-box;
+    justify-content: center;
+    padding: 1%;
+    background-color: transparent;
+    width: 100%;
+    z-index: 3;
+  }
+  
+  .Title {
+    display: flex;
+    justify-content: center;
+    margin-left: 10%;
+  }
+  
+  .TitleTxt {
+    font-weight: 800;
+    font-size: 100%;
+    margin-left: 5%;
+    font-family: "Noto Sans";
+  }
+  
+  .iconFeet {
+    font-size: 150%;
+    color: black;
+  }
+  
+  .iconRedes1 {
+    margin-left: 50%;
+    margin-right: 2.5%;
+    font-size: 100%;
+  }
+  .iconRedes {
+    font-size: 150%;
+    margin-right: 2.5%;
+  }
+  
+  .text {
+    margin-top: 10%;
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-bottom: 2%;
+    font-size: 300%;
+    font-family: "Noto Sans JP";
+    font-weight: 800;
+    color: rgb(33, 31, 31);
+  
+  }
+  
+  .textP {
+    margin-left: 10%;
+    margin-right: 10%;
+    font-size: 70%;
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    text-align: left;
+  }
+  
+  .buttonLan {
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-top: 2.3%;
+    width: 80px;
+    text-align: center;
+    font-family: "Poppins";
+    font-size: 10px;
+    font-weight: 400;
+    height: 28px;
+    border-radius: 6px;
+    border: none;
+    background: #8b90ff;
+    color: #fff;
+    cursor: pointer;
+  }
+  
+  .buttonLan:hover {
+    background: #5c60a9;
+  }
+  
+  .img1 {
+    position: absolute;
+    width: 30%;
+    height: 60%;
+    right: 10%;
+    top: 15%;
+    background: url(../../img/e17e13c695f6c35d4756d7da29b6bf7f.jpg);
+    background-size: cover;
+    border-radius: 5%;
+    transform: rotate(-9deg);
+    z-index: 2;
+  }
+  
+  .Circle {
+    position: fixed;
+    top: 20%;
+    right: -55%;
+    width: 60%;
+    height: 120%;
+    background-color: #04a5ff;
+    z-index: 0;
+    opacity: 0.5;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+  }
+  
+  .Circle2 {
+    position: fixed;
+    top: 68%;
+    right: 18%;
+    width: 5%;
+    height: 10%;
+    border-radius: 50%;
+    background-color: #75e3ea;
+    z-index: 1;
+  }
+  
+  .Circle3 {
+    position: fixed;
+    top: 50%;
+    right: 37%;
+    width: 5%;
+    height: 10%;
+    border-radius: 50%;
+    background-color: #788eff;
+    z-index: 0;
+  }
+}
+
+@media screen and (max-width: 750px) {
+  .NavLan {
+    display: flex;
+    align-items: center;
+    position: relative;
+    box-sizing: content-box;
+    justify-content: center;
+    padding: 1%;
+    background-color: transparent;
+    width: 100%;
+    z-index: 3;
+  }
+  
+  .Title {
+    display: flex;
+    justify-content: center;
+    margin-left: 10%;
+  }
+  
+  .TitleTxt {
+    font-weight: 800;
+    font-size: 100%;
+    margin-left: 5%;
+    font-family: "Noto Sans";
+  }
+  
+  .iconFeet {
+    font-size: 125%;
+    color: black;
+  }
+  
+  .iconRedes1 {
+    margin-left: 50%;
+    margin-right: 2.5%;
+    font-size: 100%;
+  }
+  .iconRedes {
+    font-size: 150%;
+    margin-right: 2.5%;
+  }
+  
+  .text {
+    margin-top: 10%;
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-bottom: 2%;
+    font-size: 250%;
+    font-family: "Noto Sans JP";
+    font-weight: 800;
+    color: rgb(33, 31, 31);
+  
+  }
+  
+  .textP {
+    margin-left: 10%;
+    margin-right: 10%;
+    font-size: 60%;
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    text-align: left;
+  }
+  
+  .buttonLan {
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-top: 2.3%;
+    width: 80px;
+    text-align: center;
+    font-family: "Poppins";
+    font-size: 10px;
+    font-weight: 400;
+    height: 28px;
+    border-radius: 6px;
+    border: none;
+    background: #8b90ff;
+    color: #fff;
+    cursor: pointer;
+  }
+  
+  .buttonLan:hover {
+    background: #5c60a9;
+  }
+  
+  .img1 {
+    position: absolute;
+    width: 30%;
+    height: 60%;
+    right: 10%;
+    top: 15%;
+    background: url(../../img/e17e13c695f6c35d4756d7da29b6bf7f.jpg);
+    background-size: cover;
+    border-radius: 5%;
+    transform: rotate(-9deg);
+    z-index: 2;
+  }
+  
+  .Circle {
+    position: fixed;
+    top: 20%;
+    right: -55%;
+    width: 60%;
+    height: 120%;
+    background-color: #04a5ff;
+    z-index: 0;
+    opacity: 0.5;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+  }
+  
+  .Circle2 {
+    position: fixed;
+    top: 68%;
+    right: 18%;
+    width: 5%;
+    height: 10%;
+    border-radius: 50%;
+    background-color: #75e3ea;
+    z-index: 1;
+  }
+  
+  .Circle3 {
+    position: fixed;
+    top: 50%;
+    right: 37%;
+    width: 5%;
+    height: 10%;
+    border-radius: 50%;
+    background-color: #788eff;
+    z-index: 0;
+  }
 }
