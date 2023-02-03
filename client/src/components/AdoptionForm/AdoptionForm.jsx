@@ -6,6 +6,8 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { Widget } from "@uploadcare/react-widget";
 import { postNewPet } from "../../redux/actions";
+import effects from 'uploadcare-widget-tab-effects/react'
+
 export default function AdoptionForm() {
   
   const [sent, setSent] = useState(false);
@@ -148,13 +150,15 @@ export default function AdoptionForm() {
                 />
               </div>
               <label>Sube una linda foto (o varias): </label>
-              <div className={styles.divradio}>
+              <div className={styles.divinput}>
                 <hr />
                 <Widget
-                  
+                  tabs='file url'
+                  locale='es'
                   name="image"
                   publicKey="d00f029a60bdde9dafab"
                   previewStep
+                  customTabs={{ preview: effects }}
                   clearable
                   onFileSelect={(file) => {
                     if (!file) {
