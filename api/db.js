@@ -43,8 +43,8 @@ console.log(sequelize.models);
 // Aca vendrian las relaciones
 // Product.hasMany(Reviews);
 
-Pet.belongsToMany(User, { through: "Fav" });
-User.belongsToMany(Pet, { through: "Fav" });
+Pet.belongsToMany(User, { through: "favorites" });
+User.belongsToMany(Pet, { through: "favorites" });
 
 User.hasMany(Campaign);
 Campaign.belongsTo(User);

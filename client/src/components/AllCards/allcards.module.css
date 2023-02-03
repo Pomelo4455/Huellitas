@@ -1,0 +1,5 @@
+.adoptar{
+    display: grid;
+    grid-template-columns: repeat(4, 8fr);
+    max-height: 100vh;
+}
