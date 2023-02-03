@@ -94,9 +94,10 @@ router.put("/:id", async (req, res) => {
 router.delete("/:id", async (req, res) => {
   try {
     let { id } = req.params;
+    let { status } = req.query;
     Pet.update(
       {
-        deleted: true,
+        deleted: status === "true" ? true : false,
       },
       {
         where: {
