@@ -31,20 +31,10 @@ const putCampaign = async (req) => {
   return edit;
 };
 
-const deleteCampaign = async (req) => {
-  const { id } = req.params;
-  const { title, reason, description, goal, status } = req.body;
+const deleteCampaign = async (id, status) => {
   let deleted = Campaign.update(
-    {
-      title,
-      reason,
-      description,
-      goal,
-      status: "inactivo",
-    },
-    {
-      where: { id },
-    }
+    { status: status },
+    { where: { id } }
   );
 
   return deleted;
