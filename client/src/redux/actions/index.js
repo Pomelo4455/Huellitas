@@ -47,3 +47,11 @@ export const getPetName = (name) => {
         }
     };
 };
+
+
+export function postNewPet(payload) {
+    return async function () {
+      const newDog = await axios.post("http://localhost:3001/pets",payload);
+      return newDog;
+    };
+  }

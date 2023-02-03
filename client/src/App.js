@@ -1,6 +1,7 @@
 import { Route, Routes } from "react-router-dom";
 // import Login from './componentes/Login/Login';
 // import Sidebar from './components/Sidebar/Sidebar';
+import AdoptionForm from "./components/AdoptionForm/AdoptionForm";
 import Footer from "./components/Footer/Footer";
 import Landing from "./components/Landing/Landing";
 import SobreNosotros from "./components/About/SobreNosotros";
@@ -20,6 +21,7 @@ function App() {
         <Route path="/home" element={<Home />} />
         <Route path="/detail/:id" element={<CardDetail />} />
         <Route path="/Adoptar" element={<AllCards />} />
+        <Route path="/PublicarAdopcion" element={<AdoptionForm />} />
         <Route path="/:any" element={<NotFound/>} />
       </Routes>
     </>
