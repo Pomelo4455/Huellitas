@@ -59,7 +59,6 @@ export const pets = [
     color: "blanco",
     description: "Pichicho quiere una nueva familia con la que pueda jugar",
   },
-
   {
     id: (Math.random() * 3).toFixed(5),
     image:
