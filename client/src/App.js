@@ -8,6 +8,7 @@ import Home from "./components/Home/Home";
 import CardDetail from "./components/CardDetail/CardDetail";
 import "./App.css";
 import AllCards from "./components/AllCards/AllCards";
+import NotFound from "./components/NotFound/NotFound";
 
 function App() {
   return (
@@ -18,9 +19,8 @@ function App() {
         <Route path="/SobreNosotros" element={<SobreNosotros />} />
         <Route path="/home" element={<Home />} />
         <Route path="/detail/:id" element={<CardDetail />} />
-        <Route path="/detail" element={<CardDetail />} />
         <Route path="/Adoptar" element={<AllCards />} />
-
+        <Route path="/:any" element={<NotFound/>} />
       </Routes>
     </>
   );
