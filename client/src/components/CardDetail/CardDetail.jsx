@@ -5,12 +5,11 @@ import { useDispatch, useSelector } from "react-redux";
 
 import Footer from "../Footer/Footer";
 import NavBar from "../NavBar/NavBar";
-import niceDog from "../../img/niceDog.png";
-
+import { getPetsDetail } from "../../redux/actions";
 
 
 import style from "./cardDetail.module.css";
-import { getPetsDetail } from "../../redux/actions";
+
 
 const CardDetail = () => {
 
