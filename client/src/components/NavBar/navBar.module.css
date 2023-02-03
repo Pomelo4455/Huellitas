@@ -1,9 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Dosis&family=Noto+Sans+JP:wght@500&family=Noto+Sans:wght@300&family=Poppins:ital,wght@0,300;0,400;0,500;1,200;1,300;1,400&family=Ubuntu&display=swap');
+
 .nav {
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
   background-color: #c2f4ff;
   height: 78px;
+  box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.1);
 }
 
 .nav ul {
@@ -17,10 +20,35 @@
   margin: 25px;
 }
 
+.title {
+  margin-left: 200px;
+  color: #18191f;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.txt {
+  font-family: "Noto Sans JP", sans-serif;
+  font-size: 30px;
+  font-weight: 500;
+  color: #333;
+}
+
+.img {
+  color: #18191f;
+  height: 40px;
+  width: 40px;
+  margin-right: 15px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
 .nav a {
   text-decoration: none;
   color: #18191f;
   font-weight: 500;
+  font-family: "Noto Sans JP";
 }
 
 .nav a:hover {
@@ -41,11 +69,11 @@
   border: none;
   border-radius: 10px;
   padding: 10px 20px;
-  font-family: "Arial Narrow Bold", sans-serif;
+  font-family: "Ubuntu";
+  font-weight: 300;
   font-size: 17px;
   text-align: center;
   text-decoration: none;
-  display: inline-block;
   margin-left: 20px;
   margin-right: 20px;
   cursor: pointer;
@@ -78,6 +106,7 @@
 
 .search::placeholder {
   color: white;
+  font-family: "Ubuntu";
 }
 
 .searchButton {
@@ -96,30 +125,4 @@
 .searchButton:hover {
   background-color: #9ca1ff;
   color: white;
-}
-
-.title {
-  margin-bottom: 0.2%;
-  margin-left: 200px;
-  color: #18191f;
-  display: flex;
-  flex-direction: row;
-  font-size: 125%;
-  align-items: center;
-}
-
-.txt {
-  font-size: 30px;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  color: #333;
-  text-align: center;
-  padding: 10px 0;
-}
-
-.img {
-  height: 50px;
-  width: 50px;
-  margin-right: 15px;
-  margin-top: 20px;
-  margin-bottom: 20px;
 }

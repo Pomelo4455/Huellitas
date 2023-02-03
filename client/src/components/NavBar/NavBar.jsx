@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import styles from "./navBar.module.css";
-import img from "../../img/Huellita.png";
 import { Icon } from "@iconify/react";
 
 const NavBar = () => {
@@ -35,10 +34,10 @@ const NavBar = () => {
         </li>
       </ul>
       <div className={styles.title}>
-        <img className={styles.img} src={img} alt="Img Not Found"></img>
-        <h1 className={styles.txt}>
+        <Icon className={styles.img} icon="mingcute:foot-line" />
+        <div className={styles.txt}>
           <Link to="/home">Huellitas</Link>
-        </h1>
+        </div>
       </div>
       <div className={styles.buttonContainer}>
         <button className={styles.button} onClick={handleLogin}>

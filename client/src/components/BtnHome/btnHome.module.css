@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Dosis&family=Noto+Sans+JP:wght@500&family=Noto+Sans:wght@300&family=Poppins:ital,wght@0,300;0,400;0,500;1,200;1,300;1,400&family=Ubuntu&display=swap');
+
 .btnHome {
     background-color: #2AADF6;
     width: 14em;
@@ -5,7 +7,9 @@
     border: none;
     border-radius: 24px;
     color: #fff;
-    font-weight: bold;
+    font-family: "Poppins";
+    font-weight: 500;
+    font-size: 15px;
     transition: transform 0.5s, filter 1.5s ease-in-out;
     box-shadow: 2px 2px 5px 2px rgba(0, 0, 0, 0.246);
     cursor: pointer;
