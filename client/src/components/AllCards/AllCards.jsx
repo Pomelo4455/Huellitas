@@ -5,24 +5,59 @@ import NavBar from '../NavBar/NavBar'
 import Paginado from '../Paginado/Paginado'
 import Sidebar from '../Sidebar/Sidebar'
 import styles from './allcards.module.css'
-import { pets } from '../../data';
+import { useDispatch, useSelector } from 'react-redux'
+import { useEffect, useState } from 'react'
+import { getPets } from "../../redux/actions";
+import { all } from 'axios'
 
 function Adoptar() {
+  
+  
+  const dispatch = useDispatch();
+  const allPets = useSelector((state) => state.pets);
+
+  const [currentPage, setCurrentPage] = useState(1);
+  const [dogsPerPage, setdogsPerPage] = useState(5);
+  const indexLastProduct = currentPage * dogsPerPage;
+  const indexFirstProduct = indexLastProduct - dogsPerPage;
+  const currentDogs = allPets.slice(indexFirstProduct, indexLastProduct);
+
+
+
+
+  useEffect(() => {
+    dispatch(getPets());
+  }, [dispatch]);
+
+  const paginado = (pageNumber) => {
+    setCurrentPage(pageNumber)
+  }
+
+  const handleResetPaginated = (e) => {
+    dispatch(getPets());
+    setCurrentPage(1);
+  }
+
+
+
+
+
   return (
     <>
     <NavBar />
     <div className={styles.adoptar} >
     <Sidebar />
-    { pets.map(pet => (
-                        
-                        <Card pets={pet} key={pet.id}/>
-                        
-                        ))}
-    
-                    
+        {/* reemplazar tarjetas por una sola cuando este la logica resuelta */}
+        
+        {currentDogs.map((pet) => (
+          <Card pets={pet} key={pet.id} />
+        ))}     
     
     </div>
-    <Paginado />
+    <Paginado 
+    dogsPerPage={dogsPerPage}
+    allPets = {allPets.length}
+    paginado = {paginado}/>
     {/* <Footer /> */}
     </>
     )

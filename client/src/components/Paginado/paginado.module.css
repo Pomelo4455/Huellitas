@@ -1,4 +1,29 @@
-.paginated{
-    padding: 8px;
-    background-color: red;
+.buttonPaginated{
+    display: block;
+    padding: 1rem;
+    color: rgb(58, 58, 58);
+    background: linear-gradient(135.13deg, #1ea2f4 10.46%, #023850 127.81%);
+    font-size: 1rem;
+    border-radius: 10px;
+    border: solid 1px;
+    cursor: pointer;
+    transition: .4s;
+}
+.numberPaginado{
+        display: inline-block;
+        margin-right: 10px;
+}
+.paginacion{
+        padding: 1rem;
+        list-style: none;
+        text-align: center;
+}
+.paginado{
+        width: 100%;
+        max-width: 1000px;
+        margin: auto;
+}
+.buttonPaginated:hover{
+    background: linear-gradient(135.13deg, #0f0768 10.46%, #797bff 127.81%);
+    color:white
 }

@@ -1,19 +1,19 @@
 import React from 'react'
 import styles from './paginado.module.css'
 
-function Paginado({dogsPerPage,dogs, paginado }) {
+function Paginado({dogsPerPage, allPets, paginado }) {
     const pageNumber = [];
 
-    for (let i = 0; i < Math.ceil (dogs / dogsPerPage); i++){
+    for (let i = 0; i < Math.ceil (allPets / dogsPerPage); i++){
         pageNumber.push(i + 1)
     }
   return (
-    <box>
-        <ul>
+    <box className={styles.paginado}>
+        <ul className={styles.paginacion}>
             {
                 pageNumber?.map(number => (
-                    <li>
-                        <button  className={styles.paginated} onClick={() => paginado(number)}> {number} </button>
+                    <li className={styles.numberPaginado} >
+                        <button className={styles.buttonPaginated} onClick={() => paginado(number)}> {number} </button>
                     </li>
                 ))
             }
