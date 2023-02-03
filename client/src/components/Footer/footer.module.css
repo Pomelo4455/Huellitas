@@ -2,8 +2,9 @@
     background-color: #253066;
     width: 100%;
     left: 0px;
-    position: relative;
+    position: absolute;
     padding-bottom: 5em ;
+    bottom: 0;
 }
 .grupo1{
     width: 100%;

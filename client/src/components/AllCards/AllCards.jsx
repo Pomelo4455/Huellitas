@@ -18,16 +18,12 @@ function Adoptar() {
                         <Card pets={pet} key={pet.id}/>
                         
                         ))}
-                        { pets.map(pet => (
-                        
-                        <Card pets={pet} key={pet.id}/>
-                        
-                        ))}
+    
                     
     
     </div>
     <Paginado />
-    <Footer />
+    {/* <Footer /> */}
     </>
     )
 }
