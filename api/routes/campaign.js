@@ -61,7 +61,9 @@ router.put("/:id", async (req,res)=>{
 
 router.delete("/:id", async (req,res)=>{
     try {
-        let deleted = await deleteCampaign(req);
+        const { id } = req.params;
+        const { status } = req.query;
+        let deleted = await deleteCampaign(id, status);
         return res.status(201).send('Su campaña ha sido eliminada');
     } catch(error) {
         res.status(404).send({error: error.message});
