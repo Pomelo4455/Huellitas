@@ -7,11 +7,9 @@ const createUser = async (Data) => {
   return users;
 };
 
-const getAllUser = async () => {
+const getAllUser = async (filters) => {
   const users = await User.findAll({
-    where: {
-      status: "activo",
-    },
+    where: filters,
     include: [
       {
         model: Pet,

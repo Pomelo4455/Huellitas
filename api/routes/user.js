@@ -1,4 +1,5 @@
 const { Router } = require("express");
+const { userFilters } = require("../utils/functions");
 const { User, Pet, Campaign, Adoption } = require("../db.js");
 const {
   createUser,
@@ -11,8 +12,10 @@ const {
 const router = Router();
 
 router.get("/", async (req, res) => {
+  const { name, status } = req.query;
   try {
-    const users = await getAllUser();
+    const filters = userFilters(name, status);
+    const users = await getAllUser(filters);
     res.status(200).send(users);
   } catch (error) {
     res.status(404).send(error.message);
