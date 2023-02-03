@@ -1,4 +1,5 @@
 const { Router } = require("express");
+const { userFilters } = require("../utils/functions");
 const { User, Pet, Campaign, Adoption } = require("../db.js");
 const {
   createUser,
@@ -11,8 +12,10 @@ const {
 const router = Router();
 
 router.get("/", async (req, res) => {
+  const { name, status } = req.query;
   try {
-    const users = await getAllUser();
+    const filters = userFilters(name, status);
+    const users = await getAllUser(filters);
     res.status(200).send(users);
   } catch (error) {
     res.status(404).send(error.message);
@@ -42,8 +45,9 @@ router.put("/:id", async (req, res) => {
 
 router.delete("/:id", async (req, res) => {
   const { id } = req.params;
+  const { status } = req.query;
   try {
-    const changeStatus = await deleteUser(id);
+    const changeStatus = await deleteUser(id, status);
     res.status(200).send(`Se cambio el estado del user ${id}`);
   } catch (error) {
     res.status(404).send(error.message);
