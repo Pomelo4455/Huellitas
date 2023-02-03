@@ -1,17 +1,24 @@
 const { Router } = require("express");
 const { getAllPets, getPetById } = require("../controllers/petControllers.js");
+const { getAllUser } = require("../controllers/userControllers.js");
 const { User, Pet, Campaign, Adoption } = require("../db.js");
-const {createFilters, setOrder}=require("../utils/functions.js")
+const {createFilters, setOrder, userFilters}=require("../utils/functions.js")
 
 const router = Router();
 
 router.get("/", async (req, res) => {
   try {
     const {name,species,sex,size,order}=req.query;
-    const filters=createFilters(name,species,sex,size)
-    const settOrder = setOrder(order);
-    let allPets = await getAllPets(filters,settOrder);
-    res.status(200).send(allPets);
+    const filtersPet = createFilters(species,sex,size)
+    const orderPets = setOrder(order);
+    let pets = await getAllPets(filtersPet, orderPets);
+    if (name) { // en el caso de que se quieran las pets de solo fundaciones que contengan name en su nombre:
+      let filtersUser = userFilters(name);
+      let users = await getAllUser(filtersUser);
+      let userIds = users.map(user => user.id);
+      pets = pets.filter(pet => userIds.includes(pet.userId));
+    }
+    res.status(200).send(pets);
   } catch (error) {
     res.status(404).send(error.message);
   }
