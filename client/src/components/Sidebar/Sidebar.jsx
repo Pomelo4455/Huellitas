@@ -1,6 +1,7 @@
 import React from "react";
 import styles from "./sidebar.module.css";
 import { useState} from "react";
+import Ordenamientos from "./Ordenamientos";
 export default function Sidebar() {
 
 
@@ -33,6 +34,7 @@ const [value] = useState("default");
           <option value="2plus">Más de dos años</option>
       </select>
       <button className={styles.btn}>Restablecer Filtros</button>
+      <Ordenamientos/>
     </div>
   );
 }
