@@ -7,10 +7,13 @@ import styles from "./landing.module.css";
 
 export default function Landing() {
   return (
-    <div className={styles.LanDad}>
+    <div>
       <div className={styles.NavLan}>
-        <Icon className={styles.iconFeet} icon="mingcute:foot-line" />
-        <a className={styles.TitleLand}>Huellitas</a>
+        <div className={styles.Title}>
+          <Icon className={styles.iconFeet} icon="mingcute:foot-line" />
+          <a className={styles.TitleTxt}>Huellitas</a>
+        </div>
+        
         <Icon className={styles.iconRedes1} icon="ph:instagram-logo" />
         <Icon className={styles.iconRedes} icon="mdi:twitter" />
         <Icon className={styles.iconRedes} icon="ic:baseline-facebook" />
@@ -22,7 +25,7 @@ export default function Landing() {
         </a>
       </div>
       <Link to="/home">
-        <button className={styles.buttonLan}>¡Empezemos!</button>
+        <button className={styles.buttonLan}>¡Empecemos!</button>
       </Link>
       <div className={styles.img1}></div>
       <div className={styles.Banner}></div>

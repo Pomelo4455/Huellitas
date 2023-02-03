@@ -1,0 +1,57 @@
+.allNotFound {
+    width: 100%;
+    height: 100%;
+    background-color: #F2F2F2;
+}
+
+.notFoundContainer {
+    /* background-color: aquamarine; */
+    width: 100%;
+    display: flex;
+}
+
+.notFoundImage {
+    /* background-color: blueviolet; */
+    padding: 5em;
+}
+
+.notFoundImage img {
+    width: 50em;
+    height: 40em;
+    border-radius: 20%;
+}
+
+.notFoundDescription {
+    /* background-color: beige; */
+    width: 100%;
+}
+
+.notFoundTitle {
+    /* background-color: violet; */
+    width: 80%;
+    height: auto;
+    margin: 10em auto;
+    text-align: center;
+}
+
+.notFoundTitle h1 {
+    font-size: 3em;
+    font-weight: bolder;
+    margin: 3em 0;
+}
+
+.notFoundTitle h3 {
+    font-size: 1.6em;
+    font-weight: bolder;
+    /* margin: 3em 0; */
+}
+
+.btnAdoptar { 
+    /* background-color: tomato; */
+    width: 80%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+
+
