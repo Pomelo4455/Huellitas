@@ -3,21 +3,27 @@ import { Formik, Form, Field, ErrorMessage } from "formik";
 import styles from "./adoptionForm.module.css";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
-
+import { useDispatch } from "react-redux";
+import { Widget } from "@uploadcare/react-widget";
+import { postNewPet } from "../../redux/actions";
 export default function AdoptionForm() {
+  
   const [sent, setSent] = useState(false);
+  const dispatch = useDispatch();
   const navigate = useNavigate();
+  
   return (
     <>
       <Formik
         initialValues={{
           name: "",
-          type: "",
           age: "",
+          species: "",
+          image: "",
           size: "",
-          gender: "",
-          temper: "",
-          img: "",
+          color: "",
+          sex: "",
+          temperament: "",
         }}
         validate={(values) => {
           let errors = {};
@@ -30,22 +36,22 @@ export default function AdoptionForm() {
           }
 
           // Validacion temper
-          if (!values.temper) {
-            errors.temper = "Por favor escribe una descripcion";
+          if (!values.temperament) {
+            errors.temperament = "Por favor escribe una descripcion";
           }
 
           return errors;
         }}
         onSubmit={(values, { resetForm }) => {
-          // Agregar action para mandar a la db
-          console.log(values);
+          
+          dispatch(postNewPet(values));
           resetForm();
           setSent(true);
           setTimeout(() => setSent(false), 2000);
           setTimeout(() => navigate("/home"), 2000);
         }}
       >
-        {({ errors }) => (
+        {({ errors, setFieldValue }) => (
           <div className={styles.container}>
             <Form className={styles.form}>
               <div className={styles.divinput}>
@@ -67,15 +73,26 @@ export default function AdoptionForm() {
               <div className={styles.divinput}>
                 <label>¿Que tipo de mascota es? </label>
                 <br />
-                <Field as="select" className={styles.input} name="type">
+                <Field as="select" className={styles.input} name="species">
                   <option disabled hidden value="">
                     Elige una opción
                   </option>
-                  <option value="dog">Perro</option>
-                  <option value="cat">Gato</option>
-                  <option value="goat">Cabra</option>
-                  <option value="other">Otro</option>
+                  <option value="perro">Perro</option>
+                  <option value="gato">Gato</option>
+                  <option value="conejo">Conejo</option>
+                  <option value="tortuga">Tortuga</option>
+                  <option value="cobayo">Cobayo</option>
                 </Field>
+              </div>
+              <div className={styles.divinput}>
+                <label>¿De que color es? </label>
+                <br />
+                <Field
+                  className={styles.input}
+                  type="text"
+                  name="color"
+                  placeholder="color"
+                ></Field>
               </div>
               <div className={styles.divinput}>
                 <label>¿Que rango de edad tiene? </label>
@@ -96,19 +113,19 @@ export default function AdoptionForm() {
                   <option disabled hidden value="">
                     Elige una opción
                   </option>
-                  <option value="small">Pequeño</option>
-                  <option value="medium">Mediano</option>
-                  <option value="large">Grande</option>
+                  <option value="pequeño">Pequeño</option>
+                  <option value="mediano">Mediano</option>
+                  <option value="grande">Grande</option>
                 </Field>
               </div>
               <label>¿De que sexo es? </label>
               <div className={styles.divradio}>
                 <hr />
                 <label>
-                  <Field type="radio" name="gender" value="male" /> Macho
+                  <Field type="radio" name="sex" value="macho" /> Macho
                 </label>
                 <label>
-                  <Field type="radio" name="gender" value="female" /> Hembra
+                  <Field type="radio" name="sex" value="hembra" /> Hembra
                 </label>
               </div>
               <div className={styles.divinput}>
@@ -119,21 +136,38 @@ export default function AdoptionForm() {
                   as="textarea"
                   rows="7"
                   cols="50"
-                  name="temper"
+                  name="temperament"
                   className={styles.textArea}
                   placeholder="Descripción"
                 ></Field>
                 <ErrorMessage
-                  name="temper"
+                  name="temperament"
                   component={() => (
-                    <div className={styles.error}>{errors.temper}</div>
+                    <div className={styles.error}>{errors.temperament}</div>
                   )}
                 />
               </div>
               <label>Sube una linda foto (o varias): </label>
               <div className={styles.divradio}>
                 <hr />
-                <Field type="file" accept="image/*" name="img" multiple></Field>
+                <Widget
+                  
+                  name="image"
+                  publicKey="d00f029a60bdde9dafab"
+                  previewStep
+                  clearable
+                  onFileSelect={(file) => {
+                    if (!file) {
+                      setFieldValue('image',"");
+                      return;
+                    }
+                    file.done((fileInfo) => {
+                      setFieldValue('image',fileInfo.cdnUrl)
+                     
+                    });
+                  }}
+                />
+                ;
               </div>
               {sent && (
                 <p className={styles.exito}>Formulario enviado con exito!</p>
