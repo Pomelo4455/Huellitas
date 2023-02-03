@@ -73,6 +73,24 @@
     transform: scale(1.05);
 }
 
+.btnContactBack {
+    width: 15em;
+    border: none;
+    border-radius: 10px;
+    background-color: #8b90ff;
+    color: #FFF;
+    padding: .2em;
+    font-size: 2.4em;
+    box-shadow: 2px 2px 5px 2px rgba(0, 0, 0, 0.246);
+    cursor: pointer;
+    transition: transform 0.5s, filter 1.5s ease-in-out;
+}
+
+.btnContactBack:hover {
+    opacity: .9;
+    transform: scale(1.05);
+}
+
 /* ESTILOS PARA EL CONTENEDOR DE DETALLE DE LA MASCOTA */
 
 .detailDescription {

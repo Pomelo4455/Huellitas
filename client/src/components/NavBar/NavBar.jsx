@@ -50,7 +50,7 @@ const NavBar = () => {
           <div className={styles.searchContainer}>
             <input
               type="text"
-              placeholder="Buscar..."
+              placeholder="Buscar organizaciones..."
               value={searchTerm}
               onChange={handleSearch}
               className={styles.search}

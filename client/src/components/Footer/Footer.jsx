@@ -9,7 +9,7 @@ function Footer() {
         <div className={styles.box1}>
           <h4 className={styles.texts}>Sobre Nosotros</h4>
           <h4 className={styles.texts}>Home</h4>
-          <h4 className={styles.texts}>Blog</h4>
+          {/* <h4 className={styles.texts}>Blog</h4> */}
           <h4 className={styles.texts}>Contact</h4>
         </div>
         <div className={styles.box}>
