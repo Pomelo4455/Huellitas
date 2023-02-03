@@ -2,7 +2,6 @@ const {Op}=require("sequelize")
 
 const createFilters =(name,species,sex,size)=>{
     let filters={deleted: false}
-    // if (!species && !sex && !size) return filters
     if (species)filters.species=species
     if (sex)filters.sex=sex
     if (size)filters.size=size
@@ -10,12 +9,13 @@ const createFilters =(name,species,sex,size)=>{
     return filters
 }
 
-const setOrder=(order)=>{   // "columna_orden"
-    // if(!order)return[];
-    // else{
-    //     let orden=order.split("_")
-    //     return[orden]
-    // }
+const setOrder=(order) => {
+    if (!order) return [];
+    else {
+        let orden = order.split("_");
+        console.log(orden);
+        return [orden];
+    }
 }
 
 module.exports={createFilters,setOrder};
