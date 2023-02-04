@@ -1,13 +1,16 @@
 import { 
+    GET_FILTER_PETS,
     GET_PETS, 
     GET_PETS_DETAIL, 
-    GET_PET_NAME
+    GET_PET_NAME,
+    UPDATE_FILTERS
 } from "../actions";
 
 const initialState = {
     pets: [],
     allPets: [],
     pet: [],
+    filters: {sex: "", species: "", size: "", name: "", order: ""},
 }
 
 const rootReducer = (state = initialState, action) => {
@@ -27,6 +30,16 @@ const rootReducer = (state = initialState, action) => {
             return {
                 ...state,
                 pets: action.payload
+            }
+        case GET_FILTER_PETS:
+            return {
+                ...state,
+                pets: action.payload
+            }
+        case UPDATE_FILTERS:
+            return {
+                ...state,
+                filters: action.payload
             }
         default: 
             return {

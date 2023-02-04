@@ -2,7 +2,9 @@ import axios from 'axios';
 
 export const GET_PETS = 'GET_PETS';
 export const GET_PETS_DETAIL = 'GET_PETS_DETAIL';
-export const GET_PET_NAME = 'GET_PET_NAME'; 
+export const GET_PET_NAME = 'GET_PET_NAME';
+export const GET_FILTER_PETS = "GET_FILTER_PETS";
+export const UPDATE_FILTERS = "UPDATE_FILTERS";
 
 export const getPets = () => {
     return async function(dispatch) {
@@ -56,12 +58,16 @@ export function postNewPet(payload) {
     };
   }
 
-// export function getFilterPets(url) {
-//     return async function () {
-//         const pets = await axios.get(url);
-//         return dispatch(
-//             {type: "FILTER_PETS",
-//             payload: pets}
-//         )
-//     }
-// }
+export function getFilterPets(url) {
+    return async function (dispatch) {
+        const pets = await axios.get(url);
+        return dispatch(
+            {type: GET_FILTER_PETS,
+            payload: pets.data}
+        )
+    }
+}
+
+export function updateFilters(filtros) {
+    return {type: UPDATE_FILTERS, payload: filtros}
+}
