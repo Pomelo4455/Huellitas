@@ -12,7 +12,7 @@ export default function Landing() {
         <div className={styles.Title}>
           <Icon className={styles.iconFeet} icon="mingcute:foot-line" />
           <a className={styles.TitleTxt}>Huellitas</a>
-        </div>
+        </div>         
         <Link to={'https://www.instagram.com/huellitaswebpets/'}>
           <Icon className={styles.iconRedes1} icon="ph:instagram-logo" />
         </Link>
