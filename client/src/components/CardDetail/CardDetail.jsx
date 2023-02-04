@@ -35,7 +35,9 @@ const CardDetail = () => {
           </div>
 
           <div className={style.btnContainer}>
-            <button className={style.btnContact}>Contactar</button>
+            <Link to='/contactar'>
+              <button className={style.btnContact}>Contactar</button>
+            </Link>
           </div>
           <div className={style.btnContainer}>
            <Link to='/Adoptar'>
