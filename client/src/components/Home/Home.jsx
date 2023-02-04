@@ -43,9 +43,9 @@ const Home = () => {
           <BtnHome text="Adoptar" />
         </Link>
         <Link to="/PublicarAdopcion">
-        <BtnHome text="Dar en adopcion" />
+          <BtnHome text="Dar en adopcion" />
         </Link>
-        <BtnHome text="Donaciones" />
+        <BtnHome text="Ver campañas" />
         <BtnHome text="Apoyar una campaña" />
       </div>
 
