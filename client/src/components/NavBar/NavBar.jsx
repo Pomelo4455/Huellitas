@@ -5,10 +5,14 @@ import { Icon } from "@iconify/react";
 import LoginButton from "../LoginButton/LoginButton";
 import LogoutButton from "../LogoutButton/LogoutButton";
 import { useAuth0 } from "@auth0/auth0-react";
+import { handleSelectedFilter } from "../Sidebar/handlersSideBar";
+import { useDispatch, useSelector } from "react-redux";
 
 const NavBar = () => {
   const {user,isAuthenticated,isLoading}=useAuth0();
   const [searchTerm, setSearchTerm] = useState("");
+  const filtros = useSelector(state => state.filters);
+  const dispatch = useDispatch();
 
   const handleSearch = (event) => {
     setSearchTerm(event.target.value);
@@ -62,7 +66,7 @@ const NavBar = () => {
               onChange={handleSearch}
               className={styles.search}
             />
-            <button type="submit" className={styles.searchButton}>
+            <button name="name" value={searchTerm} onClick={(e) => handleSelectedFilter(e, filtros, dispatch)} className={styles.searchButton}>
               <Icon icon="fa6-solid:magnifying-glass" />
             </button>
           </div>
