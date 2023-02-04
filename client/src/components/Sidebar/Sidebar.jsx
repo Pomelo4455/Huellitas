@@ -2,12 +2,23 @@ import React from "react";
 import styles from "./sidebar.module.css";
 import { useState} from "react";
 import Ordenamientos from "./Ordenamientos";
+//import { useEffect } from "react";
 export default function Sidebar() {
 
 
 const [value] = useState("default");
+// const [filtros, setFiltros] = useState({
+//   sex: "",
+//   size: "",
+//   species: "",
 
+// })
 
+// // combinarFiltros(filtros) => url
+//  useEffect(() => {
+//     // peticion a la api con la url
+//     // actualizar pets
+//  },[sex, size, species])
 
   return (
     <div className={styles.container}>
