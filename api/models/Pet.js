@@ -14,7 +14,7 @@ module.exports = (sequelize) => {
         allowNull: false,
       },
       species: {
-        type: DataTypes.ENUM("perro", "gato", "conejo", "tortuga", "cobayo"),
+        type: DataTypes.ENUM("perro", "gato", "otros"),
         allowNull: false,
       },
       image: {

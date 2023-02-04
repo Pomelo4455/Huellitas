@@ -2,9 +2,9 @@ const { Op } = require("sequelize");
 
 const createFilters = ( species, sex, size) => {
   let filters = { deleted: false };
-  if (species) filters.species = species;
-  if (sex) filters.sex = sex;
-  if (size) filters.size = size;
+  if (species && ["perro","gato","otros"].includes(species)) filters.species = species;
+  if (sex && ["hembra", "macho"].includes(sex)) filters.sex = sex;
+  if (size && ["pequeño", "mediano", "grande"].includes(size)) filters.size = size;
   return filters;
 };
 
