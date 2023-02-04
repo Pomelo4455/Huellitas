@@ -55,3 +55,13 @@ export function postNewPet(payload) {
       return newDog;
     };
   }
+
+// export function getFilterPets(url) {
+//     return async function () {
+//         const pets = await axios.get(url);
+//         return dispatch(
+//             {type: "FILTER_PETS",
+//             payload: pets}
+//         )
+//     }
+// }
