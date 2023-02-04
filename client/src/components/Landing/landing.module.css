@@ -31,13 +31,29 @@
 }
 
 .iconRedes1 {
-  margin-left: 50%;
-  margin-right: 2.5%;
+  position: absolute;
+  /*margin-left: 50%;*/
+  top: 27px;
+  right: 300px;
   font-size: 200%;
+  color: black;
 }
-.iconRedes {
+.iconRedes2 {
+  position: absolute;
+  top: 27px;
+  right: 196px;
   font-size: 200%;
   margin-right: 2.5%;
+  color: black;
+}
+
+.iconRedes3 {
+  position: absolute;
+  top: 27px;
+  right: 129px;
+  font-size: 200%;
+  margin-right: 2.5%;
+  color: black;
 }
 
 .text {
