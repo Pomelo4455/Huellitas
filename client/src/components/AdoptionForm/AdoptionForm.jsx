@@ -6,19 +6,19 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { Widget } from "@uploadcare/react-widget";
 import { postNewPet } from "../../redux/actions";
-import effects from 'uploadcare-widget-tab-effects/react'
+import effects from "uploadcare-widget-tab-effects/react";
 import Footer from "../Footer/Footer";
 import NavBar from "../NavBar/NavBar";
+import swal from "sweetalert";
 
 export default function AdoptionForm() {
-  
   const [sent, setSent] = useState(false);
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  
+
   return (
     <>
-    <NavBar />
+      <NavBar />
       <Formik
         initialValues={{
           name: "",
@@ -44,31 +44,39 @@ export default function AdoptionForm() {
           }
           if (!values.species) {
             errors.species = "Por favor selecciona un tipo de animal";
-          }if (!values.size) {
+          }
+          if (!values.size) {
             errors.size = "Por favor selecciona un tamaño";
-          }if (!values.color) {
+          }
+          if (!values.color) {
             errors.color = "Por favor escribe un color";
           } else if (!/^[a-zA-ZÀ-ÿ\s]{1,40}$/.test(values.color)) {
             errors.color = "El color solo puede contener letras y espacios";
-          }if (!values.sex) {
+          }
+          if (!values.sex) {
             errors.sex = "Por favor selecciona una opción";
           }
           if (!values.temperament) {
             errors.temperament = "Por favor escribe una descripcion";
-          } else if (values.temperament.length < 120){
-            errors.temperament = "Por favor escribe una descripcion más detallada (120 caracteres al menos)";
+          } else if (values.temperament.length < 120) {
+            errors.temperament =
+              "Por favor escribe una descripcion más detallada (120 caracteres al menos)";
           }
-        
 
           return errors;
         }}
         onSubmit={(values, { resetForm }) => {
-          
           dispatch(postNewPet(values));
           resetForm();
           setSent(true);
           setTimeout(() => setSent(false), 2000);
-          setTimeout(() => navigate("/home"), 2000);
+          swal({
+            title: "Congratulations!",
+            text: "Su perrito fue creado",
+            icon: "success",
+            button: "Ok",
+          }).then(() => navigate("/home"));
+          // setTimeout(() => navigate("/home"), 2000);
         }}
       >
         {({ errors, setFieldValue }) => (
@@ -201,8 +209,8 @@ export default function AdoptionForm() {
               <div className={styles.divinput}>
                 <hr />
                 <Widget
-                  tabs='file url'
-                  locale='es'
+                  tabs="file url"
+                  locale="es"
                   name="image"
                   publicKey="d00f029a60bdde9dafab"
                   previewStep
@@ -210,12 +218,11 @@ export default function AdoptionForm() {
                   clearable
                   onFileSelect={(file) => {
                     if (!file) {
-                      setFieldValue('image',"");
+                      setFieldValue("image", "");
                       return;
                     }
                     file.done((fileInfo) => {
-                      setFieldValue('image',fileInfo.cdnUrl)
-                     
+                      setFieldValue("image", fileInfo.cdnUrl);
                     });
                   }}
                 />
