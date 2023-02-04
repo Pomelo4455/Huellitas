@@ -2,8 +2,12 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import styles from "./navBar.module.css";
 import { Icon } from "@iconify/react";
+import LoginButton from "../LoginButton/LoginButton";
+import LogoutButton from "../LogoutButton/LogoutButton";
+import { useAuth0 } from "@auth0/auth0-react";
 
 const NavBar = () => {
+  const {user,isAuthenticated,isLoading}=useAuth0();
   const [searchTerm, setSearchTerm] = useState("");
 
   const handleSearch = (event) => {
@@ -15,9 +19,9 @@ const NavBar = () => {
     // Aca se realiza la búsqueda usando el valor ingresado.
   };
 
-  const handleLogin = () => {
-    window.location.href = "/login";
-  };
+  // const handleLogin = () => {
+  //   window.location.href = "/login";
+  // };
 
   return (
     <nav className={styles.nav}>
@@ -40,12 +44,15 @@ const NavBar = () => {
         </div>
       </div>
       <div className={styles.buttonContainer}>
-        <button className={styles.button} onClick={handleLogin}>
+        {isAuthenticated ? <><h4>Ha iniciado sesión como: {user.name.toUpperCase()}</h4><img src={user.img}></img><LogoutButton /></> : <><h4>NO HA INICIADO SESION</h4><LoginButton/></>}
+       
+        {/* <button className={styles.button} onClick={handleLogin}>
           Iniciar Sesión
         </button>
         <button className={styles.button} onClick={handleLogin}>
           Registrarse
-        </button>
+        </button> */}
+
         <form onSubmit={handleSubmit}>
           <div className={styles.searchContainer}>
             <input
