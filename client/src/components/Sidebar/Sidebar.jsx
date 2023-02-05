@@ -16,8 +16,11 @@ export default function Sidebar() {
     <div className={styles.container}>
       <select onChange={(e) => handleSelectedFilter(e, filtros, dispatch)} className={styles.selectBox} name="species" defaultValue={value}>
       <option value="default" disabled hidden>Tipo de mascota</option>
-          <option value="gato">Gato</option>
-          <option value="perro">Perro</option>
+                  <option value="perro">Perro</option>
+                  <option value="gato">Gato</option>
+                  {/* <option value="conejo">Conejo</option>
+                  <option value="tortuga">Tortuga</option>
+                  <option value="cobayo">Cobayo</option> */}
       </select>
       <select defaultValue={value} onChange={(e) => handleSelectedFilter(e, filtros, dispatch)} className={styles.selectBox} name="size">
       <option value="default" disabled hidden>Tamaño</option>
@@ -36,8 +39,9 @@ export default function Sidebar() {
           <option value="1a2">Entre uno  y dos años</option>
           <option value="2plus">Más de dos años</option>
       </select> */}
-      <button name="delete filters" onClick={(e) => handleCleanFilter(e, filtros, dispatch)} className={styles.btn}>Restablecer Filtros</button>
       <Ordenamientos/>
+      <button name="delete filters" onClick={(e) => handleCleanFilter(e, filtros, dispatch)} className={styles.btn}>Restablecer Filtros</button>
+      
     </div>
   );
 }
