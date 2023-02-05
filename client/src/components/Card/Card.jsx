@@ -21,6 +21,7 @@ export default function Card({pets}) {
                className={styles.img}
                />
             <h1 className={styles.name}>{pets.name}</h1>
+            <h2>{pets.giver}</h2>
             </div>
          </div>
 
