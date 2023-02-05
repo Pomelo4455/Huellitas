@@ -1,4 +1,3 @@
-import React from "react";
 import styles from "./sidebar.module.css";
 import Ordenamientos from "./Ordenamientos";
 import {useDispatch, useSelector} from "react-redux"
@@ -11,22 +10,22 @@ export default function Sidebar() {
 
   const dispatch = useDispatch();
 
-
+  let value = "default";
 
   return (
     <div className={styles.container}>
-      <select onChange={(e) => handleSelectedFilter(e, filtros, dispatch)} className={styles.selectBox} value={filtros.species} name="species">
+      <select onChange={(e) => handleSelectedFilter(e, filtros, dispatch)} className={styles.selectBox} name="species" defaultValue={value}>
       <option value="default" disabled hidden>Tipo de mascota</option>
           <option value="gato">Gato</option>
           <option value="perro">Perro</option>
       </select>
-      <select onChange={(e) => handleSelectedFilter(e, filtros, dispatch)} className={styles.selectBox} value={filtros.size} name="size">
+      <select defaultValue={value} onChange={(e) => handleSelectedFilter(e, filtros, dispatch)} className={styles.selectBox} name="size">
       <option value="default" disabled hidden>Tamaño</option>
           <option value="pequeño">Pequeño</option>
           <option value="mediano">Mediano</option>
           <option value="grande">Grande</option>
       </select>
-      <select onChange={(e) => handleSelectedFilter(e, filtros, dispatch)} className={styles.selectBox} name="sex" value={filtros.sex}>
+      <select defaultValue={value} onChange={(e) => handleSelectedFilter(e, filtros, dispatch)} className={styles.selectBox} name="sex">
       <option value="default" disabled hidden>Sexo</option>
           <option value="macho">Macho</option>
           <option value="hembra">Hembra</option>
