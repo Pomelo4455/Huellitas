@@ -62,7 +62,9 @@ export default function AdoptionForm() {
             errors.temperament =
               "Por favor escribe una descripcion más detallada (120 caracteres al menos)";
           }
-
+          if (!values.image) {
+            errors.image = "Por favor selecciona una imagen";
+          }
           return errors;
         }}
         onSubmit={(values, { resetForm }) => {
@@ -225,6 +227,15 @@ export default function AdoptionForm() {
                       setFieldValue("image", fileInfo.cdnUrl);
                     });
                   }}
+                  onChange={(file) => {
+                    setFieldValue("image", file);
+                  }}
+                />
+                <ErrorMessage
+                  name="image"
+                  component={() => (
+                    <div className={styles.error}>{errors.image}</div>
+                  )}
                 />
                 ;
               </div>
@@ -242,7 +253,8 @@ export default function AdoptionForm() {
                     errors.size ||
                     errors.color ||
                     errors.sex ||
-                    errors.temperament
+                    errors.temperament ||
+                    errors.image
                       ? styles.btn_disabled
                       : styles.btn
                   }
@@ -253,7 +265,8 @@ export default function AdoptionForm() {
                     errors.size ||
                     errors.color ||
                     errors.sex ||
-                    errors.temperament
+                    errors.temperament ||
+                    errors.image
                   }
                 >
                   {" "}
