@@ -1,5 +1,6 @@
 .link_detail {
   text-decoration: none;
+  color: #000000;
 }
 
 .card {
@@ -13,8 +14,7 @@
     box-shadow: -2px 10px 14px 0px #626262;
     transition: transform 0.5s, filter 1.5s ease-in-out;
     cursor: pointer;
-    color:black
-  }
+    }
 
 .card:hover{
     transform: scale(1.05);
@@ -41,3 +41,4 @@
     display: flex;
     justify-content: center;
   }
+

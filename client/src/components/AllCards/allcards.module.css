@@ -1,6 +1,16 @@
+.container{
+display: flex;
+flex-direction: row;
+}
+
 .adoptar{
-    display: grid;
-    grid-template-columns: repeat(3, 8fr);
-    max-height: 100vh;
-    position: relative;
+margin-top: 2rem;
+margin-left: 3rem;
+padding-top: 0rem;
+display: grid;
+grid-template-columns: repeat(4, 1fr);
+grid-template-rows: repeat(2, auto);
+grid-gap: 10px;
+height: 100%;
+min-height: 80vh;
 }
