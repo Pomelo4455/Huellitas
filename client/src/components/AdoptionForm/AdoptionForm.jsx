@@ -72,11 +72,10 @@ export default function AdoptionForm() {
           setTimeout(() => setSent(false), 2000);
           swal({
             title: "Congratulations!",
-            text: "Su perrito fue creado",
+            text: "El perrito ha sido creado con exito",
             icon: "success",
             button: "Ok",
           }).then(() => navigate("/home"));
-          // setTimeout(() => navigate("/home"), 2000);
         }}
       >
         {({ errors, setFieldValue }) => (

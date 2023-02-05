@@ -6,7 +6,7 @@ const LoginButton= ()=>{
     const {loginWithPopup}=useAuth0();
     return(
         <>
-            <button className={styles.button} onClick={()=>loginWithPopup()}>INICIAR SESION</button>
+            <button className={styles.button} onClick={()=>loginWithPopup()}>Iniciar sesión</button>
         </>
     )
 };

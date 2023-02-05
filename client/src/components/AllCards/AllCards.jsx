@@ -10,14 +10,16 @@ import styles from './allcards.module.css'
 
 import { useDispatch, useSelector } from 'react-redux'
 import { useEffect, useState } from 'react'
-import { getPets } from "../../redux/actions";
+import { getFilterPets, getPets } from "../../redux/actions";
 import { all } from 'axios'
+import { combinarFiltros } from '../Sidebar/handlersSideBar';
 
 function Adoptar() {
   
   
   const dispatch = useDispatch();
   const allPets = useSelector((state) => state.pets);
+  const filters = useSelector((state) => state.filters);
 
   const [currentPage, setCurrentPage] = useState(1);
   const [dogsPerPage, setdogsPerPage] = useState(5);
@@ -29,8 +31,11 @@ function Adoptar() {
 
 
   useEffect(() => {
-    dispatch(getPets());
-  }, [dispatch]);
+      // creamos url
+      const url = combinarFiltros(filters);
+      // peticion a la api con la url
+      dispatch(getFilterPets(url));
+  }, [filters]);
 
   const paginado = (pageNumber) => {
     setCurrentPage(pageNumber)

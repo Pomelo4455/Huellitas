@@ -45,8 +45,12 @@ const Home = () => {
         <Link to="/PublicarAdopcion">
         <BtnHome text="Dar en adopcion" />
         </Link>
-        <BtnHome text="Donaciones" />
-        <BtnHome text="Apoyar una campaña" />
+        <Link to={'/campañas'}>
+          <BtnHome text="Ver campañas" />
+        </Link>
+        <Link to={'/:any'}>
+          <BtnHome text="Apoyar una campaña" />
+        </Link>
       </div>
 
       <div className={styles.cards}>

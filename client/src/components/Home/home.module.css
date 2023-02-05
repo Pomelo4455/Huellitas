@@ -3,7 +3,7 @@
 .home {
   width: 100%;
   max-height: 100vh;
-  background-color: #f7f8f9;
+  background-color: white;
   bottom: 0;
 }
 
@@ -41,7 +41,7 @@
 
 .btnS {
   /* background-color: rgba(137, 43, 226, 0.568); */
-  width: 90%;
+  width: 80%;
   height: auto;
   margin: 2em auto;
   display: flex;
@@ -52,9 +52,7 @@
 /* ESTILOS PARA MOSTRAR LAS TARJETAS */
 
 .cards {
-  /* background-color: beige; */
-  width: 90%;
-  height: auto;
+  width: 85%;
   margin: 2em auto;
   display: flex;
   flex-direction: row;

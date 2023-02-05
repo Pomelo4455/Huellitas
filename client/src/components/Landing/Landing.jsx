@@ -13,15 +13,17 @@ export default function Landing() {
           <Icon className={styles.iconFeet} icon="mingcute:foot-line" />
           <a className={styles.TitleTxt}>Huellitas</a>
         </div>
-        <Link to={'https://www.instagram.com/huellitaswebpets/'}>
-          <Icon className={styles.iconRedes1} icon="ph:instagram-logo" />
-        </Link>
-        <Link to={'https://twitter.com/huellitasweb'}>
-          <Icon className={styles.iconRedes2} icon="mdi:twitter" />
-        </Link>
-        <Link to={'/:any'}>
-          <Icon className={styles.iconRedes3} icon="ic:baseline-facebook" />
-        </Link>
+        <div className={styles.Redes}>
+          <Link to={'https://www.instagram.com/huellitaswebpets/'}>
+            <Icon className={styles.iconRedes1} icon="ph:instagram-logo" />
+          </Link>
+          <Link to={'https://twitter.com/huellitasweb'}>
+            <Icon className={styles.iconRedes2} icon="mdi:twitter" />
+          </Link>
+          <Link to={'/:any'}>
+            <Icon className={styles.iconRedes3} icon="ic:baseline-facebook" />
+          </Link>
+        </div>
       </div>
       <div>
         <h1 className={styles.text}>Huellitas</h1>
