@@ -35,7 +35,7 @@ function Adoptar() {
       const url = combinarFiltros(filters);
       // peticion a la api con la url
       dispatch(getFilterPets(url));
-  }, [dispatch]);
+  }, [filters]);
 
   const paginado = (pageNumber) => {
     setCurrentPage(pageNumber)
