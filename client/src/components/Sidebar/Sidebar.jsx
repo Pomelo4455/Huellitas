@@ -1,7 +1,6 @@
 import React from "react";
 import styles from "./sidebar.module.css";
 import Ordenamientos from "./Ordenamientos";
-import { useEffect } from "react";
 import {useDispatch, useSelector} from "react-redux"
 import { getFilterPets } from "../../redux/actions";
 import { combinarFiltros, handleCleanFilter, handleSelectedFilter } from "./handlersSideBar";
@@ -12,12 +11,7 @@ export default function Sidebar() {
 
   const dispatch = useDispatch();
 
-  useEffect(() => {
-    // creamos url
-    const url = combinarFiltros(filtros);
-    // peticion a la api con la url
-    dispatch(getFilterPets(url));
-  },[filtros])
+
 
   return (
     <div className={styles.container}>
