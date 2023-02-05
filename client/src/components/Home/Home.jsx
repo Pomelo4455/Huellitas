@@ -48,7 +48,7 @@ const Home = () => {
         <Link to={'/campañas'}>
           <BtnHome text="Ver campañas" />
         </Link>
-        <Link to={'/:any'}>
+        <Link to={'/PublicarCampaña'}>
           <BtnHome text="Apoyar una campaña" />
         </Link>
       </div>
