@@ -1,7 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Dosis&family=Noto+Sans+JP:wght@500;900&family=Noto+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Ubuntu&display=swap');
+
 /* CONTENEDOR GENERAL */
 
 .detailContainer {
-    /* background-color: beige; */
     background-color: #FFFF;
     width: 100%;
     min-height: 85vh;
@@ -15,25 +16,21 @@
 /* ESTILOS PARA CONTENEDOR DE TITULO E IMAGEN */
 
 .detailInformation {
-    /* background-color: aquamarine; */
     width: 40%;
     height: auto;
     padding: .5em 5em;
 }
 
 .petName {
-    /* background-color: azure; */
-    width: 100%;
-    height: auto;
-}
-
-.petName h2 {
-    font-size: 2em;
+    font-family: "Ubuntu";
+    font-weight: 800;
+    font-size: 200%;
     text-align: center;
+    color: black;
+    text-shadow: 2px 2px 2px rgba(150, 150, 150, 0.3);
 }
 
 .petImage {
-    /* background-color: tomato; */
     width: 100%;
     height: 24em;
     display: flex;
@@ -48,7 +45,6 @@
 }
 
 .btnContainer {
-    /* background-color: blanchedalmond; */
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -56,13 +52,16 @@
 }
 
 .btnContact {
-    width: 15em;
+    width: 385px;
     border: none;
-    border-radius: 10px;
+    border-radius: 100px;
     background-color: #2AADF6;
     color: #FFF;
     padding: .2em;
-    font-size: 2.4em;
+    font-size: 2em;
+    font-family: "Ubuntu";
+    align-items: center;
+    margin-top: 5%;
     box-shadow: 2px 2px 5px 2px rgba(0, 0, 0, 0.246);
     cursor: pointer;
     transition: transform 0.5s, filter 1.5s ease-in-out;
@@ -74,13 +73,15 @@
 }
 
 .btnContactBack {
-    width: 15em;
+    width: 385px;
     border: none;
-    border-radius: 10px;
+    border-radius: 100px;
     background-color: #8b90ff;
     color: #FFF;
     padding: .2em;
-    font-size: 2.4em;
+    font-size: 2em;
+    font-family: "Ubuntu";
+    margin-top: 5%;
     box-shadow: 2px 2px 5px 2px rgba(0, 0, 0, 0.246);
     cursor: pointer;
     transition: transform 0.5s, filter 1.5s ease-in-out;
@@ -94,27 +95,29 @@
 /* ESTILOS PARA EL CONTENEDOR DE DETALLE DE LA MASCOTA */
 
 .detailDescription {
-    /* background-color: azure; */
     width: 60%;
     height: auto;
     padding: .5em 5em;
     padding-top: 5.5em;
+    margin-right: 10%;
 }
 
 .descriptionContainer {
-    /* background-color: rgba(165, 42, 42, 0.552); */
     background-color: #F8F8F8;
     width: 100%;
+    margin-top: 7%;
+    margin-right: 50%;
     height: auto;
     padding: 1em 2em;
     border-radius: 16px;
 }
 
 .descriptionContainer p {
-    /* background-color: rgba(137, 43, 226, 0.499); */
-    font-size: 1.8em;
+    font-size: 175%;
+    font-family: "Poppins";
+    font-weight: 400;
 }
 
 .descriptionContainer p span {
-    font-weight: bold;
+    font-weight: 700;
 }
