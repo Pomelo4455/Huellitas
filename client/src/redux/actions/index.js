@@ -9,6 +9,7 @@ export const RESTORE_SEARCH = "RESTORE_SEARCH";
 export const RESTORE_FILTERS = "RESTORE_FILTERS";
 export const GET_CAMPAIGNS = "GET_CAMPAIGNS";
 export const GET_DETAIL_CAMP = "GET_DETAIL_CAMP";
+export const SET_CURRENT_PAGE = "SET_CURRENT_PAGE";
 
 export const getPets = () => {
   return async function (dispatch) {
@@ -116,4 +117,11 @@ export const getDetailCamp = (id) => {
             console.log(error.message);
         }
     }
+}
+
+export function setCurrentPage(pageNumber) {
+  return {
+    type: SET_CURRENT_PAGE,
+    payload: pageNumber,
+  };
 }

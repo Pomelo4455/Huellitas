@@ -21,7 +21,7 @@ export default function Ordenamientos() {
           <option value="size_ASC">Pequeño a Grande</option>
           <option value="size_DESC">Grande a Pequeño</option>
       </select>
-      <button onClick={(e) => handleCleanFilter(e, filtros, dispatch)} name="delete order" className={styles.btn}>Eliminar Orden</button>
+      {/* <button onClick={(e) => handleCleanFilter(e, filtros, dispatch)} name="delete order" className={styles.btn}>Eliminar Orden</button> */}
     </>
   );
 }

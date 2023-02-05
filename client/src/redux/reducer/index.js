@@ -8,6 +8,7 @@ import {
   RESTORE_FILTERS,
   GET_CAMPAIGNS,
   GET_DETAIL_CAMP,
+  SET_CURRENT_PAGE,
 } from "../actions";
 
 const initialState = {
@@ -17,6 +18,7 @@ const initialState = {
   filters: { sex: "", species: "", size: "", name: "", order: "" },
   campaigns: [],
   detailCamp:[],
+  page:(1),
 };
 
 const rootReducer = (state = initialState, action) => {
@@ -75,6 +77,8 @@ const rootReducer = (state = initialState, action) => {
             ...state,
             detailCamp: action.payload
         }
+    case SET_CURRENT_PAGE:
+          return { ...state, page: action.payload };
     default:
       return {
         ...state,
