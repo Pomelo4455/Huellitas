@@ -1,16 +1,13 @@
 import React from "react";
-
 import Card from "../Card/Card";
 import Footer from "../Footer/Footer";
 import NavBar from "../NavBar/NavBar";
 import Paginado from "../Paginado/Paginado";
 import Sidebar from "../Sidebar/Sidebar";
-
 import styles from "./allcards.module.css";
-
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
-import { getFilterPets, getPets } from "../../redux/actions";
+import { getFilterPets, getPets, setCurrentPage } from "../../redux/actions";
 import { all } from "axios";
 import { combinarFiltros } from "../Sidebar/handlersSideBar";
 
@@ -18,8 +15,8 @@ function Adoptar() {
   const dispatch = useDispatch();
   const allPets = useSelector((state) => state.pets);
   const filters = useSelector((state) => state.filters);
-
-  const [currentPage, setCurrentPage] = useState(1);
+  const currentPage = useSelector((state) => state.page);
+  // const [currentPage, setCurrentPage] = useState(1);
   const [dogsPerPage, setdogsPerPage] = useState(5);
   const indexLastProduct = currentPage * dogsPerPage;
   const indexFirstProduct = indexLastProduct - dogsPerPage;
@@ -32,14 +29,15 @@ function Adoptar() {
     dispatch(getFilterPets(url));
   }, [filters]);
 
+  function setPage(pageNumber) {
+    dispatch(setCurrentPage(pageNumber))
+    
+   }
+
   const paginado = (pageNumber) => {
-    setCurrentPage(pageNumber);
+    setPage(pageNumber);
   };
 
-  const handleResetPaginated = (e) => {
-    dispatch(getPets());
-    setCurrentPage(1);
-  };
 
   return (
     <>
