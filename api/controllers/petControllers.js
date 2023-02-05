@@ -6,7 +6,11 @@ const getAllPets = async (filters,order) => {
         where: filters,
         order: order
     })
-    pets = pets.map(pet => pet.dataValues);
+    for (let i = 0; i < pets.length; i++) {
+        const pet = pets[i].dataValues;
+        let giver = await User.findOne({attributes:["name"], where: {id: pet.userId}})
+        pets[i] = {...pet, giver: giver.dataValues.name};
+    }
     return pets;
 };
 
