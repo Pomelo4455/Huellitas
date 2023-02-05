@@ -6,6 +6,8 @@ import {
   UPDATE_FILTERS,
   RESTORE_SEARCH,
   RESTORE_FILTERS,
+  GET_CAMPAIGNS,
+  GET_DETAIL_CAMP,
 } from "../actions";
 
 const initialState = {
@@ -13,6 +15,8 @@ const initialState = {
   allPets: [],
   pet: [],
   filters: { sex: "", species: "", size: "", name: "", order: "" },
+  campaigns: [],
+  detailCamp:[],
 };
 
 const rootReducer = (state = initialState, action) => {
@@ -61,6 +65,16 @@ const rootReducer = (state = initialState, action) => {
         ...state,
         filters: { ...state.filters, name: "" },
       };
+    case GET_CAMPAIGNS:
+        return {
+            ...state,
+            campaigns: action.payload
+        }
+    case GET_DETAIL_CAMP:
+        return {
+            ...state,
+            detailCamp: action.payload
+        }
     default:
       return {
         ...state,

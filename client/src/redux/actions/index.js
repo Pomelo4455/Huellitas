@@ -7,6 +7,8 @@ export const GET_FILTER_PETS = "GET_FILTER_PETS";
 export const UPDATE_FILTERS = "UPDATE_FILTERS";
 export const RESTORE_SEARCH = "RESTORE_SEARCH";
 export const RESTORE_FILTERS = "RESTORE_FILTERS";
+export const GET_CAMPAIGNS = "GET_CAMPAIGNS";
+export const GET_DETAIL_CAMP = "GET_DETAIL_CAMP";
 
 export const getPets = () => {
   return async function (dispatch) {
@@ -81,4 +83,37 @@ export function restoreSearch() {
 
 export function updateFilters(filtros) {
   return { type: UPDATE_FILTERS, payload: filtros };
+}
+
+export function getCampaigns () {
+    return async function (dispatch) {
+        try {
+            const response = await axios.get('http://localhost:3001/campaigns');
+            const allCampaigns = response.data;
+
+            return dispatch({
+                type: GET_CAMPAIGNS,
+                payload: allCampaigns
+            })
+        } catch(error) {
+            console.log(error);
+        }
+    }
+}
+
+export const getDetailCamp = (id) => {
+    return async function (dispatch) {
+        try {
+            const response = await axios.get(`http://localhost:3001/campaigns/${id}`);
+            const campaign = response.data;
+            console.log(campaign)
+
+            return dispatch({
+                type: GET_DETAIL_CAMP,
+                payload: campaign
+            })
+        } catch(error) {
+            console.log(error.message);
+        }
+    }
 }
