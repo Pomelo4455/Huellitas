@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Dosis&family=Noto+Sans+JP:wght@500&family=Noto+Sans:wght@300&family=Poppins:ital,wght@0,300;0,400;0,500;1,200;1,300;1,400&family=Ubuntu&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Dosis&family=Noto+Sans+JP:wght@500&family=Noto+Sans:wght@300&family=Poppins:ital,wght@0,300;0,400;0,500;1,200;1,300;1,400&family=Ubuntu&display=swap");
 
 .nav {
   display: flex;
@@ -123,6 +123,24 @@
 }
 
 .searchButton:hover {
+  background-color: #9ca1ff;
+  color: white;
+}
+
+.restoreButton {
+  background-color: #8b90ff;
+  scale: 150%;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  display: inline-block;
+  margin-right: 50px;
+  cursor: pointer;
+}
+
+.restoreButton:hover {
   background-color: #9ca1ff;
   color: white;
 }

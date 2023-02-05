@@ -7,11 +7,13 @@ import LogoutButton from "../LogoutButton/LogoutButton";
 import { useAuth0 } from "@auth0/auth0-react";
 import { handleSelectedFilter } from "../Sidebar/handlersSideBar";
 import { useDispatch, useSelector } from "react-redux";
+import { restoreSearch } from "../../redux/actions";
+import swal from "sweetalert";
 
 const NavBar = () => {
-  const {user,isAuthenticated,isLoading}=useAuth0();
+  const { user, isAuthenticated, isLoading } = useAuth0();
   const [searchTerm, setSearchTerm] = useState("");
-  const filtros = useSelector(state => state.filters);
+  const filtros = useSelector((state) => state.filters);
   const dispatch = useDispatch();
 
   const handleSearch = (event) => {
@@ -26,6 +28,27 @@ const NavBar = () => {
   // const handleLogin = () => {
   //   window.location.href = "/login";
   // };
+
+  const inputSearch = (e) => {
+    e.preventDefault();
+    if (searchTerm === "") {
+      swal({
+        title: "Sorry!",
+        text: "Debe escribir el nombre de una organizacion",
+        icon: "warning",
+        button: "Ok",
+      });
+      setSearchTerm("");
+    } else {
+      handleSelectedFilter(e, filtros, dispatch);
+      setSearchTerm("");
+    }
+  };
+
+  const resetSearch = (e) => {
+    e.preventDefault();
+    dispatch(restoreSearch());
+  };
 
   return (
     <nav className={styles.nav}>
@@ -48,8 +71,19 @@ const NavBar = () => {
         </div>
       </div>
       <div className={styles.buttonContainer}>
-        {isAuthenticated ? <><h4>Ha iniciado sesión como: {user.name.toUpperCase()}</h4><img src={user.img}></img><LogoutButton /></> : <><h4>NO HA INICIADO SESION</h4><LoginButton/></>}
-       
+        {isAuthenticated ? (
+          <>
+            <h4>Ha iniciado sesión como: {user.name.toUpperCase()}</h4>
+            <img src={user.img}></img>
+            <LogoutButton />
+          </>
+        ) : (
+          <>
+            <h4>NO HA INICIADO SESION</h4>
+            <LoginButton />
+          </>
+        )}
+
         {/* <button className={styles.button} onClick={handleLogin}>
           Iniciar Sesión
         </button>
@@ -66,8 +100,16 @@ const NavBar = () => {
               onChange={handleSearch}
               className={styles.search}
             />
-            <button name="name" value={searchTerm} onClick={(e) => handleSelectedFilter(e, filtros, dispatch)} className={styles.searchButton}>
+            <button
+              name="name"
+              value={searchTerm}
+              onClick={inputSearch}
+              className={styles.searchButton}
+            >
               <Icon icon="fa6-solid:magnifying-glass" />
+            </button>
+            <button className={styles.restoreButton} onClick={resetSearch}>
+              Restaurar mascotas
             </button>
           </div>
         </form>
