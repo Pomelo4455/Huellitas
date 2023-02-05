@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Dosis&family=Noto+Sans+JP:wght@500&family=Noto+Sans:wght@300&family=Poppins:ital,wght@0,300;0,400;0,500;1,200;1,300;1,400&family=Ubuntu&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dosis&family=Noto+Sans+JP:wght@500;900&family=Noto+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Ubuntu&display=swap');
 
 .nav {
   display: flex;
@@ -11,17 +11,26 @@
 
 .nav ul {
   display: flex;
+  align-items: center;
   list-style: none;
-  margin-left: 150px;
-  padding: 0;
+  margin-left: 10%;
 }
 
 .nav li {
-  margin: 25px;
+  margin: 10%;
+  width: fit-content;
+  white-space: nowrap;
+}
+
+.leftLinks {
+  color: initial;
+  text-decoration: none;
+  font-family: "Poppins";
+  font-weight: 400;
 }
 
 .title {
-  margin-left: 200px;
+  margin-left: 10%;
   color: #18191f;
   display: flex;
   flex-direction: row;
@@ -29,38 +38,47 @@
 }
 
 .txt {
-  font-family: "Noto Sans JP", sans-serif;
-  font-size: 30px;
-  font-weight: 500;
-  color: #333;
+  color: initial;
+  text-decoration: none;
+  font-family: "Noto Sans";
+  font-size: 140%;
+  font-weight: 700;
 }
 
 .img {
   color: #18191f;
   height: 40px;
   width: 40px;
-  margin-right: 15px;
-  margin-top: 20px;
-  margin-bottom: 20px;
+  margin-right: 10px;
+  animation-name: rotate;
+  animation-duration: 1.7s;
+  animation-timing-function: ease-in-out;
+  animation-play-state: running;
+  animation-fill-mode: forwards;
+  animation-iteration-count: 1;
+  animation-delay: 1s;
 }
 
-.nav a {
-  text-decoration: none;
-  color: #18191f;
-  font-weight: 500;
-  font-family: "Noto Sans JP";
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 .nav a:hover {
   color: white;
-}
-
-.buttonContainer {
-  display: flex;
+  transition: 0.2s;
 }
 
 .leftContainer {
   display: inline-flex;
+}
+
+.buttonContainer {
+  display: flex;
 }
 
 .button {
@@ -85,9 +103,18 @@
   color: white;
 }
 
+.textoLogin {
+  color: initial;
+  text-decoration: none;
+  font-family: "Noto Sans";
+  font-size: 140%;
+  font-weight: 700;
+}
+
 .searchContainer {
   display: flex;
   align-items: center;
+  margin-right: 50px;
 }
 
 .search {
@@ -95,11 +122,9 @@
   background-color: #8b90ff;
   border-radius: 10px;
   padding: 10px 20px;
-  margin-left: 30px;
-  margin-right: -33px;
-  padding-right: 20px;
-  font-size: 17px;
-  font-weight: 500;
+  margin-left: 5%;
+  margin-right: 10%;
+  font-size: 110%;
   color: rgb(255, 255, 255);
   outline: none;
 }
@@ -107,6 +132,7 @@
 .search::placeholder {
   color: white;
   font-family: "Ubuntu";
+  font-weight: 400;
 }
 
 .searchButton {
@@ -118,7 +144,7 @@
   padding-top: 5px;
   padding-bottom: 5px;
   display: inline-block;
-  margin-right: 50px;
+  margin-left: -22%;
   cursor: pointer;
 }
 
