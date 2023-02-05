@@ -10,18 +10,22 @@ import CardDetail from "./components/CardDetail/CardDetail";
 import "./App.css";
 import AllCards from "./components/AllCards/AllCards";
 import NotFound from "./components/NotFound/NotFound";
+import Campañas from "./components/Campaigns/Campaigns";
+import Detail from "./components/Campaigns/DetailCampaign";
 
 function App() {
   return (
     <>
       <Routes>
-        <Route path="/" element={<Landing />} />
-        <Route path="/Footer" element={<Footer />} />
-        <Route path="/SobreNosotros" element={<SobreNosotros />} />
-        <Route path="/home" element={<Home />} />
-        <Route path="/detail/:id" element={<CardDetail />} />
-        <Route path="/Adoptar" element={<AllCards />} />
-        <Route path="/PublicarAdopcion" element={<AdoptionForm />} />
+        <Route path="/" element={<Landing/>} />
+        <Route path="/Footer" element={<Footer/>} />
+        <Route path="/SobreNosotros" element={<SobreNosotros/>} />
+        <Route path="/home" element={<Home/>} />
+        <Route path="/detail/:id" element={<CardDetail/>} />
+        <Route path="/Adoptar" element={<AllCards/>} />
+        <Route path="/PublicarAdopcion" element={<AdoptionForm/>} />
+        <Route path="/campañas" element={<Campañas/>}/>
+        <Route path="/campañas/:id" element={<Detail/>} />
         <Route path="/:any" element={<NotFound/>} />
       </Routes>
     </>
