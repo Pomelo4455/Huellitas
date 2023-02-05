@@ -8,13 +8,14 @@
   justify-content: center;
   padding: 1%;
   background-color: transparent;
-  width: 100%;
+  width: 90%;
   z-index: 3;
 }
 
 .Title {
   display: flex;
   justify-content: center;
+  margin-left: -10%;
 }
 
 .TitleTxt {
@@ -29,30 +30,33 @@
   color: black;
 }
 
-.iconRedes1 {
-  position: absolute;
-  /*margin-left: 50%;*/
+.Redes{
+  display: flex;
   top: 27px;
-  right: 300px;
-  font-size: 200%;
-  color: black;
+  position: absolute;
+  right: 0px;
+  justify-content: space-between;
 }
-.iconRedes2 {
-  position: absolute;
-  top: 27px;
-  right: 196px;
+
+.iconRedes1 {
   font-size: 200%;
-  margin-right: 2.5%;
   color: black;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.iconRedes2 {
+  font-size: 200%;
+  color: black;
+  margin-left: 10px;
+  margin-right: 10px;
 }
 
 .iconRedes3 {
-  position: absolute;
-  top: 27px;
-  right: 129px;
   font-size: 200%;
-  margin-right: 2.5%;
   color: black;
+  margin-left: 10px;
+  margin-right: 10px;
 }
 
 .text {
@@ -156,7 +160,7 @@
     justify-content: center;
     padding: 1%;
     background-color: transparent;
-    width: 100%;
+    width: 90%;
     z-index: 3;
   }
   
@@ -178,14 +182,33 @@
     color: black;
   }
   
-  .iconRedes1 {
-    margin-left: 50%;
-    margin-right: 2.5%;
-    font-size: 150%;
+  .Redes{
+    display: flex;
+    top: 27px;
+    position: absolute;
+    right: 0px;
+    justify-content: space-between;
   }
-  .iconRedes {
-    font-size: 150%;
-    margin-right: 2.5%;
+  
+  .iconRedes1 {
+    font-size: 160%;
+    color: black;
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+  
+  .iconRedes2 {
+    font-size: 160%;
+    color: black;
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+  
+  .iconRedes3 {
+    font-size: 160%;
+    color: black;
+    margin-left: 10px;
+    margin-right: 10px;
   }
   
   .text {
@@ -288,7 +311,7 @@
     justify-content: center;
     padding: 1%;
     background-color: transparent;
-    width: 100%;
+    width: 90%;
     z-index: 3;
   }
   
@@ -310,14 +333,33 @@
     color: black;
   }
   
-  .iconRedes1 {
-    margin-left: 50%;
-    margin-right: 2.5%;
-    font-size: 100%;
+  .Redes{
+    display: flex;
+    top: 27px;
+    position: absolute;
+    right: 0px;
+    justify-content: space-between;
   }
-  .iconRedes {
-    font-size: 150%;
-    margin-right: 2.5%;
+  
+  .iconRedes1 {
+    font-size: 120%;
+    color: black;
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+  
+  .iconRedes2 {
+    font-size: 120%;
+    color: black;
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+  
+  .iconRedes3 {
+    font-size: 120%;
+    color: black;
+    margin-left: 10px;
+    margin-right: 10px;
   }
   
   .text {
@@ -420,7 +462,7 @@
     justify-content: center;
     padding: 1%;
     background-color: transparent;
-    width: 100%;
+    width: 90%;
     z-index: 3;
   }
   
@@ -442,14 +484,33 @@
     color: black;
   }
   
-  .iconRedes1 {
-    margin-left: 50%;
-    margin-right: 2.5%;
-    font-size: 100%;
+  .Redes{
+    display: flex;
+    top: 27px;
+    position: absolute;
+    right: 0px;
+    justify-content: space-between;
   }
-  .iconRedes {
-    font-size: 150%;
-    margin-right: 2.5%;
+  
+  .iconRedes1 {
+    font-size: 90%;
+    color: black;
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+  
+  .iconRedes2 {
+    font-size: 90%;
+    color: black;
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+  
+  .iconRedes3 {
+    font-size: 90%;
+    color: black;
+    margin-left: 10px;
+    margin-right: 10px;
   }
   
   .text {

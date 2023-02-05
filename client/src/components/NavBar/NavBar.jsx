@@ -82,14 +82,6 @@ const NavBar = () => {
             <LoginButton />
           </>
         )}
-
-        {/* <button className={styles.button} onClick={handleLogin}>
-          Iniciar Sesión
-        </button>
-        <button className={styles.button} onClick={handleLogin}>
-          Registrarse
-        </button> */}
-
         <form onSubmit={handleSubmit}>
           <div className={styles.searchContainer}>
             <input

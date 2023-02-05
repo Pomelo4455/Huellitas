@@ -5,7 +5,7 @@
   align-items: center;
   justify-content: space-between;
   background-color: #c2f4ff;
-  height: 78px;
+  height: 8%;
   box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.1);
 }
 
@@ -13,7 +13,7 @@
   display: flex;
   align-items: center;
   list-style: none;
-  margin-left: 10%;
+  margin-left: 5%;
 }
 
 .nav li {
@@ -30,18 +30,19 @@
 }
 
 .title {
-  margin-left: 10%;
+  margin-left: 17%;
   color: #18191f;
   display: flex;
   flex-direction: row;
   align-items: center;
+  margin-right: 20%;
 }
 
 .txt {
   color: initial;
   text-decoration: none;
   font-family: "Noto Sans";
-  font-size: 140%;
+  font-size: 160%;
   font-weight: 700;
 }
 
@@ -51,22 +52,49 @@
   width: 40px;
   margin-right: 10px;
   animation-name: rotate;
-  animation-duration: 1.7s;
-  animation-timing-function: ease-in-out;
+  animation-duration: 1s;
+  animation-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
   animation-play-state: running;
   animation-fill-mode: forwards;
   animation-iteration-count: 1;
   animation-delay: 1s;
 }
 
-@keyframes rotate {
-  from {
+/* @keyframes rotate {
+  0% {
     transform: rotate(0deg);
   }
-  to {
-    transform: rotate(360deg);
+  10% {
+    transform: rotate(20deg);
   }
-}
+  20% {
+    transform: rotate(-20deg);
+  }
+  30% {
+    transform: rotate(15deg);
+  }
+  40% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(20deg);
+  }
+  60% {
+    transform: rotate(-20deg);
+  }
+  70% {
+    transform: rotate(15deg);
+  }
+  80% {
+    transform: rotate(-20deg);
+  }
+  90% {
+    transform: rotate(5deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+} */
 
 .nav a:hover {
   color: white;
@@ -79,6 +107,9 @@
 
 .buttonContainer {
   display: flex;
+  align-items: center;
+  margin-left: -20%;
+  margin-right: 5%;
 }
 
 .button {
@@ -103,18 +134,9 @@
   color: white;
 }
 
-.textoLogin {
-  color: initial;
-  text-decoration: none;
-  font-family: "Noto Sans";
-  font-size: 140%;
-  font-weight: 700;
-}
-
 .searchContainer {
   display: flex;
   align-items: center;
-  margin-right: 50px;
 }
 
 .search {
@@ -122,8 +144,7 @@
   background-color: #8b90ff;
   border-radius: 10px;
   padding: 10px 20px;
-  margin-left: 5%;
-  margin-right: 10%;
+  margin-left: 0%;
   font-size: 110%;
   color: rgb(255, 255, 255);
   outline: none;
@@ -143,8 +164,8 @@
   border-radius: 5px;
   padding-top: 5px;
   padding-bottom: 5px;
+  margin-left: -7%;
   display: inline-block;
-  margin-left: -22%;
   cursor: pointer;
 }
 
@@ -155,14 +176,18 @@
 
 .restoreButton {
   background-color: #8b90ff;
-  scale: 150%;
   color: white;
   border: none;
-  border-radius: 5px;
-  padding-top: 5px;
-  padding-bottom: 5px;
-  display: inline-block;
-  margin-right: 50px;
+  border-radius: 10px;
+  padding: 10px 20px;
+  font-family: "Ubuntu";
+  font-weight: 400;
+  font-size: 110%;
+  text-align: center;
+  text-decoration: none;
+  width: fit-content;
+  white-space: nowrap;
+  margin-left: 7%;
   cursor: pointer;
 }
 

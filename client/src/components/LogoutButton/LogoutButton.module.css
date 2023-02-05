@@ -13,8 +13,7 @@
     text-decoration: none;
     width: fit-content;
     white-space: nowrap;
-    margin-left: 20px;
-    margin-right: 20px;
+    margin-right: 5%;
     cursor: pointer;
   }
   .button:hover {
