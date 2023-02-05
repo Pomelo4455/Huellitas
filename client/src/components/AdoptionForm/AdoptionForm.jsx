@@ -77,6 +77,7 @@ export default function AdoptionForm() {
             button: "Ok",
           }).then(() => navigate("/home"));
         }}
+        validateOnMount
       >
         {({ errors, setFieldValue }) => (
           <div className={styles.container}>
@@ -232,7 +233,29 @@ export default function AdoptionForm() {
               )}
               <br />
               <div className={styles.divinput}>
-                <button type="submit" className={styles.btn}>
+                <button
+                  type="submit"
+                  className={
+                    errors.name ||
+                    errors.age ||
+                    errors.species ||
+                    errors.size ||
+                    errors.color ||
+                    errors.sex ||
+                    errors.temperament
+                      ? styles.btn_disabled
+                      : styles.btn
+                  }
+                  disabled={
+                    errors.name ||
+                    errors.age ||
+                    errors.species ||
+                    errors.size ||
+                    errors.color ||
+                    errors.sex ||
+                    errors.temperament
+                  }
+                >
                   {" "}
                   Dar en adopción
                 </button>
