@@ -54,12 +54,12 @@ const NavBar = () => {
     <nav className={styles.nav}>
       <ul className={styles.leftContainer}>
         <li>
-          <Link to="/home" className={styles.link}>
+          <Link to="/home" className={styles.leftLinks}>
             Home
           </Link>
         </li>
         <li>
-          <Link to="/sobreNosotros" className={styles.link}>
+          <Link to="/sobreNosotros" className={styles.leftLinks}>
             Sobre Nosotros
           </Link>
         </li>
@@ -67,7 +67,7 @@ const NavBar = () => {
       <div className={styles.title}>
         <Icon className={styles.img} icon="mingcute:foot-line" />
         <div className={styles.txt}>
-          <Link to="/home">Huellitas</Link>
+          <Link to="/home" className={styles.txt}>Huellitas</Link>
         </div>
       </div>
       <div className={styles.buttonContainer}>
@@ -79,18 +79,9 @@ const NavBar = () => {
           </>
         ) : (
           <>
-            <h4>NO HA INICIADO SESION</h4>
             <LoginButton />
           </>
         )}
-
-        {/* <button className={styles.button} onClick={handleLogin}>
-          Iniciar Sesión
-        </button>
-        <button className={styles.button} onClick={handleLogin}>
-          Registrarse
-        </button> */}
-
         <form onSubmit={handleSubmit}>
           <div className={styles.searchContainer}>
             <input
