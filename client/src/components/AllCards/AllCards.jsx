@@ -17,7 +17,7 @@ function Adoptar() {
   const filters = useSelector((state) => state.filters);
   const currentPage = useSelector((state) => state.page);
   // const [currentPage, setCurrentPage] = useState(1);
-  const [dogsPerPage, setdogsPerPage] = useState(5);
+  const [dogsPerPage, setdogsPerPage] = useState(8);
   const indexLastProduct = currentPage * dogsPerPage;
   const indexFirstProduct = indexLastProduct - dogsPerPage;
   const currentDogs = allPets.slice(indexFirstProduct, indexLastProduct);
