@@ -38,9 +38,7 @@ const CardDetail = () => {
             <button className={style.btnContact}>CONTACTAR</button>
           </div>
           <div className={style.btnContainer}>
-           <Link to='/Adoptar'>
-              <button className={style.btnContactBack}>VOLVER</button>
-           </Link>
+            <button onClick={() => window.history.back()} className={style.btnContactBack}>VOLVER</button>
           </div>
         </div>
 
