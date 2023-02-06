@@ -3,13 +3,16 @@ import { Icon } from "@iconify/react";
 import styles from "./footer.module.css";
 import { Link } from "react-router-dom";
 
-
 function Footer() {
   return (
     <div className={styles.footer}>
       <div className={styles.box}>
-        <Link to={'/sobreNosotros'} className={styles.texts}><h4 className={styles.texts}>Sobre Nosotros</h4></Link>
-        <Link to={'/home'} className={styles.texts}><h4 className={styles.texts}>Home</h4></Link>
+        <Link to={"/sobreNosotros"} className={styles.texts}>
+          <h4 className={styles.texts}>Sobre Nosotros</h4>
+        </Link>
+        <Link to={"/home"} className={styles.texts}>
+          <h4 className={styles.texts}>Home</h4>
+        </Link>
         <h4 className={styles.texts}>Contactanos</h4>
       </div>
       <div className={styles.box}>
@@ -21,13 +24,21 @@ function Footer() {
       </div>
       <div className={styles.box1}>
         <div>
-          <Link to={'https://www.instagram.com/huellitaswebpets/'}>
+          <a
+            href={"https://www.instagram.com/huellitaswebpets/"}
+            target="_blank"
+            rel="noreferrer"
+          >
             <Icon className={styles.iconSocial} icon="mdi:instagram" />
-          </Link>
-          <Link to={'https://twitter.com/huellitasweb'}>
+          </a>
+          <a
+            href={"https://twitter.com/huellitasweb"}
+            target="_blank"
+            rel="noreferrer"
+          >
             <Icon className={styles.iconSocial} icon="mdi:twitter" />
-          </Link>
-          <Link to={'/:any'}>
+          </a>
+          <Link to={"/:any"}>
             <Icon className={styles.iconSocial} icon="ic:baseline-facebook" />
           </Link>
         </div>
