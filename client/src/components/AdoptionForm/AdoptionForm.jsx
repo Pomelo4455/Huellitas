@@ -58,9 +58,9 @@ export default function AdoptionForm() {
           }
           if (!values.temperament) {
             errors.temperament = "Por favor escribe una descripcion";
-          } else if (values.temperament.length < 120) {
+          } else if (values.temperament.length < 80) {
             errors.temperament =
-              "Por favor escribe una descripcion más detallada (120 caracteres al menos)";
+              "Por favor escribe una descripcion más detallada (80 caracteres al menos)";
           }
 
           return errors;
@@ -196,6 +196,7 @@ export default function AdoptionForm() {
                   name="temperament"
                   className={styles.textArea}
                   placeholder="Descripción"
+                  maxlength="255"
                 ></Field>
                 <ErrorMessage
                   name="temperament"
