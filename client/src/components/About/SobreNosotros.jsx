@@ -6,7 +6,7 @@ import { Icon } from "@iconify/react";
 import { Link } from "react-router-dom";
 function About() {
   return (
-    <div>
+    <div className={styles.body}>
       <NavBar />
       <div className={styles.aboutPrincipal}>
         <div className={styles.cardAbout}>

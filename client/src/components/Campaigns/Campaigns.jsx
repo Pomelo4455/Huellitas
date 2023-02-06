@@ -18,7 +18,7 @@ const Campañas = () => {
     }, [dispatch])
 
     return (
-        <div >
+        <div className={styles.body}>
             <NavBar/>
             <div className={styles.container}>
                 

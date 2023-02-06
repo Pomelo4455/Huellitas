@@ -16,10 +16,11 @@
   margin-right: 50px;
   margin-top: 30px;
   background-color: #8b90ff;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  border-radius: 6px;
+  /* box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); */
+  border-radius: 8px;
   color: #ffffff;
   text-align: center;
+  border: #646BFF 1px solid;
 }
 
 .btn {
@@ -27,11 +28,15 @@
   height: 44px;
   margin-top: 30px;
   background: #8b90ff;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  border-radius: 20px;
+  /* box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); */
+  border-radius: 14px;
   margin-left: 50px;
-  border: #6a6fca 1px solid;
+  border: #646BFF 1px solid;
   color: #ffffff;
+}
+
+.btn:hover{
+  background-color: #9ca1ff;
 }
 
 .btn:active {
