@@ -5,6 +5,8 @@ import { getCampaigns } from '../../redux/actions';
 import Campaña from "./Campaing";
 import Footer from "../Footer/Footer";
 import NavBar from "../NavBar/NavBar";
+import styles from "./campaigns.module.css"
+
 
 const Campañas = () => {
     const dispatch = useDispatch();
@@ -16,11 +18,14 @@ const Campañas = () => {
     }, [dispatch])
 
     return (
-        <div>
+        <div >
             <NavBar/>
+            <div className={styles.container}>
+                
             {
                 allCampaigns ? allCampaigns.map(camp => {
                     return (
+
                         <Campaña
                             key={camp.id}
                             id={camp.id}
@@ -29,11 +34,13 @@ const Campañas = () => {
                             description={camp.description}
                             image={camp.image}
                             goal={camp.goal}
-                        />
+                            
+                            />
                     ) 
                 })
                 : 'no hay campañas'
             }
+                            </div>
             <Link to={'/home'}>
                 <button>Volver</button>
             </Link>
