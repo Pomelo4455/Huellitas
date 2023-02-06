@@ -21,6 +21,7 @@ function Adoptar() {
   const indexLastProduct = currentPage * dogsPerPage;
   const indexFirstProduct = indexLastProduct - dogsPerPage;
   const currentDogs = allPets.slice(indexFirstProduct, indexLastProduct);
+  const petMax = Math.ceil(allPets.length / dogsPerPage);
 
   useEffect(() => {
     // creamos url
@@ -30,14 +31,12 @@ function Adoptar() {
   }, [filters]);
 
   function setPage(pageNumber) {
-    dispatch(setCurrentPage(pageNumber))
-    
-   }
+    dispatch(setCurrentPage(pageNumber));
+  }
 
   const paginado = (pageNumber) => {
     setPage(pageNumber);
   };
-
 
   return (
     <>
@@ -51,11 +50,7 @@ function Adoptar() {
           ))}
         </div>
       </div>
-      <Paginado
-        dogsPerPage={dogsPerPage}
-        allPets={allPets.length}
-        paginado={paginado}
-      />
+      <Paginado paginado={paginado} currentPage={currentPage} petMax={petMax} />
       <Footer />
     </>
   );
