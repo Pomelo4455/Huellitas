@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, redirect, useNavigate } from "react-router-dom";
 import styles from "./navBar.module.css";
 import { Icon } from "@iconify/react";
 import LoginButton from "../LoginButton/LoginButton";
@@ -15,6 +15,7 @@ const NavBar = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const filtros = useSelector((state) => state.filters);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const handleSearch = (event) => {
     setSearchTerm(event.target.value);
@@ -43,6 +44,7 @@ const NavBar = () => {
       handleSelectedFilter(e, filtros, dispatch);
       setSearchTerm("");
     }
+    navigate("/Adoptar");
   };
 
   const resetSearch = (e) => {
