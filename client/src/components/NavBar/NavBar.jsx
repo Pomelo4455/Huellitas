@@ -100,7 +100,7 @@ const NavBar = () => {
               <Icon icon="fa6-solid:magnifying-glass" />
             </button>
             <button className={styles.restoreButton} onClick={resetSearch}>
-              Restaurar mascotas
+              Eliminar Búsqueda
             </button>
           </div>
         </form>
