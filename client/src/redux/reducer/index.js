@@ -8,6 +8,7 @@ import {
   RESTORE_FILTERS,
   GET_CAMPAIGNS,
   GET_DETAIL_CAMP,
+  SET_CURRENT_PAGE,
   SEND_PROFILE_TO_DB,
   CLEAR_PROFILE,
   LOGIN_SUCCESS,
@@ -26,6 +27,7 @@ const initialState = {
   filters: { sex: "", species: "", size: "", name: "", order: "" },
   campaigns: [],
   detailCamp:[],
+  page:(1),
   is_authenticated: false,
   profile: null,
   db_profile: null
@@ -87,7 +89,8 @@ const rootReducer = (state = initialState, action) => {
             ...state,
             detailCamp: action.payload
         }
-
+    case SET_CURRENT_PAGE:
+      return { ...state, page: action.payload };
     case SEND_PROFILE_TO_DB:
       return{
         ...state,

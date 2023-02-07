@@ -12,6 +12,7 @@ import swal from "sweetalert";
 import { profileCreationInfo } from "../../Utils/profileFunctions";
 
 const NavBar = () => {
+  const dispatch=useDispatch()
   const { user, isAuthenticated, isLoading } = useAuth0();
 
   useEffect(()=>{
@@ -28,31 +29,7 @@ const NavBar = () => {
     }
   }
   ,[isAuthenticated])
-  const handleLogin = () => {
-    window.location.href = "/login";
-  };
-
-  const inputSearch = (e) => {
-    e.preventDefault();
-    if (searchTerm === "") {
-      swal({
-        title: "Sorry!",
-        text: "Debe escribir el nombre de una organizacion",
-        icon: "warning",
-        button: "Ok",
-      });
-      setSearchTerm("");
-    } else {
-      handleSelectedFilter(e, filtros, dispatch);
-      setSearchTerm("");
-    }
-  };
-
-  const resetSearch = (e) => {
-    e.preventDefault();
-    dispatch(restoreSearch());
-  };
-
+  
   return (
     <nav className={styles.nav}>
       <ul className={styles.leftContainer}>
@@ -79,7 +56,7 @@ const NavBar = () => {
         {isAuthenticated ? (
           <>
             <h4>Ha iniciado sesión como: {user.name.toUpperCase()}</h4>
-            <img src={user.img}/>
+            <img src={user.img}></img>
             <LogoutButton />
           </>
         ) : (
