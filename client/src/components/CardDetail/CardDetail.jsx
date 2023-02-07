@@ -6,9 +6,9 @@ import { useDispatch, useSelector } from "react-redux";
 import Footer from "../Footer/Footer";
 import NavBar from "../NavBar/NavBar";
 import { getPetsDetail } from "../../redux/actions";
-
-
 import style from "./cardDetail.module.css";
+import axios from "axios";
+import swal from "sweetalert";
 
 const CardDetail = () => {
 
@@ -21,6 +21,16 @@ const CardDetail = () => {
     dispatch(getPetsDetail(id))
   },[dispatch, id])
   
+  const handleSendMail = async () => {
+    try {
+      // idUser seria el id del que adopta y lo sacariamos del login que hicieron naza y adri.
+      await axios.post("http://localhost:3001/mails", { "idUser" : 3, "idGiver" : pet.userId, "idPet" : pet.id })
+      swal("Enviado.", "Se ha informado su interés hacia la mascota.", "success");
+    }
+    catch(err) {
+      swal("No enviado.", "No se ha podido informado su interés hacia la mascota.", "error");
+    }
+  }
 
   return (
     <>
@@ -35,7 +45,7 @@ const CardDetail = () => {
           </div>
 
           <div className={style.btnContainer}>
-            <button className={style.btnContact}>CONTACTAR</button>
+            <button onClick={handleSendMail} className={style.btnContact}>CONTACTAR</button>
           </div>
           <div className={style.btnContainer}>
             <button onClick={() => window.history.back()} className={style.btnContactBack}>VOLVER</button>
