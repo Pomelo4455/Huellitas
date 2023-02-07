@@ -30,7 +30,7 @@ const NavBar = () => {
     if(isAuthenticated){
         let prof=profileCreationInfo(user)
         // console.log(user)
-        // localStorage.setItem('user', JSON.stringify(prof))
+        localStorage.setItem('user', JSON.stringify(prof))
         // console.log(prof)
         dispatch(sendProfileToDb(prof))
       }else{

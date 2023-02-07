@@ -3,8 +3,12 @@ const { User, Pet, Campaign, Adoption } = require("../db.js");
 const createUser = async (Data) => {
   const { email, name, image } = Data;
   if (!email) throw new Error("Faltan datos");
-  const users = await User.create(Data);
-  return users;
+  const foundUser = await User.findOne({ where: { email: email } });
+  if (foundUser === null) {
+    foundUser = await User.create(Data);
+    //nodemailer
+  }
+  return foundUser;
 };
 
 const getAllUser = async (filters) => {
