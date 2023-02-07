@@ -18,7 +18,7 @@ module.exports = (sequelize) => {
         allowNull: false,
       },image: {
         type: DataTypes.STRING,
-        defaultValue: "https://acortar.link/JjnSW3",
+        defaultValue: "https://acortar.link/yBPxc1",
       },
       goal: {
         type: DataTypes.INTEGER,
