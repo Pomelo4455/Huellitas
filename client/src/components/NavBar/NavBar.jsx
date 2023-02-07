@@ -30,7 +30,7 @@ const NavBar = () => {
     if(isAuthenticated){
         let prof=profileCreationInfo(user)
         // console.log(user)
-        localStorage.setItem('user', JSON.stringify(prof))
+        // localStorage.setItem('user', JSON.stringify(prof))
         // console.log(prof)
         dispatch(sendProfileToDb(prof))
       }else{
@@ -89,7 +89,7 @@ const NavBar = () => {
         {isAuthenticated ? (
           <>
             <h4>Ha iniciado sesión como: {user.name.toUpperCase()}</h4>
-            <img src={user.img}></img>
+            <img src={user.img}/>
             <LogoutButton />
           </>
         ) : (

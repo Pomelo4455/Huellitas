@@ -65,7 +65,8 @@ export const sendProfileToDb =(prof)=>{
   // console.log(prof)
   return async function (){
     try{
-      await axios.post("http://localhost:3001/users", prof)
+      let loggedUser =await axios.post("http://localhost:3001/users", prof)
+      localStorage.setItem('loggedUser', JSON.stringify(loggedUser))
       // console.log(profile)
       // return dispatch({
       //   type: SEND_PROFILE_TO_DB,
