@@ -3,13 +3,10 @@ const transporter=require("../config/mailer")
 
 const createUser = async (Data) => {
   const { email, name, image } = Data;
-  console.log(Data)
   if (!email) throw new Error("Faltan datos");
   let foundUser = await User.findOne({ where: { email: email } });
   if (foundUser === null) {
     foundUser = await User.create(Data);
-    console.log("se creó el user:",foundUser.dataValues.email)
-    ///
     await transporter.sendMail({
       from: '"Huellitas " <tmsalbanesi@gmail.com>', // sender address
       to: `${foundUser.dataValues.email}`, // list of receivers
@@ -18,7 +15,6 @@ const createUser = async (Data) => {
           <h1>${foundUser.dataValues.name} Bienvenido a Huellitas</h1>
           `      
     });
-    ///
   }
   return foundUser;
 };
