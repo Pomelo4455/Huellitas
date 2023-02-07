@@ -1,10 +1,22 @@
 const { User, Pet, Campaign, Adoption } = require("../db.js");
+const transporter=require("../config/mailer")
 
 const createUser = async (Data) => {
-  const { email, password } = Data;
-  if (!email || !password) throw new Error("Faltan datos");
-  const users = await User.create(Data);
-  return users;
+  const { email, name, image } = Data;
+  if (!email) throw new Error("Faltan datos");
+  let foundUser = await User.findOne({ where: { email: email } });
+  if (foundUser === null) {
+    foundUser = await User.create(Data);
+    await transporter.sendMail({
+      from: '"Huellitas " <tmsalbanesi@gmail.com>', // sender address
+      to: `${foundUser.dataValues.email}`, // list of receivers
+      subject: "Se ha registrado su cuenta en Huellitas",
+      html:`
+          <h1>${foundUser.dataValues.name} Bienvenido a Huellitas</h1>
+          `      
+    });
+  }
+  return foundUser;
 };
 
 const getAllUser = async (filters) => {

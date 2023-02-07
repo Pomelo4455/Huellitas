@@ -7,12 +7,12 @@ module.exports = (sequelize) => {
     {
       type: {
         type: DataTypes.ENUM("fundacion", "usuario", "admin"),
-        allowNull: false,
+        defaultValue: "usuario"
       },
       name: {
         type: DataTypes.STRING,
         allowNull: false,
-        unique: true,
+        unique: false,
       },
       email: {
         type: DataTypes.STRING,
@@ -25,11 +25,11 @@ module.exports = (sequelize) => {
       },
       password: {
         type: DataTypes.STRING,
-        allowNull: false,
+        defaultValue: ""
       },
       address: {
         type: DataTypes.STRING,
-        allowNull: false,
+        defaultValue: ""
       },
       description: {
         type: DataTypes.TEXT,

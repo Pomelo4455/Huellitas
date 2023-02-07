@@ -2,6 +2,8 @@ const { Router } = require('express');
 const Pets = require("./pets.js");
 const Users = require("./user.js")
 const Campaigns = require("./campaign.js")
+const Payment = require("./payment.js")
+const Mails = require("./mail.js")
 const { User, Pet, Campaign, Adoption } = require('../db.js');
 const {loadUsers,loadPets,loadCampaigns}= require("../controllers/index.js")
 const {petsData,usersData,campaignsData} = require("../utils/data.js")
@@ -29,6 +31,8 @@ router.post('/', async (req, res) => {
 router.use("/pets",Pets)
 router.use("/users",Users)
 router.use("/campaigns",Campaigns)
+router.use("/payment",Payment)
+router.use("/mails", Mails)
 
 
 module.exports = router;
