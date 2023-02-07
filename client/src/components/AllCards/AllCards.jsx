@@ -39,7 +39,7 @@ function Adoptar() {
   };
 
   return (
-    <>
+    <div className={styles.body}>
       <NavBar />
       <div className={styles.container}>
         <Sidebar />
@@ -52,7 +52,7 @@ function Adoptar() {
       </div>
       <Paginado paginado={paginado} currentPage={currentPage} petMax={petMax} />
       <Footer />
-    </>
+    </div>
   );
 }
 

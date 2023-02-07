@@ -17,7 +17,7 @@ export default function AdoptionForm() {
   const navigate = useNavigate();
 
   return (
-    <>
+    <div className={styles.body}>
       <NavBar />
       <Formik
         initialValues={{
@@ -280,6 +280,6 @@ export default function AdoptionForm() {
         )}
       </Formik>
       <Footer />
-    </>
+    </div>
   );
 }

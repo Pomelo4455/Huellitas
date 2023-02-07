@@ -134,6 +134,10 @@
   transition: 0.25s;
   color: white;
 }
+.button:active {
+  transform: scale(0.97);
+  box-shadow: 3px 2px 22px 1px rgba(0, 0, 0, 0.24);
+}
 
 .searchContainer {
   display: flex;
@@ -141,7 +145,7 @@
 }
 
 .search {
-  border: 1px solid lightgray;
+  border: #646BFF 1px solid;
   background-color: #8b90ff;
   border-radius: 10px;
   padding: 10px 20px;
@@ -175,10 +179,14 @@
   color: white;
 }
 
+.searchButton:active {
+  transform: scale(0.97);
+  box-shadow: 3px 2px 22px 1px rgba(0, 0, 0, 0.24);
+}
 .restoreButton {
   background-color: #8b90ff;
   color: white;
-  border: none;
+  border: #646BFF 1px solid;
   border-radius: 10px;
   padding: 10px 20px;
   font-family: "Ubuntu";
@@ -195,4 +203,9 @@
 .restoreButton:hover {
   background-color: #9ca1ff;
   color: white;
+}
+
+.restoreButton:active {
+  transform: scale(0.97);
+  box-shadow: 3px 2px 22px 1px rgba(0, 0, 0, 0.24);
 }
