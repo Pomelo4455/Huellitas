@@ -13,7 +13,7 @@ import NotFound from "./components/NotFound/NotFound";
 import Campañas from "./components/Campaigns/Campaigns";
 import Detail from "./components/Campaigns/DetailCampaign";
 import CampaignForm from "./components/CampaignForm/CampaignForm";
-
+import Gratitude from "./components/Gratitude/Gratitude";
 import Auth from "./Utils/auth"
 import AuthCheck from "./Utils/authcheck"
 import history from "./Utils/history"
@@ -25,6 +25,7 @@ import {
   login_success,
   remove_profile,
   add_profile, } from "./redux/actions/index"
+
 
 export const auth =new Auth()
 
@@ -64,7 +65,9 @@ function App() {
         <Route path="/campañas" element={<Campañas/>} />
         <Route path="/campañas/:id" element={<Detail/>} />
         <Route path="/PublicarCampaña" element={<CampaignForm/>} />
+        <Route path="/gracias" element={<Gratitude/>} />
         <Route path="/:any" element={<NotFound/>} />
+
       </Routes>
     </>
   );

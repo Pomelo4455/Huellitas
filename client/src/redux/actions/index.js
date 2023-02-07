@@ -211,3 +211,10 @@ export const remove_db_profile = () => {
     type: REMOVE_DB_PROFILE
   }
 }
+
+export function donate(payload) {
+  return async function () {
+    const donation = await axios.post("http://localhost:3001/payment", payload)
+    .then((response)=> window.location.href = response.data.response.body.init_point)
+  };
+}
