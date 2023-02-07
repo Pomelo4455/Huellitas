@@ -211,3 +211,15 @@ export const remove_db_profile = () => {
     type: REMOVE_DB_PROFILE
   }
 }
+
+export function postMercadoPago(payload) {
+  return async function () {
+    try {
+      const newDonation = await axios.post("http://localhost:3001/payment", payload);
+
+      return newDonation;
+    } catch(error) {
+      console.log(error);
+    }
+  };
+}
