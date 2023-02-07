@@ -49,4 +49,12 @@
 - DELETE /pets/{campaignsId}.
     * Borrado logico de la campaña que tenga como id campaignId.
 
+## Instrucciones para deployar el back
 
+- Agregar las siguientes variables de entorno al .env que está adentro de /api:
+    - DB_DEPLOY=postgresql://postgres:L1ytoWiC2Pfpuf7GGmzR@containers-us-west-183.railway.app:7249/railway
+    - PORT=3001 <!-- Este quizas mas tarde lo modificamos -->
+
+## Instrucciones para usar el servidor local
+
+- En "/db.js" descomentar la opción 1, y comentar la opción 2
