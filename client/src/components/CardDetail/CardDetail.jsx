@@ -24,7 +24,9 @@ const CardDetail = () => {
   const handleSendMail = async () => {
     try {
       // idUser seria el id del que adopta y lo sacariamos del login que hicieron naza y adri.
-      await axios.post("http://localhost:3001/mails", { "idUser" : 3, "idGiver" : pet.userId, "idPet" : pet.id })
+      const userLocalStorage = JSON.parse(localStorage.getItem("loggedUser"));
+      const userId = userLocalStorage.data.id;
+      await axios.post("http://localhost:3001/mails", { "idUser" : userId, "idGiver" : pet.userId, "idPet" : pet.id })
       swal("Enviado.", "Se ha informado su interés hacia la mascota.", "success");
     }
     catch(err) {
