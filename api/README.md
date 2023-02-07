@@ -49,4 +49,7 @@
 - DELETE /pets/{campaignsId}.
     * Borrado logico de la campaña que tenga como id campaignId.
 
-
+## .Env configuración
+### Agregar las siguientes variables al archivo .env de api:
+- APP_PASSWORD_NODEMAILER = gdmrvfsbqonuieih
+- MERCADOPAGO_KEY= TEST-293281331158507-020717-70b9282513602337f43a8d61500c40f9-1305153224
