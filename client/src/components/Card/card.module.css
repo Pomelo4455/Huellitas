@@ -1,5 +1,6 @@
 .link_detail {
   text-decoration: none;
+  color: #000000;
 }
 
 .card {
@@ -7,17 +8,19 @@
     justify-content: center;
     margin: 1rem;
     background: #F8F8F8;
-    height: 378px;
+    height: fit-content;
     width: 280px;
-    border-radius: 24px;
-    box-shadow: -2px 10px 14px 0px #626262;
-    transition: transform 0.5s, filter 1.5s ease-in-out;
+    /* box-shadow: -2px 10px 14px 0px #626262; */
+    border-radius: 8px;
+    transition: 0.5s;
     cursor: pointer;
-    color:black
-  }
+    border: #dadada 1px solid;
+    }
 
 .card:hover{
-    transform: scale(1.05);
+  box-shadow: -2px 10px 14px 0px #626262;
+  
+  cursor: pointer;
   }
 
   .img {
@@ -27,12 +30,12 @@
     margin-left: auto;
     margin-right: auto;
     margin-top: 1rem;
-    width: 220px;
-    height: 238px;
+    width: 230px;
+    height: 230px;
     object-fit: cover;
     align-content: center;
     border-radius: 9px;
-    border: 3px solid #5b6367;
+    border: 3px solid #DBDBDB;
     /* border: 3px solid #2AADF6; /
     / border: 3px solid #e56ad5 */
   }
@@ -41,3 +44,4 @@
     display: flex;
     justify-content: center;
   }
+

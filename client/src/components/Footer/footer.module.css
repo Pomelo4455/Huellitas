@@ -3,10 +3,9 @@
 .footer {
   background-color: #253066;
   align-items: center;
-  position: fixed;
   bottom: 0px;
   display: flex;
-  height: 8%;
+  height: 115px;
   width: 100%;
   left: 0px;
 }

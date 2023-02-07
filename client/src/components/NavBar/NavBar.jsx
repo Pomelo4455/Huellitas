@@ -13,18 +13,6 @@ import { profileCreationInfo } from "../../Utils/profileFunctions";
 
 const NavBar = () => {
   const { user, isAuthenticated, isLoading } = useAuth0();
-  const [searchTerm, setSearchTerm] = useState("");
-  const filtros = useSelector((state) => state.filters);
-  const dispatch = useDispatch();
-
-  const handleSearch = (event) => {
-    setSearchTerm(event.target.value);
-  };
-
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    // Aca se realiza la búsqueda usando el valor ingresado.
-  };
 
   useEffect(()=>{
     if(isAuthenticated){
@@ -82,7 +70,9 @@ const NavBar = () => {
       <div className={styles.title}>
         <Icon className={styles.img} icon="mingcute:foot-line" />
         <div className={styles.txt}>
-          <Link to="/home" className={styles.txt}>Huellitas</Link>
+          <Link to="/home" className={styles.txt}>
+            Huellitas
+          </Link>
         </div>
       </div>
       <div className={styles.buttonContainer}>
@@ -97,28 +87,6 @@ const NavBar = () => {
             <LoginButton />
           </>
         )}
-        <form onSubmit={handleSubmit}>
-          <div className={styles.searchContainer}>
-            <input
-              type="text"
-              placeholder="Buscar organizaciones..."
-              value={searchTerm}
-              onChange={handleSearch}
-              className={styles.search}
-            />
-            <button
-              name="name"
-              value={searchTerm}
-              onClick={inputSearch}
-              className={styles.searchButton}
-            >
-              <Icon icon="fa6-solid:magnifying-glass" />
-            </button>
-            <button className={styles.restoreButton} onClick={resetSearch}>
-              Restaurar mascotas
-            </button>
-          </div>
-        </form>
       </div>
     </nav>
   );

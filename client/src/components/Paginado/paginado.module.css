@@ -1,29 +1,47 @@
-.buttonPaginated{
-    display: block;
-    padding: 1rem;
-    color: rgb(58, 58, 58);
-    background: linear-gradient(135.13deg, #1ea2f4 10.46%, #023850 127.81%);
-    font-size: 1rem;
-    border-radius: 10px;
-    border: solid 1px;
-    cursor: pointer;
-    transition: .4s;
+.buttonPaginated {
+  display: block;
+  padding: 1rem;
+  color: #ffffff;
+  background: #8b90ff;
+  /* background: linear-gradient(135.13deg, #8b90ff 10.46%, #253066 127.81%); */
+  font-size: 1rem;
+  border-radius: 10px;
+  border: solid 1px;
+  cursor: pointer;
+  transition: 0.4s;
 }
-.numberPaginado{
-        display: inline-block;
-        margin-right: 10px;
+.numberPaginado {
+  display: inline-block;
+  margin-right: 10px;
 }
-.paginacion{
-        padding: 1rem;
-        list-style: none;
-        text-align: center;
+.paginacion {
+  padding: 1rem;
+  list-style: none;
+  text-align: center;
 }
-.paginado{
-        width: 100%;
-        max-width: 1000px;
-        margin: auto;
+.paginado {
+  width: 100%;
+  max-width: 1000px;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
 }
-.buttonPaginated:hover{
-    background: linear-gradient(135.13deg, #0f0768 10.46%, #797bff 127.81%);
-    color:white
+.buttonPaginated:hover {
+  background: linear-gradient(135.13deg, #253066 10.46%, #797bff 127.81%);
+  color: white;
+}
+
+.buttonPaginatedActive {
+  display: block;
+  padding: 1rem;
+  color: #ffffff;
+  /* background: #8b90ff; */
+  background: linear-gradient(135.13deg, #8b90ff 10.46%, #253066 127.81%);
+  font-size: 1rem;
+  border-radius: 10px;
+  border: solid 1px;
+  cursor: pointer;
+  transition: 0.4s;
 }

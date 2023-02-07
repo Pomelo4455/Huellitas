@@ -9,6 +9,7 @@ export const RESTORE_SEARCH = "RESTORE_SEARCH";
 export const RESTORE_FILTERS = "RESTORE_FILTERS";
 export const GET_CAMPAIGNS = "GET_CAMPAIGNS";
 export const GET_DETAIL_CAMP = "GET_DETAIL_CAMP";
+export const SET_CURRENT_PAGE = "SET_CURRENT_PAGE";
 export const SEND_PROFILE_TO_DB= "SEND_PROFILE_TO_DB";
 export const CLEAR_PROFILE = "CLEAR_PROFILE"
 export const LOGIN_SUCCESS="LOGIN_SUCCESS"
@@ -118,36 +119,55 @@ export function updateFilters(filtros) {
 }
 
 export function getCampaigns () {
-    return async function (dispatch) {
-        try {
-            const response = await axios.get('http://localhost:3001/campaigns');
-            const allCampaigns = response.data;
+  return async function (dispatch) {
+    try {
+      const response = await axios.get('http://localhost:3001/campaigns');
+      const allCampaigns = response.data;
 
-            return dispatch({
-                type: GET_CAMPAIGNS,
-                payload: allCampaigns
-            })
-        } catch(error) {
-            console.log(error);
-        }
+      return dispatch({
+        type: GET_CAMPAIGNS,
+        payload: allCampaigns
+      })
+    } catch(error) {
+      console.log(error);
     }
+  }
 }
 
 export const getDetailCamp = (id) => {
-    return async function (dispatch) {
-        try {
-            const response = await axios.get(`http://localhost:3001/campaigns/${id}`);
-            const campaign = response.data;
-            console.log(campaign)
+  return async function (dispatch) {
+    try {
+      const response = await axios.get(`http://localhost:3001/campaigns/${id}`);
+      const campaign = response.data;
+      console.log(campaign)
 
-            return dispatch({
-                type: GET_DETAIL_CAMP,
-                payload: campaign
-            })
-        } catch(error) {
-            console.log(error.message);
-        }
+      return dispatch({
+        type: GET_DETAIL_CAMP,
+        payload: campaign
+      })
+    } catch(error) {
+      console.log(error.message);
     }
+  }
+}
+
+export function postNewCampaign(payload) {
+  return async function () {
+    try {
+      const newCampaign = await axios.post("http://localhost:3001/campaigns", payload);
+
+      return newCampaign;
+    } catch(error) {
+      console.log(error);
+    }
+  };
+}
+
+export function setCurrentPage(pageNumber) {
+  return {
+    type: SET_CURRENT_PAGE,
+    payload: pageNumber,
+  };
 }
 
 

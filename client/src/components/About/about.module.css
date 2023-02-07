@@ -1,115 +1,114 @@
-        .aboutPrincipal{
-            width: 100%;
-            display: grid;
-            grid-template-columns: repeat(4, 2fr);        }
-        
-        .cardAbout{
-        width: 250px;
-        border-radius: 1rem 1rem .5rem .5rem;
-        background-color: #D9D9D9;
-        box-shadow: 0 8px 8px 2px rgba(48, 48, 48, 0.37);
-        transition: .6s;
-        margin: 20px;}
-        .imgAbout {
+.body{
+  background-color: #EDEDED;
+}
 
-          width: 250px;
-          height: 250px;
-          object-fit: cover;
-          border-radius: 1rem 1rem 0 0;
-          background: url(../../img/perro1.jpg);
-          background-repeat: no-repeat;
-          background-size: cover;
-         justify-content: center;
-        }
+.aboutPrincipal {
+  width: 90%;
+  display: grid;
+  grid-template-columns: repeat(4, 2fr);
+  margin-left: 8%;
+}
 
-        .IconAbout{
-            font-size:35px;
-            margin: 10px;
-            justify-content: center;
-            text-align: center;
-            margin-left: 60px;
-        }
-        .TextAbout{
-            text-align: center;
-            justify-content: center;
-            font-size: 20px;
-            font-weight: 550;
-        }
+.cardAbout {
+  width: 250px;
+  border-radius: 1rem 1rem 0.5rem 0.5rem;
+  background-color: #d9d9d9;
+  box-shadow: 0 8px 8px 2px rgba(48, 48, 48, 0.37);
+  transition: 0.6s;
+  margin: 25px;
+}
+.imgAbout {
+  width: 250px;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 1rem 1rem 0 0;
+  background: url(../../img/perro1.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  justify-content: center;
+}
 
-            .imgAbout1 {
-    
-              width: 250px;
-              height: 250px;
-              object-fit: cover;
-              border-radius: 1rem 1rem 0 0;
-              background: url(../../img/perro2.jpg);
-              background-repeat: no-repeat;
-              background-size: cover;
-             justify-content: center;
-            }
-            .imgAbout2 {
-    
-                width: 250px;
-                height: 250px;
-                object-fit: cover;
-                border-radius: 1rem 1rem 0 0;
-                background: url(../../img/perro3.jpg);
-                background-repeat: no-repeat;
-                background-size: cover;
-               justify-content: center;
-              }
-              .imgAbout3 {
-    
-                width: 250px;
-                height: 250px;
-                object-fit: cover;
-                border-radius: 1rem 1rem 0 0;
-                background: url(../../img/perro4.jpg);
-                background-repeat: no-repeat;
-                background-size: cover;
-               justify-content: center;
-              }
-              .imgAbout4 {
-    
-                width: 250px;
-                height: 250px;
-                object-fit: cover;
-                border-radius: 1rem 1rem 0 0;
-                background: url(../../img/e17e13c695f6c35d4756d7da29b6bf7f.jpg);
-                background-repeat: no-repeat;
-                background-size: cover;
-               justify-content: center;
-              }
-              .imgAbout5 {
-    
-                width: 250px;
-                height: 250px;
-                object-fit: cover;
-                border-radius: 1rem 1rem 0 0;
-                background: url(../../img/perro5.jpg);
-                background-repeat: no-repeat;
-                background-size: cover;
-               justify-content: center;
-              }
-              .imgAbout6{
-    
-                width: 250px;
-                height: 250px;
-                object-fit: cover;
-                border-radius: 1rem 1rem 0 0;
-                background: url(../../img/perro6.jpg);
-                background-repeat: no-repeat;
-                background-size: cover;
-               justify-content: center;
-              }
-              .imgAbout7{
-    
-                width: 250px;
-                height: 250px;
-                object-fit: cover;
-                border-radius: 1rem 1rem 0 0;
-                background: url(../../img/perro7.jpg);
-                background-repeat: no-repeat;
-                background-size: cover;
-               justify-content: center;
-              }
+.IconAbout {
+  font-size: 35px;
+  margin: 10px;
+  justify-content: center;
+  text-align: center;
+  margin-left: 60px;
+}
+.TextAbout {
+  text-align: center;
+  justify-content: center;
+  font-size: 20px;
+  font-weight: 550;
+}
+
+.imgAbout1 {
+  width: 250px;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 1rem 1rem 0 0;
+  background: url(../../img/perro2.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  justify-content: center;
+}
+.imgAbout2 {
+  width: 250px;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 1rem 1rem 0 0;
+  background: url(../../img/perro3.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  justify-content: center;
+}
+.imgAbout3 {
+  width: 250px;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 1rem 1rem 0 0;
+  background: url(../../img/perro4.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  justify-content: center;
+}
+.imgAbout4 {
+  width: 250px;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 1rem 1rem 0 0;
+  background: url(../../img/e17e13c695f6c35d4756d7da29b6bf7f.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  justify-content: center;
+}
+.imgAbout5 {
+  width: 250px;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 1rem 1rem 0 0;
+  background: url(../../img/perro5.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  justify-content: center;
+}
+.imgAbout6 {
+  width: 250px;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 1rem 1rem 0 0;
+  background: url(../../img/perro6.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  justify-content: center;
+}
+.imgAbout7 {
+  width: 250px;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 1rem 1rem 0 0;
+  background: url(../../img/perro7.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  justify-content: center;
+}

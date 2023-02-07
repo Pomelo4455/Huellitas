@@ -3,8 +3,8 @@
 .button {
     background-color: #8b90ff;
     color: white;
-    border: none;
-    border-radius: 10px;
+    border: #646BFF 1px solid;
+    border-radius: 8px;
     padding: 10px 20px;
     font-family: "Ubuntu";
     font-weight: 400;
@@ -20,4 +20,8 @@
     background-color: #9ca1ff;
     transition: 0.25s;
     color: white;
+  }
+  .button:active {
+    transform: scale(0.97);
+    box-shadow: 3px 2px 22px 1px rgba(0, 0, 0, 0.24);
   }

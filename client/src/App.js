@@ -12,6 +12,7 @@ import AllCards from "./components/AllCards/AllCards";
 import NotFound from "./components/NotFound/NotFound";
 import Campañas from "./components/Campaigns/Campaigns";
 import Detail from "./components/Campaigns/DetailCampaign";
+import CampaignForm from "./components/CampaignForm/CampaignForm";
 
 import Auth from "./Utils/auth"
 import AuthCheck from "./Utils/authcheck"
@@ -60,8 +61,9 @@ function App() {
         <Route path="/detail/:id" element={<CardDetail/>} />
         <Route path="/Adoptar" element={<AllCards/>} />
         <Route path="/PublicarAdopcion" element={<AdoptionForm/>} />
-        <Route path="/campañas" element={<Campañas/>}/>
+        <Route path="/campañas" element={<Campañas/>} />
         <Route path="/campañas/:id" element={<Detail/>} />
+        <Route path="/PublicarCampaña" element={<CampaignForm/>} />
         <Route path="/:any" element={<NotFound/>} />
       </Routes>
     </>
