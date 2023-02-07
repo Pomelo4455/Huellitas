@@ -58,3 +58,7 @@
 - Descomentar la opción 2 dentro de "db.js", y comentar la opción 1.
 - Ir a postman o la aplicación que usen para cargar los datos y hacer un post a "http://localhost:3001/".
 - Recuerden utilizarlo lo menos posible, ya que la cantidad de pedidos que le podemos hacer al servidor remoto es limitada.
+## .Env configuración
+### Agregar las siguientes variables al archivo .env de api:
+- APP_PASSWORD_NODEMAILER = gdmrvfsbqonuieih
+- MERCADOPAGO_KEY= TEST-293281331158507-020717-70b9282513602337f43a8d61500c40f9-1305153224
