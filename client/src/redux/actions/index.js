@@ -212,13 +212,12 @@ export const remove_db_profile = () => {
   }
 }
 
-export function postMercadoPago(payload) {
+export function donate(payload) {
   return async function () {
     try {
-      const newDonation = await axios.post("http://localhost:3001/payment", payload);
-
-      return newDonation;
-    } catch(error) {
+      const donation = await axios.post("http://localhost:3001/payment", payload)
+      .then((response)=> window.location.href = response.data.response.body.init_point)
+    } catch (error) {
       console.log(error);
     }
   };

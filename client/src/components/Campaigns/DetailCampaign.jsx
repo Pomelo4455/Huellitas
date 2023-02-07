@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { getDetailCamp, postMercadoPago } from "../../redux/actions";
+import { donate } from "../../redux/actions";
 import { useSelector, useDispatch } from "react-redux";
 import { Link, useParams } from "react-router-dom";
 import Footer from "../Footer/Footer";
@@ -59,7 +59,7 @@ const Detail = (props) => {
                                 return errors;
                             }}
                             onSubmit={(values, { resetForm }) => {
-                                dispatch(postMercadoPago(values));
+                                dispatch(donate(values));
                                 resetForm();
                                 setInput(true);
                                 setTimeout(() => setInput(false), 2000);
@@ -79,25 +79,24 @@ const Detail = (props) => {
                                         <div>
                                             <label>¿Como se llama? </label>
                                             <br />
-                <Field
-                  type="text"
-                  name="cantidad"
-                  placeholder="Cantidad"
-                ></Field>
-                <ErrorMessage
-                  name="cantidad"
-                  component={() => (
-                    <div>{errors.cantidad}</div>
-                  )}
-                />
-                <button>Donar</button>
-                                            </div>
+                                <Field
+                                    type="text"
+                                    name="cantidad"
+                                    placeholder="Cantidad"
+                                ></Field>
+                                <ErrorMessage
+                                    name="cantidad"
+                                    component={() => (
+                                        <div>{errors.cantidad}</div>
+                                    )}
+                                />
+                            <button>Donar</button>
+                                        </div>
                                         </Form>
                                     </div>
                                 )
                             }}
-                            
-</Formik>
+                            </Formik>
                                 <Link to={'/campañas'}>
                                     <button>Volver</button>
                                 </Link>
