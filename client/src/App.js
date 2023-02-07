@@ -13,7 +13,43 @@ import NotFound from "./components/NotFound/NotFound";
 import Campañas from "./components/Campaigns/Campaigns";
 import Detail from "./components/Campaigns/DetailCampaign";
 
+import Auth from "./Utils/auth"
+import AuthCheck from "./Utils/authcheck"
+import history from "./Utils/history"
+import { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
+
+import { 
+  login_failure,
+  login_success,
+  remove_profile,
+  add_profile, } from "./redux/actions/index"
+
+export const auth =new Auth()
+
+
 function App() {
+  const handleAuthentication = (props) => {
+    if(props.location.hash) {
+      auth.handleAuth()
+    }
+  }
+  const dispatch=useDispatch()
+
+  // useEffect(()=>{
+  //   if(auth.isAuthenticated()) {
+  //     dispatch(login_success())
+  //     auth.getProfile()
+  //     console.log(auth.profile)
+  //     // setTimeout(() => {dispatch(add_profile(auth.userProfile))}, 400)
+  //   }
+  //   else {
+  //     console.log("not logged in")
+  //     // dispatch(login_failure())
+  //     // dispatch(remove_profile())
+  //   }
+  // },[])
+
   return (
     <>
       <Routes>

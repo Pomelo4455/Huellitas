@@ -1,8 +1,8 @@
 const { User, Pet, Campaign, Adoption } = require("../db.js");
 
 const createUser = async (Data) => {
-  const { email, password } = Data;
-  if (!email || !password) throw new Error("Faltan datos");
+  const { email, name, image } = Data;
+  if (!email) throw new Error("Faltan datos");
   const users = await User.create(Data);
   return users;
 };
