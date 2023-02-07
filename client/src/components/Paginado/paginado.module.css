@@ -26,6 +26,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  
 }
 .buttonPaginated:hover {
   background: linear-gradient(135.13deg, #253066 10.46%, #797bff 127.81%);

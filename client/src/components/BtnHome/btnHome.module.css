@@ -4,18 +4,23 @@
     background-color: #2AADF6;
     width: 12em;
     height: 3.5em;
-    border: none;
-    border-radius: 24px;
+    border: #059FF6 1px solid;
+    border-radius: 8px;
     color: #fff;
     font-family: "Poppins";
     font-weight: 500;
     font-size: 100%;
-    transition: transform 0.5s, filter 1.5s ease-in-out;
-    box-shadow: 2px 2px 5px 2px rgba(0, 0.246, 0.246, 0.246);
+    transition: 0.2s;
+    
     cursor: pointer;
 }
 
 .btnHome:hover {
-    opacity: .9;
-    transform: scale(1.05);
+    background-color: #43baf9;
+    /* box-shadow: 2px 2px 5px 2px rgba(0, 0.246, 0.246, 0.246); */
 }
+
+.btnHome:active {
+    transform: scale(0.97);
+    box-shadow: 3px 2px 22px 1px rgba(0, 0, 0, 0.24);
+  }

@@ -1,6 +1,7 @@
 .container{
 display: flex;
 flex-direction: row;
+
 }
 
 .adoptar{
@@ -13,4 +14,8 @@ grid-template-rows: repeat(2, auto);
 grid-gap: 10px;
 height: 100%;
 min-height: 80vh;
+}
+
+.body{
+    background-color: #EDEDED;
 }
