@@ -77,7 +77,6 @@ const Detail = (props) => {
                                     <div>
                                         <Form>
                                         <div>
-                                            <label>¿Como se llama? </label>
                                             <br />
                                 <Field
                                     type="text"
