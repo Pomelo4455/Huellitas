@@ -57,4 +57,4 @@
 
 ## Instrucciones para usar el servidor local
 
-- En "/db.js" descomentar la opción 1, y comentar la opción 2
+- En "/db.js" descomentar la opción 1, y comentar la opción 2.
