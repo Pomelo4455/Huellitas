@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { donate } from "../../redux/actions";
+import { getDetailCamp, donate } from "../../redux/actions";
 import { useSelector, useDispatch } from "react-redux";
 import { Link, useParams } from "react-router-dom";
 import Footer from "../Footer/Footer";
