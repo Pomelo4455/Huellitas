@@ -87,36 +87,48 @@ export function updateFilters(filtros) {
 }
 
 export function getCampaigns () {
-    return async function (dispatch) {
-        try {
-            const response = await axios.get('http://localhost:3001/campaigns');
-            const allCampaigns = response.data;
+  return async function (dispatch) {
+    try {
+      const response = await axios.get('http://localhost:3001/campaigns');
+      const allCampaigns = response.data;
 
-            return dispatch({
-                type: GET_CAMPAIGNS,
-                payload: allCampaigns
-            })
-        } catch(error) {
-            console.log(error);
-        }
+      return dispatch({
+        type: GET_CAMPAIGNS,
+        payload: allCampaigns
+      })
+    } catch(error) {
+      console.log(error);
     }
+  }
 }
 
 export const getDetailCamp = (id) => {
-    return async function (dispatch) {
-        try {
-            const response = await axios.get(`http://localhost:3001/campaigns/${id}`);
-            const campaign = response.data;
-            console.log(campaign)
+  return async function (dispatch) {
+    try {
+      const response = await axios.get(`http://localhost:3001/campaigns/${id}`);
+      const campaign = response.data;
+      console.log(campaign)
 
-            return dispatch({
-                type: GET_DETAIL_CAMP,
-                payload: campaign
-            })
-        } catch(error) {
-            console.log(error.message);
-        }
+      return dispatch({
+        type: GET_DETAIL_CAMP,
+        payload: campaign
+      })
+    } catch(error) {
+      console.log(error.message);
     }
+  }
+}
+
+export function postNewCampaign(payload) {
+  return async function () {
+    try {
+      const newCampaign = await axios.post("http://localhost:3001/campaigns", payload);
+
+      return newCampaign;
+    } catch(error) {
+      console.log(error);
+    }
+  };
 }
 
 export function setCurrentPage(pageNumber) {
