@@ -15,7 +15,10 @@ export default function AdoptionForm() {
   const [sent, setSent] = useState(false);
   const dispatch = useDispatch();
   const navigate = useNavigate();
-
+  let userId = JSON.parse(localStorage.getItem("loggedUser"));
+  let newid = userId.data ? userId.data.id : null;
+  // newid ? (newid = newid) : (newid = null);
+  console.log(newid);
   return (
     <div className={styles.body}>
       <NavBar />
@@ -29,6 +32,7 @@ export default function AdoptionForm() {
           color: "",
           sex: "",
           temperament: "",
+          userId: newid,
         }}
         validate={(values) => {
           let errors = {};

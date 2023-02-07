@@ -7,29 +7,34 @@ import LogoutButton from "../LogoutButton/LogoutButton";
 import { useAuth0 } from "@auth0/auth0-react";
 import { handleSelectedFilter } from "../Sidebar/handlersSideBar";
 import { useDispatch, useSelector } from "react-redux";
-import { restoreSearch,sendProfileToDb, clearProfile} from "../../redux/actions";
+import {
+  restoreSearch,
+  sendProfileToDb,
+  clearProfile,
+} from "../../redux/actions";
 import swal from "sweetalert";
 import { profileCreationInfo } from "../../Utils/profileFunctions";
 
 const NavBar = () => {
-  const dispatch=useDispatch()
+  const dispatch = useDispatch();
   const { user, isAuthenticated, isLoading } = useAuth0();
 
-  useEffect(()=>{
-    if(isAuthenticated){
-        let prof=profileCreationInfo(user)
-        // console.log(user)
-        // localStorage.setItem('user', JSON.stringify(prof))
-        // console.log(prof)
-        dispatch(sendProfileToDb(prof))
-      }else{
-        localStorage.setItem('user', JSON.stringify({}))
-        console.log("not logged in")
-        // clearProfile()
+  useEffect(() => {
+    if (isAuthenticated) {
+      let prof = profileCreationInfo(user);
+      // console.log(user)
+      // localStorage.setItem('user', JSON.stringify(prof))
+      // console.log(prof)
+      dispatch(sendProfileToDb(prof));
+    } else {
+      // localStorage.setItem('user', JSON.stringify({}))
+      // localStorage.setItem("loggedUser", JSON.stringify({}));
+
+      console.log("not logged in");
+      // clearProfile()
     }
-  }
-  ,[isAuthenticated])
-  
+  }, [isAuthenticated]);
+
   return (
     <nav className={styles.nav}>
       <ul className={styles.leftContainer}>
