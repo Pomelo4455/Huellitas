@@ -10,6 +10,14 @@ export const RESTORE_FILTERS = "RESTORE_FILTERS";
 export const GET_CAMPAIGNS = "GET_CAMPAIGNS";
 export const GET_DETAIL_CAMP = "GET_DETAIL_CAMP";
 export const SET_CURRENT_PAGE = "SET_CURRENT_PAGE";
+export const SEND_PROFILE_TO_DB= "SEND_PROFILE_TO_DB";
+export const CLEAR_PROFILE = "CLEAR_PROFILE"
+export const LOGIN_SUCCESS="LOGIN_SUCCESS"
+export const LOGIN_FAILURE="LOGIN_FAILURE"
+export const ADD_PROFILE="ADD_PROFILE"
+export const REMOVE_PROFILE="REMOVE_PROFILE"
+export const SET_DB_PROFILE="SET_DB_PROFILE"
+export const REMOVE_DB_PROFILE="REMOVE_DB_PROFILE"
 
 export const getPets = () => {
   return async function (dispatch) {
@@ -51,6 +59,30 @@ export const getPetName = (name) => {
     } catch (error) {}
   };
 };
+
+export const sendProfileToDb =(prof)=>{
+  // console.log(prof)
+  // let prof=JSON.parse(localStorage.getItem('user'))
+  // console.log(prof)
+  return async function (){
+    try{
+      let loggedUser =await axios.post("http://localhost:3001/users", prof)
+      localStorage.setItem('loggedUser', JSON.stringify(loggedUser))
+      // console.log(profile)
+      // return dispatch({
+      //   type: SEND_PROFILE_TO_DB,
+      //   payload: profile
+      // })
+    }catch(error){
+      console.log(error.message)
+    }
+  }
+}
+
+export const clearProfile = ()=>{
+  return { type: CLEAR_PROFILE
+  }
+}
 
 export function postNewPet(payload) {
   return async function () {
@@ -136,4 +168,46 @@ export function setCurrentPage(pageNumber) {
     type: SET_CURRENT_PAGE,
     payload: pageNumber,
   };
+}
+
+
+////
+export const login_success = () => {
+  return {
+    type: LOGIN_SUCCESS
+  }
+}
+
+export const login_failure = () => {
+  return {
+    type: LOGIN_FAILURE
+  }
+}
+
+
+export const add_profile = (profile) => {
+  return {
+    type: ADD_PROFILE,
+    payload: profile
+  }
+}
+
+export const remove_profile = () => {
+  return {
+    type: REMOVE_PROFILE
+  }
+}
+
+
+export const set_db_profile = (profile) => {
+  return {
+    type: SET_DB_PROFILE,
+    payload: profile
+  }
+}
+
+export const remove_db_profile = () => {
+  return {
+    type: REMOVE_DB_PROFILE
+  }
 }
