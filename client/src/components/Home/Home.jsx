@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
@@ -54,13 +54,32 @@ const Home = () => {
   const allCampaigns = useSelector((state => state.campaigns));
   const allFundaciones = useSelector(state => state.fundaciones);
   const isAuth = useSelector((state) => state.is_authenticated);
+  const [userLocation, setLocation] = useState({lat: '', lng: ''});
   const { loginWithPopup } = useAuth0();
+
   useEffect(() => {
-    dispatch(getPets());
-    dispatch(getCampaigns());
+    //if (navigator.geolocation) {
+    //  navigator.geolocation.getCurrentPosition(
+  //      ({coords: [latitude, longitude]}) => {
+//          setLocation({
+            //lat: latitude,
+            //lng: longitude
+          //});
+        //},
+      //  (error) => {
+    //      console.log(error);
+  //      }
+//      )
+    //}
+    //else {
+      //return 'no tenés geolocalización'
+    //}
+    
+      dispatch(getPets());
+      dispatch(getCampaigns());
     dispatch(getFundaciones());
   }, [dispatch]);
-  useEffect(() => {
+      useEffect(() => {
     AOS.init({duration: 1500});
   }, [])
 
@@ -76,7 +95,8 @@ const Home = () => {
       }).then(() => loginWithPopup());
     }
   };
-
+  
+  //<Link to={{pathname: '/map', state: userLocation}}>Geolocalización</Link>
   return (
     <div className={styles.home}>
       <div className={styles.navEnHome}>
