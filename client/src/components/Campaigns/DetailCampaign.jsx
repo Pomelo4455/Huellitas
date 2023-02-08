@@ -7,108 +7,91 @@ import NavBar from "../NavBar/NavBar";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import { useNavigate } from "react-router-dom";
 import swal from "sweetalert";
-
-import style from "./campaigns.module.css";
+import style from "./detailCampaign.module.css";
 
 const Detail = (props) => {
-    const dispatch = useDispatch();
-    const campaignId = useSelector(state => state.detailCamp);
-    console.log(campaignId)
-    const { id } = useParams();
-    const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const campaignId = useSelector((state) => state.detailCamp);
+  const { id } = useParams();
+  const navigate = useNavigate();
 
-    const [input, setInput] = useState(false)
+  const [input, setInput] = useState(false);
 
-    useEffect(() => {
-        dispatch(getDetailCamp(id));
-    }, [dispatch])
+  useEffect(() => {
+    dispatch(getDetailCamp(id));
+  }, [dispatch]);
 
-    return (
-        <div className={style.containerDetailCampaign}>
-            <NavBar/>
-            {
-                campaignId.length !== 0 ?
-                <div className={style.campaignContainer}>
+  return (
+    <>
+      <div className={style.body}>
+      <NavBar />
+        {campaignId.length !== 0 ? (
+          <div className={style.campaignContainer}>
+            <h1>{campaignId[0].title}</h1>
 
-                    <div className={style.titleCampaign}>
-                        <h1>{campaignId[0].title}</h1>
-                    </div>
+            <img
+              src={campaignId[0].image}
+              alt={campaignId[0].id}
+              className={style.img}
+            />
 
-                    <div className={style.detailInfoCampaign}>
-                        <img src={campaignId[0].image} alt={campaignId[0].id} width='250px' height='250px'/>
-                        
-                        <div className={style.infoCampaign}>
-                            <div className={style.goalCampaign}>
-                                <h3>Meta: {campaignId[0].goal}</h3> 
-                            </div>
+            <h3>Meta: {campaignId[0].goal}</h3>
+            <h3>Recaudado: {campaignId[0].collected}</h3>
+            <h3>Descripción:</h3><p> {campaignId[0].description}</p>
 
-                            <div className={style.descriptionCampaign}>
-                                <h3>Descripción: {campaignId[0].description}</h3> 
-                            </div>
-
-                            <div className={style.btnsCampaign}>
-
-                            <Formik
-                            initialValues={{
-        id: campaignId[0].id,
-        title: campaignId[0].title,
-        currency_id: 'ARS',
-        picture_url: campaignId[0].image,
-        description: campaignId[0].description,
-        category_id: 'don',
-        quantity: "",
-        unit_price: 100
-                            }}
-                            validate={(values) => {
-                                let errors = {};
-                                if (!values.quantity) errors.quantity = "Por favor ingrese la cantidad a donar";
-                                else if (!/^[0-9]*$/.test(values.quantity)) errors.quantity = 'Debe ser un número';
-                                return errors;
-                            }}
-                            onSubmit={(values, { resetForm }) => {
-                                dispatch(donate(values));
-                                resetForm();
-                            
-                            }}
-                            validateOnMount
-                            >
-                            {({ errors, setFieldValue }) => {
-                                return (
-                                    <div>
-                                        <Form>
-                                        <div>
-                                            <br />
-                                <Field
-                                    type="number"
-                                    name="quantity"
-                                    placeholder="Cantidad"
-                                ></Field>
-                                <ErrorMessage
-                                    name="quantity"
-                                    component={() => (
-                                        <div>{errors.quantity}</div>
-                                    )}
-                                />
-                            <button>Donar</button>
-                                        </div>
-                                        </Form>
-                                    </div>
-                                )
-                            }}
-                            </Formik>
-                                <Link to={'/campañas'}>
-                                    <button>Volver</button>
-                                </Link>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                : <h2>Loading...</h2>
-            }
-
-            <Footer/>
-        </div>
-    )
-}
+            <Formik
+              initialValues={{
+                id: campaignId[0].id,
+                title: campaignId[0].title,
+                currency_id: "ARS",
+                picture_url: campaignId[0].image,
+                description: campaignId[0].description,
+                category_id: "don",
+                quantity: "",
+                unit_price: 1,
+              }}
+              validate={(values) => {
+                let errors = {};
+                if (!values.quantity)
+                  errors.quantity = "Por favor ingrese la cantidad a donar";
+                else if (!/^[0-9]*$/.test(values.quantity))
+                  errors.quantity = "Debe ser un número";
+                return errors;
+              }}
+              onSubmit={(values, { resetForm }) => {
+                dispatch(donate(values));
+                resetForm();
+              }}
+              validateOnMount
+            >
+              {({ errors, setFieldValue }) => {
+                return (
+                  <Form>
+                    <Field
+                      type="number"
+                      name="quantity"
+                      placeholder="Cantidad"
+                    ></Field>
+                    <ErrorMessage
+                      name="quantity"
+                      component={() => <div>{errors.quantity}</div>}
+                    />
+                    <button>Donar</button>
+                  </Form>
+                );
+              }}
+            </Formik>
+            <Link to={"/campañas"}>
+              <button>Volver</button>
+            </Link>
+          </div>
+        ) : (
+          <h2>Loading...</h2>
+        )}
+      </div>
+      <Footer />
+    </>
+  );
+};
 
 export default Detail;
