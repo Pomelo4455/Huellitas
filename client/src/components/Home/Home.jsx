@@ -1,27 +1,68 @@
 import React from "react";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import Footer from "../Footer/Footer";
 import NavBar from "../NavBar/NavBar";
 import BtnHome from "../BtnHome/BtnHome";
 import Card from "../Card/Card";
-import { getPets } from "../../redux/actions";
+import CardFundacion from "../Card/CardFundacion";
+import { getPets, getCampaigns, getFundaciones } from "../../redux/actions";
 import swal from "sweetalert";
 import { useAuth0 } from "@auth0/auth0-react";
-
+import Landing from "../Landing/Landing";
 import styles from "./home.module.css";
 import Chat from "../Chat/Chat";
+import Campaign from "../Campaigns/Campaing.jsx"
+
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+
+const renderizarPetCards = (allPets, cantidad) => {
+  return allPets.slice(0, cantidad).map((pet) => {
+    return <Card pets={pet} key={pet.id} />;
+  })
+}
+
+const renderizarCampaignsCards = (allCampaigns, cantidad) => {
+  return allCampaigns.slice(0, cantidad).map((camp) => {
+    return <Campaign
+      key={camp.id}
+      id={camp.id}
+      title={camp.title}
+      reason={camp.reason}
+      description={camp.description}
+      image={camp.image}
+      goal={camp.goal}
+    />
+  })
+}
+// agregar card de fundacion en el return pasando por props los argumentos necesarios
+const renderizarFundacionesCards = (allFundaciones, cantidad) => {
+  return allFundaciones.slice(0, cantidad).map((fund) => {
+    return (
+      <CardFundacion fundacion ={fund}/>
+    )
+  })
+}
 
 const Home = () => {
+  const [more, setMore] = useState({pet: false, fundacion: false, campaign: false})
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const allPets = useSelector((state) => state.pets);
+  const allCampaigns = useSelector((state => state.campaigns));
+  const allFundaciones = useSelector(state => state.fundaciones);
   const isAuth = useSelector((state) => state.is_authenticated);
   const { loginWithPopup } = useAuth0();
   useEffect(() => {
     dispatch(getPets());
+    dispatch(getCampaigns());
+    dispatch(getFundaciones());
   }, [dispatch]);
+  useEffect(() => {
+    AOS.init({duration: 1500});
+  }, [])
 
   const handleOnClick = (e) => {
     e.preventDefault();
@@ -38,21 +79,17 @@ const Home = () => {
 
   return (
     <div className={styles.home}>
-      <NavBar />
-      <div className={styles.presentation}>
-        <div className={styles.title}>
-          <h1>Cada patita cuenta</h1>
-        </div>
-
-        <div className={styles.description}>
-          <h4>
-            ¡Hola! Acá vas a poder encontrar a tu mejor amigo, ayudar a refugios
-            realizando donaciones, u ofrecer en adopción al mejor amigo de quien
-            tenga la suerte de adoptarlo. ¡Ayudanos a ayudarlos!
-          </h4>
-        </div>
+      <div className={styles.navEnHome}>
+        <NavBar />
       </div>
-
+      <div className={styles.landingInHome}>
+        <Landing />
+        <div className={styles.img1}></div>
+        <div className={styles.Banner}></div>
+{/*         <div className={styles.Circle}></div> */}
+        <div className={styles.Circle2}></div>
+        <div className={styles.Circle3}></div>
+      </div>
       <div className={styles.btnS}>
         <Link to="/Adoptar">
           <BtnHome text="Adoptar" />
@@ -64,21 +101,73 @@ const Home = () => {
         <Link to={"/campañas"}>
           <BtnHome text="Ver campañas" />
         </Link>
-        {/* <Link to={'/PublicarCampaña'}>
-          <BtnHome text="Apoyar una campaña" />
-        </Link> */}
+        {/* {JSON.parse( localStorage.getItem("loggedUser") && localStorage.getItem("loggedUser")).data.type === "fundacion"? <Link to={'/PublicarCampaña'}>
+          <BtnHome text="Publicar una campaña" />
+        </Link> : null} */}
       </div>
 
+      <div data-aos="fade-up" className={styles.cards}>
+        {more.pet ? 
+          <>
+            {renderizarPetCards(allPets, 6)}
+          </> : 
+          <>
+            {renderizarPetCards(allPets, 3)}
+          </>
+        }
+      </div>
+      <div data-aos="fade-up" className={styles.cards}>
+        {more.pet ? 
+            <>
+              <button className={styles.claseboton} onClick={() => setMore({...more, pet: false})}>VER MENOS</button>
+            </> : 
+            <>
+              <button className={styles.claseboton} onClick={() => setMore({...more, pet: true})}>VER MAS</button>
+            </>
+        }
+      </div>
+      <div data-aos="fade-up" className={styles.cards}>
+        {more.campaign ? 
+          <>
+            {renderizarCampaignsCards(allCampaigns, 3)}
+          </> : 
+          <>
+            {renderizarCampaignsCards(allCampaigns, 1)}
+          </>
+        }
+      </div>
       <div className={styles.cards}>
-        {/* reemplazar tarjetas por una sola cuando este la logica resuelta */}
-        {allPets?.slice(0, 3).map((pet) => {
-          // console.log(pet.name)
-          return <Card pets={pet} key={pet.id} />;
-        })}
+      {more.campaign ? 
+          <>
+            <button className={styles.claseboton} onClick={() => setMore({...more, campaign: false})}>VER MENOS</button>
+          </> : 
+          <>
+            <button className={styles.claseboton} onClick={() => setMore({...more, campaign: true})}>VER MAS</button>
+          </>
+        }
       </div>
-
-        <Chat />
-
+      
+      <div data-aos="fade-up" className={styles.cards}>
+        {more.fundacion ? 
+          <>
+            {renderizarFundacionesCards(allFundaciones, 6)}
+          </> : 
+          <>
+            {renderizarFundacionesCards(allFundaciones, 1)}
+          </>
+        }
+      <div className={styles.cards}>
+        {more.fundacion ? 
+            <>
+              <button className={styles.claseboton} onClick={() => setMore({...more, fundacion: false})}>VER MENOS</button>
+            </> : 
+            <>
+              <button className={styles.claseboton} onClick={() => setMore({...more, fundacion: true})}>VER MAS</button>
+            </>
+          }
+      </div>
+      </div>
+      {/* <Chat /> */}
       <Footer />
     </div>
   );
