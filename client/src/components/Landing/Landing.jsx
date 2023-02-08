@@ -2,43 +2,22 @@ import React from "react";
 import { Icon } from "@iconify/react";
 import { Link } from "react-router-dom";
 import styles from "./landing.module.css";
+import styles2 from "../Home/home.module.css"
 /* eslint-disable jsx-a11y/anchor-is-valid */
 /* No borrar comentario arriba, es para evitar que aparezcan warnings que no aplican al proyecto al compilar*/
 
 export default function Landing() {
   return (
     <div>
-      <div className={styles.NavLan}>
-        <div className={styles.Title}>
-          <Icon className={styles.iconFeet} icon="mingcute:foot-line" />
-          <a className={styles.TitleTxt}>Huellitas</a>
-        </div>
-        <div className={styles.Redes}>
-          <Link to={'https://www.instagram.com/huellitaswebpets/'}>
-            <Icon className={styles.iconRedes1} icon="ph:instagram-logo" />
-          </Link>
-          <Link to={'https://twitter.com/huellitasweb'}>
-            <Icon className={styles.iconRedes2} icon="mdi:twitter" />
-          </Link>
-          <Link to={'/:any'}>
-            <Icon className={styles.iconRedes3} icon="ic:baseline-facebook" />
-          </Link>
-        </div>
-      </div>
-      <div>
+      <div className={styles.landingContainer}>
         <h1 className={styles.text}>Huellitas</h1>
+        <h3 className={styles.subtitle}>Cada patita cuenta</h3>
         <a className={styles.textP}>
-          Adopta a tu mejor amigo y de la mejor manera con nosotros
+            ¡Hola! Acá vas a poder encontrar a tu mejor amigo, ayudar a refugios
+            realizando donaciones, u ofrecer en adopción al mejor amigo de quien
+            tenga la suerte de adoptarlo. ¡Ayudanos a ayudarlos!
         </a>
       </div>
-      <Link to="/home">
-        <button className={styles.buttonLan}>¡Empecemos!</button>
-      </Link>
-      <div className={styles.img1}></div>
-      <div className={styles.Banner}></div>
-      <div className={styles.Circle}></div>
-      <div className={styles.Circle2}></div>
-      <div className={styles.Circle3}></div>
     </div>
   );
 }
