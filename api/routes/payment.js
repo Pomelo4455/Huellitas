@@ -25,7 +25,7 @@ let preference = {
         unit_price: donation.quantity
 }],
 back_urls:{
-    success: 'http://localhost:3001/home',
+    success: 'http://localhost:3000/gracias',
     failure: '',
     pending:'',
 },
