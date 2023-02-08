@@ -11,6 +11,7 @@ import { getPets } from "../../redux/actions";
 // import { pets } from '../../data';
 
 import styles from "./home.module.css";
+import Chat from "../Chat/Chat";
 
 const Home = () => {
   const dispatch = useDispatch();
@@ -60,6 +61,9 @@ const Home = () => {
           return <Card pets={pet} key={pet.id} />;
         })}
       </div>
+
+        <Chat />
+
       <Footer />
     </div>
   );
