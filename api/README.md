@@ -49,6 +49,15 @@
 - DELETE /pets/{campaignsId}.
     * Borrado logico de la campaña que tenga como id campaignId.
 
+## Instrucciones para deployar el back
+
+- Chequear que en el "scripts" del package.json de /api el comando "start" ejecute lo siguiente: "node ./index.js".
+- Agregar las siguientes variables de entorno al .env que está adentro de /api:
+    - DB_DEPLOY=postgresql://postgres:L1ytoWiC2Pfpuf7GGmzR@containers-us-west-183.railway.app:7249/railway
+    - PORT=3001
+- Descomentar la opción 2 dentro de "db.js", y comentar la opción 1.
+- Ir a postman o la aplicación que usen para cargar los datos y hacer un post a "http://localhost:3001/".
+- Recuerden utilizarlo lo menos posible, ya que la cantidad de pedidos que le podemos hacer al servidor remoto es limitada.
 ## .Env configuración
 ### Agregar las siguientes variables al archivo .env de api:
 - APP_PASSWORD_NODEMAILER = gdmrvfsbqonuieih

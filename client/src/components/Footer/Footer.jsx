@@ -7,11 +7,11 @@ function Footer() {
   return (
     <div className={styles.footer}>
       <div className={styles.box}>
-        <Link to={"/sobreNosotros"} className={styles.texts}>
-          <h4 className={styles.texts}>Sobre Nosotros</h4>
-        </Link>
         <Link to={"/home"} className={styles.texts}>
           <h4 className={styles.texts}>Home</h4>
+        </Link>
+        <Link to={"/sobreNosotros"} className={styles.texts}>
+          <h4 className={styles.texts}>Sobre Nosotros</h4>
         </Link>
         <h4 className={styles.texts}>Contactanos</h4>
       </div>
