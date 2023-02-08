@@ -11,6 +11,7 @@ import swal from "sweetalert";
 import { useAuth0 } from "@auth0/auth0-react";
 
 import styles from "./home.module.css";
+import Chat from "../Chat/Chat";
 
 const Home = () => {
   const dispatch = useDispatch();
@@ -75,6 +76,9 @@ const Home = () => {
           return <Card pets={pet} key={pet.id} />;
         })}
       </div>
+
+        <Chat />
+
       <Footer />
     </div>
   );
