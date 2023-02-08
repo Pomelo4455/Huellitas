@@ -18,6 +18,7 @@ export const ADD_PROFILE="ADD_PROFILE"
 export const REMOVE_PROFILE="REMOVE_PROFILE"
 export const SET_DB_PROFILE="SET_DB_PROFILE"
 export const REMOVE_DB_PROFILE="REMOVE_DB_PROFILE"
+export const GET_FUNDACIONES = "GET_FUNDACIONES"
 
 export const getPets = () => {
   return async function (dispatch) {
@@ -222,3 +223,17 @@ export function donate(payload) {
     }
   };
 }
+
+export const getFundaciones = () => {
+  return async function (dispatch) {
+    try {
+      const fundaciones = await axios.get("http://localhost:3001/users?type=fundaciones");
+      return dispatch({
+        type: GET_FUNDACIONES,
+        payload: fundaciones.data,
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+};

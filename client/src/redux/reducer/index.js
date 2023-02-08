@@ -16,7 +16,8 @@ import {
   ADD_PROFILE,
   REMOVE_PROFILE,
   SET_DB_PROFILE,
-  REMOVE_DB_PROFILE
+  REMOVE_DB_PROFILE,
+  GET_FUNDACIONES
 
 } from "../actions";
 
@@ -26,6 +27,7 @@ const initialState = {
   pet: [],
   filters: { sex: "", species: "", size: "", name: "", order: "" },
   campaigns: [],
+  fundaciones: [],
   detailCamp:[],
   page:(1),
   is_authenticated: false,
@@ -40,6 +42,11 @@ const rootReducer = (state = initialState, action) => {
         ...state,
         pets: action.payload,
         allPets: action.payload,
+      };
+    case GET_FUNDACIONES:
+      return {
+        ...state,
+        fundaciones: action.payload,
       };
     case GET_PETS_DETAIL:
       return {

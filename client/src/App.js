@@ -19,12 +19,7 @@ import AuthCheck from "./Utils/authcheck"
 import history from "./Utils/history"
 import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
-
-import { 
-  login_failure,
-  login_success,
-  remove_profile,
-  add_profile, } from "./redux/actions/index"
+import { login_failure, login_success, remove_profile, add_profile, } from "./redux/actions/index"
 
 
 export const auth =new Auth()
