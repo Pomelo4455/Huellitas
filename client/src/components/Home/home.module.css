@@ -3,7 +3,7 @@
 .home {
   width: 100%;
   min-height: 100vh;
-  background-color: #EDEDED;;
+  background-color: #ededed;
   bottom: 0;
 }
 
@@ -58,4 +58,27 @@
   flex-direction: row;
   justify-content: space-around;
   flex-wrap: wrap;
+}
+
+.button {
+  background-color: #2aadf6;
+  width: 12em;
+  height: 3.5em;
+  border: #059ff6 1px solid;
+  border-radius: 8px;
+  color: #fff;
+  font-family: "Poppins";
+  font-weight: 500;
+  font-size: 100%;
+  transition: 0.2s;
+  cursor: pointer;
+}
+
+.button:hover {
+  background-color: #43baf9;
+}
+
+.button:active {
+  transform: scale(0.97);
+  box-shadow: 3px 2px 22px 1px rgba(0, 0, 0, 0.24);
 }

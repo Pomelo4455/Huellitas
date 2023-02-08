@@ -11,6 +11,7 @@ import {
   restoreSearch,
   sendProfileToDb,
   clearProfile,
+  login_success,
 } from "../../redux/actions";
 import swal from "sweetalert";
 import { profileCreationInfo } from "../../Utils/profileFunctions";
@@ -26,6 +27,7 @@ const NavBar = () => {
       // localStorage.setItem('user', JSON.stringify(prof))
       // console.log(prof)
       dispatch(sendProfileToDb(prof));
+      dispatch(login_success());
     } else {
       // localStorage.setItem('user', JSON.stringify({}))
       // localStorage.setItem("loggedUser", JSON.stringify({}));
