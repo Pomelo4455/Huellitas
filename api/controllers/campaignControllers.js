@@ -8,8 +8,8 @@ const getCampaign = async () => {
   return allCampaigns;
 };
 
-const postCampaign = async ({ title, reason, description, goal, userId }) => {
-  let newCampaign = await Campaign.create({ title, reason, description, goal });
+const postCampaign = async ({ title, reason, description, goal, userId, image }) => {
+  let newCampaign = await Campaign.create({ title, reason, description, goal, image });
   await newCampaign.setUser(userId);
   return newCampaign;
 };

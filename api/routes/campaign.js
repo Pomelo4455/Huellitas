@@ -36,7 +36,7 @@ router.get("/:id", async (req, res) => {
 })
 
 router.post("/", async (req, res) => {
-    const { title, reason, description, goal, userId } = req.body;
+    const { title, reason, description, goal, userId,image } = req.body;
     try {     
         if ( !title || !reason || !description || !goal ) {
             return res.status(404).send('Faltan datos');

@@ -50,25 +50,25 @@ const Detail = (props) => {
 
                             <Formik
                             initialValues={{
-                                cantidad: ""
+        id: campaignId[0].id,
+        title: campaignId[0].title,
+        currency_id: 'ARS',
+        picture_url: campaignId[0].image,
+        description: campaignId[0].description,
+        category_id: 'don',
+        quantity: "",
+        unit_price: 100
                             }}
                             validate={(values) => {
                                 let errors = {};
-                                if (!values.cantidad) errors.cantidad = "Por favor ingrese la cantidad a donar";
-                                else if (!/^[0-9]*$/.test(values.cantidad)) errors.cantidad = 'Debe ser un número';
+                                if (!values.quantity) errors.quantity = "Por favor ingrese la cantidad a donar";
+                                else if (!/^[0-9]*$/.test(values.quantity)) errors.quantity = 'Debe ser un número';
                                 return errors;
                             }}
                             onSubmit={(values, { resetForm }) => {
                                 dispatch(donate(values));
                                 resetForm();
-                                setInput(true);
-                                setTimeout(() => setInput(false), 2000);
-                                swal({
-                                    title: "¡Felicidades!",
-                                    text: "Su donación ha sido enviada con exito",
-                                    icon: "success",
-                                    button: "Ok",
-                                }).then(() => navigate("/home"));
+                            
                             }}
                             validateOnMount
                             >
@@ -79,14 +79,14 @@ const Detail = (props) => {
                                         <div>
                                             <br />
                                 <Field
-                                    type="text"
-                                    name="cantidad"
+                                    type="number"
+                                    name="quantity"
                                     placeholder="Cantidad"
                                 ></Field>
                                 <ErrorMessage
-                                    name="cantidad"
+                                    name="quantity"
                                     component={() => (
-                                        <div>{errors.cantidad}</div>
+                                        <div>{errors.quantity}</div>
                                     )}
                                 />
                             <button>Donar</button>

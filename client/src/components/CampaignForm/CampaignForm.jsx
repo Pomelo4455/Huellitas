@@ -57,6 +57,7 @@ export default function CampaignForm() {
                 dispatch(postNewCampaign(values));
                 resetForm();
                 setInputs(true);
+                console.log(values)
                 setTimeout(() => setInputs(false), 2000);
                 swal({
                     title: "¡Felicidades!",
@@ -157,6 +158,7 @@ export default function CampaignForm() {
                                 return;
                             }
                             file.done((fileInfo) => {
+                                
                                 setFieldValue("image", fileInfo.cdnUrl);
                             });
                         }}
