@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
@@ -18,11 +18,30 @@ const Home = () => {
   const navigate = useNavigate();
   const allPets = useSelector((state) => state.pets);
   const isAuth = useSelector((state) => state.is_authenticated);
+  const [userLocation, setLocation] = useState({lat: '', lng: ''});
   const { loginWithPopup } = useAuth0();
-  useEffect(() => {
-    dispatch(getPets());
-  }, [dispatch]);
 
+  useEffect(() => {
+    //if (navigator.geolocation) {
+    //  navigator.geolocation.getCurrentPosition(
+  //      ({coords: [latitude, longitude]}) => {
+//          setLocation({
+            //lat: latitude,
+            //lng: longitude
+          //});
+        //},
+      //  (error) => {
+    //      console.log(error);
+  //      }
+//      )
+    //}
+    //else {
+      //return 'no tenés geolocalización'
+    //}
+    
+      dispatch(getPets());
+    }, [dispatch]);
+    
   const handleOnClick = (e) => {
     e.preventDefault();
     if (isAuth) navigate("/PublicarAdopcion");
@@ -35,7 +54,8 @@ const Home = () => {
       }).then(() => loginWithPopup());
     }
   };
-
+  
+  //<Link to={{pathname: '/map', state: userLocation}}>Geolocalización</Link>
   return (
     <div className={styles.home}>
       <NavBar />
