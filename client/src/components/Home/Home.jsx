@@ -54,8 +54,9 @@ const Home = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const allPets = useSelector((state) => state.pets);
-  const allCampaigns = useSelector((state => state.campaigns));
-  const allFundaciones = useSelector(state => state.fundaciones);
+  const allCampaigns = useSelector((state) => state.campaigns);
+  const allFundaciones = useSelector((state) => state.fundaciones);
+  const profile = useSelector(state => state.profile);
   const isAuth = useSelector((state) => state.is_authenticated);
   const [userLocation, setLocation] = useState({ lat: "", lng: "" });
   const { loginWithPopup } = useAuth0();
@@ -77,14 +78,17 @@ const Home = () => {
     //else {
     //return 'no tenés geolocalización'
     //}
-    
-      dispatch(getPets());
-      dispatch(getCampaigns());
+
+    dispatch(getPets());
+    dispatch(getCampaigns());
     dispatch(getFundaciones());
   }, [dispatch]);
       useEffect(() => {
     AOS.init({duration: 1500});
   }, [])
+  useEffect (() => {
+
+  }, [profile]);
 
   const handleOnClick = (e) => {
     e.preventDefault();
