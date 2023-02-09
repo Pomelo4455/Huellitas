@@ -9,6 +9,7 @@ import { getPetsDetail } from "../../redux/actions";
 import style from "./cardDetail.module.css";
 import axios from "axios";
 import swal from "sweetalert";
+import MapView from "../MapView/MapView";
 
 const CardDetail = () => {
 
@@ -72,6 +73,7 @@ const CardDetail = () => {
           </div>
         </div>
       </div>
+      <MapView/>
       <Footer />
     </>
   );

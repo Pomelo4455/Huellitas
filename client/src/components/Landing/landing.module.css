@@ -1,15 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Dosis&family=Noto+Sans+JP:wght@500;900&family=Noto+Sans:wght@300;700&family=Poppins:ital,wght@0,300;0,400;0,500;1,200;1,300;1,400&family=Ubuntu&display=swap');
 
-.NavLan {
-  display: flex;
-  align-items: center;
+.landingContainer {
+  height: 100%;
+  margin-bottom: 5%;
   position: relative;
+  overflow-x: hidden;
   box-sizing: content-box;
-  justify-content: center;
-  padding: 1%;
-  background-color: transparent;
-  width: 90%;
-  z-index: 3;
+}
+.landingContainer::-webkit-scrollbar {
+  display: none; /* Safari and Chrome */
 }
 
 .Title {
@@ -60,20 +59,30 @@
 }
 
 .text {
-  margin-top: 10%;
   margin-left: 10%;
   margin-right: 10%;
-  margin-bottom: 2%;
   font-size: 600%;
   font-family: "Noto Sans JP";
   font-weight: 800;
   color: rgb(33, 31, 31);
+  margin-bottom: -1%;
+}
 
+.subtitle {
+  margin-left: 10%;
+  margin-right: 10%;
+  font-size: 300%;
+  font-family: "Noto Sans JP";
+  font-weight: 600;
+  color: rgb(33, 31, 31);
 }
 
 .textP {
+  display: flex;
+  width: 45%;
   margin-left: 10%;
   margin-right: 10%;
+  margin-bottom: 5%;
   font-size: 130%;
   font-family: "Poppins", sans-serif;
   font-weight: 400;
@@ -104,33 +113,32 @@
 .img1 {
   position: absolute;
   width: 30%;
-  height: 60%;
-  min-width: 30%;
-  min-height: 60%;
+  height: 75%;
   right: 10%;
   top: 15%;
   background: url(../../img/e17e13c695f6c35d4756d7da29b6bf7f.jpg);
   background-size: cover;
+  background-position: center;
   border-radius: 5%;
   transform: rotate(-9deg);
   z-index: 2;
 }
 
 .Circle {
-  position: fixed;
-  top: 20%;
-  right: -55%;
-  width: 60%;
-  height: 120%;
+  position: absolute;
+  top: -55%;
+  right: -10%;
+  width: 40%;
+  height: 200%;
   background-color: #04a5ff;
   z-index: 0;
   opacity: 0.5;
   border-radius: 50%;
-  transform: translate(-50%, -50%);
+  overflow: hidden;
 }
 
 .Circle2 {
-  position: fixed;
+  position: absolute;
   top: 68%;
   right: 18%;
   width: 5%;
@@ -141,7 +149,7 @@
 }
 
 .Circle3 {
-  position: fixed;
+  position: absolute;
   top: 50%;
   right: 37%;
   width: 5%;
@@ -224,6 +232,8 @@
   }
   
   .textP {
+    display: flex;
+    width: 45%;
     margin-left: 10%;
     margin-right: 10%;
     font-size: 100%;
@@ -375,6 +385,8 @@
   }
   
   .textP {
+    display: flex;
+    width: 45%;
     margin-left: 10%;
     margin-right: 10%;
     font-size: 70%;
@@ -418,13 +430,13 @@
   }
   
   .Circle {
-    position: fixed;
+    position: absolute;
     top: 20%;
     right: -55%;
     width: 60%;
     height: 120%;
     background-color: #04a5ff;
-    z-index: 0;
+    z-index: 3;
     opacity: 0.5;
     border-radius: 50%;
     transform: translate(-50%, -50%);
@@ -526,12 +538,21 @@
   }
   
   .textP {
+    display: flex;
+    width: 45%;
     margin-left: 10%;
     margin-right: 10%;
     font-size: 60%;
     font-family: "Poppins", sans-serif;
     font-weight: 400;
     text-align: left;
+  }
+
+  .cards {
+    width: 100%;
+    margin: 2em;
+    display: flex;
+    flex-direction: row;
   }
   
   .buttonLan {
