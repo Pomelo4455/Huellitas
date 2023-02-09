@@ -1,52 +1,47 @@
 import React, { useState, useEffect } from "react";
 import { MapContainer, TileLayer, Circle, LayerGroup } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
-//import { useLocation } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 
 const MapView = () => {
     const fillBlueOptions = { fillColor: 'blue' }
     const fillRedOptions = { fillColor: 'red' }
     
     const [state, setState] = useState({
-        currentLocation: {lat: '-38.57855194702073', lng: '-58.72306625389777'},
-        zoom: 13
+        currentLocation: {lat: 0, lng: 0},
+        zoom: 10
     })
 
-    const currentLocationProvider = state.currentLocation;
-    console.log('state de GeoLocProvider: ', currentLocationProvider)
 
-    //const location = useLocation();
-    //console.log('Location: ', location.state.latitude, location.state.longitude);
+    const location = useLocation();
+    console.log('Location: ', location.state.userLocation.lat, location.state.userLocation.lng);
 
     // const navigate = useNavigate();
 
-    //useEffect(() => {
-        //if (!location.state.latitude && !location.state.longitude) {
-            //const currentLocation = {
-                //lat: '51.52438',
-                //lng: '-58.72306625389777'
-            //}
-            //setState({ ...state, currentLocation })
-            // navigate("../mapview", { state: {} }, { replace: true }); // Cuando se refresca la página vuelven las coords al estado inicial.
-        //} else {
-            //setState({...state})
-        //}
-    //}, [])
+    useEffect(() => {
+        if (location) {
+            const currentLocation = {
+                lat: location.state.userLocation.lat,
+                lng: location.state.userLocation.lng
+            }
+            setState({ ...state, currentLocation })
+        }
+    }, [])
 
     return (
         <MapContainer
-            center={['-38.57855194702073', '-58.72306625389777']}
+            center={state.currentLocation}
             zoom={state.zoom}
-            scrollWheelZoom={false}
+            //scrollWheelZoom={false}
         >
             <TileLayer
                 url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                 attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
             />
             <LayerGroup>
-                <Circle center={['-38.57855194702073', '-58.72306625389777']} pathOptions={fillBlueOptions} radius={1000} />
+                <Circle center={state.currentLocation} pathOptions={fillBlueOptions} radius={1000} />
                 <Circle
-                    center={['-38.57855194702073', '-58.72306625389777']}
+                    center={state.currentLocation}
                     pathOptions={fillRedOptions}
                     radius={500}
                     stroke={false}
