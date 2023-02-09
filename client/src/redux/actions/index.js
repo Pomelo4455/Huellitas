@@ -20,6 +20,8 @@ export const SET_DB_PROFILE = "SET_DB_PROFILE";
 export const REMOVE_DB_PROFILE = "REMOVE_DB_PROFILE";
 export const GET_FUNDACIONES = "GET_FUNDACIONES";
 export const GET_USERS = "GET_USERS";
+export const DELETE_USERS = "DELETE_USERS";
+export const DELETE_CAMPAINGS = "DELETE_CAMPAINGS";
 
 export const getPets = () => {
   return async function (dispatch) {
@@ -66,16 +68,16 @@ export const sendProfileToDb = (prof) => {
   // console.log(prof)
   // let prof=JSON.parse(localStorage.getItem('user'))
   // console.log(prof)
-  return async function (dispatch){
-    try{
-      let loggedUser =await axios.post("http://localhost:3001/users", prof)
-      localStorage.setItem('loggedUser', JSON.stringify(loggedUser))
+  return async function (dispatch) {
+    try {
+      let loggedUser = await axios.post("http://localhost:3001/users", prof);
+      localStorage.setItem("loggedUser", JSON.stringify(loggedUser));
       return dispatch({
         type: SEND_PROFILE_TO_DB,
-        payload: loggedUser
-      })
-    }catch(error){
-      console.log(error.message)
+        payload: loggedUser,
+      });
+    } catch (error) {
+      console.log(error.message);
     }
   };
 };
@@ -251,5 +253,27 @@ export const getUsers = () => {
         payload: users.data,
       });
     } catch (error) {}
+  };
+};
+
+export const deleteUsers = (url) => {
+  return async function (dispatch) {
+    try {
+      await axios.delete(url);
+      return dispatch({ type: DELETE_USERS });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+};
+
+export const deleteCampaigns = (url) => {
+  return async function (dispatch) {
+    try {
+      await axios.delete(url);
+      return dispatch({ type: DELETE_CAMPAINGS });
+    } catch (error) {
+      console.log(error);
+    }
   };
 };
