@@ -153,6 +153,9 @@ const Home = () => {
             >
               VER MENOS
             </button>
+            <button className={styles.claseboton}>
+              <Link to="/Adoptar" className={styles.linkText}>VER TODOS</Link>
+            </button>
           </>
         ) : (
           <>
@@ -180,6 +183,9 @@ const Home = () => {
               onClick={() => setMore({ ...more, campaign: false })}
             >
               VER MENOS
+            </button>
+            <button className={styles.claseboton}>
+              <Link to="/campañas" className={styles.linkText}>VER TODOS</Link>
             </button>
           </>
         ) : (
@@ -209,6 +215,9 @@ const Home = () => {
               >
                 VER MENOS
               </button>
+              <button className={styles.claseboton}>
+                <Link to="/:any" className={styles.linkText}>VER TODOS</Link>
+                </button>
             </>
           ) : (
             <>
@@ -222,7 +231,7 @@ const Home = () => {
           )}
         </div>
       </div>
-      {/* <Chat /> */}
+      <Chat />
       {/* <Footer /> */}
     </div>
   );
