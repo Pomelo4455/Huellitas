@@ -76,7 +76,7 @@ const Home = () => {
       <div className={styles.navEnHome}>
         {/* <NavBar /> */}
       </div>
-      <Link to={'/detail/1'} state={{userLocation}}><button>Geolocalización</button></Link>
+      {/*<Link to={'/detail/1'} state={{userLocation}}><button>Geolocalización</button></Link>*/}
       <div className={styles.landingInHome}>
         <Landing />
         <div className={styles.img1}></div>
