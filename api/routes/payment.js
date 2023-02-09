@@ -32,8 +32,8 @@ back_urls:{
 auto_return: 'approved',
 binary_mode: true,
 }
-mercadopago.preferences.create(preference).then((response)=>res.status(200).send({response}))
-
+mercadopago.preferences.create(preference).then((response)=>res.status(200).send({response}).send(console.log(response)))
+console.log(response);
     } catch (error) {
       res.status(404).send({error:error.message});
     }

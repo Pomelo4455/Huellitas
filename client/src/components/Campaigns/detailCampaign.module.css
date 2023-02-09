@@ -10,7 +10,7 @@
 
 
 .campaignContainer{
-    
+
     width: 100%;
     height: 100%;
     display: flex;
@@ -24,3 +24,4 @@
     border-radius: 8px;
     object-fit: cover;
 }
+

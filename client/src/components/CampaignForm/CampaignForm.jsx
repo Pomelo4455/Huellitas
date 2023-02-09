@@ -26,7 +26,7 @@ export default function CampaignForm() {
                 reason: '',
                 description: '',
                 image: '',
-                collected: 0
+                collected: 0,
             }}
             validate={(values) => {
                 let errors = {};

@@ -8,13 +8,13 @@ import { Formik, Form, Field, ErrorMessage } from "formik";
 import { useNavigate } from "react-router-dom";
 import swal from "sweetalert";
 import style from "./detailCampaign.module.css";
+import ProgressBar from "@ramonak/react-progress-bar";
 
 const Detail = (props) => {
   const dispatch = useDispatch();
   const campaignId = useSelector((state) => state.detailCamp);
   const { id } = useParams();
   const navigate = useNavigate();
-
   const [input, setInput] = useState(false);
 
   useEffect(() => {
@@ -24,7 +24,7 @@ const Detail = (props) => {
   return (
     <>
       <div className={style.body}>
-      <NavBar />
+        <NavBar />
         {campaignId.length !== 0 ? (
           <div className={style.campaignContainer}>
             <h1>{campaignId[0].title}</h1>
@@ -37,7 +37,23 @@ const Detail = (props) => {
 
             <h3>Meta: {campaignId[0].goal}</h3>
             <h3>Recaudado: {campaignId[0].collected}</h3>
-            <h3>Descripción:</h3><p> {campaignId[0].description}</p>
+
+            <ProgressBar
+              completed={50}
+              
+            //   completed={(campaignId[0].goal / 100) * campaignId[0].collected}
+              bgColor= "#646bff"
+              baseBgColor="#000000"
+              height="30px"
+              width="500px"
+              transitionDuration= "2s"
+              animateOnRender = {true}
+              labelAlignment="outside"
+              labelColor ="#000000"
+            />
+
+            <h3>Descripción:</h3>
+            <p> {campaignId[0].description}</p>
 
             <Formik
               initialValues={{
