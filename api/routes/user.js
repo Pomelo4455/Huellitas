@@ -46,9 +46,9 @@ router.put("/:id", async (req, res) => {
 
 router.delete("/:id", async (req, res) => {
   const { id } = req.params;
-  const { status } = req.query;
+  const { status, type } = req.query;
   try {
-    const changeStatus = await deleteUser(id, status);
+    const changeStatus = await deleteUser(id, status, type);
     res.status(200).send(`Se cambio el estado del user ${id}`);
   } catch (error) {
     res.status(404).send(error.message);

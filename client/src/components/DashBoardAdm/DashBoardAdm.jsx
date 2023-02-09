@@ -1,56 +1,62 @@
 import { useSelector, useDispatch } from "react-redux";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import styles from "./dashBoardAdm.module.css";
 // import NavBar from "../NavBar/NavBar";
-import { getUsers, getCampaigns, getPets } from "../../redux/actions";
-import ReactDataTable from "react-data-table-component";
+import {
+  getUsers,
+  getCampaigns,
+  getPets,
+  deleteUsers,
+} from "../../redux/actions";
 import DataTable from "react-data-table-component";
 
 const DashBoardAdm = () => {
   const datos = useSelector((state) => state.users);
   const campañas = useSelector((state) => state.campaigns);
   const mascotas = useSelector((state) => state.pets);
+  const [deletuse, setDelete] = useState(null);
+
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getUsers());
     dispatch(getCampaigns());
     dispatch(getPets());
-  }, []);
-  console.log(datos);
-  console.log(campañas);
-  console.log(mascotas);
+    setDelete(null);
+  }, [deletuse]);
+  // console.log(datos);
+  // console.log(campañas);
+  // console.log(mascotas);
   const columnsUser = [
     {
       name: "ID",
-      selector: "id",
+      selector: (row) => row.id,
       sortable: true,
     },
     {
       name: "Type",
-      selector: "type",
+      selector: (row) => row.type,
       sortable: true,
     },
     {
       name: "Name",
-      selector: "name",
+      selector: (row) => row.name,
       sortable: true,
     },
     {
       name: "Email",
-      selector: "email",
+      selector: (row) => row.email,
       sortable: true,
     },
     {
       name: "Status",
-      selector: "status",
+      selector: (row) => row.status,
       sortable: true,
     },
 
     {
       name: "Change type",
       cell: (row) => (
-        <select onChange={(e) => handleSelect(row, e)}>
-          <option value="">Seleccione una opcion</option>
+        <select onChange={(e) => handleSelectTypeUser(row, e)} value={row.type}>
           <option value="usuario">Usuario</option>
           <option value="fundacion">Fundacion</option>
           <option value="admin">Administrador</option>
@@ -60,8 +66,10 @@ const DashBoardAdm = () => {
     {
       name: "Change status",
       cell: (row) => (
-        <select onChange={(e) => handleSelect(row, e)}>
-          <option value="">Seleccione una opcion</option>
+        <select
+          onChange={(e) => handleSelectStatusUser(row, e)}
+          value={row.status}
+        >
           <option value="activo">Activo</option>
           <option value="inactivo">Inactivo</option>
           <option value="baneado">Baneado</option>
@@ -77,89 +85,126 @@ const DashBoardAdm = () => {
   const columnsCampaigns = [
     {
       name: "ID",
-      selector: "id",
+      selector: (row) => row.id,
       sortable: true,
     },
     {
       name: "Title",
-      selector: "title",
+      selector: (row) => row.title,
       sortable: true,
     },
     {
       name: "UserID",
-      selector: "userId",
+      selector: (row) => row.userId,
       sortable: true,
     },
     {
       name: "Goal",
-      selector: "goal",
+      selector: (row) => row.goal,
       sortable: true,
     },
     {
       name: "Status",
-      selector: "status",
+      selector: (row) => row.status,
       sortable: true,
+    },
+    {
+      name: "Change status",
+      cell: (row) => (
+        <select
+          onChange={(e) => handleSelectStatusCampaigns(row, e)}
+          value={row.status}
+        >
+          <option value="activo">Activo</option>
+          <option value="inactivo">Inactivo</option>
+          <option value="baneado">Baneado</option>
+        </select>
+      ),
     },
   ];
 
   const columnsPets = [
     {
       name: "ID",
-      selector: "id",
+      selector: (row) => row.id,
       sortable: true,
     },
     {
       name: "Name",
-      selector: "name",
+      selector: (row) => row.name,
       sortable: true,
     },
     {
       name: "Species",
-      selector: "species",
+      selector: (row) => row.species,
       sortable: true,
     },
     {
       name: "Sex",
-      selector: "sex",
+      selector: (row) => row.sex,
       sortable: true,
     },
     {
       name: "Size",
-      selector: "size",
+      selector: (row) => row.size,
       sortable: true,
     },
     {
       name: "Color",
-      selector: "color",
+      selector: (row) => row.color,
       sortable: true,
     },
     {
       name: "Age",
-      selector: "age",
+      selector: (row) => row.age,
       sortable: true,
     },
     {
       name: "Giver",
-      selector: "giver",
+      selector: (row) => row.giver,
       sortable: true,
     },
     {
       name: "UserId",
-      selector: "userId",
+      selector: (row) => row.userId,
       sortable: true,
     },
     {
       name: "Adopted",
-      selector: "adopted",
+      selector: (row) => row.adopted,
       sortable: true,
       cell: (row) => (row.adopted ? "Yes" : "No"),
     },
   ];
   const handleClick = (row) => {
-    console.log("Este es el id del usuario", row.id);
+    console.log(
+      "Este boton te redirigira al perfil del usuario con el id:",
+      row.id
+    );
   };
-  const handleSelect = (row, e) => {
-    console.log(row, e.target.value, row.id);
+  const handleSelectTypeUser = (row, e) => {
+    dispatch(
+      deleteUsers(
+        `http://localhost:3001/users/${row.id}?type=${e.target.value}`
+      )
+    );
+    setDelete(`${e.target.value}`);
+  };
+  const handleSelectStatusUser = (row, e) => {
+    dispatch(
+      deleteUsers(
+        `http://localhost:3001/users/${row.id}?status=${e.target.value}`
+      )
+    );
+    setDelete(`${e.target.value}`);
+  };
+  const handleSelectStatusCampaigns = (row, e) => {
+    dispatch(
+      deleteUsers(
+        `http://localhost:3001/campaigns/${row.id}?status=${e.target.value}`
+      )
+    );
+    setDelete(`${e.target.value}`);
   };
 
   const paginateOptions = {
@@ -172,6 +217,7 @@ const DashBoardAdm = () => {
   return (
     <>
       {/* <NavBar /> */}
+      <h2>DashBoard Administrador</h2>
       <DataTable
         title="Usuarios"
         columns={columnsUser}
