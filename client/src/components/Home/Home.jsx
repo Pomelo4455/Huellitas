@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import Footer from "../Footer/Footer";
@@ -53,6 +53,7 @@ const Home = () => {
   const allPets = useSelector((state) => state.pets);
   const allCampaigns = useSelector((state => state.campaigns));
   const allFundaciones = useSelector(state => state.fundaciones);
+  const profile = useSelector(state => state.profile);
   const isAuth = useSelector((state) => state.is_authenticated);
   const [userLocation, setLocation] = useState({lat: '', lng: ''});
   const { loginWithPopup } = useAuth0();
@@ -77,11 +78,14 @@ const Home = () => {
     
       dispatch(getPets());
       dispatch(getCampaigns());
-    dispatch(getFundaciones());
+      dispatch(getFundaciones());
   }, [dispatch]);
       useEffect(() => {
-    AOS.init({duration: 1500});
+    AOS.init();
   }, [])
+  useEffect (() => {
+
+  }, [profile]);
 
   const handleOnClick = (e) => {
     e.preventDefault();
@@ -121,9 +125,13 @@ const Home = () => {
         <Link to={"/campañas"}>
           <BtnHome text="Ver campañas" />
         </Link>
-        {/* {JSON.parse( localStorage.getItem("loggedUser") && localStorage.getItem("loggedUser")).data.type === "fundacion"? <Link to={'/PublicarCampaña'}>
-          <BtnHome text="Publicar una campaña" />
-        </Link> : null} */}
+        {
+          JSON.parse(localStorage.getItem("loggedUser"))?.data?.type === "fundacion" ? 
+          <Link to={'/PublicarCampaña'}>
+            <BtnHome text="Publicar una campaña" />
+          </Link> : 
+          null
+        }
       </div>
 
       <div data-aos="fade-up" className={styles.cards}>

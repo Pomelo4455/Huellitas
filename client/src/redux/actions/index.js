@@ -65,15 +65,14 @@ export const sendProfileToDb =(prof)=>{
   // console.log(prof)
   // let prof=JSON.parse(localStorage.getItem('user'))
   // console.log(prof)
-  return async function (){
+  return async function (dispatch){
     try{
       let loggedUser =await axios.post("http://localhost:3001/users", prof)
       localStorage.setItem('loggedUser', JSON.stringify(loggedUser))
-      // console.log(profile)
-      // return dispatch({
-      //   type: SEND_PROFILE_TO_DB,
-      //   payload: profile
-      // })
+      return dispatch({
+        type: SEND_PROFILE_TO_DB,
+        payload: loggedUser
+      })
     }catch(error){
       console.log(error.message)
     }
