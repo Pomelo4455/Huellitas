@@ -7,8 +7,8 @@ import { useDispatch } from "react-redux";
 import { Widget } from "@uploadcare/react-widget";
 import { postNewPet } from "../../redux/actions";
 import effects from "uploadcare-widget-tab-effects/react";
-import Footer from "../Footer/Footer";
-import NavBar from "../NavBar/NavBar";
+// import Footer from "../Footer/Footer";
+// import NavBar from "../NavBar/NavBar";
 import swal from "sweetalert";
 
 export default function AdoptionForm() {
@@ -21,7 +21,7 @@ export default function AdoptionForm() {
   console.log(newid);
   return (
     <div className={styles.body}>
-      <NavBar />
+      {/* <NavBar /> */}
       <Formik
         initialValues={{
           name: "",
@@ -283,7 +283,7 @@ export default function AdoptionForm() {
           </div>
         )}
       </Formik>
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 }

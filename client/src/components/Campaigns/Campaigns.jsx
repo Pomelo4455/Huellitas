@@ -3,8 +3,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Link } from "react-router-dom";
 import { getCampaigns } from '../../redux/actions';
 import Campaña from "./Campaing";
-import Footer from "../Footer/Footer";
-import NavBar from "../NavBar/NavBar";
+// import Footer from "../Footer/Footer";
+// import NavBar from "../NavBar/NavBar";
 import styles from "./campaigns.module.css"
 
 
@@ -19,7 +19,7 @@ const Campañas = () => {
 
     return (
         <div className={styles.body}>
-            <NavBar/>
+            {/* <NavBar/> */}
             <div className={styles.container}>
                 
             {
@@ -44,7 +44,7 @@ const Campañas = () => {
             <Link to={'/home'}>
                 <button>Volver</button>
             </Link>
-            <Footer/>
+            {/* <Footer/> */}
         </div>
     )
 }

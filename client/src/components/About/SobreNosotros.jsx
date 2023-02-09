@@ -1,13 +1,13 @@
 import React from "react";
-import Footer from "../Footer/Footer";
-import NavBar from "../NavBar/NavBar";
+// import Footer from "../Footer/Footer";
+// import NavBar from "../NavBar/NavBar";
 import styles from "./about.module.css";
 import { Icon } from "@iconify/react";
 import { Link } from "react-router-dom";
 function About() {
   return (
     <div className={styles.body}>
-      <NavBar />
+      {/* <NavBar /> */}
       <div className={styles.aboutPrincipal}>
         <div className={styles.cardAbout}>
           <img className={styles.imgAbout}></img>
@@ -166,7 +166,7 @@ function About() {
           </a>
         </div>
       </div>
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 }
