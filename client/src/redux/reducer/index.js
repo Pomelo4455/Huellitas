@@ -17,7 +17,8 @@ import {
   REMOVE_PROFILE,
   SET_DB_PROFILE,
   REMOVE_DB_PROFILE,
-  GET_FUNDACIONES
+  GET_FUNDACIONES,
+  DONATION_INCREASE,
 
 } from "../actions";
 
@@ -32,7 +33,8 @@ const initialState = {
   page:(1),
   is_authenticated: false,
   profile: null,
-  db_profile: null
+  db_profile: null,
+  increase: 0
 };
 
 const rootReducer = (state = initialState, action) => {
@@ -139,6 +141,11 @@ const rootReducer = (state = initialState, action) => {
           ...state,
           db_profile: null
         }
+        case DONATION_INCREASE:
+          return {
+            ...state,
+            increase: action.payload
+          }
     default:
       return {
         ...state,

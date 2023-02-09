@@ -8,21 +8,45 @@ const getCampaign = async () => {
   return allCampaigns;
 };
 
-const postCampaign = async ({ title, reason, description, goal, userId, image, collected }) => {
-  let newCampaign = await Campaign.create({ title, reason, description, goal, image, collected });
+const postCampaign = async ({
+  title,
+  reason,
+  description,
+  goal,
+  userId,
+  image,
+  collected,
+}) => {
+  let newCampaign = await Campaign.create({
+    title,
+    reason,
+    description,
+    goal,
+    image,
+    collected,
+  });
   await newCampaign.setUser(userId);
   return newCampaign;
 };
 
 const putCampaign = async (req) => {
   const { id } = req.params;
-  const { title, reason, description, goal } = req.body;
+  const { title, reason, description, goal, collected } = req.body;
+  let addCollected = Campaign.increment(
+    {
+      collected: collected
+    },
+    {
+      where: { id },
+    }
+  );
   let edit = Campaign.update(
     {
       title,
       reason,
       description,
       goal,
+      
     },
     {
       where: { id },
@@ -32,10 +56,7 @@ const putCampaign = async (req) => {
 };
 
 const deleteCampaign = async (id, status) => {
-  let deleted = Campaign.update(
-    { status: status },
-    { where: { id } }
-  );
+  let deleted = Campaign.update({ status: status }, { where: { id } });
 
   return deleted;
 };

@@ -19,6 +19,7 @@ export const REMOVE_PROFILE="REMOVE_PROFILE"
 export const SET_DB_PROFILE="SET_DB_PROFILE"
 export const REMOVE_DB_PROFILE="REMOVE_DB_PROFILE"
 export const GET_FUNDACIONES = "GET_FUNDACIONES"
+export const DONATION_INCREASE = "DONATION_INCREASE"
 
 export const getPets = () => {
   return async function (dispatch) {
@@ -237,3 +238,11 @@ export const getFundaciones = () => {
     }
   };
 };
+
+
+export const donationIncrease = (amount) => {
+  return {
+    type: DONATION_INCREASE,
+    payload: amount,
+  }
+}

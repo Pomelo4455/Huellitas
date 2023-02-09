@@ -1,12 +1,11 @@
 import React, { useEffect, useState } from "react";
-import { getDetailCamp, donate } from "../../redux/actions";
+import { getDetailCamp, donate, donationIncrease } from "../../redux/actions";
 import { useSelector, useDispatch } from "react-redux";
 import { Link, useParams } from "react-router-dom";
 import Footer from "../Footer/Footer";
 import NavBar from "../NavBar/NavBar";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import { useNavigate } from "react-router-dom";
-import swal from "sweetalert";
 import style from "./detailCampaign.module.css";
 import ProgressBar from "@ramonak/react-progress-bar";
 
@@ -39,17 +38,17 @@ const Detail = (props) => {
             <h3>Recaudado: {campaignId[0].collected}</h3>
 
             <ProgressBar
-              completed={50}
-              
-            //   completed={(campaignId[0].goal / 100) * campaignId[0].collected}
-              bgColor= "#646bff"
+              completed={Math.floor(
+                (campaignId[0].collected / campaignId[0].goal) * 100
+              )}
+              bgColor="#646bff"
               baseBgColor="#000000"
               height="30px"
               width="500px"
-              transitionDuration= "2s"
-              animateOnRender = {true}
+              transitionDuration="2s"
+              animateOnRender={true}
               labelAlignment="outside"
-              labelColor ="#000000"
+              labelColor="#000000"
             />
 
             <h3>Descripción:</h3>
@@ -75,6 +74,7 @@ const Detail = (props) => {
                 return errors;
               }}
               onSubmit={(values, { resetForm }) => {
+                // dispatch(donationIncrease(values.quantity));
                 dispatch(donate(values));
                 resetForm();
               }}
@@ -92,7 +92,15 @@ const Detail = (props) => {
                       name="quantity"
                       component={() => <div>{errors.quantity}</div>}
                     />
-                    <button>Donar</button>
+                    <button
+                      disabled={
+                        campaignId[0].goal >= campaignId[0].collected
+                          ? false
+                          : true
+                      }
+                    >
+                      Donar
+                    </button>
                   </Form>
                 );
               }}
