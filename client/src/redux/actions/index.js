@@ -231,7 +231,7 @@ export const getFundaciones = () => {
   return async function (dispatch) {
     try {
       const fundaciones = await axios.get(
-        "http://localhost:3001/users?type=fundaciones"
+        "http://localhost:3001/users?type=fundacion"
       );
       return dispatch({
         type: GET_FUNDACIONES,
