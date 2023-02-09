@@ -3,7 +3,8 @@ import { Navigate, Route, Routes } from "react-router-dom";
 // import Sidebar from './components/Sidebar/Sidebar';
 import AdoptionForm from "./components/AdoptionForm/AdoptionForm";
 import Footer from "./components/Footer/Footer";
-import Landing from "./components/Landing/Landing";
+// import Landing from "./components/Landing/Landing";
+import NavBar from "./components/NavBar/NavBar";
 import SobreNosotros from "./components/About/SobreNosotros";
 import Home from "./components/Home/Home";
 import CardDetail from "./components/CardDetail/CardDetail";
@@ -14,6 +15,7 @@ import Campañas from "./components/Campaigns/Campaigns";
 import Detail from "./components/Campaigns/DetailCampaign";
 import CampaignForm from "./components/CampaignForm/CampaignForm";
 import Gratitude from "./components/Gratitude/Gratitude";
+import UnauthRedirect from "./components/UnauthRedirect/UnauthRedirect"
 import Auth from "./Utils/auth";
 import AuthCheck from "./Utils/authcheck";
 import history from "./Utils/history";
@@ -53,6 +55,7 @@ function App() {
 
   return (
     <>
+      <NavBar/>
       <Routes>
         <Route path="/" element={<Navigate to="/home" />} />
         <Route path="/Footer" element={<Footer />} />
@@ -66,8 +69,10 @@ function App() {
         <Route path="/PublicarCampaña" element={<CampaignForm />} />
         <Route path="/gracias" element={<Gratitude />} />
         <Route path="/DashBoardAdm" element={<DashBoardAdm />} />
+        <Route path="/unauthRedirect" element={<UnauthRedirect/>}/>
         <Route path="/:any" element={<NotFound />} />
       </Routes>
+      <Footer />
     </>
   );
 }

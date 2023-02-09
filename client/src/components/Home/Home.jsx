@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
-import Footer from "../Footer/Footer";
-import NavBar from "../NavBar/NavBar";
+// import Footer from "../Footer/Footer";
+// import NavBar from "../NavBar/NavBar";
 import BtnHome from "../BtnHome/BtnHome";
 import Card from "../Card/Card";
 import CardFundacion from "../Card/CardFundacion";
@@ -107,7 +107,7 @@ const Home = () => {
   return (
     <div className={styles.home}>
       <div className={styles.navEnHome}>
-        <NavBar />
+        {/* <NavBar /> */}
       </div>
       <div className={styles.landingInHome}>
         <Landing />
@@ -223,7 +223,7 @@ const Home = () => {
         </div>
       </div>
       {/* <Chat /> */}
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 };

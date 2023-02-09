@@ -1,7 +1,7 @@
 import { useSelector, useDispatch } from "react-redux";
 import { useEffect } from "react";
 import styles from "./dashBoardAdm.module.css";
-import NavBar from "../NavBar/NavBar";
+// import NavBar from "../NavBar/NavBar";
 import { getUsers, getCampaigns, getPets } from "../../redux/actions";
 import ReactDataTable from "react-data-table-component";
 import DataTable from "react-data-table-component";
@@ -171,7 +171,7 @@ const DashBoardAdm = () => {
 
   return (
     <>
-      <NavBar />
+      {/* <NavBar /> */}
       <DataTable
         title="Usuarios"
         columns={columnsUser}
