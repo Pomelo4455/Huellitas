@@ -14,24 +14,28 @@ import Campañas from "./components/Campaigns/Campaigns";
 import Detail from "./components/Campaigns/DetailCampaign";
 import CampaignForm from "./components/CampaignForm/CampaignForm";
 import Gratitude from "./components/Gratitude/Gratitude";
-import Auth from "./Utils/auth"
-import AuthCheck from "./Utils/authcheck"
-import history from "./Utils/history"
+import Auth from "./Utils/auth";
+import AuthCheck from "./Utils/authcheck";
+import history from "./Utils/history";
 import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
-import { login_failure, login_success, remove_profile, add_profile, } from "./redux/actions/index"
+import {
+  login_failure,
+  login_success,
+  remove_profile,
+  add_profile,
+} from "./redux/actions/index";
+import DashBoardAdm from "./components/DashBoardAdm/DashBoardAdm";
 
-
-export const auth =new Auth()
-
+export const auth = new Auth();
 
 function App() {
   const handleAuthentication = (props) => {
-    if(props.location.hash) {
-      auth.handleAuth()
+    if (props.location.hash) {
+      auth.handleAuth();
     }
-  }
-  const dispatch=useDispatch()
+  };
+  const dispatch = useDispatch();
 
   // useEffect(()=>{
   //   if(auth.isAuthenticated()) {
@@ -50,19 +54,19 @@ function App() {
   return (
     <>
       <Routes>
-        <Route path="/" element={<Landing/>} />
-        <Route path="/Footer" element={<Footer/>} />
-        <Route path="/SobreNosotros" element={<SobreNosotros/>} />
-        <Route path="/home" element={<Home/>} />
-        <Route path="/detail/:id" element={<CardDetail/>} />
-        <Route path="/Adoptar" element={<AllCards/>} />
-        <Route path="/PublicarAdopcion" element={<AdoptionForm/>} />
-        <Route path="/campañas" element={<Campañas/>} />
-        <Route path="/campañas/:id" element={<Detail/>} />
-        <Route path="/PublicarCampaña" element={<CampaignForm/>} />
-        <Route path="/gracias" element={<Gratitude/>} />
-        <Route path="/:any" element={<NotFound/>} />
-
+        <Route path="/" element={<Landing />} />
+        <Route path="/Footer" element={<Footer />} />
+        <Route path="/SobreNosotros" element={<SobreNosotros />} />
+        <Route path="/home" element={<Home />} />
+        <Route path="/detail/:id" element={<CardDetail />} />
+        <Route path="/Adoptar" element={<AllCards />} />
+        <Route path="/PublicarAdopcion" element={<AdoptionForm />} />
+        <Route path="/campañas" element={<Campañas />} />
+        <Route path="/campañas/:id" element={<Detail />} />
+        <Route path="/PublicarCampaña" element={<CampaignForm />} />
+        <Route path="/gracias" element={<Gratitude />} />
+        <Route path="/DashBoardAdm" element={<DashBoardAdm />} />
+        <Route path="/:any" element={<NotFound />} />
       </Routes>
     </>
   );
