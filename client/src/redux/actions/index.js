@@ -66,17 +66,16 @@ export const sendProfileToDb = (prof) => {
   // console.log(prof)
   // let prof=JSON.parse(localStorage.getItem('user'))
   // console.log(prof)
-  return async function () {
-    try {
-      let loggedUser = await axios.post("http://localhost:3001/users", prof);
-      localStorage.setItem("loggedUser", JSON.stringify(loggedUser));
-      // console.log(profile)
-      // return dispatch({
-      //   type: SEND_PROFILE_TO_DB,
-      //   payload: profile
-      // })
-    } catch (error) {
-      console.log(error.message);
+  return async function (dispatch){
+    try{
+      let loggedUser =await axios.post("http://localhost:3001/users", prof)
+      localStorage.setItem('loggedUser', JSON.stringify(loggedUser))
+      return dispatch({
+        type: SEND_PROFILE_TO_DB,
+        payload: loggedUser
+      })
+    }catch(error){
+      console.log(error.message)
     }
   };
 };
@@ -232,7 +231,7 @@ export const getFundaciones = () => {
   return async function (dispatch) {
     try {
       const fundaciones = await axios.get(
-        "http://localhost:3001/users?type=fundaciones"
+        "http://localhost:3001/users?type=fundacion"
       );
       return dispatch({
         type: GET_FUNDACIONES,

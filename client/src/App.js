@@ -1,4 +1,4 @@
-import { Route, Routes } from "react-router-dom";
+import { Navigate, Route, Routes } from "react-router-dom";
 // import Login from './componentes/Login/Login';
 // import Sidebar from './components/Sidebar/Sidebar';
 import AdoptionForm from "./components/AdoptionForm/AdoptionForm";
@@ -54,7 +54,7 @@ function App() {
   return (
     <>
       <Routes>
-        <Route path="/" element={<Landing />} />
+        <Route path="/" element={<Navigate to="/home" />} />
         <Route path="/Footer" element={<Footer />} />
         <Route path="/SobreNosotros" element={<SobreNosotros />} />
         <Route path="/home" element={<Home />} />

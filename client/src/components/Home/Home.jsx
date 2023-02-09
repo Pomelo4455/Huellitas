@@ -56,6 +56,7 @@ const Home = () => {
   const allPets = useSelector((state) => state.pets);
   const allCampaigns = useSelector((state) => state.campaigns);
   const allFundaciones = useSelector((state) => state.fundaciones);
+  const profile = useSelector(state => state.profile);
   const isAuth = useSelector((state) => state.is_authenticated);
   const [userLocation, setLocation] = useState({ lat: "", lng: "" });
   const { loginWithPopup } = useAuth0();
@@ -82,9 +83,12 @@ const Home = () => {
     dispatch(getCampaigns());
     dispatch(getFundaciones());
   }, [dispatch]);
-  useEffect(() => {
-    AOS.init({ duration: 1500 });
-  }, []);
+      useEffect(() => {
+    AOS.init({duration: 1500});
+  }, [])
+  useEffect (() => {
+
+  }, [profile]);
 
   const handleOnClick = (e) => {
     e.preventDefault();
@@ -124,9 +128,13 @@ const Home = () => {
         <Link to={"/campañas"}>
           <BtnHome text="Ver campañas" />
         </Link>
-        {/* {JSON.parse( localStorage.getItem("loggedUser") && localStorage.getItem("loggedUser")).data.type === "fundacion"? <Link to={'/PublicarCampaña'}>
-          <BtnHome text="Publicar una campaña" />
-        </Link> : null} */}
+        {
+          JSON.parse(localStorage.getItem("loggedUser"))?.data?.type === "fundacion" ? 
+          <Link to={'/PublicarCampaña'}>
+            <BtnHome text="Publicar una campaña" />
+          </Link> : 
+          null
+        }
       </div>
 
       <div data-aos="fade-up" className={styles.cards}>
