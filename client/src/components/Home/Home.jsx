@@ -58,26 +58,27 @@ const Home = () => {
   const allFundaciones = useSelector((state) => state.fundaciones);
   const profile = useSelector(state => state.profile);
   const isAuth = useSelector((state) => state.is_authenticated);
-  const [userLocation, setLocation] = useState({ lat: "", lng: "" });
+  const [userLocation, setLocation] = useState({ lat: 0, lng: 0 });
   const { loginWithPopup } = useAuth0();
 
   useEffect(() => {
-    //if (navigator.geolocation) {
-    //  navigator.geolocation.getCurrentPosition(
-    //      ({coords: [latitude, longitude]}) => {
-    //          setLocation({
-    //lat: latitude,
-    //lng: longitude
-    //});
-    //},
-    //  (error) => {
-    //      console.log(error);
-    //      }
-    //      )
-    //}
-    //else {
-    //return 'no tenés geolocalización'
-    //}
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(
+          (position) => {
+            console.log(position.coords.latitude, position.coords.longitude)
+              setLocation({
+                lat: position.coords.latitude,
+                lng: position.coords.longitude
+    });
+    },
+      (error) => {
+          console.log(error);
+          }
+          )
+    }
+    else {
+    return 'no tenés geolocalización'
+    }
 
     dispatch(getPets());
     dispatch(getCampaigns());
@@ -103,12 +104,12 @@ const Home = () => {
     }
   };
 
-  //<Link to={{pathname: '/map', state: userLocation}}>Geolocalización</Link>
   return (
     <div className={styles.home}>
       <div className={styles.navEnHome}>
         {/* <NavBar /> */}
       </div>
+      <Link to={'/detail/1'} state={{userLocation}}><button>Geolocalización</button></Link>
       <div className={styles.landingInHome}>
         <Landing />
         <div className={styles.img1}></div>
