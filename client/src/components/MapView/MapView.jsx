@@ -8,10 +8,9 @@ const MapView = () => {
     const fillRedOptions = { fillColor: 'red' }
     
     const [state, setState] = useState({
-        currentLocation: {lat: 0, lng: 0},
-        zoom: 10
+        currentLocation: {lat: '-36.89180006651577', lng:'-65.5118360741946'},
+        zoom: 3.5
     })
-
 
     const location = useLocation();
     console.log('Location: ', location.state.userLocation.lat, location.state.userLocation.lng);
