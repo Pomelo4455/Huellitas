@@ -14,7 +14,7 @@ import styles from "./home.module.css";
 import Chat from "../Chat/Chat";
 import Campaign from "../Campaigns/Campaing.jsx";
 
-import CardHome from "./CardHome";
+// import CardHome from "./CardHome";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import RenderCampaigns from "./RenderCampaigns";
