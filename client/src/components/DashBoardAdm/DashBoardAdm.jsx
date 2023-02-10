@@ -16,9 +16,9 @@ const DashBoardAdm = () => {
     dispatch(getCampaigns());
     dispatch(getPets());
   }, []);
-  console.log(datos);
-  console.log(campañas);
-  console.log(mascotas);
+  // console.log(datos);
+  // console.log(campañas);
+  // console.log(mascotas);
   const columnsUser = [
     {
       name: "ID",
