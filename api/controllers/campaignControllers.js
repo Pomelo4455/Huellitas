@@ -8,8 +8,28 @@ const getCampaign = async () => {
   return allCampaigns;
 };
 
-const postCampaign = async ({ title, reason, description, goal, userId, image }) => {
-  let newCampaign = await Campaign.create({ title, reason, description, goal, image });
+const getCampaignAdm = async () => {
+  const allCampaignsAdm = await Campaign.findAll({
+    where: {},
+  });
+  return allCampaignsAdm;
+};
+
+const postCampaign = async ({
+  title,
+  reason,
+  description,
+  goal,
+  userId,
+  image,
+}) => {
+  let newCampaign = await Campaign.create({
+    title,
+    reason,
+    description,
+    goal,
+    image,
+  });
   await newCampaign.setUser(userId);
   return newCampaign;
 };
@@ -32,10 +52,7 @@ const putCampaign = async (req) => {
 };
 
 const deleteCampaign = async (id, status) => {
-  let deleted = Campaign.update(
-    { status: status },
-    { where: { id } }
-  );
+  let deleted = Campaign.update({ status: status }, { where: { id } });
 
   return deleted;
 };
@@ -45,4 +62,5 @@ module.exports = {
   postCampaign,
   putCampaign,
   deleteCampaign,
+  getCampaignAdm,
 };

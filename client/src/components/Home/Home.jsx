@@ -14,81 +14,49 @@ import styles from "./home.module.css";
 import Chat from "../Chat/Chat";
 import Campaign from "../Campaigns/Campaing.jsx";
 
+import CardHome from "./CardHome";
 import AOS from "aos";
 import "aos/dist/aos.css";
-
-const renderizarPetCards = (allPets, cantidad) => {
-  return allPets.slice(0, cantidad).map((pet) => {
-    return <Card pets={pet} key={pet.id} />;
-  });
-};
-
-const renderizarCampaignsCards = (allCampaigns, cantidad) => {
-  return allCampaigns.slice(0, cantidad).map((camp) => {
-    return (
-      <Campaign
-        key={camp.id}
-        id={camp.id}
-        title={camp.title}
-        reason={camp.reason}
-        description={camp.description}
-        image={camp.image}
-        goal={camp.goal}
-      />
-    );
-  });
-};
-// agregar card de fundacion en el return pasando por props los argumentos necesarios
-const renderizarFundacionesCards = (allFundaciones, cantidad) => {
-  return allFundaciones.slice(0, cantidad).map((fund) => {
-    return <CardFundacion fundacion={fund} />;
-  });
-};
+import RenderCampaigns from "./RenderCampaigns";
+import RenderPets from "./RenderPets";
+import RenderFoundations from "./RenderFoundations";
 
 const Home = () => {
-  const [more, setMore] = useState({
-    pet: false,
-    fundacion: false,
-    campaign: false,
-  });
+
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const allPets = useSelector((state) => state.pets);
-  const allCampaigns = useSelector((state) => state.campaigns);
-  const allFundaciones = useSelector((state) => state.fundaciones);
-  const profile = useSelector(state => state.profile);
+  const profile = useSelector((state) => state.profile);
   const isAuth = useSelector((state) => state.is_authenticated);
-  const [userLocation, setLocation] = useState({ lat: "", lng: "" });
+  const [userLocation, setLocation] = useState({ lat: 0, lng: 0 });
   const { loginWithPopup } = useAuth0();
 
   useEffect(() => {
-    //if (navigator.geolocation) {
-    //  navigator.geolocation.getCurrentPosition(
-    //      ({coords: [latitude, longitude]}) => {
-    //          setLocation({
-    //lat: latitude,
-    //lng: longitude
-    //});
-    //},
-    //  (error) => {
-    //      console.log(error);
-    //      }
-    //      )
-    //}
-    //else {
-    //return 'no tenés geolocalización'
-    //}
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(
+          (position) => {
+            console.log(position.coords.latitude, position.coords.longitude)
+              setLocation({
+                lat: position.coords.latitude,
+                lng: position.coords.longitude
+    });
+    },
+      (error) => {
+          console.log(error);
+          }
+          )
+    }
+    else {
+    return 'no tenés geolocalización'
+    }
 
     dispatch(getPets());
     dispatch(getCampaigns());
     dispatch(getFundaciones());
   }, [dispatch]);
-      useEffect(() => {
-    AOS.init({duration: 1500});
-  }, [])
-  useEffect (() => {
-
-  }, [profile]);
+  useEffect(() => {
+    AOS.init({ duration: 1500 });
+  }, []);
+  useEffect(() => {}, [profile]);
 
   const handleOnClick = (e) => {
     e.preventDefault();
@@ -103,12 +71,12 @@ const Home = () => {
     }
   };
 
-  //<Link to={{pathname: '/map', state: userLocation}}>Geolocalización</Link>
   return (
     <div className={styles.home}>
       <div className={styles.navEnHome}>
         {/* <NavBar /> */}
       </div>
+      {/*<Link to={'/detail/1'} state={{userLocation}}><button>Geolocalización</button></Link>*/}
       <div className={styles.landingInHome}>
         <Landing />
         <div className={styles.img1}></div>
@@ -128,102 +96,19 @@ const Home = () => {
         <Link to={"/campañas"}>
           <BtnHome text="Ver campañas" />
         </Link>
-        {
-          JSON.parse(localStorage.getItem("loggedUser"))?.data?.type === "fundacion" ? 
-          <Link to={'/PublicarCampaña'}>
+        {JSON.parse(localStorage.getItem("loggedUser"))?.data?.type ===
+        "fundacion" ? (
+          <Link to={"/PublicarCampaña"}>
             <BtnHome text="Publicar una campaña" />
-          </Link> : 
-          null
-        }
+          </Link>
+        ) : null}
       </div>
 
-      <div data-aos="fade-up" className={styles.cards}>
-        {more.pet ? (
-          <>{renderizarPetCards(allPets, 6)}</>
-        ) : (
-          <>{renderizarPetCards(allPets, 3)}</>
-        )}
-      </div>
-      <div data-aos="fade-up" className={styles.cards}>
-        {more.pet ? (
-          <>
-            <button
-              className={styles.claseboton}
-              onClick={() => setMore({ ...more, pet: false })}
-            >
-              VER MENOS
-            </button>
-          </>
-        ) : (
-          <>
-            <button
-              className={styles.claseboton}
-              onClick={() => setMore({ ...more, pet: true })}
-            >
-              VER MAS
-            </button>
-          </>
-        )}
-      </div>
-      <div data-aos="fade-up" className={styles.cards}>
-        {more.campaign ? (
-          <>{renderizarCampaignsCards(allCampaigns, 3)}</>
-        ) : (
-          <>{renderizarCampaignsCards(allCampaigns, 1)}</>
-        )}
-      </div>
-      <div className={styles.cards}>
-        {more.campaign ? (
-          <>
-            <button
-              className={styles.claseboton}
-              onClick={() => setMore({ ...more, campaign: false })}
-            >
-              VER MENOS
-            </button>
-          </>
-        ) : (
-          <>
-            <button
-              className={styles.claseboton}
-              onClick={() => setMore({ ...more, campaign: true })}
-            >
-              VER MAS
-            </button>
-          </>
-        )}
-      </div>
-
-      <div data-aos="fade-up" className={styles.cards}>
-        {more.fundacion ? (
-          <>{renderizarFundacionesCards(allFundaciones, 6)}</>
-        ) : (
-          <>{renderizarFundacionesCards(allFundaciones, 1)}</>
-        )}
-        <div className={styles.cards}>
-          {more.fundacion ? (
-            <>
-              <button
-                className={styles.claseboton}
-                onClick={() => setMore({ ...more, fundacion: false })}
-              >
-                VER MENOS
-              </button>
-            </>
-          ) : (
-            <>
-              <button
-                className={styles.claseboton}
-                onClick={() => setMore({ ...more, fundacion: true })}
-              >
-                VER MAS
-              </button>
-            </>
-          )}
-        </div>
-      </div>
-      {/* <Chat /> */}
-      {/* <Footer /> */}
+      <RenderPets/>
+      <RenderCampaigns/>
+      <RenderFoundations/>
+      
+      <Chat />
     </div>
   );
 };
