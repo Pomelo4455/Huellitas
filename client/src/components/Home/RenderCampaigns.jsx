@@ -1,13 +1,22 @@
 import React, { useState } from "react";
 import styles from "./home.module.css";
-import CardHome from "./CardHome";
+// import CardHome from "./CardHome";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
+import Campaña from "../Campaigns/Campaing";
 
 const renderizarCampaignsCards = (allCampaigns, cantidad) => {
   return allCampaigns.slice(0, cantidad).map((camp) => {
     return (
-      <CardHome image={camp.image} title={camp.title} subtitle={camp.reason} />
+      <Campaña
+        key={camp.id}
+        id={camp.id}
+        title={camp.title}
+        reason={camp.reason}
+        description={camp.description}
+        image={camp.image}
+        goal={camp.goal}
+      />
     );
   });
 };

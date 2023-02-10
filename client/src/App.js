@@ -39,8 +39,10 @@ export const auth = new Auth();
 
 
 function App() {
-  const [loggedUser,setLoggedUser]=useState(
-    JSON.parse(window.localStorage.getItem('loggedUser')))
+  let user= JSON.parse(window.localStorage.getItem('loggedUser'))
+  if(!user) user={}
+
+  const [loggedUser,setLoggedUser]=useState(user)
   
   const profile = useSelector((state) => state.profile);
   useEffect(() => {}, [profile]);
@@ -75,23 +77,14 @@ function App() {
         {/* <Route path="/Footer" element={<Footer />} /> */}
         <Route path="/SobreNosotros" element={<SobreNosotros />} />
         <Route path="/home" element={<Home />} />
-        <Route path="/detail/:id" element={
-          <UserProtectedRoute>
-            <CardDetail />
-          </UserProtectedRoute>} />
-        <Route path="/Adoptar" element={
-          <UserProtectedRoute>
-            <AllCards />
-          </UserProtectedRoute>} />
+        <Route path="/detail/:id" element={<CardDetail />} />
+        <Route path="/Adoptar" element={<AllCards />} />
         <Route path="/PublicarAdopcion" element={
           <UserProtectedRoute>
             <AdoptionForm />
           </UserProtectedRoute>} />
         <Route path="/campañas" element={<Campañas />} />
-        <Route path="/campañas/:id" element={
-          <UserProtectedRoute>
-            <Detail />
-          </UserProtectedRoute>} />
+        <Route path="/campañas/:id" element={<Detail />}/>
         <Route path="/PublicarCampaña" element={
           <FoundationProtectedRoute>
             <CampaignForm />
