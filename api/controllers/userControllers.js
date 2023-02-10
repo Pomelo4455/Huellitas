@@ -1,5 +1,5 @@
 const { User, Pet, Campaign, Adoption } = require("../db.js");
-const transporter=require("../config/mailer")
+const transporter = require("../config/mailer");
 
 const createUser = async (Data) => {
   const { email, name, image } = Data;
@@ -11,9 +11,9 @@ const createUser = async (Data) => {
       from: '"Huellitas " <tmsalbanesi@gmail.com>', // sender address
       to: `${foundUser.dataValues.email}`, // list of receivers
       subject: "Se ha registrado su cuenta en Huellitas",
-      html:`
+      html: `
           <h1>${foundUser.dataValues.name} Bienvenido a Huellitas</h1>
-          `      
+          `,
     });
   }
   return foundUser;
@@ -75,10 +75,10 @@ const updateUser = async (id, data) => {
   return updatedUser;
 };
 
-const deleteUser = async (id, status) => {
+const deleteUser = async (id, status, type) => {
   if (!id) throw new Error("No se envio el id a eliminar");
   const userDelete = await User.update(
-    { status: status },
+    { status, type },
     {
       where: {
         id,

@@ -20,6 +20,9 @@ export const SET_DB_PROFILE = "SET_DB_PROFILE";
 export const REMOVE_DB_PROFILE = "REMOVE_DB_PROFILE";
 export const GET_FUNDACIONES = "GET_FUNDACIONES";
 export const GET_USERS = "GET_USERS";
+export const DELETE_USERS = "DELETE_USERS";
+export const DELETE_CAMPAINGS = "DELETE_CAMPAINGS";
+export const DELETE_PETS = "DELETE_PETS";
 export const UPDATE_USERS = "UPDATE_USERS";
 
 export const getPets = () => {
@@ -63,7 +66,7 @@ export const getPetName = (name) => {
   };
 };
 
-export const sendProfileToDb = (prof) => {
+export const sendProfileToDb = (prof, setLoggedUser) => {
   // console.log(prof)
   // let prof=JSON.parse(localStorage.getItem('user'))
   // console.log(prof)
@@ -71,9 +74,10 @@ export const sendProfileToDb = (prof) => {
     try {
       let loggedUser = await axios.post("http://localhost:3001/users", prof);
       localStorage.setItem("loggedUser", JSON.stringify(loggedUser));
+      setLoggedUser(loggedUser);
       return dispatch({
         type: SEND_PROFILE_TO_DB,
-        payload: loggedUser,
+        payload: loggedUser.data,
       });
     } catch (error) {
       console.log(error.message);
@@ -259,6 +263,73 @@ export const getUsers = () => {
         payload: users.data,
       });
     } catch (error) {}
+  };
+};
+
+export const deleteUsers = (url) => {
+  return async function (dispatch) {
+    try {
+      await axios.delete(url);
+      return dispatch({ type: DELETE_USERS });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+};
+
+export const deleteCampaigns = (url) => {
+  return async function (dispatch) {
+    try {
+      await axios.delete(url);
+      return dispatch({ type: DELETE_CAMPAINGS });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+};
+
+export function getCampaignsAdm() {
+  return async function (dispatch) {
+    try {
+      const response = await axios.get(
+        "http://localhost:3001/campaigns/Adm/Admin"
+      );
+      const allCampaignsAdm = response.data;
+
+      return dispatch({
+        type: GET_CAMPAIGNS,
+        payload: allCampaignsAdm,
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+}
+
+export function getPetsAdm() {
+  return async function (dispatch) {
+    try {
+      const response = await axios.get("http://localhost:3001/pets/Adm/Admin");
+      const allPetsAdm = response.data;
+      console.log("soy el allPetsAdm", allPetsAdm);
+      return dispatch({
+        type: GET_PETS,
+        payload: allPetsAdm,
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+}
+
+export const deletePets = (url) => {
+  return async function (dispatch) {
+    try {
+      await axios.delete(url);
+      return dispatch({ type: DELETE_PETS });
+    } catch (error) {
+      console.log(error);
+    }
   };
 };
 

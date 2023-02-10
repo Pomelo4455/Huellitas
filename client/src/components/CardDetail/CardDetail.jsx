@@ -3,8 +3,8 @@ import { useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 
-import Footer from "../Footer/Footer";
-import NavBar from "../NavBar/NavBar";
+// import Footer from "../Footer/Footer";
+// import NavBar from "../NavBar/NavBar";
 import { getPetsDetail } from "../../redux/actions";
 import style from "./cardDetail.module.css";
 import axios from "axios";
@@ -37,7 +37,7 @@ const CardDetail = () => {
 
   return (
     <>
-      <NavBar />
+      {/* <NavBar /> */}
       <div className={style.detailContainer}>
         <div className={style.detailInformation}>
           <div className={style.petName}>
@@ -73,8 +73,8 @@ const CardDetail = () => {
           </div>
         </div>
       </div>
-      <MapView/>
-      <Footer />
+      {/*<MapView/>*/}
+      {/* <Footer /> */}
     </>
   );
 };

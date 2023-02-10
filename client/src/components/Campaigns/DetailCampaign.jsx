@@ -2,8 +2,8 @@ import React, { useEffect, useState } from "react";
 import { getDetailCamp, donate } from "../../redux/actions";
 import { useSelector, useDispatch } from "react-redux";
 import { Link, useParams } from "react-router-dom";
-import Footer from "../Footer/Footer";
-import NavBar from "../NavBar/NavBar";
+// import Footer from "../Footer/Footer";
+// import NavBar from "../NavBar/NavBar";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import { useNavigate } from "react-router-dom";
 import swal from "sweetalert";
@@ -25,7 +25,7 @@ const Detail = (props) => {
 
     return (
         <div className={style.containerDetailCampaign}>
-            <NavBar/>
+            {/* <NavBar/> */}
             {
                 campaignId.length !== 0 ?
                 <div className={style.campaignContainer}>
@@ -106,7 +106,7 @@ const Detail = (props) => {
                 : <h2>Loading...</h2>
             }
 
-            <Footer/>
+            {/* <Footer/> */}
         </div>
     )
 }
