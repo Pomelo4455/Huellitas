@@ -22,6 +22,7 @@ import {
   DELETE_USERS,
   DELETE_CAMPAINGS,
   DELETE_PETS,
+  UPDATE_USERS,
 } from "../actions";
 
 const initialState = {
@@ -146,6 +147,11 @@ const rootReducer = (state = initialState, action) => {
         db_profile: null,
       };
     case GET_USERS:
+      return {
+        ...state,
+        users: action.payload,
+      };
+    case UPDATE_USERS:
       return {
         ...state,
         users: action.payload,
