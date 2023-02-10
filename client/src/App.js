@@ -74,7 +74,7 @@ function App() {
   return (
     <>
       <NavBar
-      //loggedUser={loggedUser.data} setLoggedUser={setLoggedUser}
+      loggedUser={loggedUser.data} setLoggedUser={setLoggedUser}
       />
       <Routes>
         <Route path="/" element={<Navigate to="/home" />} />
