@@ -20,6 +20,7 @@ export const SET_DB_PROFILE = "SET_DB_PROFILE";
 export const REMOVE_DB_PROFILE = "REMOVE_DB_PROFILE";
 export const GET_FUNDACIONES = "GET_FUNDACIONES";
 export const GET_USERS = "GET_USERS";
+export const UPDATE_USERS = "UPDATE_USERS";
 
 export const getPets = () => {
   return async function (dispatch) {
@@ -66,16 +67,16 @@ export const sendProfileToDb = (prof) => {
   // console.log(prof)
   // let prof=JSON.parse(localStorage.getItem('user'))
   // console.log(prof)
-  return async function (dispatch){
-    try{
-      let loggedUser =await axios.post("http://localhost:3001/users", prof)
-      localStorage.setItem('loggedUser', JSON.stringify(loggedUser))
+  return async function (dispatch) {
+    try {
+      let loggedUser = await axios.post("http://localhost:3001/users", prof);
+      localStorage.setItem("loggedUser", JSON.stringify(loggedUser));
       return dispatch({
         type: SEND_PROFILE_TO_DB,
-        payload: loggedUser
-      })
-    }catch(error){
-      console.log(error.message)
+        payload: loggedUser,
+      });
+    } catch (error) {
+      console.log(error.message);
     }
   };
 };
@@ -88,6 +89,13 @@ export function postNewPet(payload) {
   return async function () {
     const newDog = await axios.post("http://localhost:3001/pets", payload);
     return newDog;
+  };
+}
+
+export function postNewImage(payload) {
+  return async function () {
+    const newImage = await axios.post("http://localhost:3001/users", payload);
+    return newImage;
   };
 }
 
@@ -249,6 +257,21 @@ export const getUsers = () => {
       return dispatch({
         type: GET_USERS,
         payload: users.data,
+      });
+    } catch (error) {}
+  };
+};
+
+export const updateUsers = (id, data) => {
+  return async function (dispatch) {
+    try {
+      const response = await axios.put(
+        `http://localhost:3001/users/${id}`,
+        data
+      );
+      dispatch({
+        type: UPDATE_USERS,
+        payload: response.data,
       });
     } catch (error) {}
   };

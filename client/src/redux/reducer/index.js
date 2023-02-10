@@ -19,6 +19,7 @@ import {
   REMOVE_DB_PROFILE,
   GET_FUNDACIONES,
   GET_USERS,
+  UPDATE_USERS,
 } from "../actions";
 
 const initialState = {
@@ -140,6 +141,11 @@ const rootReducer = (state = initialState, action) => {
         db_profile: null,
       };
     case GET_USERS:
+      return {
+        ...state,
+        users: action.payload,
+      };
+    case UPDATE_USERS:
       return {
         ...state,
         users: action.payload,

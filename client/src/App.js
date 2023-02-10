@@ -14,6 +14,7 @@ import Campañas from "./components/Campaigns/Campaigns";
 import Detail from "./components/Campaigns/DetailCampaign";
 import CampaignForm from "./components/CampaignForm/CampaignForm";
 import Gratitude from "./components/Gratitude/Gratitude";
+import Profile from "./components/Profile/Profile";
 import Auth from "./Utils/auth";
 import AuthCheck from "./Utils/authcheck";
 import history from "./Utils/history";
@@ -66,6 +67,7 @@ function App() {
         <Route path="/PublicarCampaña" element={<CampaignForm />} />
         <Route path="/gracias" element={<Gratitude />} />
         <Route path="/DashBoardAdm" element={<DashBoardAdm />} />
+        <Route path="/Profile" element={<Profile />} />
         <Route path="/:any" element={<NotFound />} />
       </Routes>
     </>
