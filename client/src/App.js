@@ -36,6 +36,7 @@ import {
 } from "./redux/actions/index";
 import DashBoardAdm from "./components/DashBoardAdm/DashBoardAdm";
 import { User } from "@auth0/auth0-react";
+import Mensajeria from "./components/Mensajeria/Mensajeria";
 
 export const auth = new Auth();
 
@@ -73,7 +74,7 @@ function App() {
   return (
     <>
       <NavBar
-      //loggedUser={loggedUser.data} setLoggedUser={setLoggedUser}
+      loggedUser={loggedUser.data} setLoggedUser={setLoggedUser}
       />
       <Routes>
         <Route path="/" element={<Navigate to="/home" />} />
@@ -114,6 +115,7 @@ function App() {
           path="/Profile"
           element={<Profile setLoggedUser={setLoggedUser} />}
         />
+        <Route path="/chat/:emisorId/:receptorId" element={<Mensajeria/>}/>
         <Route path="/:any" element={<NotFound />} />
       </Routes>
       <Footer />
