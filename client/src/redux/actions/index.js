@@ -65,7 +65,7 @@ export const getPetName = (name) => {
   };
 };
 
-export const sendProfileToDb = (prof) => {
+export const sendProfileToDb = (prof,setLoggedUser) => {
   // console.log(prof)
   // let prof=JSON.parse(localStorage.getItem('user'))
   // console.log(prof)
@@ -73,9 +73,10 @@ export const sendProfileToDb = (prof) => {
     try {
       let loggedUser = await axios.post("http://localhost:3001/users", prof);
       localStorage.setItem("loggedUser", JSON.stringify(loggedUser));
+      setLoggedUser(loggedUser)
       return dispatch({
         type: SEND_PROFILE_TO_DB,
-        payload: loggedUser,
+        payload: loggedUser.data
       });
     } catch (error) {
       console.log(error.message);
