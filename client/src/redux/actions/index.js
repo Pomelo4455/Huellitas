@@ -333,13 +333,16 @@ export const deletePets = (url) => {
   };
 };
 
-export const updateUsers = (id, data) => {
+export const updateUsers = (id, data, setLoggedUser) => {
   return async function (dispatch) {
     try {
       const response = await axios.put(
         `http://localhost:3001/users/${id}`,
         data
       );
+      localStorage.setItem("loggedUser", JSON.stringify(response));
+      setLoggedUser(response);
+      console.log(response);
       dispatch({
         type: UPDATE_USERS,
         payload: response.data,

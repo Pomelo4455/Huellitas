@@ -71,7 +71,9 @@ function App() {
 
   return (
     <>
-      <NavBar loggedUser={loggedUser.data} setLoggedUser={setLoggedUser} />
+      <NavBar
+      //loggedUser={loggedUser.data} setLoggedUser={setLoggedUser}
+      />
       <Routes>
         <Route path="/" element={<Navigate to="/home" />} />
         {/* <Route path="/Footer" element={<Footer />} /> */}
@@ -128,7 +130,10 @@ function App() {
           }
         />
         <Route path="/unauthRedirect/:props" element={<UnauthRedirect />} />
-        <Route path="/Profile" element={<Profile />} />
+        <Route
+          path="/Profile"
+          element={<Profile setLoggedUser={setLoggedUser} />}
+        />
         <Route path="/:any" element={<NotFound />} />
       </Routes>
       <Footer />
