@@ -3,12 +3,15 @@ const transporter = require("../config/mailer");
 
 const createMessage = async (message, emisorId, receptorId) => {
     try {
-        const newMessage = await Message.create({message, emisorId, receptorId});
         const emisor = await User.findByPk(emisorId)
         const receptor = await User.findByPk(receptorId)
-        newMessage.setEmisor(emisor);
-        newMessage.setReceptor(receptor);
-        return newMessage;
+        if (emisor && receptor) {
+          const newMessage = await Message.create({message, emisorId, receptorId});
+          newMessage.setEmisor(emisor);
+          newMessage.setReceptor(receptor);
+          return newMessage;
+        }
+        return {};
     } catch (error) {
         throw new Error(error)
     }
