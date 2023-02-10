@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import styles from "./home.module.css";
-import CardHome from "./CardHome";
+import Card from "../Card/Card.jsx";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 
 const renderizarPetCards = (allPets, cantidad) => {
     return allPets.slice(0, cantidad).map((pet) => {
-      return <CardHome image={pet.image} title={pet.name} subtitle={pet.giver} />;
+      return <Card pets={pet} key={pet.id} />;
     });
   };
 

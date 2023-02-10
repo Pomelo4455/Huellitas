@@ -1,13 +1,18 @@
 import React, { useState } from "react";
 import styles from "./home.module.css";
-import CardHome from "./CardHome";
+import Card from "../Card/Card";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 
 // agregar card de fundacion en el return pasando por props los argumentos necesarios
 const renderizarFundacionesCards = (allFundaciones, cantidad) => {
     return allFundaciones.slice(0, cantidad).map((fund) => {
-        return <CardHome image={fund.image} title={fund.name} subtitle={fund.address}/>;
+      let fundacion={
+        name:fund.name,
+        image:fund.image,
+        giver:fund.address
+      }
+        return <Card pets={fundacion} key={fund.id}/>;
     });
 };
 
