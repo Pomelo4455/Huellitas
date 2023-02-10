@@ -32,19 +32,19 @@ module.exports = (sequelize) => {
       },
       sex: {
         type: DataTypes.ENUM("hembra", "macho"),
-        allowNull: false
+        allowNull: false,
       },
       temperament: {
         type: DataTypes.STRING,
         allowNull: false,
       },
       adopted: {
-        type: DataTypes.BOOLEAN,
-        defaultValue: false,
+        type: DataTypes.ENUM("si", "no"),
+        defaultValue: "no",
       },
-      deleted : {
-        type: DataTypes.BOOLEAN,
-        defaultValue: false,
+      deleted: {
+        type: DataTypes.ENUM("si", "no"),
+        defaultValue: "no",
       },
     },
     {

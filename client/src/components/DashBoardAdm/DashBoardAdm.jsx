@@ -7,6 +7,10 @@ import {
   getCampaigns,
   getPets,
   deleteUsers,
+  deleteCampaigns,
+  getCampaignsAdm,
+  getPetsAdm,
+  deletePets,
 } from "../../redux/actions";
 import DataTable from "react-data-table-component";
 
@@ -19,13 +23,11 @@ const DashBoardAdm = () => {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getUsers());
-    dispatch(getCampaigns());
-    dispatch(getPets());
+    dispatch(getCampaignsAdm());
+    dispatch(getPetsAdm());
     setDelete(null);
   }, [deletuse]);
-  // console.log(datos);
-  // console.log(campañas);
-  // console.log(mascotas);
+
   const columnsUser = [
     {
       name: "ID",
@@ -173,7 +175,35 @@ const DashBoardAdm = () => {
       name: "Adopted",
       selector: (row) => row.adopted,
       sortable: true,
-      cell: (row) => (row.adopted ? "Yes" : "No"),
+    },
+    {
+      name: "Deleted",
+      selector: (row) => row.deleted,
+      sortable: true,
+    },
+    {
+      name: "Change Adopted",
+      cell: (row) => (
+        <select
+          onChange={(e) => handleSelectAdoptedPets(row, e)}
+          value={row.adopted}
+        >
+          <option value="si">Si</option>
+          <option value="no">No</option>
+        </select>
+      ),
+    },
+    {
+      name: "Change Deleted",
+      cell: (row) => (
+        <select
+          onChange={(e) => handleSelectDeletedPets(row, e)}
+          value={row.deleted}
+        >
+          <option value="si">Si</option>
+          <option value="no">No</option>
+        </select>
+      ),
     },
   ];
   const handleClick = (row) => {
@@ -200,8 +230,24 @@ const DashBoardAdm = () => {
   };
   const handleSelectStatusCampaigns = (row, e) => {
     dispatch(
-      deleteUsers(
+      deleteCampaigns(
         `http://localhost:3001/campaigns/${row.id}?status=${e.target.value}`
+      )
+    );
+    setDelete(`${e.target.value}`);
+  };
+  const handleSelectAdoptedPets = (row, e) => {
+    dispatch(
+      deletePets(
+        `http://localhost:3001/pets/${row.id}?adopted=${e.target.value}`
+      )
+    );
+    setDelete(`${e.target.value}`);
+  };
+  const handleSelectDeletedPets = (row, e) => {
+    dispatch(
+      deletePets(
+        `http://localhost:3001/pets/${row.id}?deleted=${e.target.value}`
       )
     );
     setDelete(`${e.target.value}`);
