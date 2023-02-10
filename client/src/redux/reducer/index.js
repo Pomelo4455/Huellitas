@@ -21,6 +21,7 @@ import {
   GET_USERS,
   DELETE_USERS,
   DELETE_CAMPAINGS,
+  DELETE_PETS,
 } from "../actions";
 
 const initialState = {
@@ -36,6 +37,8 @@ const initialState = {
   profile: null,
   db_profile: null,
   users: [],
+  campaignsAdm: [],
+  petsAdm: [],
 };
 
 const rootReducer = (state = initialState, action) => {
@@ -152,6 +155,10 @@ const rootReducer = (state = initialState, action) => {
         ...state,
       };
     case DELETE_CAMPAINGS:
+      return {
+        ...state,
+      };
+    case DELETE_PETS:
       return {
         ...state,
       };

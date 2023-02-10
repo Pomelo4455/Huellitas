@@ -109,10 +109,11 @@ router.put("/:id", async (req, res) => {
 router.delete("/:id", async (req, res) => {
   try {
     let { id } = req.params;
-    let { status } = req.query;
+    let { deleted, adopted } = req.query;
     Pet.update(
       {
-        deleted: status === "true" ? true : false,
+        deleted,
+        adopted,
       },
       {
         where: {
@@ -132,6 +133,15 @@ router.get("/:id", async (req, res) => {
     let pet = await getPetById(id);
     if (!pet) throw new Error("Mascota no encontrada");
     else res.status(200).send(pet);
+  } catch (error) {
+    res.status(404).send(error.message);
+  }
+});
+
+router.get("/Adm/Admin", async (req, res) => {
+  try {
+    let pets = await getAllPets();
+    res.status(200).send(pets);
   } catch (error) {
     res.status(404).send(error.message);
   }
