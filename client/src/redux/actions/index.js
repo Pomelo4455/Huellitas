@@ -22,6 +22,7 @@ export const GET_FUNDACIONES = "GET_FUNDACIONES";
 export const GET_USERS = "GET_USERS";
 export const DELETE_USERS = "DELETE_USERS";
 export const DELETE_CAMPAINGS = "DELETE_CAMPAINGS";
+export const DELETE_PETS = "DELETE_PETS";
 
 export const getPets = () => {
   return async function (dispatch) {
@@ -273,6 +274,51 @@ export const deleteCampaigns = (url) => {
     try {
       await axios.delete(url);
       return dispatch({ type: DELETE_CAMPAINGS });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+};
+
+export function getCampaignsAdm() {
+  return async function (dispatch) {
+    try {
+      const response = await axios.get(
+        "http://localhost:3001/campaigns/Adm/Admin"
+      );
+      const allCampaignsAdm = response.data;
+
+      return dispatch({
+        type: GET_CAMPAIGNS,
+        payload: allCampaignsAdm,
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+}
+
+export function getPetsAdm() {
+  return async function (dispatch) {
+    try {
+      const response = await axios.get("http://localhost:3001/pets/Adm/Admin");
+      const allPetsAdm = response.data;
+      console.log("soy el allPetsAdm", allPetsAdm);
+      return dispatch({
+        type: GET_PETS,
+        payload: allPetsAdm,
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+}
+
+export const deletePets = (url) => {
+  return async function (dispatch) {
+    try {
+      await axios.delete(url);
+      return dispatch({ type: DELETE_PETS });
     } catch (error) {
       console.log(error);
     }
