@@ -1,66 +1,114 @@
-import React from "react";
-import { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Link } from "react-router-dom";
-import Footer from "../Footer/Footer";
-import NavBar from "../NavBar/NavBar";
+import { Link, useNavigate } from "react-router-dom";
+// import Footer from "../Footer/Footer";
+// import NavBar from "../NavBar/NavBar";
 import BtnHome from "../BtnHome/BtnHome";
 import Card from "../Card/Card";
-
-import { getPets } from "../../redux/actions";
-// import { pets } from '../../data';
-
+import CardFundacion from "../Card/CardFundacion";
+import { getPets, getCampaigns, getFundaciones } from "../../redux/actions";
+import swal from "sweetalert";
+import { useAuth0 } from "@auth0/auth0-react";
+import Landing from "../Landing/Landing";
 import styles from "./home.module.css";
+import Chat from "../Chat/Chat";
+import Campaign from "../Campaigns/Campaing.jsx";
+
+// import CardHome from "./CardHome";
+import AOS from "aos";
+import "aos/dist/aos.css";
+import RenderCampaigns from "./RenderCampaigns";
+import RenderPets from "./RenderPets";
+import RenderFoundations from "./RenderFoundations";
 
 const Home = () => {
-  const dispatch = useDispatch();
 
-  const allPets = useSelector((state) => state.pets);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const profile = useSelector((state) => state.profile);
+  const isAuth = useSelector((state) => state.is_authenticated);
+  const [userLocation, setLocation] = useState({ lat: 0, lng: 0 });
+  const { loginWithPopup } = useAuth0();
 
   useEffect(() => {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(
+          (position) => {
+            console.log(position.coords.latitude, position.coords.longitude)
+              setLocation({
+                lat: position.coords.latitude,
+                lng: position.coords.longitude
+    });
+    },
+      (error) => {
+          console.log(error);
+          }
+          )
+    }
+    else {
+    return 'no tenés geolocalización'
+    }
+
     dispatch(getPets());
+    dispatch(getCampaigns());
+    dispatch(getFundaciones());
   }, [dispatch]);
+  useEffect(() => {
+    AOS.init({ duration: 1500 });
+  }, []);
+  useEffect(() => {}, [profile]);
+
+  const handleOnClick = (e) => {
+    e.preventDefault();
+    if (isAuth) navigate("/PublicarAdopcion");
+    else {
+      swal({
+        title: "Sorry!",
+        text: "Inicia sesión en tu cuenta para poder procesar la adopción",
+        icon: "warning",
+        button: "Ok",
+      }).then(() => loginWithPopup());
+    }
+  };
 
   return (
     <div className={styles.home}>
-      <NavBar />
-      <div className={styles.presentation}>
-        <div className={styles.title}>
-          <h1>Cada patita cuenta</h1>
-        </div>
-
-        <div className={styles.description}>
-          <h4>
-            ¡Hola! Acá vas a poder encontrar a tu mejor amigo, ayudar a refugios
-            realizando donaciones, u ofrecer en adopción al mejor amigo de quien 
-            tenga la suerte de adoptarlo. ¡Ayudanos a ayudarlos!
-          </h4>
-        </div>
+      <div className={styles.navEnHome}>
+        {/* <NavBar /> */}
       </div>
-
+      {/*<Link to={'/detail/1'} state={{userLocation}}><button>Geolocalización</button></Link>*/}
+      <div className={styles.landingInHome}>
+        <Landing />
+        <div className={styles.img1}></div>
+        <div className={styles.Banner}></div>
+        {/*         <div className={styles.Circle}></div> */}
+        <div className={styles.Circle2}></div>
+        <div className={styles.Circle3}></div>
+      </div>
       <div className={styles.btnS}>
         <Link to="/Adoptar">
           <BtnHome text="Adoptar" />
         </Link>
-        <Link to="/PublicarAdopcion">
-        <BtnHome text="Dar en adopcion" />
-        </Link>
-        <Link to={'/campañas'}>
+        <button className={styles.button} onClick={handleOnClick}>
+          Dar en adopcion
+        </button>
+
+        <Link to={"/campañas"}>
           <BtnHome text="Ver campañas" />
         </Link>
-        <Link to={'/:any'}>
-          <BtnHome text="Apoyar una campaña" />
-        </Link>
+        {JSON.parse(localStorage.getItem("loggedUser"))?.data?.type ===
+        "fundacion" ? (
+          <Link to={"/PublicarCampaña"}>
+            <BtnHome text="Publicar una campaña" />
+          </Link>
+        ) : null}
       </div>
 
-      <div className={styles.cards}>
-        {/* reemplazar tarjetas por una sola cuando este la logica resuelta */}
-        {allPets?.slice(0, 3).map((pet) => {
-          // console.log(pet.name)
-          return <Card pets={pet} key={pet.id} />;
-        })}
-      </div>
-      <Footer />
+      <RenderPets/>
+      <RenderCampaigns/>
+      <RenderFoundations/>
+      
+      <Chat />
     </div>
   );
 };

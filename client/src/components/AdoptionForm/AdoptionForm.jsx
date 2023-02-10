@@ -7,18 +7,21 @@ import { useDispatch } from "react-redux";
 import { Widget } from "@uploadcare/react-widget";
 import { postNewPet } from "../../redux/actions";
 import effects from "uploadcare-widget-tab-effects/react";
-import Footer from "../Footer/Footer";
-import NavBar from "../NavBar/NavBar";
+// import Footer from "../Footer/Footer";
+// import NavBar from "../NavBar/NavBar";
 import swal from "sweetalert";
 
 export default function AdoptionForm() {
   const [sent, setSent] = useState(false);
   const dispatch = useDispatch();
   const navigate = useNavigate();
-
+  let userId = JSON.parse(localStorage.getItem("loggedUser"));
+  let newid = userId.data ? userId.data.id : null;
+  // newid ? (newid = newid) : (newid = null);
+  console.log(newid);
   return (
-    <>
-      <NavBar />
+    <div className={styles.body}>
+      {/* <NavBar /> */}
       <Formik
         initialValues={{
           name: "",
@@ -29,6 +32,7 @@ export default function AdoptionForm() {
           color: "",
           sex: "",
           temperament: "",
+          userId: newid,
         }}
         validate={(values) => {
           let errors = {};
@@ -58,11 +62,13 @@ export default function AdoptionForm() {
           }
           if (!values.temperament) {
             errors.temperament = "Por favor escribe una descripcion";
-          } else if (values.temperament.length < 120) {
+          } else if (values.temperament.length < 80) {
             errors.temperament =
-              "Por favor escribe una descripcion más detallada (120 caracteres al menos)";
+              "Por favor escribe una descripcion más detallada (80 caracteres al menos)";
           }
-
+          if (!values.image) {
+            errors.image = "Por favor selecciona una imagen";
+          }
           return errors;
         }}
         onSubmit={(values, { resetForm }) => {
@@ -77,6 +83,7 @@ export default function AdoptionForm() {
             button: "Ok",
           }).then(() => navigate("/home"));
         }}
+        validateOnMount
       >
         {({ errors, setFieldValue }) => (
           <div className={styles.container}>
@@ -196,6 +203,7 @@ export default function AdoptionForm() {
                   name="temperament"
                   className={styles.textArea}
                   placeholder="Descripción"
+                  maxlength="255"
                 ></Field>
                 <ErrorMessage
                   name="temperament"
@@ -224,6 +232,15 @@ export default function AdoptionForm() {
                       setFieldValue("image", fileInfo.cdnUrl);
                     });
                   }}
+                  onChange={(file) => {
+                    setFieldValue("image", file);
+                  }}
+                />
+                <ErrorMessage
+                  name="image"
+                  component={() => (
+                    <div className={styles.error}>{errors.image}</div>
+                  )}
                 />
                 ;
               </div>
@@ -232,7 +249,31 @@ export default function AdoptionForm() {
               )}
               <br />
               <div className={styles.divinput}>
-                <button type="submit" className={styles.btn}>
+                <button
+                  type="submit"
+                  className={
+                    errors.name ||
+                    errors.age ||
+                    errors.species ||
+                    errors.size ||
+                    errors.color ||
+                    errors.sex ||
+                    errors.temperament ||
+                    errors.image
+                      ? styles.btn_disabled
+                      : styles.btn
+                  }
+                  disabled={
+                    errors.name ||
+                    errors.age ||
+                    errors.species ||
+                    errors.size ||
+                    errors.color ||
+                    errors.sex ||
+                    errors.temperament ||
+                    errors.image
+                  }
+                >
                   {" "}
                   Dar en adopción
                 </button>
@@ -242,7 +283,7 @@ export default function AdoptionForm() {
           </div>
         )}
       </Formik>
-      <Footer />
-    </>
+      {/* <Footer /> */}
+    </div>
   );
 }

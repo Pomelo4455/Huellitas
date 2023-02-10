@@ -1,7 +1,7 @@
 import React from "react";
 
-import Footer from "../Footer/Footer";
-import NavBar from "../NavBar/NavBar";
+// import Footer from "../Footer/Footer";
+// import NavBar from "../NavBar/NavBar";
 
 import sadDog from '../../img/sadDog.jpg'
 import style from './notFound.module.css'
@@ -11,7 +11,7 @@ import { Link } from "react-router-dom";
 export default function NotFound() {
   return (
     <div className={style.allNotFound} >
-      <NavBar />
+      {/* <NavBar /> */}
       
       <div className={style.notFoundContainer}>
 
@@ -39,7 +39,7 @@ export default function NotFound() {
         </div> 
 
       </div>
-      <Footer />      
+      {/* <Footer />       */}
     </div>
   );
 }

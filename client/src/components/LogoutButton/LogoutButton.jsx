@@ -1,14 +1,24 @@
 import React from "react";
 import { useAuth0 } from "@auth0/auth0-react";
-import styles from "./LogoutButton.module.css"
+import styles from "./LogoutButton.module.css";
+import { useDispatch } from "react-redux";
+import { login_failure } from "../../redux/actions";
 
-const LogoutButton= ()=>{
-    const {logout}=useAuth0();
-    return(
-        <>
-            <button className={styles.button} onClick={()=>logout({returnTo:window.location.origin})}>Cerrar sesión</button>
-        </>
-    )
+const LogoutButton = () => {
+  const dispatch = useDispatch();
+  const { logout } = useAuth0();
+  const handleinput = () => {
+    logout({ returnTo: window.location.origin });
+    localStorage.setItem("loggedUser", JSON.stringify({}));
+    dispatch(login_failure());
+  };
+  return (
+    <>
+      <button className={styles.button} onClick={handleinput}>
+        Cerrar sesión
+      </button>
+    </>
+  );
 };
 
-export default LogoutButton
+export default LogoutButton;

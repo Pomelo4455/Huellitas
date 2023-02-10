@@ -1,7 +1,7 @@
 import React from "react";
 import Card from "../Card/Card";
-import Footer from "../Footer/Footer";
-import NavBar from "../NavBar/NavBar";
+// import Footer from "../Footer/Footer";
+// import NavBar from "../NavBar/NavBar";
 import Paginado from "../Paginado/Paginado";
 import Sidebar from "../Sidebar/Sidebar";
 import styles from "./allcards.module.css";
@@ -21,6 +21,7 @@ function Adoptar() {
   const indexLastProduct = currentPage * dogsPerPage;
   const indexFirstProduct = indexLastProduct - dogsPerPage;
   const currentDogs = allPets.slice(indexFirstProduct, indexLastProduct);
+  const petMax = Math.ceil(allPets.length / dogsPerPage);
 
   useEffect(() => {
     // creamos url
@@ -30,18 +31,16 @@ function Adoptar() {
   }, [filters]);
 
   function setPage(pageNumber) {
-    dispatch(setCurrentPage(pageNumber))
-    
-   }
+    dispatch(setCurrentPage(pageNumber));
+  }
 
   const paginado = (pageNumber) => {
     setPage(pageNumber);
   };
 
-
   return (
-    <>
-      <NavBar />
+    <div className={styles.body}>
+      {/* <NavBar /> */}
       <div className={styles.container}>
         <Sidebar />
         <div className={styles.adoptar}>
@@ -51,13 +50,9 @@ function Adoptar() {
           ))}
         </div>
       </div>
-      <Paginado
-        dogsPerPage={dogsPerPage}
-        allPets={allPets.length}
-        paginado={paginado}
-      />
-      <Footer />
-    </>
+      <Paginado paginado={paginado} currentPage={currentPage} petMax={petMax} />
+      {/* <Footer /> */}
+    </div>
   );
 }
 

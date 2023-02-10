@@ -1,8 +1,11 @@
+.body{
+  background-color: #EDEDED;
+}
+
 .container {
   display: flex;
   justify-content: center;
 }
-
 
 .form {
   display: flex;
@@ -13,7 +16,7 @@
   margin-bottom: 20px;
   width: 900px;
   height: fit-content;
-  background-color: #46C0D9;
+  background-color: #46c0d9;
   border-top-left-radius: 261px;
   border-bottom-right-radius: 187.5px;
   border-bottom-left-radius: 31px;
@@ -23,15 +26,14 @@
   font-size: 20px;
 }
 
-.input{
-
-Width:400px;
-Height:40px;
-background-color: #F7F8F9;
-border-radius: 8px;
-border: #E8ECF4 solid 1px;
-margin: 10px;
-text-align: center;
+.input {
+  width: 400px;
+  height: 40px;
+  background-color: #f7f8f9;
+  border-radius: 8px;
+  border: #e8ecf4 solid 1px;
+  margin: 10px;
+  text-align: center;
 }
 
 .btn {
@@ -45,7 +47,6 @@ text-align: center;
   transition: transform 0.5s, filter 1.5s ease-in-out;
   box-shadow: 2px 2px 5px 2px rgba(0, 0, 0, 0.246);
   cursor: pointer;
-  
 }
 
 .btn:active {
@@ -53,26 +54,37 @@ text-align: center;
   box-shadow: 3px 2px 22px 1px rgba(0, 0, 0, 0.24);
 }
 
-.divinput{
-  
+.btn_disabled {
+  background-color: rgba(20, 21, 20, 0.387);
+  width: 331px;
+  height: 56px;
+  border: none;
+  border-radius: 8px;
+  color: #fff;
+  font-weight: bold;
+  transition: transform 0.5s, filter 1.5s ease-in-out;
+  box-shadow: 2px 2px 5px 2px rgba(0, 0, 0, 0.246);
+  cursor: not-allowed;
+}
+
+.divinput {
   text-align: center;
   margin-top: 5px;
 }
 
-.divradio{
- 
+.divradio {
   margin-top: 20px;
-  margin-bottom: 20px; 
+  margin-bottom: 20px;
   text-align: center;
   height: 70px;
   width: 400px;
-  border: #4a4848 1px solid; 
+  border: #4a4848 1px solid;
 }
 
-.error{
+.error {
   text-align: center;
-	font-size: 14px;
-	color: #a80202;
+  font-size: 14px;
+  color: #a80202;
 }
 
 .form hr {
@@ -80,20 +92,18 @@ text-align: center;
   visibility: hidden;
 }
 
-.textArea{
+.textArea {
   justify-content: center;
-  
 }
-.form input[type=radio]{
-  
-  margin:0px 10px;
+.form input[type="radio"] {
+  margin: 0px 10px;
   height: 20px;
   width: 20px;
 }
 
-.exito{
+.exito {
   text-align: center;
-	font-size: 14px;
+  font-size: 14px;
   font-weight: bold;
-	color: #010c01;
+  color: #010c01;
 }

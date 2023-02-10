@@ -12,9 +12,9 @@ const {
 const router = Router();
 
 router.get("/", async (req, res) => {
-  const { name, status } = req.query;
+  const { name, status, type } = req.query;
   try {
-    const filters = userFilters(name, status);
+    const filters = userFilters(name, status, type);
     const users = await getAllUser(filters);
     res.status(200).send(users);
   } catch (error) {
@@ -25,6 +25,7 @@ router.get("/", async (req, res) => {
 router.post("/", async (req, res) => {
   try {
     const data = req.body;
+    // console.log(data)
     const newUser = await createUser(data);
     res.status(200).send(newUser);
   } catch (error) {
@@ -45,9 +46,9 @@ router.put("/:id", async (req, res) => {
 
 router.delete("/:id", async (req, res) => {
   const { id } = req.params;
-  const { status } = req.query;
+  const { status, type } = req.query;
   try {
-    const changeStatus = await deleteUser(id, status);
+    const changeStatus = await deleteUser(id, status, type);
     res.status(200).send(`Se cambio el estado del user ${id}`);
   } catch (error) {
     res.status(404).send(error.message);
