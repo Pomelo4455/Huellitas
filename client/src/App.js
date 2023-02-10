@@ -33,6 +33,7 @@ import {
 } from "./redux/actions/index";
 import DashBoardAdm from "./components/DashBoardAdm/DashBoardAdm";
 import { User } from "@auth0/auth0-react";
+import Mensajeria from "./components/Mensajeria/Mensajeria";
 
 export const auth = new Auth();
 
@@ -102,6 +103,7 @@ function App() {
           </AdminProtectedRoute>
         } />
         <Route path="/unauthRedirect/:props" element={<UnauthRedirect/>}/>
+        <Route path="/chat/:emisorId/:receptorId" element={<Mensajeria/>}/>
         <Route path="/:any" element={<NotFound />} />
       </Routes>
       <Footer />
