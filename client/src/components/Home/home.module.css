@@ -21,13 +21,13 @@
   width: 30%;
   height: 50%;
   right: 10%;
-  top: 23%;
+  top: 15%;
   background: url(../../img/e17e13c695f6c35d4756d7da29b6bf7f.jpg);
   background-size: cover;
   background-position: center;
   border-radius: 5%;
   transform: rotate(-9deg);
-  z-index: 10;
+  z-index: 2;
 }
 
 /* .Circle {
@@ -45,10 +45,10 @@
 
 .Circle2 {
   position: absolute;
-  top: 70%;
+  top: 58%;
   right: 18%;
-  width: 5em;
-  height: 5em;
+  width: 5%;
+  height: 10%;
   border-radius: 50%;
   background-color: #75e3ea;
   z-index: 1;
@@ -58,8 +58,8 @@
   position: absolute;
   top: 50%;
   right: 37%;
-  width: 5em;
-  height: 5em;
+  width: 5%;
+  height: 10%;
   border-radius: 50%;
   background-color: #788eff;
   z-index: 0;
