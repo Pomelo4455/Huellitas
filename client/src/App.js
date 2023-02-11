@@ -16,15 +16,18 @@ import Campañas from "./components/Campaigns/Campaigns";
 import Detail from "./components/Campaigns/DetailCampaign";
 import CampaignForm from "./components/CampaignForm/CampaignForm";
 import Gratitude from "./components/Gratitude/Gratitude";
-import { AdminProtectedRoute,
+import {
+  AdminProtectedRoute,
   FoundationProtectedRoute,
-  UserProtectedRoute } from "./components/ProtectedRoute/ProtectedRoute";
-import UnauthRedirect from "./components/UnauthRedirect/UnauthRedirect"
+  UserProtectedRoute,
+} from "./components/ProtectedRoute/ProtectedRoute";
+import UnauthRedirect from "./components/UnauthRedirect/UnauthRedirect";
+import Profile from "./components/Profile/Profile";
 import Auth from "./Utils/auth";
 import AuthCheck from "./Utils/authcheck";
 import history from "./Utils/history";
 import { useEffect, useState } from "react";
-import { useDispatch, useSelector} from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import {
   login_failure,
   login_success,
@@ -33,20 +36,20 @@ import {
 } from "./redux/actions/index";
 import DashBoardAdm from "./components/DashBoardAdm/DashBoardAdm";
 import { User } from "@auth0/auth0-react";
+import Mensajeria from "./components/Mensajeria/Mensajeria";
 
 export const auth = new Auth();
 
-
 function App() {
-  let user= JSON.parse(window.localStorage.getItem('loggedUser'))
-  if(!user) user={}
+  let user = JSON.parse(window.localStorage.getItem("loggedUser"));
+  if (!user) user = {};
 
-  const [loggedUser,setLoggedUser]=useState(user)
-  
+  const [loggedUser, setLoggedUser] = useState(user);
+
   const profile = useSelector((state) => state.profile);
   useEffect(() => {}, [profile]);
 
-    // console.log(loggedUser)
+  // console.log(loggedUser)
   // const handleAuthentication = (props) => {
   //   if (props.location.hash) {
   //     auth.handleAuth();
@@ -70,7 +73,9 @@ function App() {
 
   return (
     <>
-      <NavBar loggedUser={loggedUser.data} setLoggedUser={setLoggedUser}/>
+      <NavBar
+      loggedUser={loggedUser.data} setLoggedUser={setLoggedUser}
+      />
       <Routes>
         <Route path="/" element={<Navigate to="/home" />} />
         {/* <Route path="/Footer" element={<Footer />} /> */}
@@ -78,23 +83,39 @@ function App() {
         <Route path="/home" element={<Home />} />
         <Route path="/detail/:id" element={<CardDetail />} />
         <Route path="/Adoptar" element={<AllCards />} />
-        <Route path="/PublicarAdopcion" element={
-          <UserProtectedRoute>
-            <AdoptionForm />
-          </UserProtectedRoute>} />
+        <Route
+          path="/PublicarAdopcion"
+          element={
+            <UserProtectedRoute>
+              <AdoptionForm />
+            </UserProtectedRoute>
+          }
+        />
         <Route path="/campañas" element={<Campañas />} />
-        <Route path="/campañas/:id" element={<Detail />}/>
-        <Route path="/PublicarCampaña" element={
-          <FoundationProtectedRoute>
-            <CampaignForm />
-          </FoundationProtectedRoute>} />
+        <Route path="/campañas/:id" element={<Detail />} />
+        <Route
+          path="/PublicarCampaña"
+          element={
+            <FoundationProtectedRoute>
+              <CampaignForm />
+            </FoundationProtectedRoute>
+          }
+        />
         <Route path="/gracias" element={<Gratitude />} />
-        <Route path="/DashBoardAdm" element={
-          <AdminProtectedRoute>
-            <DashBoardAdm />
-          </AdminProtectedRoute>
-        } />
-        <Route path="/unauthRedirect/:props" element={<UnauthRedirect/>}/>
+        <Route
+          path="/DashBoardAdm"
+          element={
+            <AdminProtectedRoute>
+              <DashBoardAdm />
+            </AdminProtectedRoute>
+          }
+        />
+        <Route path="/unauthRedirect/:props" element={<UnauthRedirect />} />
+        <Route
+          path="/Profile"
+          element={<Profile setLoggedUser={setLoggedUser} />}
+        />
+        <Route path="/chat/:emisorId/:receptorId" element={<Mensajeria/>}/>
         <Route path="/:any" element={<NotFound />} />
       </Routes>
       <Footer />
