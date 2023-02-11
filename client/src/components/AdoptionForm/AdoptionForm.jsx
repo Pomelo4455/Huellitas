@@ -242,7 +242,7 @@ export default function AdoptionForm() {
                     <div className={styles.error}>{errors.image}</div>
                   )}
                 />
-                ;
+                
               </div>
               {sent && (
                 <p className={styles.exito}>Formulario enviado con exito!</p>

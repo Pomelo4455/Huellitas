@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import styles from "./navBar.module.css";
 import { Icon } from "@iconify/react";
 import LoginButton from "../LoginButton/LoginButton";
 import LogoutButton from "../LogoutButton/LogoutButton";
@@ -15,6 +14,10 @@ import {
 } from "../../redux/actions";
 import swal from "sweetalert";
 import { profileCreationInfo } from "../../Utils/profileFunctions";
+// import { Icon } from '@iconify/react';
+
+import styles from "./navBar.module.css";
+
 
 const NavBar = (
   {loggedUser,setLoggedUser}
@@ -48,41 +51,105 @@ const NavBar = (
   // [window.localStorage]
   // )
 
+  const [showDropdown, setShowDropdown] = useState(false);
+
+  const handleDropdown = () => {
+    setShowDropdown(!showDropdown);
+  };
+
+  const [showEdit, setShowEdit] = useState(false);
+
+  const handleEdit = () => {
+    setShowEdit(!showEdit);
+  };
+
+
   return (
     <nav className={styles.nav}>
-      <ul className={styles.leftContainer}>
-        <li>
-          <Link to="/home" className={styles.leftLinks}>
-            Home
-          </Link>
-        </li>
-        <li>
-          <Link to="/sobreNosotros" className={styles.leftLinks}>
-            Sobre Nosotros
-          </Link>
-        </li>
-      </ul>
-      <div className={styles.title}>
-        <Icon className={styles.img} icon="mingcute:foot-line" />
-        <div className={styles.txt}>
-          <Link to="/home" className={styles.txt}>
-            Huellitas
-          </Link>
+
+      <button 
+        className={styles.dropdownButton} 
+        onClick={`${handleDropdown}`}
+      >
+        {
+          showDropdown 
+          ? <Icon 
+              icon="line-md:menu-to-close-alt-transition" 
+              className={styles.iconClosed}
+            />
+          : <Icon 
+              icon="material-symbols:menu" 
+              className={styles.iconOpen}
+            />
+        }
+      </button>
+
+      <div className={showDropdown ? '' : styles.toggled}>
+
+        <ul className={styles.leftContainer}>
+
+          <li onClick={handleDropdown}>
+            <Link to="/home" className={styles.leftLinks}>
+              Home
+            </Link>
+          </li>
+          <li onClick={handleDropdown}>
+            <Link to="/sobreNosotros" className={styles.leftLinks}>
+              Sobre Nosotros
+            </Link>
+          </li>
+        </ul>
+      </div>
+
+        <div className={styles.title}>
+          <Icon className={styles.img} icon="mingcute:foot-line" />
+          <div className={styles.txt}>
+            <Link to="/home" className={styles.txt}>
+              Huellitas
+            </Link>
+          </div>
         </div>
-      </div>
-      <div className={styles.buttonContainer}>
-        {loggedUser ? (
-          <>
-            <h4>Ha iniciado sesión como: {loggedUser.name.toUpperCase()}</h4>
-            <img src={loggedUser.image}></img>
-            <LogoutButton />
-          </>
-        ) : (
-          <>
-            <LoginButton />
-          </>
-        )}
-      </div>
+
+        <div className={styles.buttonContainer}>
+          {loggedUser ? (
+            <div className={styles.infoSession}>
+              {/* <h4>Ha iniciado sesión como: {loggedUser.name.toUpperCase()}</h4> */}
+              <img 
+                src={loggedUser.image}
+                onClick={handleEdit}
+              />
+              <div 
+                className=
+                {
+                  showEdit ? styles.toggleUser : styles.toggleUserNone
+                }
+              >
+                <div>
+                  <Link 
+                    to='/Profile' 
+                    onClick={handleEdit}
+                    className={styles.editBtnContainer}
+                  >
+                    <button className={styles.buttonEdit}>
+                      Editar perfil
+                    </button>
+                  </Link>
+                </div>
+                <div 
+                  className={styles.logoutContainer} 
+                  onClick={handleEdit}
+                >
+                  <LogoutButton />
+                </div>
+              </div>
+            </div>
+          ) : (
+            <>
+              <LoginButton />
+            </>
+          )}
+        </div>
+
     </nav>
   );
 };
