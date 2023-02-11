@@ -20,6 +20,10 @@ export const SET_DB_PROFILE = "SET_DB_PROFILE";
 export const REMOVE_DB_PROFILE = "REMOVE_DB_PROFILE";
 export const GET_FUNDACIONES = "GET_FUNDACIONES";
 export const GET_USERS = "GET_USERS";
+export const DELETE_USERS = "DELETE_USERS";
+export const DELETE_CAMPAINGS = "DELETE_CAMPAINGS";
+export const DELETE_PETS = "DELETE_PETS";
+export const UPDATE_USERS = "UPDATE_USERS";
 
 export const getPets = () => {
   return async function (dispatch) {
@@ -62,20 +66,21 @@ export const getPetName = (name) => {
   };
 };
 
-export const sendProfileToDb = (prof) => {
+export const sendProfileToDb = (prof, setLoggedUser) => {
   // console.log(prof)
   // let prof=JSON.parse(localStorage.getItem('user'))
   // console.log(prof)
-  return async function (dispatch){
-    try{
-      let loggedUser =await axios.post("http://localhost:3001/users", prof)
-      localStorage.setItem('loggedUser', JSON.stringify(loggedUser))
+  return async function (dispatch) {
+    try {
+      let loggedUser = await axios.post("http://localhost:3001/users", prof);
+      localStorage.setItem("loggedUser", JSON.stringify(loggedUser));
+      setLoggedUser(loggedUser);
       return dispatch({
         type: SEND_PROFILE_TO_DB,
-        payload: loggedUser
-      })
-    }catch(error){
-      console.log(error.message)
+        payload: loggedUser.data,
+      });
+    } catch (error) {
+      console.log(error.message);
     }
   };
 };
@@ -88,6 +93,13 @@ export function postNewPet(payload) {
   return async function () {
     const newDog = await axios.post("http://localhost:3001/pets", payload);
     return newDog;
+  };
+}
+
+export function postNewImage(payload) {
+  return async function () {
+    const newImage = await axios.post("http://localhost:3001/users", payload);
+    return newImage;
   };
 }
 
@@ -249,6 +261,91 @@ export const getUsers = () => {
       return dispatch({
         type: GET_USERS,
         payload: users.data,
+      });
+    } catch (error) {}
+  };
+};
+
+export const deleteUsers = (url) => {
+  return async function (dispatch) {
+    try {
+      await axios.delete(url);
+      return dispatch({ type: DELETE_USERS });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+};
+
+export const deleteCampaigns = (url) => {
+  return async function (dispatch) {
+    try {
+      await axios.delete(url);
+      return dispatch({ type: DELETE_CAMPAINGS });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+};
+
+export function getCampaignsAdm() {
+  return async function (dispatch) {
+    try {
+      const response = await axios.get(
+        "http://localhost:3001/campaigns/Adm/Admin"
+      );
+      const allCampaignsAdm = response.data;
+
+      return dispatch({
+        type: GET_CAMPAIGNS,
+        payload: allCampaignsAdm,
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+}
+
+export function getPetsAdm() {
+  return async function (dispatch) {
+    try {
+      const response = await axios.get("http://localhost:3001/pets/Adm/Admin");
+      const allPetsAdm = response.data;
+      console.log("soy el allPetsAdm", allPetsAdm);
+      return dispatch({
+        type: GET_PETS,
+        payload: allPetsAdm,
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+}
+
+export const deletePets = (url) => {
+  return async function (dispatch) {
+    try {
+      await axios.delete(url);
+      return dispatch({ type: DELETE_PETS });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+};
+
+export const updateUsers = (id, data, setLoggedUser) => {
+  return async function (dispatch) {
+    try {
+      const response = await axios.put(
+        `http://localhost:3001/users/${id}`,
+        data
+      );
+      localStorage.setItem("loggedUser", JSON.stringify(response));
+      setLoggedUser(response);
+      console.log(response);
+      dispatch({
+        type: UPDATE_USERS,
+        payload: response.data,
       });
     } catch (error) {}
   };

@@ -16,9 +16,15 @@ import {
 import swal from "sweetalert";
 import { profileCreationInfo } from "../../Utils/profileFunctions";
 
-const NavBar = () => {
+const NavBar = (
+  {loggedUser,setLoggedUser}
+  ) => {
+  // console.log(loggedUser)
   const dispatch = useDispatch();
   const { user, isAuthenticated, isLoading } = useAuth0();
+  
+  const profile = useSelector((state) => state.profile);
+    useEffect(() => {}, [profile]);
 
   useEffect(() => {
     if (isAuthenticated) {
@@ -26,7 +32,7 @@ const NavBar = () => {
       // console.log(user)
       // localStorage.setItem('user', JSON.stringify(prof))
       // console.log(prof)
-      dispatch(sendProfileToDb(prof));
+      dispatch(sendProfileToDb(prof,setLoggedUser));
       dispatch(login_success());
     } else {
       // localStorage.setItem('user', JSON.stringify({}))
@@ -36,6 +42,11 @@ const NavBar = () => {
       // clearProfile()
     }
   }, [isAuthenticated]);
+
+  // useEffect(()=>
+  // setLoggedUser(JSON.parse(window.localStorage.getItem('loggedUser'))),
+  // [window.localStorage]
+  // )
 
   return (
     <nav className={styles.nav}>
@@ -60,10 +71,10 @@ const NavBar = () => {
         </div>
       </div>
       <div className={styles.buttonContainer}>
-        {isAuthenticated ? (
+        {loggedUser ? (
           <>
-            <h4>Ha iniciado sesión como: {user.name.toUpperCase()}</h4>
-            <img src={user.img}></img>
+            <h4>Ha iniciado sesión como: {loggedUser.name.toUpperCase()}</h4>
+            <img src={loggedUser.image}></img>
             <LogoutButton />
           </>
         ) : (

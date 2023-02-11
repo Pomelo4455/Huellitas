@@ -19,6 +19,10 @@ import {
   REMOVE_DB_PROFILE,
   GET_FUNDACIONES,
   GET_USERS,
+  DELETE_USERS,
+  DELETE_CAMPAINGS,
+  DELETE_PETS,
+  UPDATE_USERS,
 } from "../actions";
 
 const initialState = {
@@ -33,6 +37,9 @@ const initialState = {
   is_authenticated: false,
   profile: null,
   db_profile: null,
+  users: [],
+  campaignsAdm: [],
+  petsAdm: [],
 };
 
 const rootReducer = (state = initialState, action) => {
@@ -144,6 +151,24 @@ const rootReducer = (state = initialState, action) => {
         ...state,
         users: action.payload,
       };
+    case UPDATE_USERS:
+      return {
+        ...state,
+        users: action.payload,
+      };
+    case DELETE_USERS:
+      return {
+        ...state,
+      };
+    case DELETE_CAMPAINGS:
+      return {
+        ...state,
+      };
+    case DELETE_PETS:
+      return {
+        ...state,
+      };
+
     default:
       return {
         ...state,
