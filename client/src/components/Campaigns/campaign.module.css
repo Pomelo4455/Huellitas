@@ -19,7 +19,6 @@
   transition: 0.5s;
   background: linear-gradient(360deg, #d8f0ff, #8dd5ff);
   background-color: #ffff;
-  border-radius: 0% 0% 0% 0% / 0% 0% 0% 0%;
   color: black;
   box-shadow: 10px 20px rgba(0, 0, 0, 0.15);
 }

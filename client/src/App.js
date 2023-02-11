@@ -101,7 +101,7 @@ function App() {
             </FoundationProtectedRoute>
           }
         />
-        <Route path="/gracias" element={<Gratitude />} />
+        <Route path="payment/gracias" element={<Gratitude />} />
         <Route
           path="/DashBoardAdm"
           element={

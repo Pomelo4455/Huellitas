@@ -18,7 +18,6 @@ import {
   SET_DB_PROFILE,
   REMOVE_DB_PROFILE,
   GET_FUNDACIONES,
-  DONATION_INCREASE,
   GET_USERS,
   DELETE_USERS,
   DELETE_CAMPAINGS,
@@ -147,12 +146,7 @@ const rootReducer = (state = initialState, action) => {
           ...state,
           db_profile: null
         }
-        case DONATION_INCREASE:
-          return {
-            ...state,
-            increase: action.payload
-          }
-      return {
+        return {
         ...state,
         is_authenticated: true,
       };

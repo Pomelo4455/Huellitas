@@ -46,7 +46,7 @@ const putCampaign = async (req) => {
       reason,
       description,
       goal,
-      
+      collected,
     },
     {
       where: { id },

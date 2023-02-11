@@ -231,7 +231,7 @@ export function donate(payload) {
         .post("http://localhost:3001/payment", payload)
         .then(
           (response) =>
-            (window.location.href = response.data.response.body.sandbox_init_point)
+            (window.location.href = response.data.response.body.init_point)
         );
     } catch (error) {
       console.log(error);
