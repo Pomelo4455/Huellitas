@@ -24,6 +24,7 @@ export const DELETE_USERS = "DELETE_USERS";
 export const DELETE_CAMPAINGS = "DELETE_CAMPAINGS";
 export const DELETE_PETS = "DELETE_PETS";
 export const UPDATE_USERS = "UPDATE_USERS";
+export const UPDATE_USERS_ADM = "UPDATE_USERS_ADM";
 
 export const getPets = () => {
   return async function (dispatch) {
@@ -348,5 +349,33 @@ export const updateUsers = (id, data, setLoggedUser) => {
         payload: response.data,
       });
     } catch (error) {}
+  };
+};
+
+export const updateUsersAdm = (id, data) => {
+  return async function (dispatch) {
+    try {
+      const response = await axios.put(
+        `http://localhost:3001/users/${id}`,
+        data
+      );
+      return response;
+    } catch (error) {
+      console.log(error);
+    }
+  };
+};
+
+export const updateCampaignAdm = (id, data) => {
+  return async function () {
+    try {
+      const response = await axios.put(
+        `http://localhost:3001/campaigns/${id}`,
+        data
+      );
+      return response;
+    } catch (error) {
+      console.log(error);
+    }
   };
 };
