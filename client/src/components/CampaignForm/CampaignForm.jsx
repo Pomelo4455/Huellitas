@@ -6,8 +6,8 @@ import { useDispatch } from "react-redux";
 import { Widget } from "@uploadcare/react-widget";
 import { postNewCampaign } from "../../redux/actions";
 import effects from "uploadcare-widget-tab-effects/react";
-import Footer from "../Footer/Footer";
-import NavBar from "../NavBar/NavBar";
+// import Footer from "../Footer/Footer";
+// import NavBar from "../NavBar/NavBar";
 import swal from "sweetalert";
 import style from "./campaignForm.module.css"
 
@@ -18,7 +18,7 @@ export default function CampaignForm() {
 
     return (
     <div className={style.campaign}>
-        <NavBar />
+        {/* <NavBar /> */}
         <Formik
             initialValues={{
                 title: "",
@@ -207,6 +207,6 @@ export default function CampaignForm() {
         </div>
         )}
         </Formik>
-        <Footer />
+        {/* <Footer /> */}
     </div>
 )}

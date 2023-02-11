@@ -5,9 +5,10 @@
   align-items: center;
   bottom: 0px;
   display: flex;
-  height: 115px;
+  height: 80px;
   width: 100%;
   left: 0px;
+  margin-top: 0;
 }
 
 .box {

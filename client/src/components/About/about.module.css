@@ -12,7 +12,7 @@
 .cardAbout {
   width: 250px;
   border-radius: 1rem 1rem 0.5rem 0.5rem;
-  background-color: #d9d9d9;
+  background: linear-gradient(360deg, #e0f3ff, #17a6ff);
   box-shadow: 0 8px 8px 2px rgba(48, 48, 48, 0.37);
   transition: 0.6s;
   margin: 25px;
@@ -33,7 +33,7 @@
   margin: 10px;
   justify-content: center;
   text-align: center;
-  margin-left: 60px;
+  margin-left: 55px;
 }
 .TextAbout {
   text-align: center;

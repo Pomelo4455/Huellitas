@@ -47,31 +47,6 @@ export default function Sidebar() {
 
   return (
     <div className={styles.container}>
-      <form onSubmit={inputSearch}>
-        <div className={styles.searchContainer}>
-          <div className={styles.newsearch}>
-            <input
-              type="text"
-              placeholder="Buscar mascotas de :"
-              value={searchTerm}
-              onChange={handleSearch}
-              className={styles.search}
-            />
-            <button
-              name="name"
-              value={searchTerm}
-              onClick={inputSearch}
-              className={styles.searchButton}
-            >
-              <Icon icon="fa6-solid:magnifying-glass" />
-            </button>
-          </div>
-          <button className={styles.restoreButton} onClick={resetSearch}>
-            Eliminar Búsqueda
-          </button>
-        </div>
-      </form>
-
       <select
         onChange={(e) => handleSelectedFilter(e, filtros, dispatch)}
         className={styles.selectBox}
@@ -79,7 +54,7 @@ export default function Sidebar() {
         defaultValue={value}
       >
         <option value="default" disabled hidden>
-          Tipo de mascota
+          Animal
         </option>
         <option value="perro">Perro</option>
         <option value="gato">Gato</option>
@@ -126,6 +101,30 @@ export default function Sidebar() {
       >
         Restablecer Filtros
       </button>
+      <form onSubmit={inputSearch}>
+        <div className={styles.searchContainer}>
+          <div className={styles.newsearch}>
+            <input
+              type="text"
+              placeholder="Buscar mascotas de:"
+              value={searchTerm}
+              onChange={handleSearch}
+              className={styles.search}
+            />
+            <button
+              name="name"
+              value={searchTerm}
+              onClick={inputSearch}
+              className={styles.searchButton}
+            >
+              <Icon icon="fa6-solid:magnifying-glass" />
+            </button>
+          </div>
+          <button className={styles.restoreButton} onClick={resetSearch}>
+            Eliminar Búsqueda
+          </button>
+        </div>
+      </form>
     </div>
   );
 }

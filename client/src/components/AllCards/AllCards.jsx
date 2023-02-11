@@ -1,7 +1,7 @@
 import React from "react";
 import Card from "../Card/Card";
-import Footer from "../Footer/Footer";
-import NavBar from "../NavBar/NavBar";
+// import Footer from "../Footer/Footer";
+// import NavBar from "../NavBar/NavBar";
 import Paginado from "../Paginado/Paginado";
 import Sidebar from "../Sidebar/Sidebar";
 import styles from "./allcards.module.css";
@@ -40,7 +40,7 @@ function Adoptar() {
 
   return (
     <div className={styles.body}>
-      <NavBar />
+      {/* <NavBar /> */}
       <div className={styles.container}>
         <Sidebar />
         <div className={styles.adoptar}>
@@ -51,7 +51,7 @@ function Adoptar() {
         </div>
       </div>
       <Paginado paginado={paginado} currentPage={currentPage} petMax={petMax} />
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 }

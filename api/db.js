@@ -50,13 +50,18 @@ sequelize.models = Object.fromEntries(capsEntries);
 // En sequelize.models están todos los modelos importados como propiedades
 // Para relacionarlos hacemos un destructuring
 
-const { User, Pet, Campaign, Adoption, Donation } = sequelize.models;
+const { User, Pet, Campaign, Adoption, Message, Donation } = sequelize.models;
 
 // Aca vendrian las relaciones
 // Product.hasMany(Reviews);
 
 Pet.belongsToMany(User, { through: "favorites" });
 User.belongsToMany(Pet, { through: "favorites" });
+
+User.hasMany(Message, {as: "emisor", foreignKey: 'EmisorId'});
+Message.belongsTo(User, {as: "emisor", foreignKey: 'EmisorId'});
+User.hasMany(Message, {as: "receptor", foreignKey: 'ReceptorId'});
+Message.belongsTo(User, {as: "receptor", foreignKey: "ReceptorId"})
 
 User.hasMany(Campaign);
 Campaign.belongsTo(User);

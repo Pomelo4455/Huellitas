@@ -8,6 +8,13 @@ const getCampaign = async () => {
   return allCampaigns;
 };
 
+const getCampaignAdm = async () => {
+  const allCampaignsAdm = await Campaign.findAll({
+    where: {},
+  });
+  return allCampaignsAdm;
+};
+
 const postCampaign = async ({
   title,
   reason,
@@ -59,4 +66,5 @@ module.exports = {
   postCampaign,
   putCampaign,
   deleteCampaign,
+  getCampaignAdm,
 };

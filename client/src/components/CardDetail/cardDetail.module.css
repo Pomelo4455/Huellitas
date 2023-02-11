@@ -10,7 +10,6 @@
     margin: 0;
     box-sizing: border-box;
     display: flex;
-    flex-direction: row;
 }
 
 /* ESTILOS PARA CONTENEDOR DE TITULO E IMAGEN */
@@ -42,23 +41,25 @@
     height: 385px;
     box-shadow: 2px 2px 5px 2px rgba(0, 0, 0, 0.246);
     border-radius: 10px;
+    margin-top: 5px;
 }
 
 .btnContainer {
     display: flex;
     flex-direction: row;
     justify-content: center;
-    margin: 1em 0;
+    margin: 1em;
 }
 
 .btnContact {
-    width: 385px;
+    width: 200px;
+    height: 50px;
     border: none;
     border-radius: 100px;
-    background-color: #2AADF6;
+    background-color: #44b7ff;
     color: #FFF;
     padding: .2em;
-    font-size: 2em;
+    font-size: 25px;
     font-family: "Ubuntu";
     align-items: center;
     margin-top: 5%;
@@ -70,16 +71,18 @@
 .btnContact:hover {
     opacity: .9;
     transform: scale(1.05);
+    transition: 0.3s ease-in;
 }
 
 .btnContactBack {
-    width: 385px;
+    width: 200px;
+    height: 50px;
     border: none;
     border-radius: 100px;
-    background-color: #8b90ff;
+    background-color: #44b7ff;
     color: #FFF;
     padding: .2em;
-    font-size: 2em;
+    font-size: 25px;
     font-family: "Ubuntu";
     margin-top: 5%;
     box-shadow: 2px 2px 5px 2px rgba(0, 0, 0, 0.246);
@@ -103,10 +106,9 @@
 }
 
 .descriptionContainer {
-    background-color: #F8F8F8;
+    background: radial-gradient(#54bdff, #aadeff);
     width: 100%;
-    margin-top: 7%;
-    margin-right: 50%;
+    margin-top: 58px;
     height: auto;
     padding: 1em 2em;
     border-radius: 16px;
