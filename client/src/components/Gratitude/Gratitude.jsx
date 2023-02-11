@@ -11,23 +11,23 @@ const [data, setData] = useState({
   amount: "",
   idCampaign:"",
   idUser: "",
-  status:""
+  status:"approved"
 })
 
   useEffect(() => {
   let datos = JSON.parse(localStorage.getItem('datosDonacion'))
-  const status = (searchParams.get('status'))
-  setData(datos, {status: status})
+  
+  setData(datos)
   }, [])
 
-  
+  const status = (searchParams.get('status'))
   
   console.log(data);
   
   return (
     <div className={styles.body}>
 
-<Icon  icon="pajamas:go-back" width='80px'/>
+{/* <Icon  icon="pajamas:go-back" width='80px'/> */}
         <div className={styles.gracias}>
         
         <img src='https://i.pinimg.com/originals/74/88/22/7488228009d153e94a00427f674d54bb.jpg' className={styles.img}></img>
