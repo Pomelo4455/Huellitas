@@ -13,7 +13,6 @@ import Landing from "../Landing/Landing";
 import styles from "./home.module.css";
 import Chat from "../Chat/Chat";
 import Campaign from "../Campaigns/Campaing.jsx";
-
 // import CardHome from "./CardHome";
 import AOS from "aos";
 import "aos/dist/aos.css";
@@ -22,7 +21,6 @@ import RenderPets from "./RenderPets";
 import RenderFoundations from "./RenderFoundations";
 
 const Home = () => {
-
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const profile = useSelector((state) => state.profile);
@@ -33,20 +31,19 @@ const Home = () => {
   useEffect(() => {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(
-          (position) => {
-            console.log(position.coords.latitude, position.coords.longitude)
-              setLocation({
-                lat: position.coords.latitude,
-                lng: position.coords.longitude
-    });
-    },
-      (error) => {
+        (position) => {
+          console.log(position.coords.latitude, position.coords.longitude);
+          setLocation({
+            lat: position.coords.latitude,
+            lng: position.coords.longitude,
+          });
+        },
+        (error) => {
           console.log(error);
-          }
-          )
-    }
-    else {
-    return 'no tenés geolocalización'
+        }
+      );
+    } else {
+      return "no tenés geolocalización";
     }
 
     dispatch(getPets());
@@ -54,7 +51,7 @@ const Home = () => {
     dispatch(getFundaciones());
   }, [dispatch]);
   useEffect(() => {
-    AOS.init({ duration: 1500 });
+    AOS.init({ duration: 1000 });
   }, []);
   useEffect(() => {}, [profile]);
 
@@ -73,9 +70,6 @@ const Home = () => {
 
   return (
     <div className={styles.home}>
-      <div className={styles.navEnHome}>
-        {/* <NavBar /> */}
-      </div>
       {/*<Link to={'/detail/1'} state={{userLocation}}><button>Geolocalización</button></Link>*/}
       <div className={styles.landingInHome}>
         <Landing />
@@ -103,11 +97,18 @@ const Home = () => {
           </Link>
         ) : null}
       </div>
-
-      <RenderPets/>
-      <RenderCampaigns/>
-      <RenderFoundations/>
-      
+      <div data-aos="fade-up" className={styles.categoria}>
+        ¡Amiguitos!
+      </div>
+      <RenderPets />
+      <div data-aos="fade-up" className={styles.categoria}>
+        ¡Campañas!
+      </div>
+      <RenderCampaigns />
+      <div data-aos="fade-up" className={styles.categoria}>
+        ¡Fundaciones!
+      </div>
+      <RenderFoundations />
       <Chat />
     </div>
   );

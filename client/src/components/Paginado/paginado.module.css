@@ -2,13 +2,15 @@
   display: block;
   padding: 1rem;
   color: #ffffff;
-  background: #8b90ff;
-  /* background: linear-gradient(135.13deg, #8b90ff 10.46%, #253066 127.81%); */
+  font-family: "Noto Sans JP";
+  background: linear-gradient(135.13deg, #61c2ff 10.46%, #5dc1ff 127.81%);
   font-size: 1rem;
   border-radius: 10px;
   border: solid 1px;
   cursor: pointer;
   transition: 0.4s;
+  margin-left: 1px;
+  margin-right: 1px;
 }
 .numberPaginado {
   display: inline-block;
@@ -29,7 +31,7 @@
   
 }
 .buttonPaginated:hover {
-  background: linear-gradient(135.13deg, #253066 10.46%, #797bff 127.81%);
+  background: linear-gradient(135.13deg, #61c2ff 10.46%, #cdecff 127.81%);
   color: white;
 }
 
@@ -37,8 +39,7 @@
   display: block;
   padding: 1rem;
   color: #ffffff;
-  /* background: #8b90ff; */
-  background: linear-gradient(135.13deg, #8b90ff 10.46%, #253066 127.81%);
+  background: linear-gradient(135.13deg, #61c2ff 10.46%, #5dc1ff 127.81%);
   font-size: 1rem;
   border-radius: 10px;
   border: solid 1px;
