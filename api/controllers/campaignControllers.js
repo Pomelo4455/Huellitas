@@ -36,13 +36,14 @@ const postCampaign = async ({
 
 const putCampaign = async (req) => {
   const { id } = req.params;
-  const { title, reason, description, goal } = req.body;
+  const { title, reason, description, goal, image } = req.body;
   let edit = Campaign.update(
     {
       title,
       reason,
       description,
       goal,
+      image,
     },
     {
       where: { id },
