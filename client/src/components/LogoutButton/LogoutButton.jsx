@@ -1,8 +1,9 @@
 import React from "react";
 import { useAuth0 } from "@auth0/auth0-react";
-import styles from "./LogoutButton.module.css";
 import { useDispatch } from "react-redux";
 import { login_failure } from "../../redux/actions";
+
+import styles from "./LogoutButton.module.css";
 
 const LogoutButton = () => {
   const dispatch = useDispatch();
