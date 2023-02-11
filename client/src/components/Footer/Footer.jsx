@@ -1,7 +1,8 @@
 import React from "react";
 import { Icon } from "@iconify/react";
-import styles from "./footer.module.css";
 import { Link } from "react-router-dom";
+
+import styles from "./footer.module.css";
 
 function Footer() {
   return (
@@ -23,7 +24,7 @@ function Footer() {
         </figure>
       </div>
       <div className={styles.box1}>
-        <div>
+        <div className={styles.box1Icons}>
           <a
             href={"https://www.instagram.com/huellitaswebpets/"}
             target="_blank"

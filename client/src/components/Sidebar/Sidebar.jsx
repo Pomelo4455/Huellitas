@@ -1,4 +1,3 @@
-import styles from "./sidebar.module.css";
 import Ordenamientos from "./Ordenamientos";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
@@ -11,6 +10,9 @@ import {
 } from "./handlersSideBar";
 import { Icon } from "@iconify/react";
 import swal from "sweetalert";
+
+import styles from "./sidebar.module.css";
+
 export default function Sidebar() {
   const [searchTerm, setSearchTerm] = useState("");
   const filtros = useSelector((state) => state.filters);
