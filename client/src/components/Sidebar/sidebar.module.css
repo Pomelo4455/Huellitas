@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Dosis&family=Noto+Sans+JP:wght@500;900&family=Noto+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Ubuntu&display=swap");
+
 .container {
   display: flex;
   flex-direction: column;
@@ -6,7 +8,7 @@
   height: 550px;
   background: #c2f4ff;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  border-radius: 0px 0px 150px 0px;
+  border-radius: 0px 0px 100px 0px;
 }
 
 .selectBox {
@@ -15,28 +17,34 @@
   margin-left: 50px;
   margin-right: 50px;
   margin-top: 30px;
-  background-color: #8b90ff;
-  /* box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); */
+  background-color: #44b7ff;
   border-radius: 8px;
+  border: none;
   color: #ffffff;
   text-align: center;
-  border: #646bff 1px solid;
+  font-family: "Poppins";
+  font-weight: 400;
+  font-size: 100%;
 }
 
 .btn {
   width: 184px;
   height: 44px;
   margin-top: 30px;
-  background: #8b90ff;
+  background: #44b7ff;
   /* box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); */
   border-radius: 14px;
+  border: none;
+  font-family: "Ubuntu";
+  font-weight: 400;
+  font-size: 100%;
   margin-left: 50px;
-  border: #646bff 1px solid;
   color: #ffffff;
 }
 
 .btn:hover {
-  background-color: #9ca1ff;
+  background-color: #5dc1ff;
+  transition: 0.2s;
 }
 
 .btn:active {
@@ -45,8 +53,8 @@
 }
 
 .search {
-  border: #646bff 1px solid;
-  background-color: #8b90ff;
+  background-color: #44b7ff;
+  border: none;
   border-radius: 10px;
   padding: 10px 10px;
   /* margin-left: 0%; */
@@ -59,7 +67,7 @@
 
 .search::placeholder {
   color: white;
-  font-family: "Ubuntu";
+  font-family: "Poppins";
   font-weight: 400;
 }
 
@@ -71,43 +79,41 @@
   border-radius: 5px;
   padding-top: 5px;
   padding-bottom: 5px;
-  margin-left: -10%;
+  margin-left: -12%;
   position: relative;
-  /* right: 25px; */
   cursor: pointer;
   margin-top: 30px;
 }
 
 .searchButton:hover {
-  /* background-color: #9ca1ff; */
   color: white;
 }
 
 .restoreButton {
-  background-color: #8b90ff;
+  background-color: #44b7ff;
   color: white;
-  border: #646bff 1px solid;
+  border: none;
   border-radius: 10px;
-  padding: 10px 24px;
-  font-family: "Ubuntu";
+  padding: 10px;
+  font-family: "Poppins";
   font-weight: 400;
   font-size: 100%;
-  text-align: center;
+  text-align: middle;
   text-decoration: none;
-  width: fit-content;
+  width: 184px;
   white-space: nowrap;
   margin-left: -5%;
   margin-top: 30px;
 }
 
 .restoreButton:hover {
-  background-color: #9ca1ff;
+  background-color: #5dc1ff;
   color: white;
+  transition: 0.2s;
 }
 
 .restoreButton:active {
   transform: scale(0.97);
-  box-shadow: 3px 2px 22px 1px rgba(0, 0, 0, 0.24);
 }
 
 .searchContainer {

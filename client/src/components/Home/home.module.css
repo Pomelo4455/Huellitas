@@ -5,14 +5,10 @@
   width: 100%;
   min-height: 100vh;
   background-color: #ededed;
-  bottom: 0;
+  margin-bottom: -30px;
 }
 
 /* ESTILOS PARA LA PRESENTACION */
-
-.navEnHome {
-  z-index: 5;
-}
 
 .landingInHome {
   height: 80%;
@@ -97,6 +93,16 @@
   font-size: 1.4em;
 }
 
+.categoria {
+  display: flex;
+  justify-content: center;
+  font-size: 50px;
+  font-family: "Noto Sans JP";
+  font-weight: 600;
+  color: rgb(33, 31, 31);
+  margin-top: 80px;
+}
+
 /* ESTILOS PARA MOSTRAR LOS BOTONES */
 
 .btnS {
@@ -158,6 +164,29 @@
 }
 
 .claseboton:hover {
+  background-color:#43baf9;
+  color: white;
+  transition: 0.2s;
+  transform: translateY(-2px);
+  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.claseUltimoBoton {
+  display: inline-block;
+  padding: 10px 20px;
+  font-family: "Noto Sans";
+  font-weight: 600;
+  font-size: 16px;
+  width: 150px;
+  color: #48bfff;
+  background-color: white;
+  border: 3px solid #48bfff;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  margin-bottom: 25px;
+}
+
+.claseUltimoBoton:hover {
   background-color:#43baf9;
   color: white;
   transition: 0.2s;
