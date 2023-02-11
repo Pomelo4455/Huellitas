@@ -15,7 +15,7 @@ export default function Ordenamientos() {
   return (
     <>
       <select onChange={(e) => handleSelectedFilter(e, filtros, dispatch)} className={styles.selectBox} name="order" defaultValue={value}>
-      <option value="default" disabled hidden>Ordenamiento</option>
+      <option value="default" disabled hidden>Orden</option>
           <option value="name_ASC">A-Z</option>
           <option value="name_DESC">Z-A</option>
           <option value="size_ASC">Pequeño a Grande</option>

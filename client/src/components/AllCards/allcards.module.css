@@ -1,21 +1,21 @@
-.container{
-display: flex;
-flex-direction: row;
-
+.container {
+  display: flex;
+  flex-direction: row;
 }
 
-.adoptar{
-margin-top: 2rem;
-margin-left: 3rem;
-padding-top: 0rem;
-display: grid;
-grid-template-columns: repeat(4, 1fr);
-grid-template-rows: repeat(2, auto);
-grid-gap: 10px;
-height: 100%;
-min-height: 80vh;
+.adoptar {
+  margin-top: 2rem;
+  margin-left: 5.5rem;
+  width: 80%;
+  padding-top: 0rem;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(2, auto);
+  grid-gap: 10px;
+  height: 100%;
+  min-height: 80vh;
 }
 
-.body{
-    background-color: #EDEDED;
+.body {
+  background-color: #ededed;
 }
