@@ -19,7 +19,7 @@ import {
   REMOVE_DB_PROFILE,
   GET_FUNDACIONES,
   DONATION_INCREASE,
-
+  GET_USERS,
 } from "../actions";
 
 const initialState = {
@@ -29,8 +29,8 @@ const initialState = {
   filters: { sex: "", species: "", size: "", name: "", order: "" },
   campaigns: [],
   fundaciones: [],
-  detailCamp:[],
-  page:(1),
+  detailCamp: [],
+  page: 1,
   is_authenticated: false,
   profile: null,
   db_profile: null,
@@ -89,28 +89,28 @@ const rootReducer = (state = initialState, action) => {
         filters: { ...state.filters, name: "" },
       };
     case GET_CAMPAIGNS:
-        return {
-            ...state,
-            campaigns: action.payload
-        }
+      return {
+        ...state,
+        campaigns: action.payload,
+      };
     case GET_DETAIL_CAMP:
-        return {
-            ...state,
-            detailCamp: action.payload
-        }
+      return {
+        ...state,
+        detailCamp: action.payload,
+      };
     case SET_CURRENT_PAGE:
       return { ...state, page: action.payload };
     case SEND_PROFILE_TO_DB:
-      return{
+      return {
         ...state,
-        profile: action.payload
-      }
-    
-    case CLEAR_PROFILE: 
-      return{
+        profile: action.payload,
+      };
+
+    case CLEAR_PROFILE:
+      return {
         ...state,
-        profile: {}
-      }
+        profile: {},
+      };
     case LOGIN_SUCCESS:
         return {
           ...state,
@@ -146,6 +146,40 @@ const rootReducer = (state = initialState, action) => {
             ...state,
             increase: action.payload
           }
+      return {
+        ...state,
+        is_authenticated: true,
+      };
+    case LOGIN_FAILURE:
+      return {
+        ...state,
+        is_authenticated: false,
+      };
+    case ADD_PROFILE:
+      return {
+        ...state,
+        profile: action.payload,
+      };
+    case REMOVE_PROFILE:
+      return {
+        ...state,
+        profile: null,
+      };
+    case SET_DB_PROFILE:
+      return {
+        ...state,
+        db_profile: action.payload,
+      };
+    case REMOVE_DB_PROFILE:
+      return {
+        ...state,
+        db_profile: null,
+      };
+    case GET_USERS:
+      return {
+        ...state,
+        users: action.payload,
+      };
     default:
       return {
         ...state,

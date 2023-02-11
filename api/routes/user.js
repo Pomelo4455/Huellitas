@@ -12,9 +12,9 @@ const {
 const router = Router();
 
 router.get("/", async (req, res) => {
-  const { name, status } = req.query;
+  const { name, status, type } = req.query;
   try {
-    const filters = userFilters(name, status);
+    const filters = userFilters(name, status, type);
     const users = await getAllUser(filters);
     res.status(200).send(users);
   } catch (error) {
