@@ -4,12 +4,13 @@ import Card from "../Card/Card";
 // import NavBar from "../NavBar/NavBar";
 import Paginado from "../Paginado/Paginado";
 import Sidebar from "../Sidebar/Sidebar";
-import styles from "./allcards.module.css";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import { getFilterPets, getPets, setCurrentPage } from "../../redux/actions";
 import { all } from "axios";
 import { combinarFiltros } from "../Sidebar/handlersSideBar";
+
+import styles from "./allcards.module.css";
 
 function Adoptar() {
   const dispatch = useDispatch();

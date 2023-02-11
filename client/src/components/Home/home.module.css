@@ -198,3 +198,362 @@
   text-decoration: none;
   color: inherit;
 }
+
+/* RESPONSIVE PARA DISPOSITIVOS HASTA 760PX */
+@media (max-width: 760px) {
+  .home {
+    /* background-color: #ededed; */
+    /* background-color: #2aadf6; */
+
+    display: block;
+    width: 100%;
+    min-height: 100vh;
+    margin-bottom: -30px;
+  }
+  
+  /* ESTILOS PARA LA PRESENTACION */
+  
+  .landingInHome {
+    display: flex;
+    flex-direction: column;
+    /* background-color: #75e3ea; */
+    height: 80%;
+    overflow-y: visible;
+    z-index: 0;
+  }
+
+  .imagesLanding {
+    display: none;
+  }
+  
+  
+  .presentation {
+    width: 70%;
+    height: auto;
+    margin: 1em auto;
+    padding: 0.3em;
+  }
+  
+  .title {
+    font-family: "Ubuntu";
+  }
+  
+  .title h1 {
+    font-size: 3em;
+    text-align: center;
+    font-weight: 600;
+  }
+  
+  .description {
+    width: 80%;
+    margin: 0 auto;
+  }
+  
+  .description h4 {
+    font-family: "Poppins";
+    font-weight: 400;
+    font-size: 1.4em;
+  }
+  
+  .categoria {
+    display: flex;
+    justify-content: center;
+    font-size: 2em;
+    font-family: "Noto Sans JP";
+    font-weight: 600;
+    color: rgb(33, 31, 31);
+    margin-top: 80px;
+  }
+  
+  /* ESTILOS PARA MOSTRAR LOS BOTONES */
+  
+  .btnS {
+    /* background-color: rgba(137, 43, 226, 0.568); */
+    width: 80%;
+    height: auto;
+    margin: 1em auto;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .btnLanding {
+    margin: .6em auto;
+  }
+  
+  /* ESTILOS PARA MOSTRAR LAS TARJETAS */
+  
+  .cards {
+    width: 85%;
+    margin: 2em auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    flex-wrap: wrap;
+  }
+  
+  .button {
+    background-color: #2aadf6;
+    width: 12em;
+    height: 3.5em;
+    border: #059ff6 1px solid;
+    border-radius: 8px;
+    color: #fff;
+    font-family: "Poppins";
+    font-weight: 500;
+    font-size: 100%;
+    transition: 0.2s;
+    cursor: pointer;
+  }
+  
+  .button:hover {
+    background-color: #43baf9;
+  }
+  
+  .button:active {
+    transform: scale(0.97);
+    box-shadow: 3px 2px 22px 1px rgba(0, 0, 0, 0.24);
+  }
+  
+  .claseboton {
+    display: inline-block;
+    padding: 10px 20px;
+    font-family: "Noto Sans";
+    font-weight: 600;
+    font-size: 16px;
+    width: 150px;
+    color: #48bfff;
+    background-color: white;
+    border: 3px solid #48bfff;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+  }
+  
+  .claseboton:hover {
+    background-color:#43baf9;
+    color: white;
+    transition: 0.2s;
+    transform: translateY(-2px);
+    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  .claseUltimoBoton {
+    display: inline-block;
+    padding: 10px 20px;
+    font-family: "Noto Sans";
+    font-weight: 600;
+    font-size: 16px;
+    width: 150px;
+    color: #48bfff;
+    background-color: white;
+    border: 3px solid #48bfff;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    margin-bottom: 25px;
+  }
+  
+  .claseUltimoBoton:hover {
+    background-color:#43baf9;
+    color: white;
+    transition: 0.2s;
+    transform: translateY(-2px);
+    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  .linkText {
+    text-decoration: none;
+    color: inherit;
+  }
+}
+
+/* RESPONSIVE PARA DISPOSITIVOS DE 760PX HASTA 1024*/
+@media (min-width: 760px) and (max-width: 1024px) {
+  .home {
+    /* background-color: #ededed; */
+    /* background-color: #2aadf6; */
+  }
+  
+  /* ESTILOS PARA LA PRESENTACION */
+  
+  .landingInHome {
+    /* background-color: #75e3ea; */
+    display: flex;
+    flex-direction: column;
+    height: 80%;
+    overflow-y: visible;
+    z-index: 0;
+  }
+
+
+  .img1 {
+    position: absolute;
+    width: 30%;
+    height: 40%;
+    right: 10%;
+    top: 20%;
+    background: url(../../img/e17e13c695f6c35d4756d7da29b6bf7f.jpg);
+    background-size: cover;
+    background-position: center;
+    border-radius: 5%;
+    transform: rotate(-9deg);
+    z-index: 1;
+  }
+  
+  .Circle2 {
+    position: absolute;
+    top: 40%;
+    right: 5%;
+    width: 5em;
+    height: 5em;
+    border-radius: 50%;
+    background-color: #75e3ea;
+    z-index: 0;
+  }
+  
+  .Circle3 {
+    position: absolute;
+    top: 30%;
+    right: 37%;
+    width: 5em;
+    height: 5em;
+    border-radius: 50%;
+    background-color: #788eff;
+    z-index: 0;
+  }
+  
+  .presentation {
+    width: 70%;
+    height: auto;
+    margin: 1em auto;
+    padding: 0.3em;
+  }
+  
+  .title {
+    font-family: "Ubuntu";
+  }
+  
+  .title h1 {
+    font-size: 3em;
+    text-align: center;
+    font-weight: 600;
+  }
+  
+  .description {
+    width: 80%;
+    margin: 0 auto;
+  }
+  
+  .description h4 {
+    font-family: "Poppins";
+    font-weight: 400;
+    font-size: 1.4em;
+  }
+  
+  .categoria {
+    display: flex;
+    justify-content: center;
+    font-size: 2em;
+    font-family: "Noto Sans JP";
+    font-weight: 600;
+    color: rgb(33, 31, 31);
+    margin-top: 80px;
+  }
+  
+  /* ESTILOS PARA MOSTRAR LOS BOTONES */
+  
+  .btnS {
+    /* background-color: rgba(137, 43, 226, 0.568); */
+    width: 80%;
+    height: auto;
+    margin: 1em auto;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .btnLanding {
+    margin: .6em auto;
+  }
+  
+  /* ESTILOS PARA MOSTRAR LAS TARJETAS */
+  
+  .cards {
+    width: 85%;
+    margin: 2em auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    flex-wrap: wrap;
+  }
+  
+  .button {
+    background-color: #2aadf6;
+    width: 12em;
+    height: 3.5em;
+    border: #059ff6 1px solid;
+    border-radius: 8px;
+    color: #fff;
+    font-family: "Poppins";
+    font-weight: 500;
+    font-size: 100%;
+    transition: 0.2s;
+    cursor: pointer;
+  }
+  
+  .button:hover {
+    background-color: #43baf9;
+  }
+  
+  .button:active {
+    transform: scale(0.97);
+    box-shadow: 3px 2px 22px 1px rgba(0, 0, 0, 0.24);
+  }
+  
+  .claseboton {
+    display: inline-block;
+    padding: 10px 20px;
+    font-family: "Noto Sans";
+    font-weight: 600;
+    font-size: 16px;
+    width: 150px;
+    color: #48bfff;
+    background-color: white;
+    border: 3px solid #48bfff;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+  }
+  
+  .claseboton:hover {
+    background-color:#43baf9;
+    color: white;
+    transition: 0.2s;
+    transform: translateY(-2px);
+    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  .claseUltimoBoton {
+    display: inline-block;
+    padding: 10px 20px;
+    font-family: "Noto Sans";
+    font-weight: 600;
+    font-size: 16px;
+    width: 150px;
+    color: #48bfff;
+    background-color: white;
+    border: 3px solid #48bfff;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    margin-bottom: 25px;
+  }
+  
+  .claseUltimoBoton:hover {
+    background-color:#43baf9;
+    color: white;
+    transition: 0.2s;
+    transform: translateY(-2px);
+    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  .linkText {
+    text-decoration: none;
+    color: inherit;
+  }
+}
