@@ -34,8 +34,7 @@ const initialState = {
   is_authenticated: false,
   profile: null,
   db_profile: null,
-  increase: 0
-};
+  };
 
 const rootReducer = (state = initialState, action) => {
   switch (action.type) {

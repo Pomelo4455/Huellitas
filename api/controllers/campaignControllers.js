@@ -32,14 +32,7 @@ const postCampaign = async ({
 const putCampaign = async (req) => {
   const { id } = req.params;
   const { title, reason, description, goal, collected } = req.body;
-  let addCollected = Campaign.increment(
-    {
-      collected: collected
-    },
-    {
-      where: { id },
-    }
-  );
+  
   let edit = Campaign.update(
     {
       title,

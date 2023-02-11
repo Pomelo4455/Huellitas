@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { getDetailCamp, donate, donationIncrease } from "../../redux/actions";
+import { getDetailCamp, donate } from "../../redux/actions";
 import { useSelector, useDispatch } from "react-redux";
 import { Link, useParams } from "react-router-dom";
 import Footer from "../Footer/Footer";
@@ -15,6 +15,8 @@ const Detail = (props) => {
   const { id } = useParams();
   const navigate = useNavigate();
   const [input, setInput] = useState(false);
+  const profile = useSelector(state => state.profile);
+  console.log("el perfil es:",profile);
 
   useEffect(() => {
     dispatch(getDetailCamp(id));
@@ -74,7 +76,7 @@ const Detail = (props) => {
                 return errors;
               }}
               onSubmit={(values, { resetForm }) => {
-                // dispatch(donationIncrease(values.quantity));
+                localStorage.setItem("datosDonacion", JSON.stringify({amount: values.quantity, idCampaign:campaignId[0].id, idUser: profile.data.id}));
                 dispatch(donate(values));
                 resetForm();
               }}

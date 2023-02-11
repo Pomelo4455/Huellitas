@@ -64,7 +64,7 @@ function App() {
         <Route path="/campañas" element={<Campañas />} />
         <Route path="/campañas/:id" element={<Detail />} />
         <Route path="/PublicarCampaña" element={<CampaignForm />} />
-        <Route path="/gracias" element={<Gratitude />} />
+        <Route path="/payment/gracias" element={<Gratitude />} />
         <Route path="/DashBoardAdm" element={<DashBoardAdm />} />
         <Route path="/:any" element={<NotFound />} />
       </Routes>
