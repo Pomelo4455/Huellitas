@@ -9,7 +9,7 @@
   width: 100%;
   box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.2);
   overflow: visible;
-  z-index: 10;
+  z-index: 1;
 }
 
 .nav ul {
@@ -134,8 +134,64 @@
 
   .infoSession img {
     width: 50px;
+    height: 50px;
     border-radius: 50%;
     margin: 0 auto;
+    cursor: pointer;
+  }
+
+  .infoSession img:hover {
+    
+  }
+
+  .editBtnContainer {
+    /* background-color: #8b90ff; */
+    display: block;
+    margin: 1em auto;
+    width: fit-content;
+    height: auto;
+  }
+
+  .buttonEdit {
+    background-color: #8b90ff;
+    color: white;
+    border: #646BFF 1px solid;
+    border-radius: 8px;
+    padding: 10px 20px;
+    font-family: "Ubuntu";
+    font-weight: 400;
+    font-size: 110%;
+    text-align: center;
+    text-decoration: none;
+    width: fit-content;
+    white-space: nowrap;
+    margin-right: 5%;
+    cursor: pointer;
+  }
+  .buttonEdit:hover {
+    background-color: #9ca1ff;
+    transition: 0.25s;
+    color: white;
+  }
+  .buttonEdit:active {
+    transform: scale(0.97);
+    box-shadow: 3px 2px 22px 1px rgba(0, 0, 0, 0.24);
+  }
+
+  .toggleUser {
+    background-color: rgba(3, 3, 3, 0.875);
+    border-radius: 16px;
+    width: 10em;
+    height: auto;
+    margin-top: 2em;
+    margin-left: -4em;
+
+    z-index: 100;
+    position: absolute;
+  }
+
+  .toggleUserNone {
+    display: none;
   }
 
   .logoutContainer {
@@ -296,6 +352,17 @@
     display: none;
   }
 
+
+  .toggleUser {
+    background-color: rgba(3, 3, 3, 0.875);
+    width: 90%;
+    height: 50%;
+    margin: 3em -27%;
+    border-radius: 16px;
+    padding-top: 3em;
+    z-index: 10;
+    position: absolute;
+  }
 }
 
 /* RESPONSIVE PARA DISPOSITIVOS DE 760PX HASTA 1024*/

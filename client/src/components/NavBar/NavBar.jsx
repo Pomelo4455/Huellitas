@@ -57,13 +57,19 @@ const NavBar = (
     setShowDropdown(!showDropdown);
   };
 
+  const [showEdit, setShowEdit] = useState(false);
+
+  const handleEdit = () => {
+    setShowEdit(!showEdit);
+  };
+
 
   return (
     <nav className={styles.nav}>
 
       <button 
         className={styles.dropdownButton} 
-        onClick={handleDropdown}
+        onClick={`${handleDropdown}`}
       >
         {
           showDropdown 
@@ -108,9 +114,33 @@ const NavBar = (
           {loggedUser ? (
             <div className={styles.infoSession}>
               {/* <h4>Ha iniciado sesión como: {loggedUser.name.toUpperCase()}</h4> */}
-              <img src={loggedUser.image}></img>
-              <div className={styles.logoutContainer}>
-                <LogoutButton />
+              <img 
+                src={loggedUser.image}
+                onClick={handleEdit}
+              />
+              <div 
+                className=
+                {
+                  showEdit ? styles.toggleUser : styles.toggleUserNone
+                }
+              >
+                <div>
+                  <Link 
+                    to='/Profile' 
+                    onClick={handleEdit}
+                    className={styles.editBtnContainer}
+                  >
+                    <button className={styles.buttonEdit}>
+                      Editar perfil
+                    </button>
+                  </Link>
+                </div>
+                <div 
+                  className={styles.logoutContainer} 
+                  onClick={handleEdit}
+                >
+                  <LogoutButton />
+                </div>
               </div>
             </div>
           ) : (
