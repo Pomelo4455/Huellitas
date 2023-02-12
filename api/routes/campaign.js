@@ -40,17 +40,18 @@ router.get("/:id", async (req, res) => {
 });
 
 router.post("/", async (req, res) => {
-  const { title, reason, description, goal, userId, image } = req.body;
-  try {
-    if (!title || !reason || !description || !goal) {
-      return res.status(404).send("Faltan datos");
-    } else {
-      let newCampaign = await postCampaign(req.body);
-      return res.status(201).send("¡Su campaña ha sido creada con éxito!");
+    const { title, reason, description, goal, userId,image, collected } = req.body;
+    try {     
+        if ( !title || !reason || !description || !goal ) {
+            return res.status(404).send('Faltan datos');
+        }
+        else {
+            let newCampaign = await postCampaign(req.body);
+            return res.status(201).send('¡Su campaña ha sido creada con éxito!');
+        }
+    } catch(error) {
+        res.status(404).send({error: error.message})
     }
-  } catch (error) {
-    res.status(404).send({ error: error.message });
-  }
 });
 
 router.put("/:id", async (req, res) => {

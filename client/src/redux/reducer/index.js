@@ -117,7 +117,36 @@ const rootReducer = (state = initialState, action) => {
         profile: {},
       };
     case LOGIN_SUCCESS:
-      return {
+        return {
+          ...state,
+          is_authenticated: true
+        }
+      case LOGIN_FAILURE:
+        return {
+          ...state,
+          is_authenticated: false
+        }
+      case ADD_PROFILE:
+        return {
+          ...state,
+          profile: action.payload
+        }
+      case REMOVE_PROFILE:
+        return {
+          ...state,
+          profile: null
+        }
+      case SET_DB_PROFILE:
+        return {
+          ...state,
+          db_profile: action.payload
+        }
+      case REMOVE_DB_PROFILE:
+        return {
+          ...state,
+          db_profile: null
+        }
+        return {
         ...state,
         is_authenticated: true,
       };

@@ -101,7 +101,7 @@ function App() {
             </FoundationProtectedRoute>
           }
         />
-        <Route path="/gracias" element={<Gratitude />} />
+        <Route path="payment/gracias" element={<Gratitude />} />
         <Route path="/DashBoardAdm" element={<AdminProtectedRoute><DashBoardAdm /></AdminProtectedRoute>}/>
         <Route path="/unauthRedirect/:props" element={<UnauthRedirect />} />
         <Route path="/Profile" element={<Profile setLoggedUser={setLoggedUser} />}/>
