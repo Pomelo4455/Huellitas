@@ -7,6 +7,7 @@ import DetailCampaign from "./DetailCampaign.jsx";
 import EditPet from "./EditPet.jsx";
 import DetailPet from "./DetailPet.jsx";
 import styles from "./dashBoardAdm.module.css";
+import swal from "sweetalert";
 // import NavBar from "../NavBar/NavBar";
 import {
   getUsers,
@@ -273,44 +274,126 @@ const DashBoardAdm = () => {
     setModalEditPet(true);
   };
   const handleSelectTypeUser = (row, e) => {
-    dispatch(
-      deleteUsers(
-        `http://localhost:3001/users/${row.id}?type=${e.target.value}`
-      )
-    );
-    setDelete(`${e.target.value}`);
+    let userId = row.id;
+    let value = e.target.value;
+    swal({
+      title: "Estas seguro?",
+      text: "Al presionar el botón 'OK', se aplicará el cambio de tipo del usuario.",
+      icon: "warning",
+      dangerMode: false,
+      buttons: ["Cancelar", "Ok"],
+    }).then((willDelete) => {
+      if (willDelete) {
+        swal("El cambio de tipo ha sido efectuado", {
+          icon: "success",
+        }).then(() => {
+          dispatch(
+            deleteUsers(`http://localhost:3001/users/${userId}?type=${value}`)
+          );
+          setDelete(`${value}`);
+        });
+      } else {
+        swal("No se efectuo ningun cambio");
+      }
+    });
   };
   const handleSelectStatusUser = (row, e) => {
-    dispatch(
-      deleteUsers(
-        `http://localhost:3001/users/${row.id}?status=${e.target.value}`
-      )
-    );
-    setDelete(`${e.target.value}`);
+    let userId = row.id;
+    let value = e.target.value;
+    swal({
+      title: "Estas seguro?",
+      text: "Al presionar el botón 'OK', se aplicará el cambio de estado del usuario.",
+      icon: "warning",
+      buttons: ["Cancelar", "Ok"],
+      dangerMode: false,
+    }).then((willDelete) => {
+      if (willDelete) {
+        swal("El cambio de estado ha sido efectuado", {
+          icon: "success",
+        }).then(() => {
+          dispatch(
+            deleteUsers(`http://localhost:3001/users/${userId}?status=${value}`)
+          );
+          setDelete(`${value}`);
+        });
+      } else {
+        swal("No se efectuo ningun cambio");
+      }
+    });
   };
   const handleSelectStatusCampaigns = (row, e) => {
-    dispatch(
-      deleteCampaigns(
-        `http://localhost:3001/campaigns/${row.id}?status=${e.target.value}`
-      )
-    );
-    setDelete(`${e.target.value}`);
+    let CampaignId = row.id;
+    let value = e.target.value;
+    swal({
+      title: "Estas seguro?",
+      text: "Al presionar el botón 'OK', se aplicará el cambio de estado de la campaña.",
+      icon: "warning",
+      dangerMode: false,
+      buttons: ["Cancelar", "Ok"],
+    }).then((willDelete) => {
+      if (willDelete) {
+        swal("El cambio de estado ha sido efectuado", {
+          icon: "success",
+        }).then(() => {
+          dispatch(
+            deleteUsers(
+              `http://localhost:3001/campaigns/${CampaignId}?status=${value}`
+            )
+          );
+          setDelete(`${value}`);
+        });
+      } else {
+        swal("No se efectuo ningun cambio");
+      }
+    });
   };
   const handleSelectAdoptedPets = (row, e) => {
-    dispatch(
-      deletePets(
-        `http://localhost:3001/pets/${row.id}?adopted=${e.target.value}`
-      )
-    );
-    setDelete(`${e.target.value}`);
+    let petId = row.id;
+    let value = e.target.value;
+    swal({
+      title: "Estas seguro?",
+      text: "Al presionar el botón 'OK', se aplicará el cambio de adopcion de la mascota.",
+      icon: "warning",
+      buttons: ["Cancelar", "Ok"],
+      dangerMode: false,
+    }).then((willDelete) => {
+      if (willDelete) {
+        swal("El cambio de adopcion ha sido efectuado", {
+          icon: "success",
+        }).then(() => {
+          dispatch(
+            deleteUsers(`http://localhost:3001/pets/${petId}?adopted=${value}`)
+          );
+          setDelete(`${value}`);
+        });
+      } else {
+        swal("No se efectuo ningun cambio");
+      }
+    });
   };
   const handleSelectDeletedPets = (row, e) => {
-    dispatch(
-      deletePets(
-        `http://localhost:3001/pets/${row.id}?deleted=${e.target.value}`
-      )
-    );
-    setDelete(`${e.target.value}`);
+    let petId = row.id;
+    let value = e.target.value;
+    swal({
+      title: "Estas seguro?",
+      text: "Al presionar el botón 'OK', se aplicará el cambio de estado de la mascota.",
+      icon: "warning",
+      buttons: ["Cancelar", "Ok"],
+      dangerMode: false,
+    }).then((willDelete) => {
+      if (willDelete) {
+        swal("El cambio de estado ha sido efectuado", {
+          icon: "success",
+        }).then(() => {
+          dispatch(
+            deleteUsers(`http://localhost:3001/pets/${petId}?deleted=${value}`)
+          );
+          setDelete(`${value}`);
+        });
+      } else {
+        swal("No se efectuo ningun cambio");
+      }
+    });
   };
 
   const paginateOptions = {

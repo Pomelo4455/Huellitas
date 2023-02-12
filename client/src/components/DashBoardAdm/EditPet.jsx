@@ -4,6 +4,8 @@ import { useDispatch } from "react-redux";
 import { useState, useEffect } from "react";
 import { updatePetAdm } from "../../redux/actions";
 import swal from "sweetalert";
+import { Widget } from "@uploadcare/react-widget";
+import effects from "uploadcare-widget-tab-effects/react";
 const EditPet = ({ dataModal, setModalEditPet }) => {
   const dispatch = useDispatch();
   const [sent, setSent] = useState(false);
@@ -73,7 +75,7 @@ const EditPet = ({ dataModal, setModalEditPet }) => {
           return errors;
         }}
         onSubmit={(values, { resetForm }) => {
-          console.log(valuess);
+          // console.log(valuess);
           dispatch(updatePetAdm(dataModal.id, valuess));
           resetForm();
           setSent(true);
@@ -247,6 +249,35 @@ const EditPet = ({ dataModal, setModalEditPet }) => {
                   src={valuess.image}
                   alt={valuess.name}
                 />
+                <br />
+                <label>Deseas cambiar la foto actual?</label>
+                <div className={styles.divinput}>
+                  <Widget
+                    tabs="file url"
+                    locale="es"
+                    name="image"
+                    publicKey="d00f029a60bdde9dafab"
+                    previewStep
+                    customTabs={{ preview: effects }}
+                    clearable
+                    onFileSelect={(file) => {
+                      if (!file) {
+                        setFieldValue("image", "");
+                        return;
+                      }
+                      file.done((fileInfo) => {
+                        setFieldValue("image", fileInfo.cdnUrl);
+                        setValues({
+                          ...valuess,
+                          image: fileInfo.cdnUrl,
+                        });
+                      });
+                    }}
+                    onChange={(file) => {
+                      setFieldValue("image", file);
+                    }}
+                  />
+                </div>
               </div>
 
               {sent && (

@@ -56,7 +56,7 @@ const EditProfile = ({ dataModal, setModalEditProfile }) => {
           return errors;
         }}
         onSubmit={(values, { resetForm }) => {
-          console.log(valuess);
+          // console.log(valuess);
           dispatch(updateUsersAdm(dataModal.id, valuess));
           resetForm();
           setSent(true);
@@ -176,7 +176,7 @@ const EditProfile = ({ dataModal, setModalEditProfile }) => {
                 />
                 <button
                   name="image"
-                  value="https://acortar.link/ez6Hds"
+                  value="https://thumbs.dreamstime.com/b/persona-inc%C3%B3gnita-desconocida-silueta-del-hombre-122006457.jpg"
                   onClick={setDefault}
                 >
                   Set default
