@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from "react";
 import styles from "./mensajeria.module.css";
 import axios from "axios";
+import io from "socket.io-client"
+const socket = io('http://localhost:3001')
+
 
 const renderizarMensajes = (mensajes, emisor, receptor) => {
     return mensajes.map((mensaje, i) => {
@@ -40,9 +43,21 @@ export default function RenderizarMensajes() {
   }, [])
 
   useEffect(() => {
+    const reciveMessage = (message) => {
+        if ((message.EmisorId == emisorId && message.ReceptorId == receptorId) || (message.EmisorId == receptorId && message.ReceptorId == emisorId)) {
+            console.log("entre");
+            setMessages([...messages, message]);
+        }
+    }
+    socket.on('message', reciveMessage);
+    return () => {
+        socket.off('message', reciveMessage);
+    }
+  }, [messages])
+
+  useEffect(() => {
     axios(`http://localhost:3001/message?emisorId=${emisorId}&receptorId=${receptorId}`)
     .then((mensajes) => setMessages(mensajes.data));
-
   }, []) // en un futuro se actualizaria cada vez que mande un mensaje alguno de los dos usuers. ahora solo al inicio.
 
 
