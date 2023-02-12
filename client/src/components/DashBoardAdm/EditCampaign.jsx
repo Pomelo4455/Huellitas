@@ -4,6 +4,8 @@ import { useDispatch } from "react-redux";
 import { useState, useEffect } from "react";
 import { updateCampaignAdm } from "../../redux/actions";
 import swal from "sweetalert";
+import { Widget } from "@uploadcare/react-widget";
+import effects from "uploadcare-widget-tab-effects/react";
 const EditCampaign = ({ dataModal, setModalEditCampaign }) => {
   const dispatch = useDispatch();
   const [sent, setSent] = useState(false);
@@ -26,11 +28,6 @@ const EditCampaign = ({ dataModal, setModalEditCampaign }) => {
   }, [dataModal]);
 
   const checkChange = (e) => {
-    setValues({ ...valuess, [e.target.name]: e.target.value });
-  };
-
-  const setDefault = (e) => {
-    e.preventDefault();
     setValues({ ...valuess, [e.target.name]: e.target.value });
   };
 
@@ -75,7 +72,7 @@ const EditCampaign = ({ dataModal, setModalEditCampaign }) => {
           return errors;
         }}
         onSubmit={(values, { resetForm }) => {
-          console.log(valuess);
+          // console.log(valuess);
           dispatch(updateCampaignAdm(dataModal.id, valuess));
           resetForm();
           setSent(true);
@@ -171,13 +168,35 @@ const EditCampaign = ({ dataModal, setModalEditCampaign }) => {
                   src={valuess.image}
                   alt={valuess.name}
                 />
-                {/* <button
-                  name="image"
-                  value="https://acortar.link/ez6Hds"
-                  onClick={setDefault}
-                >
-                  Set default
-                </button> */}
+                <br />
+                <label>Deseas cambiar la foto actual?</label>
+                <div className={styles.divinput}>
+                  <Widget
+                    tabs="file url"
+                    locale="es"
+                    name="image"
+                    publicKey="d00f029a60bdde9dafab"
+                    previewStep
+                    customTabs={{ preview: effects }}
+                    clearable
+                    onFileSelect={(file) => {
+                      if (!file) {
+                        setFieldValue("image", "");
+                        return;
+                      }
+                      file.done((fileInfo) => {
+                        setFieldValue("image", fileInfo.cdnUrl);
+                        setValues({
+                          ...valuess,
+                          image: fileInfo.cdnUrl,
+                        });
+                      });
+                    }}
+                    onChange={(file) => {
+                      setFieldValue("image", file);
+                    }}
+                  />
+                </div>
               </div>
               {sent && (
                 <p className={styles.exito}>Formulario enviado con exito!</p>

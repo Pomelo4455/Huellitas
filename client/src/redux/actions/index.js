@@ -313,7 +313,6 @@ export function getPetsAdm() {
     try {
       const response = await axios.get("http://localhost:3001/pets/Adm/Admin");
       const allPetsAdm = response.data;
-      console.log("soy el allPetsAdm", allPetsAdm);
       return dispatch({
         type: GET_PETS,
         payload: allPetsAdm,
