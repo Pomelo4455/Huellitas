@@ -5,6 +5,8 @@ import { Link } from "react-router-dom";
 import styles from "./footer.module.css";
 import swal from "sweetalert";
 
+const ADMIN_ID = 1;
+
 function Footer() {
 
   let user = JSON.parse(window.localStorage.getItem("loggedUser"));
@@ -29,7 +31,7 @@ function Footer() {
         </Link>
         {
         user?.data?.id ?
-          <Link to={`/chat/${user.data.id}/1`} className={styles.texts}>
+          <Link to={`/chat/${user.data.id}/${ADMIN_ID}`} className={styles.texts}>
             <h4 className={styles.texts}>Contactanos</h4>
           </Link> :
           <h4 onClick={handleContact} className={styles.texts} style={{cursor:"pointer"}}>Contactanos</h4>
