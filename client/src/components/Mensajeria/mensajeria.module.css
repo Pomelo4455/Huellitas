@@ -14,7 +14,7 @@
 
 .top {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     text-align: center;
     align-items: center;
     background: #54b4d3;
