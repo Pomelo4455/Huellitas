@@ -25,6 +25,7 @@ const Home = () => {
     const isAuth = useSelector((state) => state.is_authenticated);
     const [userLocation, setLocation] = useState({ lat: 0, lng: 0 });
     const { loginWithPopup } = useAuth0();
+    let user = JSON.parse(window.localStorage.getItem("loggedUser"));
 
     useEffect(() => {
         if (navigator.geolocation) {
@@ -71,9 +72,6 @@ const Home = () => {
 
     return (
       <div className={styles.home}>
-          {/*<Link to={'/detail/1'} state={{userLocation}}><button>Geolocalización</button></Link>*/}
-
-
           <div className={styles.landingInHome}>
               <Landing />
                 <div className={styles.imagesLanding}>
@@ -83,8 +81,6 @@ const Home = () => {
                     <div className={styles.Circle3}></div>
                 </div>
           </div>
-
-
           <div className={styles.btnS}>
                 <Link 
                     to="/Adoptar"
@@ -107,8 +103,8 @@ const Home = () => {
                     <BtnHome text="Ver campañas" />
                 </Link>
 
-                {JSON.parse(localStorage.getItem("loggedUser"))?.data?.type ===
-                "fundacion" ? (
+                {user?.data?.type === "fundacion" || user?.data?.type === "admin" ? 
+                (
                     <Link 
                         to={"/PublicarCampaña"}
                         className={styles.btnLanding}
@@ -117,26 +113,9 @@ const Home = () => {
                     </Link>
                 ) : null}
           </div>
-
-
-          <div data-aos="fade-up" className={styles.categoria}>
-              ¡Amiguitos!
-          </div>
-          
           <RenderPets />
-
-          <div data-aos="fade-up" className={styles.categoria}>
-              ¡Campañas!
-          </div>
-
           <RenderCampaigns />
-          <div data-aos="fade-up" className={styles.categoria}>
-              ¡Fundaciones!
-          </div>
-
           <RenderFoundations />
-          
-          {/* <Chat /> */}
       </div>
     );
 };

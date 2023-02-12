@@ -102,7 +102,7 @@ const NavBar = (
       </div>
 
         <div className={styles.title}>
-          <Icon className={styles.img} icon="mingcute:foot-line" />
+          <Icon className={styles.img} icon="material-symbols:pets"  />
           <div className={styles.txt}>
             <Link to="/home" className={styles.txt}>
               Huellitas

@@ -43,9 +43,7 @@ export default function Mensajeria() {
           <div className={styles.container}>
             <div className={styles.chat}>
                 <div className={styles.top}>
-                    <button className={styles.buttonTop}>{"<"}</button>
                     <h3>Chat en vivo</h3>
-                    <button className={styles.buttonTop}>{"x"}</button>
                 </div>
                 <RenderizarMensajes submit={true}/>
                 <div className={styles.inputContainer}>

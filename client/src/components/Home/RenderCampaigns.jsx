@@ -31,6 +31,9 @@ export default function RenderCampaigns() {
   });
   return (
     <>
+      <div data-aos="fade-up" className={styles.categoria}>
+        ¡Campañas!
+      </div>
       <div data-aos="fade-up" className={styles.cards}>
         {more.campaign ? (
           <>{renderizarCampaignsCards(allCampaigns, 6)}</>
