@@ -69,7 +69,7 @@ const NavBar = (
 
       <button 
         className={styles.dropdownButton} 
-        onClick={`${handleDropdown}`}
+        onClick={handleDropdown}
       >
         {
           showDropdown 

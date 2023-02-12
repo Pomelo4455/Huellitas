@@ -1,14 +1,14 @@
-/* body {
-    background-color: gray;
-} */
-
-
 .container {
+    min-height: 100vh;
+    background: gray;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.chat {
     background-color: #eeeeee;
     width: 50%;
-    left: 0;
-    right: 0;
-    margin: auto;
     border-radius: 20px;
 }
 
