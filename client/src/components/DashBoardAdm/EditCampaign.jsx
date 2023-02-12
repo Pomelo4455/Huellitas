@@ -82,7 +82,7 @@ const EditCampaign = ({ dataModal, setModalEditCampaign }) => {
           setTimeout(() => setSent(false), 2000);
           swal({
             title: "Congratulations!",
-            text: "El usuario ha sido editado con exito",
+            text: "La campaña ha sido editada con exito",
             icon: "success",
             button: "Ok",
           }).then(() => setModalEditCampaign(false));
