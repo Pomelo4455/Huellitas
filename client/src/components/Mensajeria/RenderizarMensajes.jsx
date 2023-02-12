@@ -45,7 +45,6 @@ export default function RenderizarMensajes() {
   useEffect(() => {
     const reciveMessage = (message) => {
         if ((message.EmisorId == emisorId && message.ReceptorId == receptorId) || (message.EmisorId == receptorId && message.ReceptorId == emisorId)) {
-            console.log("entre");
             setMessages([...messages, message]);
         }
     }

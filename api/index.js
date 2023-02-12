@@ -34,7 +34,6 @@ const io = new SocketIO.Server(server, {
 });
 io.on('connection', (socket) => {
   socket.on('message', (message) => {
-    console.log(message);
     socket.broadcast.emit('message', message);
   })
 })
