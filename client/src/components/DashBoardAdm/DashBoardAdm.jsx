@@ -384,10 +384,7 @@ const DashBoardAdm = () => {
       )}
 
       {modalEditPet && (
-        <EditPet
-          dataModal={dataModal}
-          setModalEditCampaign={setModalEditCampaign}
-        />
+        <EditPet dataModal={dataModal} setModalEditPet={setModalEditPet} />
       )}
     </>
   );

@@ -380,3 +380,17 @@ export const updateCampaignAdm = (id, data) => {
     }
   };
 };
+
+export const updatePetAdm = (id, data) => {
+  return async function () {
+    try {
+      const response = await axios.put(
+        `http://localhost:3001/pets/${id}`,
+        data
+      );
+      return response;
+    } catch (error) {
+      console.log(error);
+    }
+  };
+};
