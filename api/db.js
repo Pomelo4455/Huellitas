@@ -6,22 +6,22 @@ const { DB_USER, DB_PASSWORD, DB_HOST, DB_PORT, DB_NAME, DB_DEPLOY} = process.en
 
 /* OPCION 1: Descomentar esta opción para hacer los pedidos localmente*/
 
-/* const sequelize = new Sequelize(
+const sequelize = new Sequelize(
   `postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}:${DB_PORT}/${DB_NAME}`,
   {
     logging: false, // set to console.log to see the raw SQL queries
     native: false, // lets Sequelize know we can use pg-native for ~30% more speed
   }
-); */
+);
 
 /* OPCION 2: Descomentar esta opción para hacer los pedidos a railway(server deployado) */
 
-const sequelize = new Sequelize(DB_DEPLOY,
-  {
-    logging: false, // set to console.log to see the raw SQL queries
-    native: false, // lets Sequelize know we can use pg-native for ~30% more speed
-  }
-);
+// const sequelize = new Sequelize(DB_DEPLOY,
+//   {
+//     logging: false, // set to console.log to see the raw SQL queries
+//     native: false, // lets Sequelize know we can use pg-native for ~30% more speed
+//   }
+// );
 
 const basename = path.basename(__filename);
 
@@ -75,8 +75,10 @@ Adoption.belongsTo(User);
 Pet.hasOne(Adoption);
 Adoption.belongsTo(Pet);
 
-User.belongsToMany(Campaign, {through: Donation});
-Campaign.belongsTo(User, {through: Donation});
+User.hasMany(Donation, {as: "donante", foreignKey: 'DonanteId'});
+Donation.belongsTo(User, {as: "donante", foreignKey: 'DonanteId'});
+Campaign.hasMany(Donation, {as: "campania", foreignKey: 'CampaniaId'});
+Donation.belongsTo(Campaign, {as: "campania", foreignKey: "CampaniaId"});
 
 module.exports = {
   ...sequelize.models, // para poder importar los modelos así: const { Product, User } = require('./db.js');

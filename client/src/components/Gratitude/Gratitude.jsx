@@ -12,6 +12,7 @@ function Gratitude() {
     let datos = JSON.parse(localStorage.getItem('datosDonacion'))
     if (datos?.campaignId) {
       dispatch(updateCollected(datos.campaignId, {collected: datos.amount}))
+      dispatch(donation({...datos, status: "approved"}));
     }
     localStorage.setItem("datosDonacion", JSON.stringify({})
     );
