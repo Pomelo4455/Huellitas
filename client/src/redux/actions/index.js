@@ -154,7 +154,6 @@ export const getDetailCamp = (id) => {
     try {
       const response = await axios.get(`http://localhost:3001/campaigns/${id}`);
       const campaign = response.data;
-      console.log(campaign);
 
       return dispatch({
         type: GET_DETAIL_CAMP,

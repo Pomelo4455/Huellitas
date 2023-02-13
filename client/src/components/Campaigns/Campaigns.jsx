@@ -11,7 +11,6 @@ import styles from "./campaigns.module.css";
 const Campañas = () => {
   const dispatch = useDispatch();
   const allCampaigns = useSelector((state) => state.campaigns);
-  console.log(allCampaigns);
 
   useEffect(() => {
     dispatch(getCampaigns());
