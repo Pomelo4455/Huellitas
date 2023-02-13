@@ -1,21 +1,24 @@
 import React, { useEffect, useState } from "react";
 import styles from "./mensajeria.module.css";
 import axios from "axios";
+import io from "socket.io-client"
+const socket = io('http://localhost:3001')
 
-const renderizarMensajes = (mensajes, emisorId) => {
+
+const renderizarMensajes = (mensajes, emisor, receptor) => {
     return mensajes.map((mensaje, i) => {
-        if (mensaje.EmisorId == emisorId) {
+        if (mensaje.EmisorId == emisor.id) {
             return (
                 <div key={i} className={styles.containerUser2}>
                     <p className={styles.messagge}>{mensaje.message}</p>
-                    <img className={styles.profilePic} src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava2-bg.webp" alt="nf" />
+                    <img className={styles.profilePic} src={emisor.image} alt="nf" />
                 </div>
             )
         }
         else {
             return (
                 <div key={i} className={styles.containerUser1}>
-                    <img className={styles.profilePic} src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava1-bg.webp" alt="nf"/>
+                    <img className={styles.profilePic} src={receptor.image} alt="nf"/>
                     <p className={styles.messagge}>{mensaje.message}</p> 
                 </div>
             )
@@ -26,9 +29,30 @@ const renderizarMensajes = (mensajes, emisorId) => {
 export default function RenderizarMensajes() {
 
   let [messages, setMessages] = useState([]);
+  let [emisor, setEmisor] = useState({});
+  let [receptor, setReceptor] = useState({});
   let URL = window.location.href.split("/");
   let receptorId = URL.pop();
   let emisorId = URL.pop();
+
+  useEffect(() => {
+    axios(`http://localhost:3001/users/${emisorId}`)
+    .then(user => setEmisor(user.data));
+    axios(`http://localhost:3001/users/${receptorId}`)
+    .then(user => setReceptor(user.data));
+  }, [])
+
+  useEffect(() => {
+    const reciveMessage = (message) => {
+        if ((message.EmisorId == emisorId && message.ReceptorId == receptorId) || (message.EmisorId == receptorId && message.ReceptorId == emisorId)) {
+            setMessages([...messages, message]);
+        }
+    }
+    socket.on('message', reciveMessage);
+    return () => {
+        socket.off('message', reciveMessage);
+    }
+  }, [messages])
 
   useEffect(() => {
     axios(`http://localhost:3001/message?emisorId=${emisorId}&receptorId=${receptorId}`)
@@ -38,7 +62,7 @@ export default function RenderizarMensajes() {
 
   return (
         <div className={styles.mensajes}>
-            {renderizarMensajes(messages, emisorId)}
+            {renderizarMensajes(messages, emisor, receptor)}
         </div>
     )
 }

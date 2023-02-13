@@ -19,6 +19,9 @@ export default function RenderPets() {
   });
   return (
     <>
+      <div data-aos="fade-up" className={styles.categoria}>
+        ¡Amiguitos!
+      </div>
       <div data-aos="fade-up" className={styles.cards}>
         {more.pet ? (
           <>{renderizarPetCards(allPets, 6)}</>

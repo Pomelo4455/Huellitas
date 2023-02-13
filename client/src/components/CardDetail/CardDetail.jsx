@@ -1,6 +1,6 @@
 import React from "react";
 import { useEffect } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link, redirect, useNavigate, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 
 // import Footer from "../Footer/Footer";
@@ -14,6 +14,7 @@ import MapView from "../MapView/MapView";
 const CardDetail = () => {
   const dispatch = useDispatch();
   const pet = useSelector((state) => state.pet);
+  const navigate = useNavigate();
 
   const { id } = useParams();
 
@@ -23,23 +24,46 @@ const CardDetail = () => {
 
   const handleSendMail = async () => {
     try {
-      // idUser seria el id del que adopta y lo sacariamos del login que hicieron naza y adri.
       const userLocalStorage = JSON.parse(localStorage.getItem("loggedUser"));
       const userId = userLocalStorage.data.id;
-      await axios.post("http://localhost:3001/mails", {
-        idUser: userId,
-        idGiver: pet.userId,
-        idPet: pet.id,
+      swal("¿Cómo desea contactarse?", {
+        buttons: {
+          email: {
+            text: "Email",
+            value: "email"
+          },
+          chat: {
+            text: "Chat en vivo",
+            value: "chat",
+          },
+        },
+      })
+      .then((value) => {
+        switch (value) {
+          case "email":
+            axios.post("http://localhost:3001/mails", {
+              idUser: userId,
+              idGiver: pet.userId,
+              idPet: pet.id,
+            })
+            .then(() => {
+              swal(
+                "Enviado.",
+                "Se ha informado su interés hacia la mascota.",
+                "success"
+              );
+            })
+            break;
+          case "chat":
+            console.log("entre");
+            navigate(`../chat/${userId}/${pet.userId}`)
+            break;
+        }
       });
+    } catch (error) {
       swal(
-        "Enviado.",
-        "Se ha informado su interés hacia la mascota.",
-        "success"
-      );
-    } catch (err) {
-      swal(
-        "No enviado.",
-        "No se ha podido informado su interés hacia la mascota.",
+        "No es posible contactarse con el dueño de la mascota.",
+        "Debe registrarse para poder hacerlo.",
         "error"
       );
     }
@@ -92,7 +116,7 @@ const CardDetail = () => {
           </div>
         </div>
       </div>
-      {/*<MapView/>*/}
+      <MapView/>
       {/* <Footer /> */}
     </>
   );

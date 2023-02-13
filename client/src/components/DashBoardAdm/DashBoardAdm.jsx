@@ -1,11 +1,16 @@
 import { useSelector, useDispatch } from "react-redux";
 import { useEffect, useState } from "react";
+import EditProfile from "./EditProfile.jsx";
+import DetailProfile from "./DetailProfile.jsx";
+import EditCampaign from "./EditCampaign.jsx";
+import DetailCampaign from "./DetailCampaign.jsx";
+import EditPet from "./EditPet.jsx";
+import DetailPet from "./DetailPet.jsx";
 import styles from "./dashBoardAdm.module.css";
+import swal from "sweetalert";
 // import NavBar from "../NavBar/NavBar";
 import {
   getUsers,
-  getCampaigns,
-  getPets,
   deleteUsers,
   deleteCampaigns,
   getCampaignsAdm,
@@ -19,6 +24,14 @@ const DashBoardAdm = () => {
   const campañas = useSelector((state) => state.campaigns);
   const mascotas = useSelector((state) => state.pets);
   const [deletuse, setDelete] = useState(null);
+  const [modalDetailProfile, setModalDetailProfile] = useState(false);
+  const [modalEditProfile, setModalEditProfile] = useState(false);
+  const [modalDetailCampaign, setModalDetailCampaign] = useState(false);
+  const [modalEditCampaign, setModalEditCampaign] = useState(false);
+  const [modalDetailPet, setModalDetailPet] = useState(false);
+  const [modalEditPet, setModalEditPet] = useState(false);
+  const defaultData = "No existe informacion";
+  let dataModal = JSON.parse(localStorage.getItem("dataChange"));
 
   const dispatch = useDispatch();
   useEffect(() => {
@@ -26,7 +39,7 @@ const DashBoardAdm = () => {
     dispatch(getCampaignsAdm());
     dispatch(getPetsAdm());
     setDelete(null);
-  }, [deletuse]);
+  }, [deletuse, modalEditProfile, modalEditCampaign, modalEditPet]);
 
   const columnsUser = [
     {
@@ -35,12 +48,12 @@ const DashBoardAdm = () => {
       sortable: true,
     },
     {
-      name: "Type",
+      name: "Tipo",
       selector: (row) => row.type,
       sortable: true,
     },
     {
-      name: "Name",
+      name: "Nombre",
       selector: (row) => row.name,
       sortable: true,
     },
@@ -50,13 +63,13 @@ const DashBoardAdm = () => {
       sortable: true,
     },
     {
-      name: "Status",
+      name: "Estado",
       selector: (row) => row.status,
       sortable: true,
     },
 
     {
-      name: "Change type",
+      name: "Cambio de Tipo",
       cell: (row) => (
         <select onChange={(e) => handleSelectTypeUser(row, e)} value={row.type}>
           <option value="usuario">Usuario</option>
@@ -66,7 +79,7 @@ const DashBoardAdm = () => {
       ),
     },
     {
-      name: "Change status",
+      name: "Cambio de Estado",
       cell: (row) => (
         <select
           onChange={(e) => handleSelectStatusUser(row, e)}
@@ -82,6 +95,12 @@ const DashBoardAdm = () => {
       name: "Detalles",
       cell: (row) => <button onClick={() => handleClick(row)}>Buscar</button>,
     },
+    {
+      name: "Editar",
+      cell: (row) => (
+        <button onClick={() => handleClickTwo(row)}>Editar</button>
+      ),
+    },
   ];
 
   const columnsCampaigns = [
@@ -91,27 +110,27 @@ const DashBoardAdm = () => {
       sortable: true,
     },
     {
-      name: "Title",
+      name: "Titulo",
       selector: (row) => row.title,
       sortable: true,
     },
     {
-      name: "UserID",
+      name: "ID de Usuario",
       selector: (row) => row.userId,
       sortable: true,
     },
     {
-      name: "Goal",
+      name: "Meta",
       selector: (row) => row.goal,
       sortable: true,
     },
     {
-      name: "Status",
+      name: "Estado",
       selector: (row) => row.status,
       sortable: true,
     },
     {
-      name: "Change status",
+      name: "Cambio de Estado",
       cell: (row) => (
         <select
           onChange={(e) => handleSelectStatusCampaigns(row, e)}
@@ -123,6 +142,18 @@ const DashBoardAdm = () => {
         </select>
       ),
     },
+    {
+      name: "Detalles",
+      cell: (row) => (
+        <button onClick={() => handleClickThree(row)}>Buscar</button>
+      ),
+    },
+    {
+      name: "Editar",
+      cell: (row) => (
+        <button onClick={() => handleClickFour(row)}>Editar</button>
+      ),
+    },
   ];
 
   const columnsPets = [
@@ -132,22 +163,22 @@ const DashBoardAdm = () => {
       sortable: true,
     },
     {
-      name: "Name",
+      name: "Nombre",
       selector: (row) => row.name,
       sortable: true,
     },
     {
-      name: "Species",
+      name: "Especie",
       selector: (row) => row.species,
       sortable: true,
     },
     {
-      name: "Sex",
+      name: "Sexo",
       selector: (row) => row.sex,
       sortable: true,
     },
     {
-      name: "Size",
+      name: "Tamaño",
       selector: (row) => row.size,
       sortable: true,
     },
@@ -157,22 +188,22 @@ const DashBoardAdm = () => {
       sortable: true,
     },
     {
-      name: "Age",
+      name: "Edad",
       selector: (row) => row.age,
       sortable: true,
     },
     {
-      name: "Giver",
+      name: "Donador",
       selector: (row) => row.giver,
       sortable: true,
     },
     {
-      name: "UserId",
+      name: "ID de usuario",
       selector: (row) => row.userId,
       sortable: true,
     },
     {
-      name: "Adopted",
+      name: "Fue adoptado?",
       selector: (row) => row.adopted,
       sortable: true,
     },
@@ -205,52 +236,164 @@ const DashBoardAdm = () => {
         </select>
       ),
     },
+    {
+      name: "Detalles",
+      cell: (row) => (
+        <button onClick={() => handleClickFive(row)}>Buscar</button>
+      ),
+    },
+    {
+      name: "Editar",
+      cell: (row) => (
+        <button onClick={() => handleClickSix(row)}>Editar</button>
+      ),
+    },
   ];
   const handleClick = (row) => {
-    console.log(
-      "Este boton te redirigira al perfil del usuario con el id:",
-      row.id
-    );
+    localStorage.setItem("dataChange", JSON.stringify(row));
+    setModalDetailProfile(true);
+  };
+  const handleClickTwo = (row) => {
+    localStorage.setItem("dataChange", JSON.stringify(row));
+    setModalEditProfile(true);
+  };
+  const handleClickThree = (row) => {
+    localStorage.setItem("dataChange", JSON.stringify(row));
+    setModalDetailCampaign(true);
+  };
+  const handleClickFour = (row) => {
+    localStorage.setItem("dataChange", JSON.stringify(row));
+    setModalEditCampaign(true);
+  };
+  const handleClickFive = (row) => {
+    localStorage.setItem("dataChange", JSON.stringify(row));
+    setModalDetailPet(true);
+  };
+  const handleClickSix = (row) => {
+    localStorage.setItem("dataChange", JSON.stringify(row));
+    setModalEditPet(true);
   };
   const handleSelectTypeUser = (row, e) => {
-    dispatch(
-      deleteUsers(
-        `http://localhost:3001/users/${row.id}?type=${e.target.value}`
-      )
-    );
-    setDelete(`${e.target.value}`);
+    let userId = row.id;
+    let value = e.target.value;
+    swal({
+      title: "Estas seguro?",
+      text: "Al presionar el botón 'OK', se aplicará el cambio de tipo del usuario.",
+      icon: "warning",
+      dangerMode: false,
+      buttons: ["Cancelar", "Ok"],
+    }).then((willDelete) => {
+      if (willDelete) {
+        swal("El cambio de tipo ha sido efectuado", {
+          icon: "success",
+        }).then(() => {
+          dispatch(
+            deleteUsers(`http://localhost:3001/users/${userId}?type=${value}`)
+          );
+          setDelete(`${value}`);
+        });
+      } else {
+        swal("No se efectuo ningun cambio");
+      }
+    });
   };
   const handleSelectStatusUser = (row, e) => {
-    dispatch(
-      deleteUsers(
-        `http://localhost:3001/users/${row.id}?status=${e.target.value}`
-      )
-    );
-    setDelete(`${e.target.value}`);
+    let userId = row.id;
+    let value = e.target.value;
+    swal({
+      title: "Estas seguro?",
+      text: "Al presionar el botón 'OK', se aplicará el cambio de estado del usuario.",
+      icon: "warning",
+      buttons: ["Cancelar", "Ok"],
+      dangerMode: false,
+    }).then((willDelete) => {
+      if (willDelete) {
+        swal("El cambio de estado ha sido efectuado", {
+          icon: "success",
+        }).then(() => {
+          dispatch(
+            deleteUsers(`http://localhost:3001/users/${userId}?status=${value}`)
+          );
+          setDelete(`${value}`);
+        });
+      } else {
+        swal("No se efectuo ningun cambio");
+      }
+    });
   };
   const handleSelectStatusCampaigns = (row, e) => {
-    dispatch(
-      deleteCampaigns(
-        `http://localhost:3001/campaigns/${row.id}?status=${e.target.value}`
-      )
-    );
-    setDelete(`${e.target.value}`);
+    let CampaignId = row.id;
+    let value = e.target.value;
+    swal({
+      title: "Estas seguro?",
+      text: "Al presionar el botón 'OK', se aplicará el cambio de estado de la campaña.",
+      icon: "warning",
+      dangerMode: false,
+      buttons: ["Cancelar", "Ok"],
+    }).then((willDelete) => {
+      if (willDelete) {
+        swal("El cambio de estado ha sido efectuado", {
+          icon: "success",
+        }).then(() => {
+          dispatch(
+            deleteUsers(
+              `http://localhost:3001/campaigns/${CampaignId}?status=${value}`
+            )
+          );
+          setDelete(`${value}`);
+        });
+      } else {
+        swal("No se efectuo ningun cambio");
+      }
+    });
   };
   const handleSelectAdoptedPets = (row, e) => {
-    dispatch(
-      deletePets(
-        `http://localhost:3001/pets/${row.id}?adopted=${e.target.value}`
-      )
-    );
-    setDelete(`${e.target.value}`);
+    let petId = row.id;
+    let value = e.target.value;
+    swal({
+      title: "Estas seguro?",
+      text: "Al presionar el botón 'OK', se aplicará el cambio de adopcion de la mascota.",
+      icon: "warning",
+      buttons: ["Cancelar", "Ok"],
+      dangerMode: false,
+    }).then((willDelete) => {
+      if (willDelete) {
+        swal("El cambio de adopcion ha sido efectuado", {
+          icon: "success",
+        }).then(() => {
+          dispatch(
+            deleteUsers(`http://localhost:3001/pets/${petId}?adopted=${value}`)
+          );
+          setDelete(`${value}`);
+        });
+      } else {
+        swal("No se efectuo ningun cambio");
+      }
+    });
   };
   const handleSelectDeletedPets = (row, e) => {
-    dispatch(
-      deletePets(
-        `http://localhost:3001/pets/${row.id}?deleted=${e.target.value}`
-      )
-    );
-    setDelete(`${e.target.value}`);
+    let petId = row.id;
+    let value = e.target.value;
+    swal({
+      title: "Estas seguro?",
+      text: "Al presionar el botón 'OK', se aplicará el cambio de estado de la mascota.",
+      icon: "warning",
+      buttons: ["Cancelar", "Ok"],
+      dangerMode: false,
+    }).then((willDelete) => {
+      if (willDelete) {
+        swal("El cambio de estado ha sido efectuado", {
+          icon: "success",
+        }).then(() => {
+          dispatch(
+            deleteUsers(`http://localhost:3001/pets/${petId}?deleted=${value}`)
+          );
+          setDelete(`${value}`);
+        });
+      } else {
+        swal("No se efectuo ningun cambio");
+      }
+    });
   };
 
   const paginateOptions = {
@@ -285,6 +428,47 @@ const DashBoardAdm = () => {
         pagination
         paginationComponentOptions={paginateOptions}
       />
+      {modalDetailProfile && (
+        <DetailProfile
+          dataModal={dataModal}
+          defaultData={defaultData}
+          setModalDetailProfile={setModalDetailProfile}
+        />
+      )}
+
+      {modalEditProfile && (
+        <EditProfile
+          dataModal={dataModal}
+          setModalEditProfile={setModalEditProfile}
+        />
+      )}
+
+      {modalDetailCampaign && (
+        <DetailCampaign
+          dataModal={dataModal}
+          defaultData={defaultData}
+          setModalDetailCampaign={setModalDetailCampaign}
+        />
+      )}
+
+      {modalEditCampaign && (
+        <EditCampaign
+          dataModal={dataModal}
+          setModalEditCampaign={setModalEditCampaign}
+        />
+      )}
+
+      {modalDetailPet && (
+        <DetailPet
+          dataModal={dataModal}
+          defaultData={defaultData}
+          setModalDetailPet={setModalDetailPet}
+        />
+      )}
+
+      {modalEditPet && (
+        <EditPet dataModal={dataModal} setModalEditPet={setModalEditPet} />
+      )}
     </>
   );
 };

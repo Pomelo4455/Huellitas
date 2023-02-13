@@ -5,12 +5,12 @@ import { getCampaigns } from "../../redux/actions";
 import Campaña from "./Campaing";
 // import Footer from "../Footer/Footer";
 // import NavBar from "../NavBar/NavBar";
+
 import styles from "./campaigns.module.css";
 
 const Campañas = () => {
   const dispatch = useDispatch();
   const allCampaigns = useSelector((state) => state.campaigns);
-  console.log(allCampaigns);
 
   useEffect(() => {
     dispatch(getCampaigns());

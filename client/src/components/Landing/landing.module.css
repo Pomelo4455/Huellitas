@@ -6,6 +6,7 @@
   position: relative;
   overflow-x: hidden;
   box-sizing: content-box;
+  z-index: 1;
 }
 .landingContainer::-webkit-scrollbar {
   display: none; /* Safari and Chrome */
@@ -159,7 +160,101 @@
   z-index: 0;
 }
 
-@media screen and (max-width: 1400px) {
+
+/* RESPONSIVE PARA DISPOSITIVOS HASTA 760PX */
+@media (max-width: 760px) {
+  .landingContainer {
+    /* background-color: aliceblue; */
+    height: 100%;
+    margin-bottom: 5%;
+    position: relative;
+    overflow-x: hidden;
+    box-sizing: content-box;
+    z-index: 1;
+  }
+
+  .text {
+    font-size: 3.5em;
+    width: 80%;
+    height: auto;
+    margin: 1em auto;
+    font-family: "Noto Sans JP";
+    font-weight: 800;
+    color: rgb(33, 31, 31);
+  }
+  
+  .subtitle {
+    margin: 1em auto;
+    font-size: 2.6em;
+    width: 80%;
+    height: auto;
+    font-family: "Noto Sans JP";
+    font-weight: 600;
+    color: rgb(33, 31, 31);
+    text-align: left;
+  }
+  
+  .textP {
+    display: flex;
+    width: 80%;
+    height: auto;
+    margin: 1em auto;
+    font-size: 130%;
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    text-align: left;
+  }
+}
+
+
+
+
+/* RESPONSIVE PARA DISPOSITIVOS DE 760PX HASTA 1024*/
+@media (min-width: 760px) and (max-width: 1024px) {
+  .landingContainer {
+    height: 100%;
+    margin-bottom: 5%;
+    position: relative;
+    overflow-x: hidden;
+    box-sizing: content-box;
+    z-index: 1;
+  }
+
+  
+  .text {
+    margin: 1em 0.2em;
+    width: 50%;
+    font-size: 4em;
+  }
+  
+  .subtitle {
+    margin: 1em 0.2em;
+    width: 55%;
+    font-size: 2.5em;
+  }
+  
+  .textP {
+    /* background-color: #5c60a9; */
+    display: flex;
+    width: 55%;
+    margin: 1em .4em;
+    font-size: 130%;
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    text-align: left;
+  }
+  
+  
+}
+
+
+
+
+
+
+
+
+/* @media screen and (max-width: 1400px) {
   .NavLan {
     display: flex;
     align-items: center;
@@ -623,4 +718,4 @@
     background-color: #788eff;
     z-index: 0;
   }
-}
+} */

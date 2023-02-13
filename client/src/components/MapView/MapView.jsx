@@ -12,19 +12,19 @@ const MapView = () => {
         zoom: 3.5
     })
 
-    const location = useLocation();
-    console.log('Location: ', location.state.userLocation.lat, location.state.userLocation.lng);
+    //const location = useLocation();
+   // console.log('Location: ', location);
 
     // const navigate = useNavigate();
 
     useEffect(() => {
-        if (location) {
-            const currentLocation = {
-                lat: location.state.userLocation.lat,
-                lng: location.state.userLocation.lng
-            }
-            setState({ ...state, currentLocation })
-        }
+        //if (location) {
+           // const currentLocation = {
+               // lat: location.state.userLocation.lat,
+              //  lng: location.state.userLocation.lng
+         //   }
+         //   setState({ ...state, currentLocation })
+      //7  }
     }, [])
 
     return (
@@ -38,11 +38,11 @@ const MapView = () => {
                 attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
             />
             <LayerGroup>
-                <Circle center={state.currentLocation} pathOptions={fillBlueOptions} radius={1000} />
+                <Circle center={state.currentLocation} pathOptions={fillBlueOptions} radius={20000} />
                 <Circle
                     center={state.currentLocation}
                     pathOptions={fillRedOptions}
-                    radius={500}
+                    radius={100000}
                     stroke={false}
                 />
             </LayerGroup>

@@ -19,9 +19,24 @@
 //     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 require("dotenv").config;
-const server = require("./app.js");
+const app = require("./app.js");
 const { conn } = require("./db.js");
 const port = process.env.PORT || 3001;
+
+// WEBSOCKETS CONFIG
+const SocketIO = require("socket.io");
+const http = require("http");
+const server = http.createServer(app);
+const io = new SocketIO.Server(server, {
+  cors: {
+    origin: "*",
+  }
+});
+io.on('connection', (socket) => {
+  socket.on('message', (message) => {
+    socket.broadcast.emit('message', message);
+  })
+})
 
 // Syncing all the models at once.
 // conn.sync({ force: true });

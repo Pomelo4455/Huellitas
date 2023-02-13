@@ -24,6 +24,9 @@ export const DELETE_USERS = "DELETE_USERS";
 export const DELETE_CAMPAINGS = "DELETE_CAMPAINGS";
 export const DELETE_PETS = "DELETE_PETS";
 export const UPDATE_USERS = "UPDATE_USERS";
+export const UPDATE_USERS_ADM = "UPDATE_USERS_ADM";
+export const DONATION = "DONATION";
+
 
 export const getPets = () => {
   return async function (dispatch) {
@@ -151,7 +154,6 @@ export const getDetailCamp = (id) => {
     try {
       const response = await axios.get(`http://localhost:3001/campaigns/${id}`);
       const campaign = response.data;
-      console.log(campaign);
 
       return dispatch({
         type: GET_DETAIL_CAMP,
@@ -254,6 +256,7 @@ export const getFundaciones = () => {
     }
   };
 };
+
 export const getUsers = () => {
   return async function (dispatch) {
     try {
@@ -311,7 +314,6 @@ export function getPetsAdm() {
     try {
       const response = await axios.get("http://localhost:3001/pets/Adm/Admin");
       const allPetsAdm = response.data;
-      console.log("soy el allPetsAdm", allPetsAdm);
       return dispatch({
         type: GET_PETS,
         payload: allPetsAdm,
@@ -348,5 +350,75 @@ export const updateUsers = (id, data, setLoggedUser) => {
         payload: response.data,
       });
     } catch (error) {}
+  };
+};
+
+export const updateUsersAdm = (id, data) => {
+  return async function (dispatch) {
+    try {
+      const response = await axios.put(
+        `http://localhost:3001/users/${id}`,
+        data
+      );
+      return response;
+    } catch (error) {
+      console.log(error);
+    }
+  };
+};
+
+export const updateCampaignAdm = (id, data) => {
+  return async function () {
+    try {
+      const response = await axios.put(
+        `http://localhost:3001/campaigns/${id}`,
+        data
+      );
+      return response;
+    } catch (error) {
+      console.log(error);
+    }
+  };
+};
+
+export const updatePetAdm = (id, data) => {
+  return async function () {
+    try {
+      const response = await axios.put(
+        `http://localhost:3001/pets/${id}`,
+        data
+      );
+      return response;
+    } catch (error) {
+      console.log(error);
+    }
+  };
+};
+
+export const donation = (data) => {
+  return async function () {
+    try {
+      const response = await axios.post(
+        `http://localhost:3001/donations`,
+        data
+      );
+      return response;
+    } catch (error) {
+      console.log(error);
+    }
+  };
+};
+
+export const updateCollected = (id, data) => {
+  return async function () {
+    try {
+      const response = await axios.put(
+        `http://localhost:3001/donations/${id}`,
+        data
+      );
+      return response;
+    } catch (error) {
+      console.log(error);
+    }
   };
 };

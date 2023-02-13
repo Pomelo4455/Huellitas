@@ -24,6 +24,10 @@ module.exports = (sequelize) => {
         type: DataTypes.INTEGER,
         allowNull: false,
       },
+      collected: {
+        type: DataTypes.INTEGER,
+        defaultValue: 0
+      },
       status: {
         type: DataTypes.ENUM("activo", "inactivo", "baneado"),
         defaultValue: "activo",

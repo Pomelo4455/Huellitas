@@ -4,12 +4,13 @@ import Card from "../Card/Card";
 // import NavBar from "../NavBar/NavBar";
 import Paginado from "../Paginado/Paginado";
 import Sidebar from "../Sidebar/Sidebar";
-import styles from "./allcards.module.css";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import { getFilterPets, getPets, setCurrentPage } from "../../redux/actions";
 import { all } from "axios";
 import { combinarFiltros } from "../Sidebar/handlersSideBar";
+
+import styles from "./allcards.module.css";
 
 function Adoptar() {
   const dispatch = useDispatch();
@@ -17,7 +18,7 @@ function Adoptar() {
   const filters = useSelector((state) => state.filters);
   const currentPage = useSelector((state) => state.page);
   // const [currentPage, setCurrentPage] = useState(1);
-  const [dogsPerPage, setdogsPerPage] = useState(8);
+  const [dogsPerPage, setdogsPerPage] = useState(6);
   const indexLastProduct = currentPage * dogsPerPage;
   const indexFirstProduct = indexLastProduct - dogsPerPage;
   const currentDogs = allPets.slice(indexFirstProduct, indexLastProduct);

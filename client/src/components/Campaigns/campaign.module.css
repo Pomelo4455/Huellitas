@@ -19,7 +19,6 @@
   transition: 0.5s;
   background: linear-gradient(360deg, #d8f0ff, #8dd5ff);
   background-color: #ffff;
-  border-radius: 0% 0% 0% 0% / 0% 0% 0% 0%;
   color: black;
   box-shadow: 10px 20px rgba(0, 0, 0, 0.15);
 }
@@ -86,6 +85,112 @@
 }
 
 .circle3 {
+  position: absolute;
+  width: 200px;
+  height: 100px;
+  border-top-left-radius: 110px;
+  border-top-right-radius: 110px;
+  background-color: #36b5ff;
+  z-index: 0;
+  margin-top: 75px;
+  margin-left: 250px;
+  transform: rotate(-90deg);
+}
+
+
+
+/* RESPONSIVE PARA DISPOSITIVOS HASTA 760PX */
+@media (max-width: 760px) {
+  .container {
+    background-color: #0098f1;
+    
+    margin-top: 1rem;
+    width: fit-content;
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    height: 100%;
+  }
+  
+  .camp {
+    display: grid;
+    flex-direction: column;
+    text-align: center;
+    text-decoration: none;
+    justify-content: center;
+    margin: 1rem auto;
+    height: 650px;
+    width: 90%;
+    transition: 0.5s;
+    background: linear-gradient(360deg, #d8f0ff, #8dd5ff);
+    background-color: #ffff;
+    border-radius: 0% 0% 0% 0% / 0% 0% 0% 0%;
+    color: black;
+    box-shadow: 10px 20px rgba(0, 0, 0, 0.15);
+  }
+  .camp:hover {
+    border-radius: 0% 0% 50% 50% / 0% 0% 5% 5%;
+    box-shadow: 10px 10px rgba(0, 0, 0, 0.25);
+  }
+  
+  .title {
+    text-decoration: none;
+    color: #000000;
+    font-family: "Poppins";
+    font-weight: 700;
+    font-size: 28px;
+    z-index: 3;
+    width: 300px;
+  }
+  
+  .img {
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 1rem;
+    width: 260px;
+    height: 238px;
+    object-fit: cover;
+    align-content: center;
+    border-radius: 5%;
+    /* transform: rotate(-5deg); */
+    z-index: 3;
+  }
+  .nolink {
+    text-decoration: none;
+    color: #000000;
+    font-family: "Poppins";
+    font-weight: 400;
+    z-index: 3;
+    width: 300px;
+  }
+  
+  .circle2 {
+    position: absolute;
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    background-color: #788eff;
+    z-index: 0;
+    margin-left: 40px;
+    margin-top: 200px;
+  }
+  
+  .circle1 {
+    position: absolute;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background-color: #75e3ea;
+    z-index: 0;
+    margin-left: 130px;
+    margin-top: 400px;
+  }
+  
+  .circle3 {
     position: absolute;
     width: 200px;
     height: 100px;
@@ -94,6 +199,7 @@
     background-color: #36b5ff;
     z-index: 0;
     margin-top: 75px;
-    margin-left: 250px;
+    margin-left: 50px;
     transform: rotate(-90deg);
   }
+}

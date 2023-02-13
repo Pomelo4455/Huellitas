@@ -1,9 +1,10 @@
 import React, { useState } from "react";
-import styles from "./home.module.css";
 // import CardHome from "./CardHome";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import Campaña from "../Campaigns/Campaing";
+
+import styles from "./home.module.css";
 
 const renderizarCampaignsCards = (allCampaigns, cantidad) => {
   return allCampaigns.slice(0, cantidad).map((camp) => {
@@ -30,6 +31,9 @@ export default function RenderCampaigns() {
   });
   return (
     <>
+      <div data-aos="fade-up" className={styles.categoria}>
+        ¡Campañas!
+      </div>
       <div data-aos="fade-up" className={styles.cards}>
         {more.campaign ? (
           <>{renderizarCampaignsCards(allCampaigns, 6)}</>

@@ -22,6 +22,7 @@ const postCampaign = async ({
   goal,
   userId,
   image,
+  collected,
 }) => {
   let newCampaign = await Campaign.create({
     title,
@@ -29,6 +30,7 @@ const postCampaign = async ({
     description,
     goal,
     image,
+    collected,
   });
   await newCampaign.setUser(userId);
   return newCampaign;
@@ -36,13 +38,16 @@ const postCampaign = async ({
 
 const putCampaign = async (req) => {
   const { id } = req.params;
-  const { title, reason, description, goal } = req.body;
+  const { title, reason, description, goal, collected, image } = req.body;
+  
   let edit = Campaign.update(
     {
       title,
       reason,
       description,
       goal,
+      collected,
+      image,
     },
     {
       where: { id },

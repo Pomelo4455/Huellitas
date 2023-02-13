@@ -20,24 +20,38 @@ let preference = {
         currency_id: 'ARS',
         picture_url: donation.image,
         description: donation.description,
-        category_id: 'don',
+        category_id: 'donation',
         quantity: 1,
         unit_price: donation.quantity
 }],
 back_urls:{
-    success: 'http://localhost:3000/gracias',
-    failure: '',
+    success: 'http://localhost:3000/payment/gracias',
+    failure: 'http://localhost:3000/payment/error',
     pending:'',
 },
 auto_return: 'approved',
 binary_mode: true,
-}
-mercadopago.preferences.create(preference).then((response)=>res.status(200).send({response}))
 
+}
+mercadopago.preferences.create(preference).then(function(response){
+  res.status(200).send({response})
+  // console.log(preference.items);
+});
     } catch (error) {
       res.status(404).send({error:error.message});
     }
   });
+
+
+
+  router.get("/gracias", async (req, res) => {
+   
+      const { status } = req.query;
+ 
+ 
+      res.status(200).send(status);
+    
+  })
 
 
 module.exports = router;

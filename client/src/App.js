@@ -16,6 +16,7 @@ import Campañas from "./components/Campaigns/Campaigns";
 import Detail from "./components/Campaigns/DetailCampaign";
 import CampaignForm from "./components/CampaignForm/CampaignForm";
 import Gratitude from "./components/Gratitude/Gratitude";
+import Fail from "./components/Fail/Fail";
 import {
   AdminProtectedRoute,
   FoundationProtectedRoute,
@@ -101,20 +102,11 @@ function App() {
             </FoundationProtectedRoute>
           }
         />
-        <Route path="/gracias" element={<Gratitude />} />
-        <Route
-          path="/DashBoardAdm"
-          element={
-            <AdminProtectedRoute>
-              <DashBoardAdm />
-            </AdminProtectedRoute>
-          }
-        />
+        <Route path="/payment/error" element={<Fail/>} />
+        <Route path="payment/gracias" element={<Gratitude />} />
+        <Route path="/DashBoardAdm" element={<AdminProtectedRoute><DashBoardAdm /></AdminProtectedRoute>}/>
         <Route path="/unauthRedirect/:props" element={<UnauthRedirect />} />
-        <Route
-          path="/Profile"
-          element={<Profile setLoggedUser={setLoggedUser} />}
-        />
+        <Route path="/Profile" element={<Profile setLoggedUser={setLoggedUser} />}/>
         <Route path="/chat/:emisorId/:receptorId" element={<Mensajeria/>}/>
         <Route path="/:any" element={<NotFound />} />
       </Routes>
