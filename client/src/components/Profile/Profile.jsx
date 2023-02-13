@@ -7,6 +7,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { updateUsers, sendProfileToDb } from "../../redux/actions";
 import { Widget } from "@uploadcare/react-widget"
 import NavBar from '../NavBar/NavBar';
+import MapView from "../MapView/MapView";
+
 
 
 const Profile = ({setLoggedUser}) => {
@@ -116,6 +118,8 @@ const Profile = ({setLoggedUser}) => {
           </React.Fragment>
         )}
       </div>
+      <MapView/>
+
     </div>
     </div>
       

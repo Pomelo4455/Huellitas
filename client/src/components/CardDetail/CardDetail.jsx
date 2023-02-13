@@ -116,7 +116,7 @@ const CardDetail = () => {
           </div>
         </div>
       </div>
-      {/*<MapView/>*/}
+      <MapView/>
       {/* <Footer /> */}
     </>
   );

@@ -38,6 +38,10 @@
 }
 
 .leaflet-container {
-  width: 100vw;
+  width: 99%;
   height: 40vh;
+  margin-bottom: 2%;
+  margin-left: 1%;
+  margin-right: 1%;
+  margin-top: 1%;
 }
