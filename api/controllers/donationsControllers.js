@@ -8,20 +8,10 @@ const createDonation = async ({ status, amount, userId, campaignId }) => {
 };
 
 
-const putCollected = async (req) => {
-  const { id } = req.params;
-  const { collected } = req.body;
-  
-  let edit = Campaign.increment(
-    {
-       collected,
-      
-    },
-    {
-      where: { id },
-    }
-  );
-  return edit;
+const putCollected = (id, collected) => {
+  console.log(collected, id)
+  if (id != "undefined") Campaign.increment({collected},{where: { id }});
+  else throw new Error("No hay id")
 };
 
 module.exports = {

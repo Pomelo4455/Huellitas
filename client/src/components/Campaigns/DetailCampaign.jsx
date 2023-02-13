@@ -15,7 +15,6 @@ const Detail = (props) => {
   const campaignId = useSelector((state) => state.detailCamp);
   const { id } = useParams();
   const profile = useSelector((state) => state.profile);
-  console.log("el perfil es:",profile);
 
   useEffect(() => {
     dispatch(getDetailCamp(id));

@@ -17,7 +17,9 @@ router.post("/", async (req, res) => {
 
   router.put("/:id", async (req, res) => {
     try {
-      let edit = putCollected(req);
+      let {id} = req.params;
+      let {collected} = req.body;
+      putCollected(id, collected);
       return res.status(201).send("Ha editado su campaña con éxito");
     } catch (error) {
       res.status(404).send({ error: error.message });

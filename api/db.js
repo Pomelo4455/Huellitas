@@ -75,8 +75,8 @@ Adoption.belongsTo(User);
 Pet.hasOne(Adoption);
 Adoption.belongsTo(Pet);
 
-User.belongsToMany(Campaign, {through: "Donation"});
-Campaign.belongsTo(User, {through: "Donation"});
+User.belongsToMany(Campaign, {through: Donation});
+Campaign.belongsTo(User, {through: Donation});
 
 module.exports = {
   ...sequelize.models, // para poder importar los modelos así: const { Product, User } = require('./db.js');
