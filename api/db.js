@@ -6,22 +6,22 @@ const { DB_USER, DB_PASSWORD, DB_HOST, DB_PORT, DB_NAME, DB_DEPLOY} = process.en
 
 /* OPCION 1: Descomentar esta opción para hacer los pedidos localmente*/
 
-const sequelize = new Sequelize(
+/* const sequelize = new Sequelize(
   `postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}:${DB_PORT}/${DB_NAME}`,
   {
     logging: false, // set to console.log to see the raw SQL queries
     native: false, // lets Sequelize know we can use pg-native for ~30% more speed
   }
-);
+); */
 
 /* OPCION 2: Descomentar esta opción para hacer los pedidos a railway(server deployado) */
 
-/* const sequelize = new Sequelize(DB_DEPLOY,
+const sequelize = new Sequelize(DB_DEPLOY,
   {
     logging: false, // set to console.log to see the raw SQL queries
     native: false, // lets Sequelize know we can use pg-native for ~30% more speed
   }
-); */
+);
 
 const basename = path.basename(__filename);
 
