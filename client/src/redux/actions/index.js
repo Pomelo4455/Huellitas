@@ -25,6 +25,8 @@ export const DELETE_CAMPAINGS = "DELETE_CAMPAINGS";
 export const DELETE_PETS = "DELETE_PETS";
 export const UPDATE_USERS = "UPDATE_USERS";
 export const UPDATE_USERS_ADM = "UPDATE_USERS_ADM";
+export const DONATION = "DONATION";
+
 
 export const getPets = () => {
   return async function (dispatch) {
@@ -385,6 +387,34 @@ export const updatePetAdm = (id, data) => {
     try {
       const response = await axios.put(
         `http://localhost:3001/pets/${id}`,
+        data
+      );
+      return response;
+    } catch (error) {
+      console.log(error);
+    }
+  };
+};
+
+export const donation = (data) => {
+  return async function () {
+    try {
+      const response = await axios.post(
+        `http://localhost:3001/donations`,
+        data
+      );
+      return response;
+    } catch (error) {
+      console.log(error);
+    }
+  };
+};
+
+export const updateCollected = (id, data) => {
+  return async function () {
+    try {
+      const response = await axios.put(
+        `http://localhost:3001/donations/${id}`,
         data
       );
       return response;
