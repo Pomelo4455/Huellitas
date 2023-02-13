@@ -26,7 +26,7 @@ let preference = {
 }],
 back_urls:{
     success: 'http://localhost:3000/payment/gracias',
-    failure: 'http://localhost:3000/payment/gracias',
+    failure: 'http://localhost:3000/payment/error',
     pending:'',
 },
 auto_return: 'approved',
@@ -35,7 +35,7 @@ binary_mode: true,
 }
 mercadopago.preferences.create(preference).then(function(response){
   res.status(200).send({response})
-  console.log(preference.items);
+  // console.log(preference.items);
 });
     } catch (error) {
       res.status(404).send({error:error.message});

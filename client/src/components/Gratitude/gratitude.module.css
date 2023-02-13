@@ -1,5 +1,5 @@
 .body{
-    min-height: 80vh;
+    min-height: 100vh;
     height: 100%;
     width: 100%;
     display: flex;
@@ -18,4 +18,16 @@
     height: 80%;
     width: 80%;
     border: #000000 1px solid;
+}
+
+.icon{
+    width: 50px;
+    height: 50px;
+    text-decoration: none;
+    color: #0D8BCD;
+    margin: 20px 20px;
+}
+
+.icon:hover{
+    color: #42A5F5
 }

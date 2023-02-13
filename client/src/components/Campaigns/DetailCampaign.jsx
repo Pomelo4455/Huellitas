@@ -15,7 +15,7 @@ const Detail = (props) => {
   const campaignId = useSelector((state) => state.detailCamp);
   const { id } = useParams();
   const profile = useSelector((state) => state.profile);
-  // console.log("el perfil es:",profile);
+  console.log("el perfil es:",profile);
 
   useEffect(() => {
     dispatch(getDetailCamp(id));
@@ -86,8 +86,8 @@ const Detail = (props) => {
                 "datosDonacion",
                 JSON.stringify({
                   amount: values.quantity,
-                  idCampaign: campaignId[0].id,
-                  idUser: profile.id,
+                  campaignId: campaignId[0].id,
+                  userId: profile.id,
                 })
               );
               dispatch(donate(values));

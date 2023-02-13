@@ -16,6 +16,7 @@ import Campañas from "./components/Campaigns/Campaigns";
 import Detail from "./components/Campaigns/DetailCampaign";
 import CampaignForm from "./components/CampaignForm/CampaignForm";
 import Gratitude from "./components/Gratitude/Gratitude";
+import Error from "./components/Gratitude/Gratitude";
 import {
   AdminProtectedRoute,
   FoundationProtectedRoute,
@@ -101,6 +102,7 @@ function App() {
             </FoundationProtectedRoute>
           }
         />
+         <Route path="payment/error" element={<Error/>} />
         <Route path="payment/gracias" element={<Gratitude />} />
         <Route path="/DashBoardAdm" element={<AdminProtectedRoute><DashBoardAdm /></AdminProtectedRoute>}/>
         <Route path="/unauthRedirect/:props" element={<UnauthRedirect />} />
