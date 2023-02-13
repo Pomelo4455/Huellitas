@@ -6,9 +6,9 @@ const router = Router();
 
 router.post("/", async (req, res) => {
     try {
-      const data = req.body;
-      console.log(data)
-      const newDonation = await createDonation(data);
+      const {amount, campaignId, userId, status} = req.body;
+      console.log(amount, campaignId, userId, status)
+      const newDonation = await createDonation(status, amount, userId, campaignId);
       res.status(200).send(newDonation);
     } catch (error) {
       res.status(404).send(error.message);
