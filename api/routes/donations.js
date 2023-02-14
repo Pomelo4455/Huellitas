@@ -1,14 +1,14 @@
 const { Router } = require("express");
-const { createDonation, putCollected} = require("../controllers/donationsControllers");
+const { createDonation, putCollected, getDonations} = require("../controllers/donationsControllers");
 
 const router = Router();
 
 
 router.post("/", async (req, res) => {
     try {
-      const data = req.body;
-      console.log(data)
-      const newDonation = await createDonation(data);
+      const {amount, campaignId, userId, status} = req.body;
+      console.log(amount, campaignId, userId, status)
+      const newDonation = await createDonation(status, amount, userId, campaignId);
       res.status(200).send(newDonation);
     } catch (error) {
       res.status(404).send(error.message);
@@ -26,4 +26,14 @@ router.post("/", async (req, res) => {
     }
   });
 
+router.get("/", async (req, res) => {
+  try{
+    const allDonations = await getDonations();
+    if (!allDonations.length)
+      res.status(200).send({ Error: "No hay donaciónes" });
+    else res.status(200).send(allDonations);
+  }catch (error) {
+    res.status(404).send({ error: error.message });
+  }
+})
 module.exports = router;

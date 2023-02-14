@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { getCampaigns } from "../../redux/actions";
 import Campaña from "./Campaing";
+import { Icon } from "@iconify/react";
 // import Footer from "../Footer/Footer";
 // import NavBar from "../NavBar/NavBar";
 
@@ -19,6 +20,11 @@ const Campañas = () => {
   return (
     <div className={styles.body}>
       {/* <NavBar/> */}
+      <div className={styles.divIcon}>
+        <Link to={"/Home"} className={styles.icon}>
+          <Icon icon="pajamas:go-back" width="50px" />
+        </Link>
+      </div>
       <div className={styles.container}>
         {allCampaigns
           ? allCampaigns.map((camp) => {
@@ -36,9 +42,7 @@ const Campañas = () => {
             })
           : "no hay campañas"}
       </div>
-      <Link to={"/home"}>
-        <button>Volver</button>
-      </Link>
+
       {/* <Footer/> */}
     </div>
   );

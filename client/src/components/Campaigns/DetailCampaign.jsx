@@ -9,6 +9,7 @@ import { useNavigate } from "react-router-dom";
 import style from "./detailCampaign.module.css";
 import ProgressBar from "@ramonak/react-progress-bar";
 import { Icon } from "@iconify/react";
+import imgCumplido from "../../img/ObjetivoCumplido.png"
 
 const Detail = (props) => {
   const dispatch = useDispatch();
@@ -19,6 +20,7 @@ const Detail = (props) => {
   useEffect(() => {
     dispatch(getDetailCamp(id));
   }, [dispatch]);
+
 
   return (
     <>
@@ -43,7 +45,9 @@ const Detail = (props) => {
             <h3>Recaudado:</h3>
             <p>${campaignId[0].collected}</p>
           </div>
-
+{campaignId[0].goal <= campaignId[0].collected
+                        ? <img src={imgCumplido} className={style.cumplido} alt="Objetivo Cumplido"/>
+                        : null}
           <ProgressBar className={style.bar}
             completed={Math.floor(
               (campaignId[0].collected / campaignId[0].goal) * 100
@@ -78,6 +82,9 @@ const Detail = (props) => {
                 errors.quantity = "Por favor ingrese la cantidad a donar";
               else if (!/^[0-9]*$/.test(values.quantity))
                 errors.quantity = "Debe ser un número";
+                
+              else if (values.quantity >(campaignId[0].goal - campaignId[0].collected))
+              errors.quantity = `Por favor ingrese un monto que no supere los ${(campaignId[0].goal - campaignId[0].collected)}`;
               return errors;
             }}
             onSubmit={(values, { resetForm }) => {
@@ -103,15 +110,16 @@ const Detail = (props) => {
                     type="number"
                     name="quantity"
                     placeholder="Cantidad"
+                    max ={campaignId[0].goal - campaignId[0].collected}
                   ></Field>
 
                   <button
                     type="submit"
                     className={style.button}
                     disabled={
-                      campaignId[0].goal >= campaignId[0].collected
-                        ? false
-                        : true
+                      campaignId[0].goal <= campaignId[0].collected
+                        ? true
+                        : false
                     }
                   >
                     Donar
