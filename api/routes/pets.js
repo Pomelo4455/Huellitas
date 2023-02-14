@@ -22,9 +22,10 @@ router.get("/", async (req, res) => {
       let filtersUser = userFilters(name);
       let users = await getAllUser(filtersUser);
       let userIds = users.map((user) => user.id);
-      if (!userIds.length) throw new Error("No se encontro la fundacion");
+      // if (!userIds.length) throw new Error("No se encontro la fundacion");
       // console.log("soy el userId", userIds);
       pets = pets.filter((pet) => userIds.includes(pet.userId));
+      if (!pets.length) throw new Error("No se encontro la fundacion");
     }
     res.status(200).send(pets);
   } catch (error) {
