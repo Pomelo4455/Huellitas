@@ -31,7 +31,7 @@ export const DONATION = "DONATION";
 export const getPets = () => {
   return async function (dispatch) {
     try {
-      const pets = await axios.get("http://localhost:3001/pets");
+      const pets = await axios.get("/pets");
       // console.log(pets.data)
 
       return dispatch({
@@ -47,7 +47,7 @@ export const getPets = () => {
 export const getPetsDetail = (id) => {
   return async function (dispatch) {
     try {
-      const { data } = await axios.get(`http://localhost:3001/pets/${id}`);
+      const { data } = await axios.get(`/pets/${id}`);
       return dispatch({
         type: GET_PETS_DETAIL,
         payload: data,
@@ -75,7 +75,7 @@ export const sendProfileToDb = (prof, setLoggedUser) => {
   // console.log(prof)
   return async function (dispatch) {
     try {
-      let loggedUser = await axios.post("http://localhost:3001/users", prof);
+      let loggedUser = await axios.post("/users", prof);
       localStorage.setItem("loggedUser", JSON.stringify(loggedUser));
       setLoggedUser(loggedUser);
       return dispatch({
@@ -94,14 +94,14 @@ export const clearProfile = () => {
 
 export function postNewPet(payload) {
   return async function () {
-    const newDog = await axios.post("http://localhost:3001/pets", payload);
+    const newDog = await axios.post("/pets", payload);
     return newDog;
   };
 }
 
 export function postNewImage(payload) {
   return async function () {
-    const newImage = await axios.post("http://localhost:3001/users", payload);
+    const newImage = await axios.post("/users", payload);
     return newImage;
   };
 }
@@ -136,7 +136,7 @@ export function updateFilters(filtros) {
 export function getCampaigns() {
   return async function (dispatch) {
     try {
-      const response = await axios.get("http://localhost:3001/campaigns");
+      const response = await axios.get("/campaigns");
       const allCampaigns = response.data;
 
       return dispatch({
@@ -152,7 +152,7 @@ export function getCampaigns() {
 export const getDetailCamp = (id) => {
   return async function (dispatch) {
     try {
-      const response = await axios.get(`http://localhost:3001/campaigns/${id}`);
+      const response = await axios.get(`/campaigns/${id}`);
       const campaign = response.data;
 
       return dispatch({
@@ -169,7 +169,7 @@ export function postNewCampaign(payload) {
   return async function () {
     try {
       const newCampaign = await axios.post(
-        "http://localhost:3001/campaigns",
+        "/campaigns",
         payload
       );
 
@@ -230,7 +230,7 @@ export function donate(payload) {
   return async function () {
     try {
       const donation = await axios
-        .post("http://localhost:3001/payment", payload)
+        .post("/payment", payload)
         .then(
           (response) =>
             (window.location.href = response.data.response.body.init_point)
@@ -245,7 +245,7 @@ export const getFundaciones = () => {
   return async function (dispatch) {
     try {
       const fundaciones = await axios.get(
-        "http://localhost:3001/users?type=fundacion"
+        "/users?type=fundacion"
       );
       return dispatch({
         type: GET_FUNDACIONES,
@@ -260,7 +260,7 @@ export const getFundaciones = () => {
 export const getUsers = () => {
   return async function (dispatch) {
     try {
-      const users = await axios.get("http://localhost:3001/users");
+      const users = await axios.get("/users");
       return dispatch({
         type: GET_USERS,
         payload: users.data,
@@ -295,7 +295,7 @@ export function getCampaignsAdm() {
   return async function (dispatch) {
     try {
       const response = await axios.get(
-        "http://localhost:3001/campaigns/Adm/Admin"
+        "/campaigns/Adm/Admin"
       );
       const allCampaignsAdm = response.data;
 
@@ -312,7 +312,7 @@ export function getCampaignsAdm() {
 export function getPetsAdm() {
   return async function (dispatch) {
     try {
-      const response = await axios.get("http://localhost:3001/pets/Adm/Admin");
+      const response = await axios.get("/pets/Adm/Admin");
       const allPetsAdm = response.data;
       return dispatch({
         type: GET_PETS,
@@ -339,7 +339,7 @@ export const updateUsers = (id, data, setLoggedUser) => {
   return async function (dispatch) {
     try {
       const response = await axios.put(
-        `http://localhost:3001/users/${id}`,
+        `/users/${id}`,
         data
       );
       localStorage.setItem("loggedUser", JSON.stringify(response));
@@ -357,7 +357,7 @@ export const updateUsersAdm = (id, data) => {
   return async function (dispatch) {
     try {
       const response = await axios.put(
-        `http://localhost:3001/users/${id}`,
+        `/users/${id}`,
         data
       );
       return response;
@@ -371,7 +371,7 @@ export const updateCampaignAdm = (id, data) => {
   return async function () {
     try {
       const response = await axios.put(
-        `http://localhost:3001/campaigns/${id}`,
+        `/campaigns/${id}`,
         data
       );
       return response;
@@ -385,7 +385,7 @@ export const updatePetAdm = (id, data) => {
   return async function () {
     try {
       const response = await axios.put(
-        `http://localhost:3001/pets/${id}`,
+        `/pets/${id}`,
         data
       );
       return response;
@@ -399,7 +399,7 @@ export const donation = (data) => {
   return async function () {
     try {
       const response = await axios.post(
-        `http://localhost:3001/donations`,
+        `/donations`,
         data
       );
       return response;
@@ -413,7 +413,7 @@ export const updateCollected = (id, data) => {
   return async function () {
     try {
       const response = await axios.put(
-        `http://localhost:3001/donations/${id}`,
+        `/donations/${id}`,
         data
       );
       return response;
