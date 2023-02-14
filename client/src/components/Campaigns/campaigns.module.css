@@ -12,3 +12,20 @@
     height: 100%;
     min-height: 80vh;
 }
+
+.icon{
+    width: 50px;
+    height: 50px;
+    text-decoration: none;
+    color: #0D8BCD;
+    
+}
+
+.icon:hover{
+    color: #42A5F5
+}
+
+.divIcon{
+    padding-top: 40px;
+    padding-left: 40px;
+}

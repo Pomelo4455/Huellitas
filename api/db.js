@@ -75,10 +75,10 @@ Adoption.belongsTo(User);
 Pet.hasOne(Adoption);
 Adoption.belongsTo(Pet);
 
-User.hasMany(Donation, {as: "donante", foreignKey: 'DonanteId'});
-Donation.belongsTo(User, {as: "donante", foreignKey: 'DonanteId'});
-Campaign.hasMany(Donation, {as: "campania", foreignKey: 'CampaniaId'});
-Donation.belongsTo(Campaign, {as: "campania", foreignKey: "CampaniaId"});
+User.hasMany(Donation, {as: "donante", foreignKey: 'userId'});
+Donation.belongsTo(User, {as: "donante", foreignKey: 'userId'});
+Campaign.hasMany(Donation, {as: "campania", foreignKey: 'campaignId'});
+Donation.belongsTo(Campaign, {as: "campania", foreignKey: "campaignId"});
 
 module.exports = {
   ...sequelize.models, // para poder importar los modelos así: const { Product, User } = require('./db.js');
