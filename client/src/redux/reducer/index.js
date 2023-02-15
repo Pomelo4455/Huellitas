@@ -23,6 +23,8 @@ import {
   DELETE_CAMPAINGS,
   DELETE_PETS,
   UPDATE_USERS,
+  GET_PROVINCIAS,
+  GET_CIUDADES,
 } from "../actions";
 
 const initialState = {
@@ -40,6 +42,8 @@ const initialState = {
   users: [],
   campaignsAdm: [],
   petsAdm: [],
+  provincias: [],
+  ciudades: [],
 };
 
 const rootReducer = (state = initialState, action) => {
@@ -197,6 +201,18 @@ const rootReducer = (state = initialState, action) => {
       return {
         ...state,
       };
+
+    case GET_PROVINCIAS:
+      return {
+        ...state,
+        provincias: action.payload,
+      };
+
+    case GET_CIUDADES:
+      return {
+        ...state,
+        ciudades: action.payload,
+      }
 
     default:
       return {
