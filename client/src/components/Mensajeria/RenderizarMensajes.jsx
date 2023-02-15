@@ -45,7 +45,7 @@ export default function RenderizarMensajes() {
   useEffect(() => {
     const reciveMessage = (message) => {
         if ((message.EmisorId == emisorId && message.ReceptorId == receptorId) || (message.EmisorId == receptorId && message.ReceptorId == emisorId)) {
-            setMessages([...messages, message]);
+            setMessages([message, ...messages]);
         }
     }
     socket.on('message', reciveMessage);
@@ -61,8 +61,14 @@ export default function RenderizarMensajes() {
 
 
   return (
-        <div className={styles.mensajes}>
-            {renderizarMensajes(messages, emisor, receptor)}
-        </div>
+        <>
+            <div className={styles.top}>
+                <img className={styles.topImage} src={receptor.image} alt="nf"/>
+                <h3>{receptor.name}</h3>
+            </div>
+            <div className={styles.mensajes}>
+                {renderizarMensajes(messages, emisor, receptor)}
+            </div>
+        </>
     )
 }
