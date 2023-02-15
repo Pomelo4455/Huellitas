@@ -36,10 +36,6 @@ const getAllUser = async (filters) => {
           "temperament",
           "adopted",
         ],
-        // through: {
-        //   model: Fav,
-        //   attributes: [],
-        // },
       },
       {
         model: Campaign,
@@ -88,10 +84,30 @@ const deleteUser = async (id, status, type) => {
   return userDelete;
 };
 
+const getAllUserAdm = async (filters) => {
+  const users = await User.findAll({
+    where: filters,
+    include: [
+      {
+        model: Pet,
+      },
+      {
+        model: Campaign,
+      },
+      {
+        model: Adoption,
+        attributes: ["date"],
+      },
+    ],
+  });
+
+  return users;
+};
 module.exports = {
   getAllUser,
   createUser,
   getUserDetail,
   deleteUser,
   updateUser,
+  getAllUserAdm,
 };
