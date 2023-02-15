@@ -83,7 +83,7 @@ export default function Sidebar() {
               </option>
               <option value="perro">Perro</option>
               <option value="gato">Gato</option>
-              {/* <option value="conejo">Conejo</option>
+              {/* <option value="conejo">Conejoo</option>
                     <option value="tortuga">Tortuga</option>
                     <option value="cobayo">Cobayo</option> */}
             </select>
