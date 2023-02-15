@@ -16,12 +16,12 @@ const sequelize = new Sequelize(
 
 /* OPCION 2: Descomentar esta opción para hacer los pedidos a railway(server deployado) */
 
-// const sequelize = new Sequelize(DB_DEPLOY,
-//   {
-//     logging: false, // set to console.log to see the raw SQL queries
-//     native: false, // lets Sequelize know we can use pg-native for ~30% more speed
-//   }
-// );
+/*  const sequelize = new Sequelize(DB_DEPLOY,
+   {
+     logging: false, // set to console.log to see the raw SQL queries
+     native: false, // lets Sequelize know we can use pg-native for ~30% more speed
+   }
+ ); */
 
 const basename = path.basename(__filename);
 
