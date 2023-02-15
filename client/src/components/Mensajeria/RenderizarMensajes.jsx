@@ -4,7 +4,6 @@ import axios from "axios";
 import io from "socket.io-client"
 const socket = io('http://localhost:3001')
 
-
 const renderizarMensajes = (mensajes, emisor, receptor) => {
     return mensajes.map((mensaje, i) => {
         if (mensaje.EmisorId == emisor.id) {
@@ -39,7 +38,8 @@ export default function RenderizarMensajes() {
     axios(`http://localhost:3001/users/${emisorId}`)
     .then(user => setEmisor(user.data));
     axios(`http://localhost:3001/users/${receptorId}`)
-    .then(user => setReceptor(user.data));
+    .then(user => setReceptor(user.data))
+    .catch(() => window.location.href = `http://localhost:3000/chats`)
   }, [])
 
   useEffect(() => {
