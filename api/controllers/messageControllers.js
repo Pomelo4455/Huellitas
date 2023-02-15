@@ -7,7 +7,7 @@ const createMessage = async (message, emisorId, receptorId) => {
     try {
         const emisor = await User.findByPk(emisorId)
         const receptor = await User.findByPk(receptorId)
-        if (emisor && receptor) {
+        if (emisor && receptor && emisorId !== receptorId) {
           const newMessage = await Message.create({message, emisorId, receptorId});
           newMessage.setEmisor(emisor);
           newMessage.setReceptor(receptor);
