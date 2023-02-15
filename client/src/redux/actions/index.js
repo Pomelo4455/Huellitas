@@ -27,6 +27,8 @@ export const UPDATE_USERS = "UPDATE_USERS";
 export const UPDATE_USERS_ADM = "UPDATE_USERS_ADM";
 export const DONATION = "DONATION";
 export const SEARCH_CAMPAIGN = "SEARCH_CAMPAIGN";
+export const GET_PROVINCIAS = 'GET_PROVINCIAS';
+export const GET_CIUDADES = 'GET_CIUDADES';
 
 export const getPets = () => {
   return async function (dispatch) {
@@ -506,4 +508,28 @@ export function getSearchUser(name) {
       dispatch(getUsersAdm());
     }
   };
+}
+
+export function getProvincias(){
+  return async function (dispatch) {
+    const resp = await axios.get('https://apis.datos.gob.ar/georef/api/provincias')
+    const provincias = resp.data.provincias;
+
+    return dispatch({
+      type: GET_PROVINCIAS,
+      payload: provincias
+  })
+  }
+}
+
+export function getCiudades(id){
+  return async function (dispatch) {
+    const resp = await axios.get(`https://apis.datos.gob.ar/georef/api/municipios?provincia=${id}&campos=id,nombre&max=150`)
+    const ciudades = resp.data.municipios;
+
+    return dispatch({
+      type: GET_CIUDADES,
+      payload: ciudades
+  })
+  }
 }

@@ -28,26 +28,6 @@ const Home = () => {
     let user = JSON.parse(window.localStorage.getItem("loggedUser"));
 
     useEffect(() => {
-        if (navigator.geolocation) {
-            navigator.geolocation.getCurrentPosition(
-                (position) => {
-                    console.log(
-                        position.coords.latitude,
-                        position.coords.longitude
-                    );
-                    setLocation({
-                        lat: position.coords.latitude,
-                        lng: position.coords.longitude,
-                    });
-                },
-                (error) => {
-                    console.log(error);
-                }
-            );
-        } else {
-            return "no tenés geolocalización";
-        }
-
         dispatch(getPets());
         dispatch(getCampaigns());
         dispatch(getFundaciones());
