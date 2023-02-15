@@ -1,5 +1,5 @@
 const { Router } = require("express");
-const { userFilters } = require("../utils/functions");
+const { userFilters, filterAdmPet } = require("../utils/functions");
 const { User, Pet, Campaign, Adoption } = require("../db.js");
 const {
   createUser,
@@ -7,6 +7,7 @@ const {
   getUserDetail,
   deleteUser,
   updateUser,
+  getAllUserAdm,
 } = require("../controllers/userControllers");
 
 const router = Router();
@@ -63,6 +64,28 @@ router.get("/:id", async (req, res) => {
     res.status(200).send(detail);
   } catch (error) {
     res.status(404).send(error.message);
+  }
+});
+
+router.get("/Adm/Admin", async (req, res) => {
+  const { name } = req.query;
+  try {
+    let allUsers;
+    if (name) {
+      const filters = filterAdmPet(name);
+      allUsers = await getAllUserAdm(filters);
+    } else {
+      allUsers = await getAllUserAdm();
+    }
+    if (!allUsers.length) {
+      res.status(404).send({
+        Error: "No se encontraron usuarios con el nombre proporcionado",
+      });
+    } else {
+      res.status(200).send(allUsers);
+    }
+  } catch (error) {
+    res.status(404).send({ error: error.message });
   }
 });
 
