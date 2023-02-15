@@ -32,10 +32,29 @@ const eliminarRepetidos = (array) => {
   for (let i = 0; i < array.length; i++) {
     const element = array[i];
     if (!sinRepetidos.includes(element)) {
-      sinRepetidos.push(element)
+      sinRepetidos.push(element);
     }
   }
   return sinRepetidos;
-}
+};
 
-module.exports = { createFilters, setOrder, userFilters, eliminarRepetidos };
+const filterAdmCampaign = (title) => {
+  const filters = {};
+  if (title) filters.title = { [Op.iLike]: `%${title}%` };
+  return filters;
+};
+
+const filterAdmPet = (name) => {
+  const filters = {};
+  if (name) filters.name = { [Op.iLike]: `%${name}%` };
+  return filters;
+};
+
+module.exports = {
+  createFilters,
+  setOrder,
+  userFilters,
+  eliminarRepetidos,
+  filterAdmCampaign,
+  filterAdmPet,
+};

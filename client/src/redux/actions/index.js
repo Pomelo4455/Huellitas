@@ -26,7 +26,7 @@ export const DELETE_PETS = "DELETE_PETS";
 export const UPDATE_USERS = "UPDATE_USERS";
 export const UPDATE_USERS_ADM = "UPDATE_USERS_ADM";
 export const DONATION = "DONATION";
-
+export const SEARCH_CAMPAIGN = "SEARCH_CAMPAIGN";
 
 export const getPets = () => {
   return async function (dispatch) {
@@ -290,6 +290,21 @@ export const deleteCampaigns = (url) => {
     }
   };
 };
+export function getUsersAdm() {
+  return async function (dispatch) {
+    try {
+      const response = await axios.get("http://localhost:3001/users/Adm/Admin");
+      const allUsersAdm = response.data;
+
+      return dispatch({
+        type: GET_USERS,
+        payload: allUsersAdm,
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+}
 
 export function getCampaignsAdm() {
   return async function (dispatch) {
@@ -422,3 +437,73 @@ export const updateCollected = (id, data) => {
     }
   };
 };
+
+export function getSearchCampaign(title) {
+  return async function (dispatch) {
+    try {
+      const response = await axios.get(
+        `http://localhost:3001/campaigns/Adm/Admin?title=${title}`
+      );
+      const allCampaignsAdm = response.data;
+
+      return dispatch({
+        type: GET_CAMPAIGNS,
+        payload: allCampaignsAdm,
+      });
+    } catch (error) {
+      swal({
+        title: "Sorry!",
+        text: "No se encontraron campañas con el título proporcionado",
+        icon: "error",
+        button: "Ok",
+      });
+      dispatch(getCampaignsAdm());
+    }
+  };
+}
+
+export function getSearchPet(name) {
+  return async function (dispatch) {
+    try {
+      const response = await axios.get(
+        `http://localhost:3001/pets/Adm/Admin?name=${name}`
+      );
+      const allPetsAdm = response.data;
+      return dispatch({
+        type: GET_PETS,
+        payload: allPetsAdm,
+      });
+    } catch (error) {
+      swal({
+        title: "Sorry!",
+        text: "No se encontraron mascotas con el nombre proporcionado",
+        icon: "error",
+        button: "Ok",
+      });
+      dispatch(getPetsAdm());
+    }
+  };
+}
+
+export function getSearchUser(name) {
+  return async function (dispatch) {
+    try {
+      const response = await axios.get(
+        `http://localhost:3001/users/Adm/Admin?name=${name}`
+      );
+      const allUsersAdm = response.data;
+      return dispatch({
+        type: GET_USERS,
+        payload: allUsersAdm,
+      });
+    } catch (error) {
+      swal({
+        title: "Sorry!",
+        text: "No se encontraron usuarios con el nombre proporcionado",
+        icon: "error",
+        button: "Ok",
+      });
+      dispatch(getUsersAdm());
+    }
+  };
+}
