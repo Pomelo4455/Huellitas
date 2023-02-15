@@ -1,11 +1,16 @@
 const { Router } = require("express");
-const { getAllPets, getPetById } = require("../controllers/petControllers.js");
+const {
+  getAllPets,
+  getPetById,
+  getAllPetsAdm,
+} = require("../controllers/petControllers.js");
 const { getAllUser } = require("../controllers/userControllers.js");
 const { User, Pet, Campaign, Adoption } = require("../db.js");
 const {
   createFilters,
   setOrder,
   userFilters,
+  filterAdmPet,
 } = require("../utils/functions.js");
 
 const router = Router();
@@ -140,11 +145,24 @@ router.get("/:id", async (req, res) => {
 });
 
 router.get("/Adm/Admin", async (req, res) => {
+  const { name } = req.query;
   try {
-    let pets = await getAllPets();
-    res.status(200).send(pets);
+    let allPets;
+    if (name) {
+      const filters = filterAdmPet(name);
+      allPets = await getAllPetsAdm(filters);
+    } else {
+      allPets = await getAllPetsAdm();
+    }
+    if (!allPets.length) {
+      res.status(404).send({
+        Error: "No se encontraron mascotas con el nombre proporcionado",
+      });
+    } else {
+      res.status(200).send(allPets);
+    }
   } catch (error) {
-    res.status(404).send(error.message);
+    res.status(404).send({ error: error.message });
   }
 });
 
