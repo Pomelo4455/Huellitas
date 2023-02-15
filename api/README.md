@@ -53,7 +53,7 @@
 
 - Chequear que en el "scripts" del package.json de /api el comando "start" ejecute lo siguiente: "node ./index.js".
 - Agregar las siguientes variables de entorno al .env que está adentro de /api:
-    - DB_DEPLOY=postgresql://postgres:L1ytoWiC2Pfpuf7GGmzR@containers-us-west-183.railway.app:7249/railway
+    - DB_DEPLOY=postgresql://postgres:wVjSqTA5KOet3Xrpzz4j@containers-us-west-17.railway.app:6312/railway
     - PORT=3001
 - Descomentar la opción 2 dentro de "db.js", y comentar la opción 1.
 - Ir a postman o la aplicación que usen para cargar los datos y hacer un post a "http://localhost:3001/".

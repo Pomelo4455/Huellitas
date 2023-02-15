@@ -1,0 +1,41 @@
+/*!
+     * Pusher JavaScript Library v1.12.2
+     * http://pusherapp.com/
+     *
+     * Copyright 2011, Pusher
+     * Released under the MIT licence.
+     */
+
+/*!
+   * Sizzle CSS Selector Engine v2.3.9
+   * https://sizzlejs.com/
+   *
+   * Copyright JS Foundation and other contributors
+   * Released under the MIT license
+   * https://js.foundation/
+   *
+   * Date: 2022-12-19
+   */
+
+/*!
+ * jQuery JavaScript Library v3.6.3
+ * https://jquery.com/
+ *
+ * Includes Sizzle.js
+ * https://sizzlejs.com/
+ *
+ * Copyright OpenJS Foundation and other contributors
+ * Released under the MIT license
+ * https://jquery.org/license
+ *
+ * Date: 2022-12-20T21:28Z
+ */
+
+/**
+ * @license uploadcare-widget v3.21.0
+ *
+ * Copyright (c) 2022 Uploadcare, Inc.
+ *
+ * This source code is licensed under the BSD 2-Clause License
+ * found in the LICENSE file in the root directory of this source tree.
+ */
