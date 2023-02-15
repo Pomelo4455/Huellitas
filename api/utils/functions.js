@@ -27,4 +27,15 @@ const setOrder = (order) => {
   }
 };
 
-module.exports = { createFilters, setOrder, userFilters };
+const eliminarRepetidos = (array) => {
+  const sinRepetidos = [];
+  for (let i = 0; i < array.length; i++) {
+    const element = array[i];
+    if (!sinRepetidos.includes(element)) {
+      sinRepetidos.push(element)
+    }
+  }
+  return sinRepetidos;
+}
+
+module.exports = { createFilters, setOrder, userFilters, eliminarRepetidos };

@@ -107,6 +107,7 @@ function App() {
         <Route path="/DashBoardAdm" element={<AdminProtectedRoute><DashBoardAdm /></AdminProtectedRoute>}/>
         <Route path="/unauthRedirect/:props" element={<UnauthRedirect />} />
         <Route path="/Profile" element={<Profile setLoggedUser={setLoggedUser} />}/>
+        <Route path="/chats" element={<Mensajeria/>}/>
         <Route path="/chat/:emisorId/:receptorId" element={<Mensajeria/>}/>
         <Route path="/:any" element={<NotFound />} />
       </Routes>
