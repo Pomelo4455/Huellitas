@@ -70,7 +70,7 @@ export default function Mensajeria() {
                 <div className={styles.containerRelleno}>
                   <div>
                     <Icon icon="ic:baseline-message" width={"150px"} height={"150px"} />
-                    <h1>Seleccione un chat a tu derecha para verlo</h1>
+                    <h1>Seleccione un chat a su izquierda para verlo</h1>
                   </div>
                 </div>
              </div>
