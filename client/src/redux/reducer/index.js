@@ -25,6 +25,7 @@ import {
   UPDATE_USERS,
   GET_PROVINCIAS,
   GET_CIUDADES,
+  UPDATE_NOT_READ_CHATS,
 } from "../actions";
 
 const initialState = {
@@ -44,6 +45,7 @@ const initialState = {
   petsAdm: [],
   provincias: [],
   ciudades: [],
+  noLeidos: 0,
 };
 
 const rootReducer = (state = initialState, action) => {
@@ -212,6 +214,12 @@ const rootReducer = (state = initialState, action) => {
       return {
         ...state,
         ciudades: action.payload,
+      };
+
+    case UPDATE_NOT_READ_CHATS:
+      return {
+        ...state,
+        noLeidos : action.payload,
       }
 
     default:

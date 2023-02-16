@@ -36,9 +36,11 @@ export default function Mensajeria() {
   else {
     const handleEnviar = (e) => {
       if ((e.key === "Enter" || e.type === "click") && message.length > 0 && !message.includes("\n")) {
-          socket.emit('message', {message, EmisorId: emisorId, ReceptorId: receptorId})
           axios.post("http://localhost:3001/message", {"message" : message, "emisorId": emisorId, "receptorId": receptorId})
-          .then(()=>{setMessage("")})
+          .then(() => {
+            socket.emit('message', {message, EmisorId: emisorId, ReceptorId: receptorId})
+            setMessage("")
+          })
       }
     }
     const handleVaciar = (e) => {

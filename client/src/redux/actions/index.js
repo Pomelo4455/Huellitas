@@ -29,6 +29,7 @@ export const DONATION = "DONATION";
 export const SEARCH_CAMPAIGN = "SEARCH_CAMPAIGN";
 export const GET_PROVINCIAS = 'GET_PROVINCIAS';
 export const GET_CIUDADES = 'GET_CIUDADES';
+export const UPDATE_NOT_READ_CHATS = "UPDATE_NOT_READ_CHATS";
 
 export const getPets = () => {
   return async function (dispatch) {
@@ -532,4 +533,8 @@ export function getCiudades(id){
       payload: ciudades
   })
   }
+}
+
+export function updateNotReadChats(cantidad) {
+  return { type: UPDATE_NOT_READ_CHATS, payload: cantidad };
 }

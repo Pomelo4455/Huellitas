@@ -24,7 +24,6 @@ export default function AdoptionForm() {
 
   useEffect(()=> {
     dispatch(getProvincias());
-    console.log(values.provincia);
   }, []);
 
   const handleGeo = (event) => {

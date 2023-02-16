@@ -11,11 +11,12 @@ import {
   sendProfileToDb,
   clearProfile,
   login_success,
+  updateNotReadChats,
 } from "../../redux/actions";
 import swal from "sweetalert";
 import { profileCreationInfo } from "../../Utils/profileFunctions";
 // import { Icon } from '@iconify/react';
-
+import axios from "axios";
 import styles from "./navBar.module.css";
 
 
@@ -25,9 +26,14 @@ const NavBar = (
   // console.log(loggedUser)
   const dispatch = useDispatch();
   const { user, isAuthenticated, isLoading } = useAuth0();
-  
+  const noLeidos = useSelector(state => state.noLeidos);
   const profile = useSelector((state) => state.profile);
-    useEffect(() => {}, [profile]);
+  useEffect(() => {}, [profile]);
+
+  useEffect(() => {
+    axios(`http://localhost:3001/message/noleidos?userId=${loggedUser.id}`)
+    .then(data => dispatch(updateNotReadChats(data.data.cantidad)))
+  }, [])
 
   useEffect(() => {
     if (isAuthenticated) {
@@ -40,8 +46,7 @@ const NavBar = (
     } else {
       // localStorage.setItem('user', JSON.stringify({}))
       // localStorage.setItem("loggedUser", JSON.stringify({}));
-
-      console.log("not logged in");
+      // console.log("not logged in");
       // clearProfile()
     }
   }, [isAuthenticated]);
@@ -122,7 +127,15 @@ const NavBar = (
                 </Link>
               </div>
               <Link to='/chats' onClick={handleEdit} className={styles.editBtnContainer}>
-                <button className={styles.buttonEdit}>Ver mensajes</button>
+                <button className={styles.buttonEdit}>
+                  Ver mensajes
+                  {noLeidos <= 0 ?
+                    null :
+                  noLeidos <= 9 ?
+                    <div><Icon icon={`mdi:number-${noLeidos}-circle`} width={"30px"} height={"30px"} style={{marginTop:"10px"}}/></div> :
+                    <div><Icon icon="mdi:number-9-plus-circle" width={"30px"} height={"30px"} style={{marginTop:"10px"}}/></div>
+                  }
+                </button>
               </Link>
               <div className={styles.logoutContainer} onClick={handleEdit}>
                 <LogoutButton />
