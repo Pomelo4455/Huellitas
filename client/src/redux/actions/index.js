@@ -30,6 +30,7 @@ export const SEARCH_CAMPAIGN = "SEARCH_CAMPAIGN";
 export const GET_PROVINCIAS = "GET_PROVINCIAS";
 export const GET_CIUDADES = "GET_CIUDADES";
 export const GET_DONATIONS = "GET_DONATIONS";
+export const UPDATE_NOT_READ_CHATS = "UPDATE_NOT_READ_CHATS";
 
 export const getPets = () => {
   return async function (dispatch) {
@@ -542,4 +543,9 @@ export function getSearchFundation(name) {
       dispatch(getFundaciones());
     }
   };
+}
+
+
+export function updateNotReadChats(cantidad) {
+  return { type: UPDATE_NOT_READ_CHATS, payload: cantidad };
 }

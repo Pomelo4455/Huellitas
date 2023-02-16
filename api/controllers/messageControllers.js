@@ -48,7 +48,7 @@ const getChats = async (emisorId) => {
   for (let i = 0; i < receptoresId.length; i++) {
     const receptorId = receptoresId[i];
     let chat = await Message.findOne({
-      attributes: ["message"],
+      attributes: ["message", "leido"],
       where: {EmisorId: [receptorId, emisorId], ReceptorId : [receptorId,emisorId]},
       order: [["createdAt", "DESC"]],
       include: [{
@@ -67,4 +67,12 @@ const getChats = async (emisorId) => {
   return chats;
 }
 
-module.exports = {createMessage, getMessages, getChats}
+const updateMessage = async (emisorId, receptorId) => {
+  await Message.update({
+    leido: true
+  }, {
+    where: {EmisorId: emisorId, ReceptorId: receptorId}
+  })
+}
+
+module.exports = {createMessage, getMessages, getChats, updateMessage}
