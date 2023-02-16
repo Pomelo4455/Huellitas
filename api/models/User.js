@@ -55,6 +55,12 @@ module.exports = (sequelize) => {
         type: DataTypes.STRING,
         defaultValue: "https://acortar.link/JjnSW3",
       },
+      latitude: {
+        type: DataTypes.FLOAT,
+      },
+      longitude: {
+        type: DataTypes.FLOAT,
+      },
       CVU: {
         type: DataTypes.STRING,
         defaultValue: "",

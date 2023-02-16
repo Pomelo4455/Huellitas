@@ -101,54 +101,40 @@ const NavBar = (
         </ul>
       </div>
 
-        <div className={styles.title}>
-          <Icon className={styles.img} icon="material-symbols:pets"  />
-          <div className={styles.txt}>
-            <Link to="/home" className={styles.txt}>
-              Huellitas
-            </Link>
-          </div>
+      <div className={styles.title}>
+        <Icon className={styles.img} icon="material-symbols:pets"  />
+        <div className={styles.txt}>
+          <Link to="/home" className={styles.txt}>
+            Huellitas
+          </Link>
         </div>
+      </div>
 
-        <div className={styles.buttonContainer}>
-          {loggedUser ? (
-            <div className={styles.infoSession}>
-              {/* <h4>Ha iniciado sesión como: {loggedUser.name.toUpperCase()}</h4> */}
-              <img 
-                src={loggedUser.image}
-                onClick={handleEdit}
-              />
-              <div 
-                className=
-                {
-                  showEdit ? styles.toggleUser : styles.toggleUserNone
-                }
-              >
-                <div>
-                  <Link 
-                    to='/Profile' 
-                    onClick={handleEdit}
-                    className={styles.editBtnContainer}
-                  >
-                    <button className={styles.buttonEdit}>
-                      Editar perfil
-                    </button>
-                  </Link>
-                </div>
-                <div 
-                  className={styles.logoutContainer} 
-                  onClick={handleEdit}
-                >
-                  <LogoutButton />
-                </div>
+      <div className={styles.buttonContainer}>
+        {loggedUser ? (
+          <div className={styles.infoSession}>
+            {/* <h4>Ha iniciado sesión como: {loggedUser.name.toUpperCase()}</h4> */}
+            <img src={loggedUser.image}onClick={handleEdit}/>
+            <div className={showEdit ? styles.toggleUser : styles.toggleUserNone}>
+              <div>
+                <Link to='/Profile' onClick={handleEdit} className={styles.editBtnContainer}>
+                  <button className={styles.buttonEdit}> Editar perfil</button>
+                </Link>
+              </div>
+              <Link to='/chats' onClick={handleEdit} className={styles.editBtnContainer}>
+                <button className={styles.buttonEdit}>Ver mensajes</button>
+              </Link>
+              <div className={styles.logoutContainer} onClick={handleEdit}>
+                <LogoutButton />
               </div>
             </div>
-          ) : (
-            <>
-              <LoginButton />
-            </>
-          )}
-        </div>
+          </div>
+        ) : (
+          <>
+            <LoginButton />
+          </>
+        )}
+      </div>
 
     </nav>
   );

@@ -10,12 +10,13 @@ import styles from "./dashBoardAdm.module.css";
 import swal from "sweetalert";
 // import NavBar from "../NavBar/NavBar";
 import {
-  getUsers,
   deleteUsers,
-  deleteCampaigns,
   getCampaignsAdm,
   getPetsAdm,
-  deletePets,
+  getSearchCampaign,
+  getSearchPet,
+  getUsersAdm,
+  getSearchUser,
 } from "../../redux/actions";
 import DataTable from "react-data-table-component";
 
@@ -30,22 +31,98 @@ const DashBoardAdm = () => {
   const [modalEditCampaign, setModalEditCampaign] = useState(false);
   const [modalDetailPet, setModalDetailPet] = useState(false);
   const [modalEditPet, setModalEditPet] = useState(false);
+  const [searchUser, setSearchUser] = useState("");
+  const [searchCampaign, setSearchCampaign] = useState("");
+  const [searchPet, setSearchPet] = useState("");
   const defaultData = "No existe informacion";
   let dataModal = JSON.parse(localStorage.getItem("dataChange"));
+  const handleSearchUser = (event) => {
+    setSearchUser(event.target.value);
+  };
+  const handleSearchCampaign = (event) => {
+    setSearchCampaign(event.target.value);
+  };
+  const handleSearchPet = (event) => {
+    setSearchPet(event.target.value);
+  };
 
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(getUsers());
+    dispatch(getUsersAdm());
     dispatch(getCampaignsAdm());
     dispatch(getPetsAdm());
     setDelete(null);
   }, [deletuse, modalEditProfile, modalEditCampaign, modalEditPet]);
+
+  const inputSearchUser = (e) => {
+    e.preventDefault();
+    if (searchUser === "") {
+      swal({
+        title: "Sorry!",
+        text: "Debe escribir el nombre de un usuario",
+        icon: "warning",
+        button: "Ok",
+      });
+      setSearchUser("");
+    } else {
+      dispatch(getSearchUser(searchUser));
+      setSearchUser("");
+    }
+  };
+
+  const resetUser = (e) => {
+    e.preventDefault();
+    dispatch(getUsersAdm());
+  };
+
+  const inputSearchCampaign = (e) => {
+    e.preventDefault();
+    if (searchCampaign === "") {
+      swal({
+        title: "Sorry!",
+        text: "Debe escribir el titulo de una campaña",
+        icon: "warning",
+        button: "Ok",
+      });
+      setSearchCampaign("");
+    } else {
+      dispatch(getSearchCampaign(searchCampaign));
+      setSearchCampaign("");
+    }
+  };
+
+  const resetCampaign = (e) => {
+    e.preventDefault();
+    dispatch(getCampaignsAdm());
+  };
+
+  const inputSearchPet = (e) => {
+    e.preventDefault();
+    if (searchPet === "") {
+      swal({
+        title: "Sorry!",
+        text: "Debe escribir el nombre de una mascota",
+        icon: "warning",
+        button: "Ok",
+      });
+      setSearchPet("");
+    } else {
+      dispatch(getSearchPet(searchPet));
+      setSearchPet("");
+    }
+  };
+
+  const resetPet = (e) => {
+    e.preventDefault();
+    dispatch(getPetsAdm());
+  };
 
   const columnsUser = [
     {
       name: "ID",
       selector: (row) => row.id,
       sortable: true,
+      width: "70px",
     },
     {
       name: "Tipo",
@@ -113,6 +190,7 @@ const DashBoardAdm = () => {
       name: "Titulo",
       selector: (row) => row.title,
       sortable: true,
+      grow: 3,
     },
     {
       name: "ID de Usuario",
@@ -122,6 +200,11 @@ const DashBoardAdm = () => {
     {
       name: "Meta",
       selector: (row) => row.goal,
+      sortable: true,
+    },
+    {
+      name: "Recolectado",
+      selector: (row) => row.collected,
       sortable: true,
     },
     {
@@ -161,11 +244,13 @@ const DashBoardAdm = () => {
       name: "ID",
       selector: (row) => row.id,
       sortable: true,
+      width: "70px",
     },
     {
       name: "Nombre",
       selector: (row) => row.name,
       sortable: true,
+      width: "150px",
     },
     {
       name: "Especie",
@@ -186,16 +271,19 @@ const DashBoardAdm = () => {
       name: "Color",
       selector: (row) => row.color,
       sortable: true,
+      width: "210px",
     },
     {
       name: "Edad",
       selector: (row) => row.age,
       sortable: true,
+      width: "160px",
     },
     {
       name: "Donador",
       selector: (row) => row.giver,
       sortable: true,
+      grow: 3,
     },
     {
       name: "ID de usuario",
@@ -206,14 +294,16 @@ const DashBoardAdm = () => {
       name: "Fue adoptado?",
       selector: (row) => row.adopted,
       sortable: true,
+      width: "130px",
     },
     {
-      name: "Deleted",
+      name: "Fue eliminado?",
       selector: (row) => row.deleted,
       sortable: true,
+      width: "130px",
     },
     {
-      name: "Change Adopted",
+      name: "Cambiar adopcion",
       cell: (row) => (
         <select
           onChange={(e) => handleSelectAdoptedPets(row, e)}
@@ -223,9 +313,10 @@ const DashBoardAdm = () => {
           <option value="no">No</option>
         </select>
       ),
+      width: "150px",
     },
     {
-      name: "Change Deleted",
+      name: "Cambiar eliminacion",
       cell: (row) => (
         <select
           onChange={(e) => handleSelectDeletedPets(row, e)}
@@ -235,6 +326,7 @@ const DashBoardAdm = () => {
           <option value="no">No</option>
         </select>
       ),
+      width: "150px",
     },
     {
       name: "Detalles",
@@ -407,13 +499,36 @@ const DashBoardAdm = () => {
     <>
       {/* <NavBar /> */}
       <h2>DashBoard Administrador</h2>
+      <input
+        type="text"
+        placeholder="Buscar al usuario :"
+        value={searchUser}
+        onChange={handleSearchUser}
+      />
+      <button value={searchUser} onClick={inputSearchUser}>
+        Buscar Usuario
+      </button>
+      <button onClick={resetUser}>Eliminar busqueda</button>
       <DataTable
         title="Usuarios"
         columns={columnsUser}
         data={datos}
         pagination
         paginationComponentOptions={paginateOptions}
+        // responsive
+        // fixedHeader
+        // fixedHeaderScrollHeight="600px"
       />
+      <input
+        type="text"
+        placeholder="Buscar la campaña :"
+        value={searchCampaign}
+        onChange={handleSearchCampaign}
+      />
+      <button value={searchCampaign} onClick={inputSearchCampaign}>
+        Buscar Campaña
+      </button>
+      <button onClick={resetCampaign}>Eliminar busqueda</button>
       <DataTable
         title="Campañas"
         columns={columnsCampaigns}
@@ -421,6 +536,16 @@ const DashBoardAdm = () => {
         pagination
         paginationComponentOptions={paginateOptions}
       />
+      <input
+        type="text"
+        placeholder="Buscar la mascota :"
+        value={searchPet}
+        onChange={handleSearchPet}
+      />
+      <button value={searchPet} onClick={inputSearchPet}>
+        Buscar Mascota
+      </button>
+      <button onClick={resetPet}>Eliminar busqueda</button>
       <DataTable
         title="Mascotas"
         columns={columnsPets}

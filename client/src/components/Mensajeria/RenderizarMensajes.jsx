@@ -4,7 +4,6 @@ import axios from "axios";
 import io from "socket.io-client"
 const socket = io('http://localhost:3001')
 
-
 const renderizarMensajes = (mensajes, emisor, receptor) => {
     return mensajes.map((mensaje, i) => {
         if (mensaje.EmisorId == emisor.id) {
@@ -39,13 +38,14 @@ export default function RenderizarMensajes() {
     axios(`http://localhost:3001/users/${emisorId}`)
     .then(user => setEmisor(user.data));
     axios(`http://localhost:3001/users/${receptorId}`)
-    .then(user => setReceptor(user.data));
+    .then(user => setReceptor(user.data))
+    .catch(() => window.location.href = `http://localhost:3000/chats`)
   }, [])
 
   useEffect(() => {
     const reciveMessage = (message) => {
         if ((message.EmisorId == emisorId && message.ReceptorId == receptorId) || (message.EmisorId == receptorId && message.ReceptorId == emisorId)) {
-            setMessages([...messages, message]);
+            setMessages([message, ...messages]);
         }
     }
     socket.on('message', reciveMessage);
@@ -57,12 +57,18 @@ export default function RenderizarMensajes() {
   useEffect(() => {
     axios(`http://localhost:3001/message?emisorId=${emisorId}&receptorId=${receptorId}`)
     .then((mensajes) => setMessages(mensajes.data));
-  }, []) // en un futuro se actualizaria cada vez que mande un mensaje alguno de los dos usuers. ahora solo al inicio.
+  }, [])
 
 
   return (
-        <div className={styles.mensajes}>
-            {renderizarMensajes(messages, emisor, receptor)}
-        </div>
+        <>
+            <div className={styles.top}>
+                <img className={styles.topImage} src={receptor.image} alt="nf"/>
+                <h3>{receptor.name}</h3>
+            </div>
+            <div className={styles.mensajes}>
+                {renderizarMensajes(messages, emisor, receptor)}
+            </div>
+        </>
     )
 }

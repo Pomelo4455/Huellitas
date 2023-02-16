@@ -38,6 +38,7 @@ import {
 import DashBoardAdm from "./components/DashBoardAdm/DashBoardAdm";
 import { User } from "@auth0/auth0-react";
 import Mensajeria from "./components/Mensajeria/Mensajeria";
+import Fundaciones from "./components/Fundaciones/Fundaciones";
 
 export const auth = new Auth();
 
@@ -107,8 +108,10 @@ function App() {
         <Route path="/DashBoardAdm" element={<AdminProtectedRoute><DashBoardAdm /></AdminProtectedRoute>}/>
         <Route path="/unauthRedirect/:props" element={<UnauthRedirect />} />
         <Route path="/Profile" element={<Profile setLoggedUser={setLoggedUser} />}/>
+        <Route path="/chats" element={<Mensajeria/>}/>
         <Route path="/chat/:emisorId/:receptorId" element={<Mensajeria/>}/>
         <Route path="/:any" element={<NotFound />} />
+        <Route path="/fundaciones" element={<Fundaciones />} />
       </Routes>
       <Footer />
     </>
