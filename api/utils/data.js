@@ -1,5 +1,31 @@
 const petsData = [
   {
+    name: "Moro",
+    age: "1 mes",
+    species: "perro",
+    image:
+      "https://www.pronto.com.ar/u/fotografias/m/2023/2/14/f850x638-82038_159527_5050.jpg",
+    size: "pequeño",
+    color: "negro",
+    sex: "hembra",
+    temperament: "tranquilo",
+    adopted: "no",
+    userId: 3,
+  },
+  {
+    name: "Caramelo",
+    age: "1 mes",
+    species: "perro",
+    image:
+      "https://www.pronto.com.ar/u/fotografias/m/2023/2/14/f850x638-82038_159527_5050.jpg",
+    size: "grande",
+    color: "marron",
+    sex: "macho",
+    temperament: "tranquilo",
+    adopted: "no",
+    userId: 3,
+  },
+  {
     name: "Toby",
     age: "8 años",
     species: "perro",
@@ -187,7 +213,7 @@ const usersData = [
     tiktok: "ErvinMiRey",
     description: "Almorcé con una llama debajo de tu cama porque puedo",
     image:
-      "https://this-person-does-not-exist.com/img/avatar-6be0ff0121b792fe397ba3e3b96e28fb.jpg",
+      "https://acortar.link/wqGL9W",
     CVU: "",
     status: "activo",
     password: "1234",
@@ -206,7 +232,7 @@ const usersData = [
     tiktok: "ClemBauch",
     description: "Recibí una fuerte multa pero no logró aplastar mi espíritu",
     image:
-      "https://this-person-does-not-exist.com/img/avatar-e49f2c746f6d712ce4261659c0430d79.jpg",
+      "https://acortar.link/wqGL9W",
     CVU: "",
     status: "activo",
     password: "1234",
@@ -227,7 +253,7 @@ const usersData = [
     description:
       "Ella insistió en que limpiar tu armario era la clave para una buena conducción",
     image:
-      "https://this-person-does-not-exist.com/img/avatar-ab54e9a5a41010f6a08b075319bd36e4.jpg",
+      "https://acortar.link/wqGL9W",
     CVU: "",
     password: "1234",
   },
@@ -247,7 +273,7 @@ const usersData = [
     description:
       "Ella le pidió prestado el libro hace muchos años y aún no lo ha devuelto",
     image:
-      "https://this-person-does-not-exist.com/img/avatar-dc4c055e1246d39761bd6af9381a1ae9.jpg",
+      "https://acortar.link/wqGL9W",
     CVU: "",
     password: "1234",
   },
@@ -267,7 +293,7 @@ const usersData = [
     description:
       "Tu novia compró tu cereal crujiente de galleta favorito pero se olvidó de comprar leche",
     image:
-      "https://this-person-does-not-exist.com/img/avatar-105b76fcb7bc230cbb0368d85d72621d.jpg",
+      "https://acortar.link/wqGL9W",
     CVU: "",
     password: "1234",
   },
@@ -287,7 +313,7 @@ const usersData = [
     description:
       "Seamos todos únicos juntos hasta que nos demos cuenta de que todos somos iguales",
     image:
-      "https://this-person-does-not-exist.com/img/avatar-6b8e21a0a1a6b92dee39b6b8aa7c592e.jpg",
+      "https://acortar.link/wqGL9W",
     CVU: "",
     password: "1234",
   },
@@ -307,7 +333,7 @@ const usersData = [
     description:
       "Aunque pensaba que el mundo era plano, no veía la ironía de querer viajar alrededor del mundo",
     image:
-      "https://this-person-does-not-exist.com/img/avatar-f5a693b6ed7623e837d11f04015a9c06.jpg",
+      "https://acortar.link/wqGL9W",
     CVU: "",
     password: "1234",
   },
@@ -326,7 +352,7 @@ const usersData = [
     description:
       "Solo quería decirte que pude ver el amor que sientes por tu hija por la forma en que la miras",
     image:
-      "https://this-person-does-not-exist.com/img/avatar-2bb874b50c274716b5a6e3e6e41ec0ae.jpg",
+      "https://acortar.link/wqGL9W",
     CVU: "",
     password: "1234",
   },
@@ -345,7 +371,7 @@ const usersData = [
     description:
       "En el momento en que aterrizó comprendió la razón por la que se trataba de un estado de sobrevuelo",
     image:
-      "https://this-person-does-not-exist.com/img/avatar-b43dff51af55240892c6c1505327b914.jpg",
+      "https://acortar.link/wqGL9W",
     CVU: "",
     password: "1234",
   },

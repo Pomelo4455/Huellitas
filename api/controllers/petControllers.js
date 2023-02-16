@@ -8,10 +8,10 @@ const getAllPets = async (filters, order) => {
   for (let i = 0; i < pets.length; i++) {
     const pet = pets[i].dataValues;
     let giver = await User.findOne({
-      attributes: ["name"],
+      attributes: ["name", "latitude", "longitude"],
       where: { id: pet.userId },
     });
-    if (giver) pets[i] = { ...pet, giver: giver.dataValues.name };
+    if (giver) pets[i] = { ...pet, giver: giver.dataValues.name, latitude: giver.dataValues.latitude, longitude: giver.dataValues.longitude };
   }
   return pets;
 };
