@@ -57,7 +57,7 @@ export default function RenderizarMensajes() {
   useEffect(() => {
     axios(`http://localhost:3001/message?emisorId=${emisorId}&receptorId=${receptorId}`)
     .then((mensajes) => setMessages(mensajes.data));
-  }, []) // en un futuro se actualizaria cada vez que mande un mensaje alguno de los dos usuers. ahora solo al inicio.
+  }, [])
 
 
   return (

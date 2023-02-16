@@ -4,7 +4,7 @@ const {
   getPetById,
   getAllPetsAdm,
 } = require("../controllers/petControllers.js");
-const { getAllUser } = require("../controllers/userControllers.js");
+const { getAllUser, updateUser } = require("../controllers/userControllers.js");
 const { User, Pet, Campaign, Adoption } = require("../db.js");
 const {
   createFilters,
@@ -52,6 +52,8 @@ router.post("/", async (req, res) => {
       adopted,
       deleted,
       userId,
+      latitude,
+      longitude
     } = req.body;
     let newPet = await Pet.create({
       name,
@@ -64,7 +66,15 @@ router.post("/", async (req, res) => {
       temperament,
       adopted,
       deleted,
-    });
+      }
+    );
+
+    const data = {latitude, longitude};
+
+    if (data) {
+      await updateUser(userId, data);
+    }
+
     await newPet.setUser(userId);
     res.status(200).send("La mascota fue creada");
   } catch (error) {

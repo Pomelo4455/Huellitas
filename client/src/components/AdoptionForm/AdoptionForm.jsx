@@ -1,11 +1,11 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import styles from "./adoptionForm.module.css";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Widget } from "@uploadcare/react-widget";
-import { postNewPet } from "../../redux/actions";
+import { postNewPet, getProvincias, getCiudades } from "../../redux/actions";
 import effects from "uploadcare-widget-tab-effects/react";
 // import Footer from "../Footer/Footer";
 // import NavBar from "../NavBar/NavBar";
@@ -18,7 +18,44 @@ export default function AdoptionForm() {
   let userId = JSON.parse(localStorage.getItem("loggedUser"));
   let newid = userId.data ? userId.data.id : null;
   // newid ? (newid = newid) : (newid = null);
-  console.log(newid);
+  const [userLocation, setLocation] = useState({ lat: 0, lng: 0 });
+  const provincias = useSelector(state => state.provincias);
+  const ciudades = useSelector(state => state.ciudades);
+
+  useEffect(()=> {
+    dispatch(getProvincias());
+    console.log(values.provincia);
+  }, []);
+
+  const handleGeo = (event) => {
+    event.preventDefault();
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          console.log(
+            position.coords.latitude,
+            position.coords.longitude
+          )
+          setLocation({
+            lat: position.coords.latitude,
+            lng: position.coords.longitude
+          });
+        },
+        (error) => {
+          console.log(error);
+        }
+      );
+    } else {
+      return "no tenés geolocalización";
+    }
+  }
+
+  const handleChangeProv = (provincia) => {
+    console.log(provincia);
+    //dispatch(getCiudades(provincia));
+  }
+
+//  console.log(newid);
   return (
     <div className={styles.body}>
       {/* <NavBar /> */}
@@ -32,6 +69,9 @@ export default function AdoptionForm() {
           color: "",
           sex: "",
           temperament: "",
+          location: {},
+          provincia: "",
+          ciudades: "",
           userId: newid,
         }}
         validate={(values) => {
@@ -85,7 +125,7 @@ export default function AdoptionForm() {
         }}
         validateOnMount
       >
-        {({ errors, setFieldValue }) => (
+        {({ values, errors, setFieldValue }) => (
           <div className={styles.container}>
             <Form className={styles.form}>
               <div className={styles.divinput}>
@@ -212,6 +252,37 @@ export default function AdoptionForm() {
                   )}
                 />
               </div>
+
+              <Field as="select" className={styles.input} name="provincia">
+                  <option disabled hidden value="">
+                    Elige una opción
+                  </option>
+                  {provincias.map(prov => {
+                    return (
+                      <option key={prov.id} value={prov.id}>
+                        {prov.nombre}
+                      </option>
+                    );
+                  })
+                }
+                </Field>
+
+                {handleChangeProv(values.provincia)}
+
+                <Field as="select" className={styles.input} name="ciudades">
+                  <option disabled hidden value="">
+                    Elige una opción
+                  </option>
+                  {ciudades.map(ciudad => {
+                    return (
+                      <option key={ciudad.id} value={ciudad.nombre}>
+                        {ciudad.nombre}
+                      </option>
+                    );
+                  })
+                }
+                </Field>
+
               <label>Sube una linda foto (o varias): </label>
               <div className={styles.divinput}>
                 <hr />
@@ -284,6 +355,7 @@ export default function AdoptionForm() {
         )}
       </Formik>
       {/* <Footer /> */}
+        <button onClick={event => handleGeo(event)}>Geolocalizacion</button>
     </div>
   );
 }
