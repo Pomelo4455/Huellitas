@@ -1,4 +1,4 @@
-const { User, Pet, Campaign, Adoption } = require("../db.js");
+const { User, Pet, Campaign, Adoption, Donation } = require("../db.js");
 const transporter = require("../config/mailer");
 
 const createUser = async (Data) => {
@@ -47,6 +47,10 @@ const getAllUser = async (filters) => {
       {
         model: Adoption,
         attributes: ["date"],
+      },
+      {
+        model: Donation,
+        as: "donante",
       },
     ],
   });
@@ -98,8 +102,59 @@ const getAllUserAdm = async (filters) => {
         model: Adoption,
         attributes: ["date"],
       },
+      {
+        model: Donation,
+        as: "donante",
+      },
     ],
   });
+
+  return users;
+};
+
+const getAllUserFund = async (filters) => {
+  let users;
+  if (filters) {
+    users = await User.findAll({
+      where: filters,
+      include: [
+        {
+          model: Pet,
+        },
+        {
+          model: Campaign,
+        },
+        {
+          model: Adoption,
+          attributes: ["date"],
+        },
+        {
+          model: Donation,
+          as: "donante",
+        },
+      ],
+    });
+  } else {
+    users = await User.findAll({
+      where: { status: "activo", type: "fundacion" },
+      include: [
+        {
+          model: Pet,
+        },
+        {
+          model: Campaign,
+        },
+        {
+          model: Adoption,
+          attributes: ["date"],
+        },
+        {
+          model: Donation,
+          as: "donante",
+        },
+      ],
+    });
+  }
 
   return users;
 };
@@ -110,4 +165,5 @@ module.exports = {
   deleteUser,
   updateUser,
   getAllUserAdm,
+  getAllUserFund,
 };

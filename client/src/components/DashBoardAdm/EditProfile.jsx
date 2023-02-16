@@ -73,10 +73,11 @@ const EditProfile = ({ dataModal, setModalEditProfile }) => {
         {({ errors, setFieldValue }) => (
           <div className={styles.container}>
             <Form className={styles.form}>
-              <label>Aqui podra editar el usuario</label>
+              <label>Edicion del usuario</label>
               <br />
               <div className={styles.divinput}>
                 <label htmlFor="">Nombre : </label>
+                <br />
                 <Field
                   className={styles.input}
                   type="text"
@@ -93,6 +94,7 @@ const EditProfile = ({ dataModal, setModalEditProfile }) => {
               </div>
               <div className={styles.divinput}>
                 <label htmlFor="">Telefono : </label>
+                <br />
                 <Field
                   className={styles.input}
                   type="text"
@@ -103,6 +105,7 @@ const EditProfile = ({ dataModal, setModalEditProfile }) => {
               </div>
               <div className={styles.divinput}>
                 <label htmlFor="">Direccion : </label>
+                <br />
                 <Field
                   className={styles.input}
                   type="text"
@@ -115,7 +118,7 @@ const EditProfile = ({ dataModal, setModalEditProfile }) => {
                 <label htmlFor="">Descripcion : </label>
                 <br />
                 <Field
-                  className={styles.input}
+                  // className={styles.input}
                   type="text"
                   name="description"
                   as="textarea"
@@ -128,6 +131,7 @@ const EditProfile = ({ dataModal, setModalEditProfile }) => {
               </div>
               <div className={styles.divinput}>
                 <label htmlFor="">Facebook : </label>
+                <br />
                 <Field
                   className={styles.input}
                   type="text"
@@ -138,6 +142,7 @@ const EditProfile = ({ dataModal, setModalEditProfile }) => {
               </div>
               <div className={styles.divinput}>
                 <label htmlFor="">Instagram : </label>
+                <br />
                 <Field
                   className={styles.input}
                   type="text"
@@ -148,6 +153,7 @@ const EditProfile = ({ dataModal, setModalEditProfile }) => {
               </div>
               <div className={styles.divinput}>
                 <label htmlFor="">TikTok : </label>
+                <br />
                 <Field
                   className={styles.input}
                   type="text"
@@ -158,6 +164,7 @@ const EditProfile = ({ dataModal, setModalEditProfile }) => {
               </div>
               <div className={styles.divinput}>
                 <label htmlFor="">CVU : </label>
+                <br />
                 <Field
                   className={styles.input}
                   type="text"
@@ -185,14 +192,21 @@ const EditProfile = ({ dataModal, setModalEditProfile }) => {
               {sent && (
                 <p className={styles.exito}>Formulario enviado con exito!</p>
               )}
-              <div>
-                <button type="submit">Aceptar Cambios</button>
+              <div className={styles.buttons}>
+                <button className={styles.button} type="submit">
+                  Aceptar Cambios
+                </button>
+                <button
+                  className={styles.button}
+                  onClick={() => setModalEditProfile(false)}
+                >
+                  Cerrar
+                </button>
               </div>
             </Form>
           </div>
         )}
       </Formik>
-      <button onClick={() => setModalEditProfile(false)}>Cerrar Modal</button>
     </div>
   );
 };

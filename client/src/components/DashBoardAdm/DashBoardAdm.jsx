@@ -17,13 +17,15 @@ import {
   getSearchPet,
   getUsersAdm,
   getSearchUser,
+  getDonations,
 } from "../../redux/actions";
-import DataTable from "react-data-table-component";
+import DataTable, { createTheme } from "react-data-table-component";
 
 const DashBoardAdm = () => {
   const datos = useSelector((state) => state.users);
   const campañas = useSelector((state) => state.campaigns);
   const mascotas = useSelector((state) => state.pets);
+  const donaciones = useSelector((state) => state.donations);
   const [deletuse, setDelete] = useState(null);
   const [modalDetailProfile, setModalDetailProfile] = useState(false);
   const [modalEditProfile, setModalEditProfile] = useState(false);
@@ -51,6 +53,7 @@ const DashBoardAdm = () => {
     dispatch(getUsersAdm());
     dispatch(getCampaignsAdm());
     dispatch(getPetsAdm());
+    dispatch(getDonations());
     setDelete(null);
   }, [deletuse, modalEditProfile, modalEditCampaign, modalEditPet]);
 
@@ -148,7 +151,11 @@ const DashBoardAdm = () => {
     {
       name: "Cambio de Tipo",
       cell: (row) => (
-        <select onChange={(e) => handleSelectTypeUser(row, e)} value={row.type}>
+        <select
+          onChange={(e) => handleSelectTypeUser(row, e)}
+          value={row.type}
+          className={styles.dashBoardAdm_select_Table}
+        >
           <option value="usuario">Usuario</option>
           <option value="fundacion">Fundacion</option>
           <option value="admin">Administrador</option>
@@ -161,6 +168,7 @@ const DashBoardAdm = () => {
         <select
           onChange={(e) => handleSelectStatusUser(row, e)}
           value={row.status}
+          className={styles.dashBoardAdm_select_Table}
         >
           <option value="activo">Activo</option>
           <option value="inactivo">Inactivo</option>
@@ -170,12 +178,24 @@ const DashBoardAdm = () => {
     },
     {
       name: "Detalles",
-      cell: (row) => <button onClick={() => handleClick(row)}>Buscar</button>,
+      cell: (row) => (
+        <button
+          className={styles.dashBoardAdm_button_Table}
+          onClick={() => handleClick(row)}
+        >
+          Ver
+        </button>
+      ),
     },
     {
       name: "Editar",
       cell: (row) => (
-        <button onClick={() => handleClickTwo(row)}>Editar</button>
+        <button
+          className={styles.dashBoardAdm_button_Table}
+          onClick={() => handleClickTwo(row)}
+        >
+          Editar
+        </button>
       ),
     },
   ];
@@ -218,6 +238,7 @@ const DashBoardAdm = () => {
         <select
           onChange={(e) => handleSelectStatusCampaigns(row, e)}
           value={row.status}
+          className={styles.dashBoardAdm_select_Table}
         >
           <option value="activo">Activo</option>
           <option value="inactivo">Inactivo</option>
@@ -228,13 +249,23 @@ const DashBoardAdm = () => {
     {
       name: "Detalles",
       cell: (row) => (
-        <button onClick={() => handleClickThree(row)}>Buscar</button>
+        <button
+          className={styles.dashBoardAdm_button_Table}
+          onClick={() => handleClickThree(row)}
+        >
+          Ver
+        </button>
       ),
     },
     {
       name: "Editar",
       cell: (row) => (
-        <button onClick={() => handleClickFour(row)}>Editar</button>
+        <button
+          className={styles.dashBoardAdm_button_Table}
+          onClick={() => handleClickFour(row)}
+        >
+          Editar
+        </button>
       ),
     },
   ];
@@ -308,6 +339,7 @@ const DashBoardAdm = () => {
         <select
           onChange={(e) => handleSelectAdoptedPets(row, e)}
           value={row.adopted}
+          className={styles.dashBoardAdm_select_Table}
         >
           <option value="si">Si</option>
           <option value="no">No</option>
@@ -321,6 +353,7 @@ const DashBoardAdm = () => {
         <select
           onChange={(e) => handleSelectDeletedPets(row, e)}
           value={row.deleted}
+          className={styles.dashBoardAdm_select_Table}
         >
           <option value="si">Si</option>
           <option value="no">No</option>
@@ -331,14 +364,42 @@ const DashBoardAdm = () => {
     {
       name: "Detalles",
       cell: (row) => (
-        <button onClick={() => handleClickFive(row)}>Buscar</button>
+        <button
+          className={styles.dashBoardAdm_button_Table}
+          onClick={() => handleClickFive(row)}
+        >
+          Ver
+        </button>
       ),
     },
     {
       name: "Editar",
       cell: (row) => (
-        <button onClick={() => handleClickSix(row)}>Editar</button>
+        <button
+          className={styles.dashBoardAdm_button_Table}
+          onClick={() => handleClickSix(row)}
+        >
+          Editar
+        </button>
       ),
+    },
+  ];
+
+  const columnsDonations = [
+    {
+      name: "ID",
+      selector: (row) => row.id,
+      sortable: true,
+    },
+    {
+      name: "Estado",
+      selector: (row) => row.status,
+      sortable: true,
+    },
+    {
+      name: "Cantidad",
+      selector: (row) => row.amount,
+      sortable: true,
     },
   ];
   const handleClick = (row) => {
@@ -488,6 +549,32 @@ const DashBoardAdm = () => {
     });
   };
 
+  createTheme("solarized", {
+    text: {
+      primary: "#268bd2",
+      secondary: "#2aa198",
+    },
+    background: {
+      default: "#c2f4ff",
+    },
+    context: {
+      background: "#cb4b16",
+      text: "#FFFFFF",
+    },
+    divider: {
+      default: "#073642",
+    },
+    button: {
+      default: "#2aa198",
+      hover: "rgba(0,0,0,.08)",
+      focus: "rgba(255,255,255,.12)",
+      disabled: "rgba(255, 255, 255, .34)",
+    },
+    sortFocus: {
+      default: "#2aa198",
+    },
+  });
+
   const paginateOptions = {
     rowsPerPageText: "Filas por pagina",
     rangeSeparatorText: "de",
@@ -496,63 +583,102 @@ const DashBoardAdm = () => {
   };
 
   return (
-    <>
+    <div className={styles.dashBoardAdm_container}>
       {/* <NavBar /> */}
       <h2>DashBoard Administrador</h2>
-      <input
-        type="text"
-        placeholder="Buscar al usuario :"
-        value={searchUser}
-        onChange={handleSearchUser}
-      />
-      <button value={searchUser} onClick={inputSearchUser}>
-        Buscar Usuario
-      </button>
-      <button onClick={resetUser}>Eliminar busqueda</button>
+      <div className={styles.dashBoardAdm_searchbar}>
+        <input
+          type="text"
+          placeholder="Buscar al usuario :"
+          value={searchUser}
+          onChange={handleSearchUser}
+          className={styles.dashBoardAdm_search}
+        />
+        <button
+          className={styles.dashBoardAdm_button}
+          value={searchUser}
+          onClick={inputSearchUser}
+        >
+          Buscar Usuario
+        </button>
+        <button onClick={resetUser} className={styles.dashBoardAdm_button}>
+          Eliminar busqueda
+        </button>
+      </div>
       <DataTable
         title="Usuarios"
         columns={columnsUser}
         data={datos}
         pagination
         paginationComponentOptions={paginateOptions}
+        theme="solarized"
         // responsive
         // fixedHeader
         // fixedHeaderScrollHeight="600px"
       />
-      <input
-        type="text"
-        placeholder="Buscar la campaña :"
-        value={searchCampaign}
-        onChange={handleSearchCampaign}
-      />
-      <button value={searchCampaign} onClick={inputSearchCampaign}>
-        Buscar Campaña
-      </button>
-      <button onClick={resetCampaign}>Eliminar busqueda</button>
+      <div className={styles.dashBoardAdm_searchbar}>
+        <input
+          type="text"
+          placeholder="Buscar la campaña :"
+          value={searchCampaign}
+          onChange={handleSearchCampaign}
+          className={styles.dashBoardAdm_search}
+        />
+        <button
+          value={searchCampaign}
+          onClick={inputSearchCampaign}
+          className={styles.dashBoardAdm_button}
+        >
+          Buscar Campaña
+        </button>
+        <button onClick={resetCampaign} className={styles.dashBoardAdm_button}>
+          Eliminar busqueda
+        </button>
+      </div>
       <DataTable
         title="Campañas"
         columns={columnsCampaigns}
         data={campañas}
         pagination
         paginationComponentOptions={paginateOptions}
+        theme="solarized"
       />
-      <input
-        type="text"
-        placeholder="Buscar la mascota :"
-        value={searchPet}
-        onChange={handleSearchPet}
-      />
-      <button value={searchPet} onClick={inputSearchPet}>
-        Buscar Mascota
-      </button>
-      <button onClick={resetPet}>Eliminar busqueda</button>
+      <div className={styles.dashBoardAdm_searchbar}>
+        <input
+          type="text"
+          placeholder="Buscar la mascota :"
+          value={searchPet}
+          onChange={handleSearchPet}
+          className={styles.dashBoardAdm_search}
+        />
+        <button
+          value={searchPet}
+          onClick={inputSearchPet}
+          className={styles.dashBoardAdm_button}
+        >
+          Buscar Mascota
+        </button>
+        <button onClick={resetPet} className={styles.dashBoardAdm_button}>
+          Eliminar busqueda
+        </button>
+      </div>
       <DataTable
         title="Mascotas"
         columns={columnsPets}
         data={mascotas}
         pagination
         paginationComponentOptions={paginateOptions}
+        theme="solarized"
       />
+      <DataTable
+        title="Donaciones"
+        columns={columnsDonations}
+        data={donaciones}
+        pagination
+        paginationComponentOptions={paginateOptions}
+        theme="solarized"
+      />
+
       {modalDetailProfile && (
         <DetailProfile
           dataModal={dataModal}
@@ -594,7 +720,7 @@ const DashBoardAdm = () => {
       {modalEditPet && (
         <EditPet dataModal={dataModal} setModalEditPet={setModalEditPet} />
       )}
-    </>
+    </div>
   );
 };
 
