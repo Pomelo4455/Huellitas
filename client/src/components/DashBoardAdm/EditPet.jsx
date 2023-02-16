@@ -92,10 +92,11 @@ const EditPet = ({ dataModal, setModalEditPet }) => {
         {({ errors, setFieldValue }) => (
           <div className={styles.container}>
             <Form className={styles.form}>
-              <label>Aqui podra editar la mascota</label>
+              <label>Edicion de la mascota</label>
               <br />
               <div className={styles.divinput}>
                 <label htmlFor="">Nombre : </label>
+                <br />
                 <Field
                   className={styles.input}
                   type="text"
@@ -113,6 +114,7 @@ const EditPet = ({ dataModal, setModalEditPet }) => {
 
               <div className={styles.divinput}>
                 <label htmlFor="">Especie : </label>
+                <br />
                 <Field
                   component="select"
                   value={valuess.species}
@@ -138,6 +140,7 @@ const EditPet = ({ dataModal, setModalEditPet }) => {
               </div>
               <div className={styles.divinput}>
                 <label htmlFor="">Edad : </label>
+                <br />
                 <Field
                   as="select"
                   value={valuess.age}
@@ -161,6 +164,7 @@ const EditPet = ({ dataModal, setModalEditPet }) => {
               </div>
               <div className={styles.divinput}>
                 <label htmlFor="">Tamaño : </label>
+                <br />
                 <Field
                   as="select"
                   value={valuess.size}
@@ -184,6 +188,7 @@ const EditPet = ({ dataModal, setModalEditPet }) => {
               </div>
               <div className={styles.divinput}>
                 <label htmlFor="">Sexo : </label>
+                <br />
                 <Field
                   as="select"
                   value={valuess.sex}
@@ -206,6 +211,7 @@ const EditPet = ({ dataModal, setModalEditPet }) => {
               </div>
               <div className={styles.divinput}>
                 <label htmlFor="">Color : </label>
+                <br />
                 <Field
                   className={styles.input}
                   type="text"
@@ -283,14 +289,21 @@ const EditPet = ({ dataModal, setModalEditPet }) => {
               {sent && (
                 <p className={styles.exito}>Formulario enviado con exito!</p>
               )}
-              <div>
-                <button type="submit">Aceptar Cambios</button>
+              <div className={styles.buttons}>
+                <button className={styles.button} type="submit">
+                  Aceptar Cambios
+                </button>
+                <button
+                  className={styles.button}
+                  onClick={() => setModalEditPet(false)}
+                >
+                  Cerrar
+                </button>
               </div>
             </Form>
           </div>
         )}
       </Formik>
-      <button onClick={() => setModalEditPet(false)}>Cerrar Modal</button>
     </div>
   );
 };

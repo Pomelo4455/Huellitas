@@ -14,3 +14,63 @@
   width: 150px;
   height: 150px;
 }
+
+.dashBoardAdm_container {
+  /* background-color: aqua; */
+}
+
+.dashBoardAdm_searchbar {
+  display: flex;
+  gap: 15px;
+  /* padding-left: 5%; */
+  background-color: #c2f4ff;
+  padding: 15px 0 15px 5%;
+}
+
+.dashBoardAdm_button {
+  background-color: #44b7ff;
+  color: white;
+  cursor: pointer;
+  border: none;
+  border-radius: 10px;
+  font-size: 110%;
+}
+
+.dashBoardAdm_button:hover {
+  background-color: #5dc1ff;
+}
+
+.dashBoardAdm_search {
+  background-color: #44b7ff;
+  border: none;
+  border-radius: 10px;
+  color: rgb(255, 255, 255);
+  padding: 10px 10px;
+  outline: none;
+  font-size: 110%;
+}
+
+.dashBoardAdm_search::placeholder {
+  color: white;
+  font-weight: 400;
+}
+
+.dashBoardAdm_button_Table {
+  background-color: #44b7ff;
+  color: white;
+  cursor: pointer;
+  border: none;
+  border-radius: 10px;
+}
+
+.dashBoardAdm_button_Table:hover {
+  background-color: #5dc1ff;
+}
+
+.dashBoardAdm_select_Table {
+  background-color: #44b7ff;
+  border-radius: 8px;
+  border: none;
+  text-align: center;
+  color: #ffffff;
+}

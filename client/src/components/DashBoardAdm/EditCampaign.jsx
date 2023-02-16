@@ -89,10 +89,11 @@ const EditCampaign = ({ dataModal, setModalEditCampaign }) => {
         {({ errors, setFieldValue }) => (
           <div className={styles.container}>
             <Form className={styles.form}>
-              <label>Aqui podra editar la campaña</label>
+              <label>Edicion de la campaña</label>
               <br />
               <div className={styles.divinput}>
                 <label htmlFor="">Titulo : </label>
+                <br />
                 <Field
                   className={styles.input}
                   type="text"
@@ -109,6 +110,7 @@ const EditCampaign = ({ dataModal, setModalEditCampaign }) => {
               </div>
               <div className={styles.divinput}>
                 <label htmlFor="">Razon : </label>
+                <br />
                 <Field
                   className={styles.input}
                   type="text"
@@ -127,7 +129,7 @@ const EditCampaign = ({ dataModal, setModalEditCampaign }) => {
                 <label htmlFor="">Descripcion : </label>
                 <br />
                 <Field
-                  className={styles.input}
+                  // className={styles.input}
                   type="text"
                   name="description"
                   as="textarea"
@@ -146,6 +148,7 @@ const EditCampaign = ({ dataModal, setModalEditCampaign }) => {
               </div>
               <div className={styles.divinput}>
                 <label htmlFor="">Meta : </label>
+                <br />
                 <Field
                   className={styles.input}
                   type="number"
@@ -201,14 +204,21 @@ const EditCampaign = ({ dataModal, setModalEditCampaign }) => {
               {sent && (
                 <p className={styles.exito}>Formulario enviado con exito!</p>
               )}
-              <div>
-                <button type="submit">Aceptar Cambios</button>
+              <div className={styles.buttons}>
+                <button className={styles.button} type="submit">
+                  Aceptar Cambios
+                </button>
+                <button
+                  className={styles.button}
+                  onClick={() => setModalEditCampaign(false)}
+                >
+                  Cerrar
+                </button>
               </div>
             </Form>
           </div>
         )}
       </Formik>
-      <button onClick={() => setModalEditCampaign(false)}>Cerrar Modal</button>
     </div>
   );
 };
