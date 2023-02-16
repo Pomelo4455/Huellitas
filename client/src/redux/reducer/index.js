@@ -25,6 +25,7 @@ import {
   UPDATE_USERS,
   GET_PROVINCIAS,
   GET_CIUDADES,
+  GET_DONATIONS,
   UPDATE_NOT_READ_CHATS,
 } from "../actions";
 
@@ -45,6 +46,7 @@ const initialState = {
   petsAdm: [],
   provincias: [],
   ciudades: [],
+  donations: [],
   noLeidos: 0,
 };
 
@@ -123,36 +125,36 @@ const rootReducer = (state = initialState, action) => {
         profile: {},
       };
     case LOGIN_SUCCESS:
-        return {
-          ...state,
-          is_authenticated: true
-        }
-      case LOGIN_FAILURE:
-        return {
-          ...state,
-          is_authenticated: false
-        }
-      case ADD_PROFILE:
-        return {
-          ...state,
-          profile: action.payload
-        }
-      case REMOVE_PROFILE:
-        return {
-          ...state,
-          profile: null
-        }
-      case SET_DB_PROFILE:
-        return {
-          ...state,
-          db_profile: action.payload
-        }
-      case REMOVE_DB_PROFILE:
-        return {
-          ...state,
-          db_profile: null
-        }
-        return {
+      return {
+        ...state,
+        is_authenticated: true,
+      };
+    case LOGIN_FAILURE:
+      return {
+        ...state,
+        is_authenticated: false,
+      };
+    case ADD_PROFILE:
+      return {
+        ...state,
+        profile: action.payload,
+      };
+    case REMOVE_PROFILE:
+      return {
+        ...state,
+        profile: null,
+      };
+    case SET_DB_PROFILE:
+      return {
+        ...state,
+        db_profile: action.payload,
+      };
+    case REMOVE_DB_PROFILE:
+      return {
+        ...state,
+        db_profile: null,
+      };
+      return {
         ...state,
         is_authenticated: true,
       };
@@ -222,6 +224,11 @@ const rootReducer = (state = initialState, action) => {
         noLeidos : action.payload,
       }
 
+    case GET_DONATIONS:
+      return {
+        ...state,
+        donations: action.payload,
+      };
     default:
       return {
         ...state,

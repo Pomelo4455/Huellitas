@@ -17,6 +17,7 @@ import {
   getSearchPet,
   getUsersAdm,
   getSearchUser,
+  getDonations,
 } from "../../redux/actions";
 import DataTable, { createTheme } from "react-data-table-component";
 
@@ -24,6 +25,7 @@ const DashBoardAdm = () => {
   const datos = useSelector((state) => state.users);
   const campañas = useSelector((state) => state.campaigns);
   const mascotas = useSelector((state) => state.pets);
+  const donaciones = useSelector((state) => state.donations);
   const [deletuse, setDelete] = useState(null);
   const [modalDetailProfile, setModalDetailProfile] = useState(false);
   const [modalEditProfile, setModalEditProfile] = useState(false);
@@ -51,6 +53,7 @@ const DashBoardAdm = () => {
     dispatch(getUsersAdm());
     dispatch(getCampaignsAdm());
     dispatch(getPetsAdm());
+    dispatch(getDonations());
     setDelete(null);
   }, [deletuse, modalEditProfile, modalEditCampaign, modalEditPet]);
 
@@ -381,6 +384,24 @@ const DashBoardAdm = () => {
       ),
     },
   ];
+
+  const columnsDonations = [
+    {
+      name: "ID",
+      selector: (row) => row.id,
+      sortable: true,
+    },
+    {
+      name: "Estado",
+      selector: (row) => row.status,
+      sortable: true,
+    },
+    {
+      name: "Cantidad",
+      selector: (row) => row.amount,
+      sortable: true,
+    },
+  ];
   const handleClick = (row) => {
     localStorage.setItem("dataChange", JSON.stringify(row));
     setModalDetailProfile(true);
@@ -649,6 +670,15 @@ const DashBoardAdm = () => {
         paginationComponentOptions={paginateOptions}
         theme="solarized"
       />
+      <DataTable
+        title="Donaciones"
+        columns={columnsDonations}
+        data={donaciones}
+        pagination
+        paginationComponentOptions={paginateOptions}
+        theme="solarized"
+      />
+
       {modalDetailProfile && (
         <DetailProfile
           dataModal={dataModal}

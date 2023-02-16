@@ -27,8 +27,9 @@ export const UPDATE_USERS = "UPDATE_USERS";
 export const UPDATE_USERS_ADM = "UPDATE_USERS_ADM";
 export const DONATION = "DONATION";
 export const SEARCH_CAMPAIGN = "SEARCH_CAMPAIGN";
-export const GET_PROVINCIAS = 'GET_PROVINCIAS';
-export const GET_CIUDADES = 'GET_CIUDADES';
+export const GET_PROVINCIAS = "GET_PROVINCIAS";
+export const GET_CIUDADES = "GET_CIUDADES";
+export const GET_DONATIONS = "GET_DONATIONS";
 export const UPDATE_NOT_READ_CHATS = "UPDATE_NOT_READ_CHATS";
 
 export const getPets = () => {
@@ -171,10 +172,7 @@ export const getDetailCamp = (id) => {
 export function postNewCampaign(payload) {
   return async function () {
     try {
-      const newCampaign = await axios.post(
-        "/campaigns",
-        payload
-      );
+      const newCampaign = await axios.post("/campaigns", payload);
 
       return newCampaign;
     } catch (error) {
@@ -247,9 +245,7 @@ export function donate(payload) {
 export const getFundaciones = () => {
   return async function (dispatch) {
     try {
-      const fundaciones = await axios.get(
-        "/users?type=fundacion"
-      );
+      const fundaciones = await axios.get("/users?type=fundacion");
       return dispatch({
         type: GET_FUNDACIONES,
         payload: fundaciones.data,
@@ -312,9 +308,7 @@ export function getUsersAdm() {
 export function getCampaignsAdm() {
   return async function (dispatch) {
     try {
-      const response = await axios.get(
-        "/campaigns/Adm/Admin"
-      );
+      const response = await axios.get("/campaigns/Adm/Admin");
       const allCampaignsAdm = response.data;
 
       return dispatch({
@@ -356,10 +350,7 @@ export const deletePets = (url) => {
 export const updateUsers = (id, data, setLoggedUser) => {
   return async function (dispatch) {
     try {
-      const response = await axios.put(
-        `/users/${id}`,
-        data
-      );
+      const response = await axios.put(`/users/${id}`, data);
       localStorage.setItem("loggedUser", JSON.stringify(response));
       setLoggedUser(response);
       console.log(response);
@@ -374,10 +365,7 @@ export const updateUsers = (id, data, setLoggedUser) => {
 export const updateUsersAdm = (id, data) => {
   return async function (dispatch) {
     try {
-      const response = await axios.put(
-        `/users/${id}`,
-        data
-      );
+      const response = await axios.put(`/users/${id}`, data);
       return response;
     } catch (error) {
       console.log(error);
@@ -388,10 +376,7 @@ export const updateUsersAdm = (id, data) => {
 export const updateCampaignAdm = (id, data) => {
   return async function () {
     try {
-      const response = await axios.put(
-        `/campaigns/${id}`,
-        data
-      );
+      const response = await axios.put(`/campaigns/${id}`, data);
       return response;
     } catch (error) {
       console.log(error);
@@ -402,10 +387,7 @@ export const updateCampaignAdm = (id, data) => {
 export const updatePetAdm = (id, data) => {
   return async function () {
     try {
-      const response = await axios.put(
-        `/pets/${id}`,
-        data
-      );
+      const response = await axios.put(`/pets/${id}`, data);
       return response;
     } catch (error) {
       console.log(error);
@@ -416,10 +398,7 @@ export const updatePetAdm = (id, data) => {
 export const donation = (data) => {
   return async function () {
     try {
-      const response = await axios.post(
-        `/donations`,
-        data
-      );
+      const response = await axios.post(`/donations`, data);
       return response;
     } catch (error) {
       console.log(error);
@@ -430,10 +409,7 @@ export const donation = (data) => {
 export const updateCollected = (id, data) => {
   return async function () {
     try {
-      const response = await axios.put(
-        `/donations/${id}`,
-        data
-      );
+      const response = await axios.put(`/donations/${id}`, data);
       return response;
     } catch (error) {
       console.log(error);
@@ -444,9 +420,7 @@ export const updateCollected = (id, data) => {
 export function getSearchCampaign(title) {
   return async function (dispatch) {
     try {
-      const response = await axios.get(
-        `http://localhost:3001/campaigns/Adm/Admin?title=${title}`
-      );
+      const response = await axios.get(`/campaigns/Adm/Admin?title=${title}`);
       const allCampaignsAdm = response.data;
 
       return dispatch({
@@ -468,9 +442,7 @@ export function getSearchCampaign(title) {
 export function getSearchPet(name) {
   return async function (dispatch) {
     try {
-      const response = await axios.get(
-        `http://localhost:3001/pets/Adm/Admin?name=${name}`
-      );
+      const response = await axios.get(`/pets/Adm/Admin?name=${name}`);
       const allPetsAdm = response.data;
       return dispatch({
         type: GET_PETS,
@@ -491,9 +463,7 @@ export function getSearchPet(name) {
 export function getSearchUser(name) {
   return async function (dispatch) {
     try {
-      const response = await axios.get(
-        `http://localhost:3001/users/Adm/Admin?name=${name}`
-      );
+      const response = await axios.get(`/users/Adm/Admin?name=${name}`);
       const allUsersAdm = response.data;
       return dispatch({
         type: GET_USERS,
@@ -511,29 +481,70 @@ export function getSearchUser(name) {
   };
 }
 
-export function getProvincias(){
+export function getProvincias() {
   return async function (dispatch) {
-    const resp = await axios.get('https://apis.datos.gob.ar/georef/api/provincias')
+    const resp = await axios.get(
+      "https://apis.datos.gob.ar/georef/api/provincias"
+    );
     const provincias = resp.data.provincias;
 
     return dispatch({
       type: GET_PROVINCIAS,
-      payload: provincias
-  })
-  }
+      payload: provincias,
+    });
+  };
 }
 
-export function getCiudades(id){
+export function getCiudades(id) {
   return async function (dispatch) {
-    const resp = await axios.get(`https://apis.datos.gob.ar/georef/api/municipios?provincia=${id}&campos=id,nombre&max=150`)
+    const resp = await axios.get(
+      `https://apis.datos.gob.ar/georef/api/municipios?provincia=${id}&campos=id,nombre&max=150`
+    );
     const ciudades = resp.data.municipios;
 
     return dispatch({
       type: GET_CIUDADES,
-      payload: ciudades
-  })
-  }
+      payload: ciudades,
+    });
+  };
 }
+
+export const getDonations = () => {
+  return async function (dispatch) {
+    try {
+      const donation = await axios.get("/donations");
+
+      return dispatch({
+        type: GET_DONATIONS,
+        payload: donation.data,
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+};
+
+export function getSearchFundation(name) {
+  return async function (dispatch) {
+    try {
+      const response = await axios.get(`/users/Fundacion/Fund?name=${name}`);
+      const allFundations = response.data;
+      return dispatch({
+        type: GET_FUNDACIONES,
+        payload: allFundations,
+      });
+    } catch (error) {
+      swal({
+        title: "Sorry!",
+        text: "No se encontraron fundaciones con el nombre proporcionado",
+        icon: "error",
+        button: "Ok",
+      });
+      dispatch(getFundaciones());
+    }
+  };
+}
+
 
 export function updateNotReadChats(cantidad) {
   return { type: UPDATE_NOT_READ_CHATS, payload: cantidad };
