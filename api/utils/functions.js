@@ -50,6 +50,12 @@ const filterAdmPet = (name) => {
   return filters;
 };
 
+const filterFundacion = (name) => {
+  let filters = { status: "activo", type: "fundacion" };
+  if (name) filters.name = { [Op.iLike]: `%${name}%` };
+  return filters;
+};
+
 module.exports = {
   createFilters,
   setOrder,
@@ -57,4 +63,5 @@ module.exports = {
   eliminarRepetidos,
   filterAdmCampaign,
   filterAdmPet,
+  filterFundacion,
 };
