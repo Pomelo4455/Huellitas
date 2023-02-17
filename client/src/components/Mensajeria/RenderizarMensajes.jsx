@@ -2,6 +2,9 @@ import React, { useEffect, useState } from "react";
 import styles from "./mensajeria.module.css";
 import axios from "axios";
 import io from "socket.io-client"
+import { useDispatch } from "react-redux"
+import { updateNotReadChats } from "../../redux/actions";
+
 const socket = io('http://localhost:3001')
 
 const renderizarMensajes = (mensajes, emisor, receptor) => {
@@ -33,19 +36,31 @@ export default function RenderizarMensajes() {
   let URL = window.location.href.split("/");
   let receptorId = URL.pop();
   let emisorId = URL.pop();
+  const dispatch = useDispatch()
 
   useEffect(() => {
     axios(`http://localhost:3001/users/${emisorId}`)
     .then(user => setEmisor(user.data));
     axios(`http://localhost:3001/users/${receptorId}`)
     .then(user => setReceptor(user.data))
+    axios.put(`http://localhost:3001/message/leido?emisorId=${receptorId}&receptorId=${emisorId}`)
+    .then(data => {});
+    axios(`http://localhost:3001/message/noleidos?userId=${emisorId}`)
+    .then(data => dispatch(updateNotReadChats(data.data.cantidad)))
     .catch(() => window.location.href = `http://localhost:3000/chats`)
   }, [])
 
   useEffect(() => {
+    // ACA ACTUALIZAR LOS MENSAJES NO LEIDOS PARA RESTAR.
     const reciveMessage = (message) => {
-        if ((message.EmisorId == emisorId && message.ReceptorId == receptorId) || (message.EmisorId == receptorId && message.ReceptorId == emisorId)) {
+        if ((emisorId == message.ReceptorId && receptorId == message.EmisorId) || (emisorId == message.EmisorId && receptorId == message.ReceptorId)) {
             setMessages([message, ...messages]);
+            if (emisorId == message.ReceptorId) {
+                axios.put(`http://localhost:3001/message/leido?emisorId=${message.EmisorId}&receptorId=${message.ReceptorId}`)
+                .then(data => console.log(data.data));
+                axios(`http://localhost:3001/message/noleidos?userId=${emisorId}`)
+                .then(data => dispatch(updateNotReadChats(data.data.cantidad)))
+            }
         }
     }
     socket.on('message', reciveMessage);

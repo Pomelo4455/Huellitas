@@ -26,6 +26,7 @@ import {
   GET_PROVINCIAS,
   GET_CIUDADES,
   GET_DONATIONS,
+  UPDATE_NOT_READ_CHATS,
 } from "../actions";
 
 const initialState = {
@@ -46,6 +47,7 @@ const initialState = {
   provincias: [],
   ciudades: [],
   donations: [],
+  noLeidos: 0,
 };
 
 const rootReducer = (state = initialState, action) => {
@@ -216,12 +218,17 @@ const rootReducer = (state = initialState, action) => {
         ciudades: action.payload,
       };
 
+    case UPDATE_NOT_READ_CHATS:
+      return {
+        ...state,
+        noLeidos : action.payload,
+      }
+
     case GET_DONATIONS:
       return {
         ...state,
         donations: action.payload,
       };
-
     default:
       return {
         ...state,
