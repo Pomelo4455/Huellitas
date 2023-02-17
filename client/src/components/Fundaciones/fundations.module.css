@@ -22,40 +22,7 @@
     background-color: #ededed;
   }
 
-  .restoreButton {
-    position: absolute;
-    top: 121px;
-    right: 1%;
-    background-color: #44b7ff;
-    color: white;
-    border: none;
-    border-radius: 10px;
-    padding: 10px;
-    font-family: "Poppins";
-    font-weight: 400;
-    font-size: 100%;
-    text-align: middle;
-    text-decoration: none;
-    width: 184px;
-    white-space: nowrap;
-    margin-top: 30px;
-    margin-right: 10px;
-  }
-  
-  .restoreButton:hover {
-    background-color: #5dc1ff;
-    color: white;
-    transition: 0.2s;
-  }
-  
-  .restoreButton:active {
-    transform: scale(0.97);
-  }
-
   .search {
-    position: absolute;
-    top: 1,05%;
-    right: 14%;
     background-color: #44b7ff;
     border: none;
     border-radius: 10px;
@@ -75,7 +42,7 @@
   }
   
   .searchButton {
-    background-color: transparent;
+    background: #44b7ff;
     scale: 150%;
     color: black;
     border: none;
@@ -86,10 +53,38 @@
     position: relative;
     cursor: pointer;
     margin-top: 30px;
+    margin-bottom: 0px;
   }
   
   .searchButton:hover {
     color: white;
+  }
+
+  .restoreButton {
+    background-color: #44b7ff;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 10px;
+    font-family: "Poppins";
+    font-weight: 400;
+    font-size: 100%;
+    text-align: middle;
+    text-decoration: none;
+    width: 184px;
+    white-space: nowrap;
+    margin-left: -5%;
+    margin-top: 0px;
+  }
+  
+  .restoreButton:hover {
+    background-color: #5dc1ff;
+    color: white;
+    transition: 0.2s;
+  }
+  
+  .restoreButton:active {
+    transform: scale(0.97);
   }
 
   .newsearch {
