@@ -2,16 +2,15 @@ const { DataTypes } = require("sequelize");
 
 module.exports = (sequelize) => {
   sequelize.define(
-    "favorite",
+    "follow",
     {
       id: {
         type: DataTypes.UUID,
         defaultValue: DataTypes.UUIDV4,
         primaryKey: true,
       },
-      status: {
-        type: DataTypes.ENUM("activo", "inactivo"),
-        defaultValue: "activo",
+      seguir: {
+        type: DataTypes.BOOLEAN,
       },
     },
     {
