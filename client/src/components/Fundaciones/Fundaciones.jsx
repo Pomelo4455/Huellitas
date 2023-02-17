@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { getFundaciones, restoreSearch, getSearchFundation, setCurrentPage } from "../../redux/actions";
 import { Icon } from "@iconify/react";
 import swal from "sweetalert";
+import styles from './fundations.module.css';
 
 // agregar card de fundacion en el return pasando por props los argumentos necesarios
 
@@ -58,29 +59,39 @@ export default function Fundations() {
     };
     
     return (
-        <div>
-            <div>
-                <input
-                    type="text"
-                    placeholder="Buscar al usuario :"
-                    value={searchFund}
-                    onChange={handleSearchFund}
-                />
-                <button
-                    value={searchFund}
-                    onClick={inputSearchFund}
-                >
-                    <Icon icon="fa6-solid:magnifying-glass" />
-                </button>
-                <button onClick={resetFund}>Eliminar busqueda</button>
-            </div>
-            {
-                currentFund.map(fundacion => {
-                    return <Fundation fundacion={fundacion} key={fundacion.id} /> 
-                })
-            }
+        <div className={styles.body}>
+            <div className={styles.container}>
+                <div className={styles.searchContainer}>
+                    <div className={styles.newsearch}>
+                        <input
+                            type="text"
+                            placeholder="Buscar a la fundación: "
+                            value={searchFund}
+                            className={styles.search}
+                            onChange={handleSearchFund}
+                        />
+                        <button
+                            value={searchFund}
+                            className={styles.searchButton}
+                            onClick={inputSearchFund}
+                        >
+                            <Icon icon="fa6-solid:magnifying-glass" />
+                        </button>
+                        <button onClick={resetFund} className={styles.restoreButton}    >Eliminar busqueda</button>
+                    </div>
+                    <div className={styles.fundaciones}>
+                    {
+                        currentFund.map(fundacion => {
+                            return <Fundation fundacion={fundacion} key={fundacion.id} /> 
+                        })
+                    }
+                    </div>
+                </div>
+                
 
-            <Paginado paginado={paginado} currentPage={currentPage} petMax={fundMax} />
+            </div>
+                <Paginado paginado={paginado} currentPage={currentPage} petMax={fundMax} />
+            
         </div>
     )
 }
