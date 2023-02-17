@@ -35,6 +35,22 @@
   margin: 10px;
   text-align: center;
 }
+.input2 {
+  
+  height: 40px;
+  background-color: #f7f8f9;
+  border-radius: 8px;
+  border: #e8ecf4 solid 1px;
+  margin: 10px;
+  text-align: center;
+}
+
+.region{
+  display: flex;
+  flex-direction: row;
+  background-color: #a80202;
+  width: 400px;
+}
 
 .btn {
   background-color: #000000;
