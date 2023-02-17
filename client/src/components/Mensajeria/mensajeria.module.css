@@ -6,9 +6,18 @@
     justify-content: center;
 }
 
+.container2 {
+    min-height: 100vh;
+    min-width: 100vw;
+    background: gray;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .chat {
     background-color: #eeeeee;
-    width: 50%;
+    width: 60%;
 }
 
 .top {
@@ -20,6 +29,35 @@
     background: #54b4d3;
     color: white;
     padding: 10px;
+}
+
+.desplegable {
+    display: none;
+    text-align: center;
+    height: 60px;
+    background: #3e3e3e;
+    color: white;
+    padding: 10px;
+}
+
+.iconoDesplegable {
+    padding: 0px;
+    background:none;
+    border: none;
+    color: white;
+    width: 50px;
+    height: 50px;
+    font-weight: 600;
+    font-size: 30px;
+    border-radius: 25px;
+}
+
+.iconoDesplegable:hover {
+    transition: 1s;
+    color: #3e3e3e;
+    background: white;
+    cursor: pointer;
+    font-weight: 700;
 }
 
 .mensajes {
@@ -80,7 +118,7 @@
 
 .containerChats {
     background: #eeeeee;
-    width: 25%;
+    width: 30%;
 }
 .chats {
     height: 635px;
@@ -138,7 +176,6 @@
     font-weight: 900;
 }
 
-
 .input {
     border: 1px solid rgba(194,194,194, 1);
     height: 33px;
@@ -180,8 +217,44 @@
     border-radius: 25px;
 }
 
-@media (max-width: 640px) {
-    .chats {
-        height: 670px;
+@media (max-width: 750px) {
+    .chat {
+        margin: 0 auto;
+        min-width: 80vw;
     }
-  }
+    .containerChats {
+        margin: 0 auto;
+        min-width: 80vw;
+    }
+    .container2 {
+        display: block;
+        min-width: 100vw;
+        background: gray;
+    }
+    .desplegable {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    }
+}
+
+@media (max-width: 400px) {
+    .chat {
+        margin: 0 auto;
+        min-width: 100vw;
+    }
+    .containerChats {
+        margin: 0 auto;
+        min-width: 100vw;
+    }
+    .container2 {
+        display: block;
+        min-width: 100vw;
+        background: gray;
+    }
+    .desplegable {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    }
+}
