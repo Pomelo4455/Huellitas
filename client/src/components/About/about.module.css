@@ -6,7 +6,6 @@
   width: 90%;
   display: grid;
   grid-template-columns: repeat(4, 2fr);
-  margin-left: 8%;
 }
 
 .cardAbout {
@@ -16,6 +15,7 @@
   box-shadow: 0 8px 8px 2px rgba(48, 48, 48, 0.37);
   transition: 0.6s;
   margin: 25px;
+  margin-left: 100px;
 }
 .imgAbout {
   width: 250px;
