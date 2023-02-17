@@ -10,6 +10,7 @@ export default function Landing() {
   return (
     <div>
       <div className={styles.landingContainer}>
+      <div className={styles.Circle}></div>
         <h1 className={styles.text}>Huellitas</h1>
         <h3 className={styles.subtitle}>Cada patita cuenta</h3>
         <a className={styles.textP}>

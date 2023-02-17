@@ -31,7 +31,7 @@ const NavBar = (
   useEffect(() => {}, [profile]);
 
   useEffect(() => {
-    axios(`http://localhost:3001/message/noleidos?userId=${loggedUser.id}`)
+    if (loggedUser) axios(`http://localhost:3001/message/noleidos?userId=${loggedUser.id}`)
     .then(data => dispatch(updateNotReadChats(data.data.cantidad)))
   }, [])
 

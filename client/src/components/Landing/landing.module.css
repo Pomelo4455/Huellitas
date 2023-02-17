@@ -127,10 +127,10 @@
 
 .Circle {
   position: absolute;
-  top: -55%;
-  right: -10%;
-  width: 40%;
-  height: 200%;
+  top: -500px;
+  right: -250px;
+  width: 1000px;
+  height: 1000px;
   background-color: #04a5ff;
   z-index: 0;
   opacity: 0.5;

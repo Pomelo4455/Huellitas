@@ -1,5 +1,7 @@
+@import url("https://fonts.googleapis.com/css2?family=Dosis&family=Noto+Sans+JP:wght@500;900&family=Noto+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Ubuntu&display=swap");
+
 .body{
-  background-color: #EDEDED;
+  background: radial-gradient(circle, #aae0ff, #EDEDED);
 }
 
 .container {
@@ -16,14 +18,15 @@
   margin-bottom: 20px;
   width: 900px;
   height: fit-content;
-  background-color: #46c0d9;
+  background: radial-gradient(circle, #69c8ff, #a6ddff);
   border-top-left-radius: 261px;
   border-bottom-right-radius: 187.5px;
   border-bottom-left-radius: 31px;
-  border: 3px solid #f4f1de;
+  border: 2px solid #f4f1de;
   box-shadow: -2px 10px 14px 0px #626262;
   color: #000000;
   font-size: 20px;
+  font-family: "Poppins";
 }
 
 .input {
@@ -31,7 +34,7 @@
   height: 40px;
   background-color: #f7f8f9;
   border-radius: 8px;
-  border: #e8ecf4 solid 1px;
+  border: none;
   margin: 10px;
   text-align: center;
 }
@@ -73,12 +76,11 @@
 }
 
 .divradio {
-  margin-top: 20px;
+  margin-top: 10px;
   margin-bottom: 20px;
   text-align: center;
   height: 70px;
   width: 400px;
-  border: #4a4848 1px solid;
 }
 
 .error {
@@ -95,6 +97,7 @@
 .textArea {
   justify-content: center;
 }
+
 .form input[type="radio"] {
   margin: 0px 10px;
   height: 20px;
@@ -188,7 +191,6 @@
     text-align: center;
     height: 70px;
     width: 80%;
-    border: #4a4848 1px solid;
   }
   
   .error {
@@ -303,7 +305,6 @@
     text-align: center;
     height: 70px;
     width: 80%;
-    border: #4a4848 1px solid;
   }
   
   .error {
