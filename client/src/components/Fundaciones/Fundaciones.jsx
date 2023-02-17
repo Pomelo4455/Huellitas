@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from "react";
 import Fundation from "./CardFundacion";
-import { Link } from "react-router-dom";
+import Paginado from "../Paginado/Paginado";
 import { useDispatch, useSelector } from "react-redux";
-import { getFundaciones, restoreSearch } from "../../redux/actions";
+import { getFundaciones, restoreSearch, getSearchFundation, setCurrentPage } from "../../redux/actions";
 import { Icon } from "@iconify/react";
 import swal from "sweetalert";
-import { useNavigate } from "react-router-dom";
 
 // agregar card de fundacion en el return pasando por props los argumentos necesarios
 
@@ -13,68 +12,75 @@ export default function Fundations() {
     const allFundaciones = useSelector((state) => state.fundaciones);
     console.log(allFundaciones)
     const dispatch = useDispatch();
-    const navigate = useNavigate();
-    const [searchTerm, setSearchTerm] = useState("");
+    const [searchFund, setSearchFund] = useState("");
+
+    const currentPage = useSelector((state) => state.page);
+    const [fundPerPage, setFundPerPage] = useState(6);
+    const indexLastFund = currentPage * fundPerPage;
+    const indexFirstFund = indexLastFund - fundPerPage;
+    const currentFund = allFundaciones.slice(indexFirstFund, indexLastFund);
+    const fundMax = Math.ceil(allFundaciones.length / fundPerPage);
+
+    function setPage(pageNumber) {
+        dispatch(setCurrentPage(pageNumber));
+    }
+
+    const paginado = (pageNumber) => {
+        setPage(pageNumber);
+    };
 
     useEffect(() => {
         dispatch(getFundaciones());
     }, [dispatch])
 
-    const handleSearch = (event) => {
-        setSearchTerm(event.target.value);
+    const handleSearchFund = (event) => {
+        setSearchFund(event.target.value);
     };
     
-    const inputSearch = (e) => {
-        e.preventDefault();
-        if (searchTerm === "") {
+    const inputSearchFund = (event) => {
+        event.preventDefault();
+        if (searchFund === "") {
             swal({
-                title: "Sorry!",
-                text: "Debe escribir el nombre de una organizacion",
+                text: "Debe escribir el nombre de una fundación",
                 icon: "warning",
                 button: "Ok",
             });
-            setSearchTerm("");
+            setSearchFund("");
         } else {
-            setSearchTerm("");
+            dispatch(getSearchFundation(searchFund));
+            setSearchFund("");
         }
-        //navigate("/home");
     };
     
-    const resetSearch = (e) => {
+    const resetFund = (e) => {
         e.preventDefault();
         dispatch(restoreSearch());
     };
     
     return (
         <div>
-            <form onSubmit={inputSearch}>
-                <div>
-                    <div>
-                    <input
-                        type="text"
-                        placeholder="Buscar fundación:"
-                        value={searchTerm}
-                        onChange={handleSearch}
-                    />
-                    <button
-                        name="name"
-                        value={searchTerm}
-                        onClick={inputSearch}
-                    >
-                        <Icon icon="fa6-solid:magnifying-glass" />
-                    </button>
-                    </div>
-                <button onClick={resetSearch}>
-                    Eliminar Búsqueda
+            <div>
+                <input
+                    type="text"
+                    placeholder="Buscar al usuario :"
+                    value={searchFund}
+                    onChange={handleSearchFund}
+                />
+                <button
+                    value={searchFund}
+                    onClick={inputSearchFund}
+                >
+                    <Icon icon="fa6-solid:magnifying-glass" />
                 </button>
+                <button onClick={resetFund}>Eliminar busqueda</button>
             </div>
-        </form>
             {
-            allFundaciones.length ? 
-            allFundaciones.map(fundacion => {
-                return <Fundation fundacion={fundacion} key={fundacion.id} /> 
-            })
-            : 'no hay fundaciones'}
+                currentFund.map(fundacion => {
+                    return <Fundation fundacion={fundacion} key={fundacion.id} /> 
+                })
+            }
+
+            <Paginado paginado={paginado} currentPage={currentPage} petMax={fundMax} />
         </div>
     )
 }
