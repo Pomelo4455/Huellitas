@@ -64,7 +64,7 @@ export default function Fundations() {
                 <div className={styles.searchContainer}>
                     <div className={styles.newsearch}>
                         <input
-                            type="search"
+                            type="text"
                             placeholder="Buscar a la fundación: "
                             value={searchFund}
                             className={styles.search}
