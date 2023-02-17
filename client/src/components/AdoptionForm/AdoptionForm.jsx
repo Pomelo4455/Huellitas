@@ -147,7 +147,7 @@ export default function AdoptionForm() {
           <div className={styles.container}>
             <Form className={styles.form}>
               <div className={styles.divinput}>
-                <label>¿Como se llama? </label>
+                <label>¿Cómo se llama?</label>
                 <br />
                 <Field
                   className={styles.input}
@@ -163,7 +163,7 @@ export default function AdoptionForm() {
                 />
               </div>
               <div className={styles.divinput}>
-                <label>¿Que tipo de mascota es? </label>
+                <label>¿Qué tipo de mascota es?</label>
                 <br />
                 <Field as="select" className={styles.input} name="species">
                   <option disabled hidden value="">
@@ -183,13 +183,13 @@ export default function AdoptionForm() {
                 />
               </div>
               <div className={styles.divinput}>
-                <label>¿De que color es? </label>
+                <label>¿De qué color es?</label>
                 <br />
                 <Field
                   className={styles.input}
                   type="text"
                   name="color"
-                  placeholder="color"
+                  placeholder="Color"
                 ></Field>
                 <ErrorMessage
                   name="color"
@@ -199,7 +199,7 @@ export default function AdoptionForm() {
                 />
               </div>
               <div className={styles.divinput}>
-                <label>¿Que rango de edad tiene? </label>
+                <label>¿Qué rango de edad tiene?</label>
                 <br />
                 <Field as="select" className={styles.input} name="age">
                   <option disabled hidden value="">
@@ -217,7 +217,7 @@ export default function AdoptionForm() {
                 />
               </div>
               <div className={styles.divinput}>
-                <label>¿Que tamaño alcanzará? </label>
+                <label>¿Qué tamaño alcanzará?</label>
                 <br />
                 <Field as="select" className={styles.input} name="size">
                   <option disabled hidden value="">
@@ -234,7 +234,7 @@ export default function AdoptionForm() {
                   )}
                 />
               </div>
-              <label>¿De que sexo es? </label>
+              <label>¿De qué sexo es?</label>
               <div className={styles.divradio}>
                 <hr />
                 <label>
@@ -260,8 +260,8 @@ export default function AdoptionForm() {
                   cols="50"
                   name="temperament"
                   className={styles.textArea}
-                  placeholder="Descripción"
-                  maxLength="255"
+                  placeholder="Descripción..."
+                  maxlength="255"
                 ></Field>
                 <ErrorMessage
                   name="temperament"
