@@ -8,6 +8,9 @@ import { updateUsers, sendProfileToDb } from "../../redux/actions";
 import { Widget } from "@uploadcare/react-widget"
 import NavBar from '../NavBar/NavBar';
 import MapView from "../MapView/MapView";
+import axios from "axios";
+import swal from "sweetalert";
+import {useNavigate, navigate } from 'react-router-dom';
 
 
 
@@ -26,6 +29,8 @@ const Profile = ({setLoggedUser}) => {
     // }, [userId]);
   
     const [editMode, setEditMode] = useState(false);
+    const navigate = useNavigate()
+    const adminId = 1
     const [formData, setFormData] = useState({
       name: userId.data.name,
       email: userId.data.email,
@@ -35,7 +40,46 @@ const Profile = ({setLoggedUser}) => {
       donaciones: "No realizaste donaciones",
       status: userId.data.status
     });
-  
+    const handleSendMail = async () => {
+      try {
+        const userLocalStorage = JSON.parse(localStorage.getItem("loggedUser"));
+        const userId = userLocalStorage.data.id;
+        swal("¿Estas seguro que deseas solicitar tu cambio de usuario a fundacion?", {
+          buttons: {
+            chat: {
+              text: "Chat en vivo",
+              value: "chat",
+            },
+          },
+        })
+        .then((value) => {
+          switch (value) {
+        //     case "email":
+        //       axios.post("http://localhost:3001/mails", {
+        //         idUser: userId,
+        //       })
+        //       .then(() => {
+        //         swal(
+        //           "Enviado.",
+        //           "Se ha informado su interés en cambiar su cuenta a fundacion.",
+        //           "success"
+        //         );
+        //       })
+              // break;
+            case "chat":
+              console.log("entre");
+              navigate(`../chat/${userId}/${adminId}`)
+              break;
+          }
+        });
+      } catch (error) {
+        swal(
+          "No es posible que cambies tu perfil a fundacion.",
+          "Debe registrarse para poder hacerlo.",
+          "error"
+        );
+      }
+    };
     const handleEdit = () => {
       setEditMode(true);
     };
@@ -89,9 +133,9 @@ const Profile = ({setLoggedUser}) => {
         {editMode ? (
           <React.Fragment>
             <Widget publicKey="d00f029a60bdde9dafab" id='image' onChange={handleFileChange} value={formData.image}  />
-            <input type="text" name="name" value={formData.name} onChange={handleChange} className="profile-input"/>
+            <input type="text" name="name" value={formData.name} placeholder="Agregar Nombre" onChange={handleChange} className="profile-input"/>
             <input type="text" name="phone" placeholder='agregar telefono' value={formData.phone} onChange={handleChange} className="profile-input"/>
-            <button onClick={handleStatusChange} className="profile-action-button">{formData.status}</button>
+            {/* <button onClick={handleStatusChange} className="profile-action-button">{formData.status}</button> */}
             
           </React.Fragment>
         ) : (
@@ -110,6 +154,7 @@ const Profile = ({setLoggedUser}) => {
           <React.Fragment>
             <button onClick={handleSave} className="profile-action-button">Save</button>
             <button onClick={handleCancel} className="profile-action-button2">Cancel</button>
+            <button onClick={handleSendMail} className="profile-action-button3"> Solicitar cambio a fundacion</button>
           </React.Fragment>
         ) : (
           <React.Fragment>
@@ -118,7 +163,7 @@ const Profile = ({setLoggedUser}) => {
           </React.Fragment>
         )}
       </div>
-      <MapView/>
+      <MapView />
 
     </div>
     </div>
