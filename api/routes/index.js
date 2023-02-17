@@ -6,6 +6,7 @@ const Payment = require("./payment.js")
 const Mails = require("./mail.js")
 const Message = require("./message.js")
 const Donations = require("./donations.js")
+const Favorite = require("./favorite.js")
 const { User, Pet, Campaign, Adoption } = require('../db.js');
 const {loadUsers,loadPets,loadCampaigns}= require("../controllers/index.js")
 const {petsData,usersData,campaignsData} = require("../utils/data.js")
@@ -37,5 +38,6 @@ router.use("/payment",Payment)
 router.use("/mails", Mails)
 router.use("/message", Message)
 router.use("/donations",Donations)
+router.use("/favorite",Favorite)
 
 module.exports = router;

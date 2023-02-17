@@ -68,7 +68,7 @@ export default function CampaignForm() {
                 }).then(() => navigate("/home"));
             }}
         >
-        {({ errors, setFieldValue }) => (
+        {({ errors, setFieldValue}) => (
 
         <div className={style.container}>
             <Form className={style.form}>

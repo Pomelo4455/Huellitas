@@ -96,7 +96,9 @@ export const clearProfile = () => {
   return { type: CLEAR_PROFILE };
 };
 
-export function postNewPet(payload) {
+export function postNewPet(values,userLocation) {
+  let payload ={...values,...userLocation}
+  console.log(payload)
   return async function () {
     const newDog = await axios.post("/pets", payload);
     return newDog;
@@ -498,7 +500,7 @@ export function getProvincias() {
 export function getCiudades(id) {
   return async function (dispatch) {
     const resp = await axios.get(
-      `https://apis.datos.gob.ar/georef/api/municipios?provincia=${id}&campos=id,nombre&max=150`
+      `https://apis.datos.gob.ar/georef/api/municipios?provincia=${id}&campos=id,nombre,centroide&max=150`
     );
     const ciudades = resp.data.municipios;
 

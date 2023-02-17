@@ -1,5 +1,5 @@
-import React, { useEffect } from "react";
-import { Formik, Form, Field, ErrorMessage } from "formik";
+import React, { useEffect, useCallback, useRef } from "react";
+import { Formik, Form, Field, ErrorMessage, useField } from "formik";
 import styles from "./adoptionForm.module.css";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
@@ -7,8 +7,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { Widget } from "@uploadcare/react-widget";
 import { postNewPet, getProvincias, getCiudades } from "../../redux/actions";
 import effects from "uploadcare-widget-tab-effects/react";
-// import Footer from "../Footer/Footer";
-// import NavBar from "../NavBar/NavBar";
 import swal from "sweetalert";
 
 export default function AdoptionForm() {
@@ -18,12 +16,18 @@ export default function AdoptionForm() {
   let userId = JSON.parse(localStorage.getItem("loggedUser"));
   let newid = userId.data ? userId.data.id : null;
   // newid ? (newid = newid) : (newid = null);
-  const [userLocation, setLocation] = useState({ lat: 0, lng: 0 });
-  const provincias = useSelector(state => state.provincias);
-  const ciudades = useSelector(state => state.ciudades);
+  const [userLocation, setLocation] = useState({ latitude: 0, longitude: 0 });
+  const provincias = useSelector((state) => state.provincias);
+  const ciudades = useSelector((state) => state.ciudades);
+  const isMounted = useRef(false);
+  const formRef = useRef();
 
-  useEffect(()=> {
-    dispatch(getProvincias());
+  useEffect(() => {
+    if (isMounted.current === true) {
+      dispatch(getProvincias());
+
+      console.log("cargado");
+    } else isMounted.current = true;
   }, []);
 
   const handleGeo = (event) => {
@@ -31,13 +35,10 @@ export default function AdoptionForm() {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(
         (position) => {
-          console.log(
-            position.coords.latitude,
-            position.coords.longitude
-          )
+          console.log(position.coords.latitude, position.coords.longitude);
           setLocation({
-            lat: position.coords.latitude,
-            lng: position.coords.longitude
+            latitude: position.coords.latitude,
+            longitude: position.coords.longitude,
           });
         },
         (error) => {
@@ -47,18 +48,34 @@ export default function AdoptionForm() {
     } else {
       return "no tenés geolocalización";
     }
-  }
+  };
 
+  let aux1 = "";
   const handleChangeProv = (provincia) => {
-    console.log(provincia);
-    //dispatch(getCiudades(provincia));
-  }
+    if (provincia !== aux1) {
+      dispatch(getCiudades(provincia));
+      aux1 = provincia;
+    }
+  };
 
-//  console.log(newid);
+  // let aux2 = "";
+  // const handleChangeCiudad = (ciudad) => {
+
+  //   if (ciudad !== aux2) {
+  //     const location = ciudades.filter(city => city.id === ciudad);
+  //     let latitude = location[0].centroide.lat;
+  //     let longitude = location[0].centroide.lon;
+  //     console.log(latitude);
+  //     console.log(longitude);
+  //     // setLocation({ latitude, longitude })
+  //     aux2 = ciudad;
+  //   }
+  // }
+
   return (
     <div className={styles.body}>
-      {/* <NavBar /> */}
       <Formik
+        innerRef={formRef}
         initialValues={{
           name: "",
           age: "",
@@ -68,9 +85,10 @@ export default function AdoptionForm() {
           color: "",
           sex: "",
           temperament: "",
-          location: {},
           provincia: "",
-          ciudades: "",
+          ciudad: "",
+          latitude: 0,
+          longitude: 0,
           userId: newid,
         }}
         validate={(values) => {
@@ -111,7 +129,8 @@ export default function AdoptionForm() {
           return errors;
         }}
         onSubmit={(values, { resetForm }) => {
-          dispatch(postNewPet(values));
+          console.log(values);
+          // dispatch(postNewPet(values,userLocation));
           resetForm();
           setSent(true);
           setTimeout(() => setSent(false), 2000);
@@ -124,7 +143,7 @@ export default function AdoptionForm() {
         }}
         validateOnMount
       >
-        {({ values, errors, setFieldValue }) => (
+        {({ values, errors, setFieldValue, handleBlur }) => (
           <div className={styles.container}>
             <Form className={styles.form}>
               <div className={styles.divinput}>
@@ -251,37 +270,63 @@ export default function AdoptionForm() {
                   )}
                 />
               </div>
-
-              <Field as="select" className={styles.input} name="provincia">
-                  <option disabled hidden value="">
-                    Elige una opción
-                  </option>
-                  {provincias.map(prov => {
-                    return (
-                      <option key={prov.id} value={prov.id}>
-                        {prov.nombre}
-                      </option>
-                    );
-                  })
-                }
-                </Field>
-
-                {handleChangeProv(values.provincia)}
-
-                <Field as="select" className={styles.input} name="ciudades">
-                  <option disabled hidden value="">
-                    Elige una opción
-                  </option>
-                  {ciudades.map(ciudad => {
-                    return (
-                      <option key={ciudad.id} value={ciudad.nombre}>
-                        {ciudad.nombre}
-                      </option>
-                    );
-                  })
-                }
-                </Field>
-
+              <label>¿Donde se encuentra nuestro amiguito? </label>
+              <button onClick={(event) => handleGeo(event)}>
+                Geolocalizacion
+              </button>
+              <div className={styles.region}>
+                <div className={styles.input2}>
+                  <Field as="select" name="provincia">
+                    <option disabled hidden value="">
+                      Provincia
+                    </option>
+                    {provincias.map((prov) => {
+                      return (
+                        <option key={prov.id} value={prov.id}>
+                          {prov.nombre}
+                        </option>
+                      );
+                    })}
+                  </Field>
+                  {handleChangeProv(values.provincia)}
+                </div>
+                <div className={styles.input2}>
+                  <Field as="select" name="ciudad">
+                    <option disabled hidden value="">
+                      Ciudad
+                    </option>
+                    {ciudades.map((ciudad) => {
+                      return (
+                        <option key={ciudad.id} value={ciudad.id}>
+                          {ciudad.nombre}
+                        </option>
+                      );
+                    })}
+                  </Field>
+                  {ciudades
+                    ?.filter((city) => city.id === values.ciudad)
+                    .map((ciudad) => {
+                      if (values.latitude === 0)
+                        return setFieldValue("latitude", ciudad.centroide.lat);
+                    })}
+                  <Field
+                    type="number"
+                    name="latitude"
+                    value={values.latitude}
+                  ></Field>
+                  {ciudades
+                    ?.filter((city) => city.id === values.ciudad)
+                    .map((ciudad) => {
+                      if (values.longitude === 0)
+                        return setFieldValue("longitude", ciudad.centroide.lon);
+                    })}
+                  <Field
+                    type="number"
+                    name="longitude"
+                    value={values.longitude}
+                  ></Field>
+                </div>
+              </div>
               <label>Sube una linda foto (o varias): </label>
               <div className={styles.divinput}>
                 <hr />
@@ -312,7 +357,6 @@ export default function AdoptionForm() {
                     <div className={styles.error}>{errors.image}</div>
                   )}
                 />
-                
               </div>
               {sent && (
                 <p className={styles.exito}>Formulario enviado con exito!</p>
@@ -353,8 +397,6 @@ export default function AdoptionForm() {
           </div>
         )}
       </Formik>
-      {/* <Footer /> */}
-        <button onClick={event => handleGeo(event)}>Geolocalizacion</button>
     </div>
   );
 }

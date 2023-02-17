@@ -65,6 +65,14 @@ module.exports = (sequelize) => {
         type: DataTypes.STRING,
         defaultValue: "",
       },
+      longitude: {
+        type: DataTypes.STRING,
+        defaultValue: "",
+      },
+      latitude: {
+        type: DataTypes.STRING,
+        defaultValue: "",
+      },
       status: {
         type: DataTypes.ENUM("activo", "inactivo", "baneado"),
         defaultValue: "activo",

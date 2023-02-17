@@ -1,4 +1,4 @@
-const { Donation, User, Campaign } = require("../db.js");
+const { Donation, Campaign } = require("../db.js");
 
 const createDonation = async (status, amount, userId, campaignId) => {
   const newDonation = await Donation.create({ amount, status });
