@@ -31,7 +31,7 @@ export const GET_PROVINCIAS = "GET_PROVINCIAS";
 export const GET_CIUDADES = "GET_CIUDADES";
 export const GET_DONATIONS = "GET_DONATIONS";
 export const UPDATE_NOT_READ_CHATS = "UPDATE_NOT_READ_CHATS";
-
+export const GET_THIS_USER = "GET_THIS_USER";
 export const getPets = () => {
   return async function (dispatch) {
     try {
@@ -546,7 +546,18 @@ export function getSearchFundation(name) {
     }
   };
 }
-
+export function getThisUser(id) {
+  console.log(id);
+  return async function (dispatch) {
+    try {
+      const users = await axios.get(`/users/${id}`);
+      return dispatch({
+        type: GET_THIS_USER,
+        payload: users.data,
+      });
+    } catch (error) {}
+  };
+};
 
 export function updateNotReadChats(cantidad) {
   return { type: UPDATE_NOT_READ_CHATS, payload: cantidad };
