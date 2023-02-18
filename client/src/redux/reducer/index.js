@@ -27,6 +27,7 @@ import {
   GET_CIUDADES,
   GET_DONATIONS,
   UPDATE_NOT_READ_CHATS,
+  GET_THIS_USER,
   GET_USERS_DETAIL,
 } from "../actions";
 
@@ -49,6 +50,7 @@ const initialState = {
   ciudades: [],
   donations: [],
   noLeidos: 0,
+  thisUser:[],
   userDetail: {},
 };
 
@@ -223,10 +225,14 @@ const rootReducer = (state = initialState, action) => {
     case UPDATE_NOT_READ_CHATS:
       return {
         ...state,
-        noLeidos: action.payload,
-      };
-
-    case GET_DONATIONS:
+        noLeidos : action.payload,
+      }
+      case GET_THIS_USER:
+        return {
+          ...state,
+          thisUser : action.payload,
+        }
+     case GET_DONATIONS:
       return {
         ...state,
         donations: action.payload,

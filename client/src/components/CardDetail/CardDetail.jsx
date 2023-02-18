@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 
 // import Footer from "../Footer/Footer";
 // import NavBar from "../NavBar/NavBar";
-import { getPetsDetail } from "../../redux/actions";
+import { getPetsDetail, getThisUser } from "../../redux/actions";
 import style from "./cardDetail.module.css";
 import axios from "axios";
 import swal from "sweetalert";
@@ -15,11 +15,12 @@ const CardDetail = () => {
   const dispatch = useDispatch();
   const pet = useSelector((state) => state.pet);
   const navigate = useNavigate();
-
+  const user = useSelector((state) => state.thisUser)
   const { id } = useParams();
 
   useEffect(() => {
     dispatch(getPetsDetail(id));
+    dispatch(getThisUser(15));
   }, [dispatch, id]);
 
   const handleSendMail = async () => {
@@ -122,7 +123,7 @@ const CardDetail = () => {
           </div>
         </div>
       </div>
-      <MapView />
+      <MapView latitude={user.latitude} longitude={user.longitude}/>
       {/* <Footer /> */}
     </>
   );

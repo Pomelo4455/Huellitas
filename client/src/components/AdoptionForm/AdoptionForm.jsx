@@ -8,6 +8,7 @@ import { Widget } from "@uploadcare/react-widget";
 import { postNewPet, getProvincias, getCiudades } from "../../redux/actions";
 import effects from "uploadcare-widget-tab-effects/react";
 import swal from "sweetalert";
+import { Icon } from "@iconify/react";
 
 export default function AdoptionForm() {
   const [sent, setSent] = useState(false);
@@ -15,7 +16,6 @@ export default function AdoptionForm() {
   const navigate = useNavigate();
   let userId = JSON.parse(localStorage.getItem("loggedUser"));
   let newid = userId.data ? userId.data.id : null;
-  // newid ? (newid = newid) : (newid = null);
   const [userLocation, setLocation] = useState({ latitude: 0, longitude: 0 });
   const provincias = useSelector((state) => state.provincias);
   const ciudades = useSelector((state) => state.ciudades);
@@ -57,20 +57,6 @@ export default function AdoptionForm() {
       aux1 = provincia;
     }
   };
-
-  // let aux2 = "";
-  // const handleChangeCiudad = (ciudad) => {
-
-  //   if (ciudad !== aux2) {
-  //     const location = ciudades.filter(city => city.id === ciudad);
-  //     let latitude = location[0].centroide.lat;
-  //     let longitude = location[0].centroide.lon;
-  //     console.log(latitude);
-  //     console.log(longitude);
-  //     // setLocation({ latitude, longitude })
-  //     aux2 = ciudad;
-  //   }
-  // }
 
   return (
     <div className={styles.body}>
@@ -130,7 +116,11 @@ export default function AdoptionForm() {
         }}
         onSubmit={(values, { resetForm }) => {
           console.log(values);
-          // dispatch(postNewPet(values,userLocation));
+          if(userLocation.latitude === 0 && userLocation.longitude === 0){
+            dispatch(postNewPet(values))
+          } else{
+            dispatch(postNewPet(values, userLocation));
+          }
           resetForm();
           setSent(true);
           setTimeout(() => setSent(false), 2000);
@@ -143,7 +133,7 @@ export default function AdoptionForm() {
         }}
         validateOnMount
       >
-        {({ values, errors, setFieldValue, handleBlur }) => (
+        {({ values, errors, setFieldValue }) => (
           <div className={styles.container}>
             <Form className={styles.form}>
               <div className={styles.divinput}>
@@ -261,7 +251,7 @@ export default function AdoptionForm() {
                   name="temperament"
                   className={styles.textArea}
                   placeholder="Descripción..."
-                  maxlength="255"
+                  maxLength="255"
                 ></Field>
                 <ErrorMessage
                   name="temperament"
@@ -270,13 +260,24 @@ export default function AdoptionForm() {
                   )}
                 />
               </div>
-              <label>¿Donde se encuentra nuestro amiguito?</label>
-              <button onClick={(event) => handleGeo(event)}>
-                Geolocalizacion
-              </button>
+              <label>¿Donde se encuentra nuestro amiguito? </label>
+              <div className={styles.divinput}>
+                <button
+                  onClick={(event) => handleGeo(event)}
+                  className={styles.geo}
+                >
+                  <div className={styles.btntxt}>Usar mi ubicación</div>
+                  <Icon
+                    icon="material-symbols:location-on"
+                    color="#788eff"
+                    height="40px"
+                  />
+                </button>
+              </div>
+              <label>o seleccionar </label>
               <div className={styles.region}>
-                <div className={styles.input2}>
-                  <Field as="select" name="provincia">
+                <div>
+                  <Field as="select" name="provincia" className={styles.input2}>
                     <option disabled hidden value="">
                       Provincia
                     </option>
@@ -290,8 +291,8 @@ export default function AdoptionForm() {
                   </Field>
                   {handleChangeProv(values.provincia)}
                 </div>
-                <div className={styles.input2}>
-                  <Field as="select" name="ciudad">
+                <div>
+                  <Field as="select" name="ciudad" className={styles.input2}>
                     <option disabled hidden value="">
                       Ciudad
                     </option>
@@ -306,10 +307,10 @@ export default function AdoptionForm() {
                   {ciudades
                     ?.filter((city) => city.id === values.ciudad)
                     .map((ciudad) => {
-                      if (values.latitude === 0)
-                        return setFieldValue("latitude", ciudad.centroide.lat);
+                      if (values.latitude === 0) setFieldValue("latitude", ciudad.centroide.lat);
                     })}
                   <Field
+                  hidden
                     type="number"
                     name="latitude"
                     value={values.latitude}
@@ -317,10 +318,12 @@ export default function AdoptionForm() {
                   {ciudades
                     ?.filter((city) => city.id === values.ciudad)
                     .map((ciudad) => {
-                      if (values.longitude === 0)
-                        return setFieldValue("longitude", ciudad.centroide.lon);
-                    })}
+                      if (values.longitude === 0) 
+                        setFieldValue("longitude", ciudad.centroide.lon);
+                        })}
+
                   <Field
+                  hidden
                     type="number"
                     name="longitude"
                     value={values.longitude}
