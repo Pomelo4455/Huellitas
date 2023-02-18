@@ -270,7 +270,7 @@ export default function AdoptionForm() {
                   )}
                 />
               </div>
-              <label>¿Donde se encuentra nuestro amiguito? </label>
+              <label>¿Donde se encuentra nuestro amiguito?</label>
               <button onClick={(event) => handleGeo(event)}>
                 Geolocalizacion
               </button>
@@ -327,7 +327,7 @@ export default function AdoptionForm() {
                   ></Field>
                 </div>
               </div>
-              <label>Sube una linda foto (o varias): </label>
+              <label>Sube una linda foto (o varias):</label>
               <div className={styles.divinput}>
                 <hr />
                 <Widget
