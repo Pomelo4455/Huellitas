@@ -25,21 +25,21 @@ const getAllUser = async (filters) => {
     include: [
       {
         model: Pet,
-        attributes: [
-          "name",
-          "age",
-          "species",
-          "image",
-          "size",
-          "color",
-          "sex",
-          "temperament",
-          "adopted",
-        ],
+        // attributes: [
+        //   "name",
+        //   "age",
+        //   "species",
+        //   "image",
+        //   "size",
+        //   "color",
+        //   "sex",
+        //   "temperament",
+        //   "adopted",
+        // ],
       },
       {
         model: Campaign,
-        attributes: ["title", "reason", "description", "goal", "status"],
+        // attributes: ["title", "reason", "description", "goal", "status"],
         // where: {
         //   status: "activo",
         // },
