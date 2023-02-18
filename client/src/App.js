@@ -39,6 +39,7 @@ import DashBoardAdm from "./components/DashBoardAdm/DashBoardAdm";
 import { User } from "@auth0/auth0-react";
 import Mensajeria from "./components/Mensajeria/Mensajeria";
 import Fundaciones from "./components/Fundaciones/Fundaciones";
+import UserDetail from "./components/UserDetail/UserDetail";
 
 export const auth = new Auth();
 
@@ -75,9 +76,7 @@ function App() {
 
   return (
     <>
-      <NavBar
-      loggedUser={loggedUser.data} setLoggedUser={setLoggedUser}
-      />
+      <NavBar loggedUser={loggedUser.data} setLoggedUser={setLoggedUser} />
       <Routes>
         <Route path="/" element={<Navigate to="/home" />} />
         {/* <Route path="/Footer" element={<Footer />} /> */}
@@ -85,6 +84,7 @@ function App() {
         <Route path="/home" element={<Home />} />
         <Route path="/detail/:id" element={<CardDetail />} />
         <Route path="/Adoptar" element={<AllCards />} />
+        <Route path="/userDetail/:id" element={<UserDetail />} />
         <Route
           path="/PublicarAdopcion"
           element={
@@ -103,13 +103,23 @@ function App() {
             </FoundationProtectedRoute>
           }
         />
-        <Route path="/payment/error" element={<Fail/>} />
+        <Route path="/payment/error" element={<Fail />} />
         <Route path="payment/gracias" element={<Gratitude />} />
-        <Route path="/DashBoardAdm" element={<AdminProtectedRoute><DashBoardAdm /></AdminProtectedRoute>}/>
+        <Route
+          path="/DashBoardAdm"
+          element={
+            <AdminProtectedRoute>
+              <DashBoardAdm />
+            </AdminProtectedRoute>
+          }
+        />
         <Route path="/unauthRedirect/:props" element={<UnauthRedirect />} />
-        <Route path="/Profile" element={<Profile setLoggedUser={setLoggedUser} />}/>
-        <Route path="/chats" element={<Mensajeria/>}/>
-        <Route path="/chat/:emisorId/:receptorId" element={<Mensajeria/>}/>
+        <Route
+          path="/Profile"
+          element={<Profile setLoggedUser={setLoggedUser} />}
+        />
+        <Route path="/chats" element={<Mensajeria />} />
+        <Route path="/chat/:emisorId/:receptorId" element={<Mensajeria />} />
         <Route path="/:any" element={<NotFound />} />
         <Route path="/fundaciones" element={<Fundaciones />} />
       </Routes>

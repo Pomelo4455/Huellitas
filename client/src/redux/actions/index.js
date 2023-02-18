@@ -32,6 +32,8 @@ export const GET_CIUDADES = "GET_CIUDADES";
 export const GET_DONATIONS = "GET_DONATIONS";
 export const UPDATE_NOT_READ_CHATS = "UPDATE_NOT_READ_CHATS";
 export const GET_THIS_USER = "GET_THIS_USER";
+export const GET_USERS_DETAIL = "GET_USERS_DETAIL";
+
 export const getPets = () => {
   return async function (dispatch) {
     try {
@@ -96,9 +98,9 @@ export const clearProfile = () => {
   return { type: CLEAR_PROFILE };
 };
 
-export function postNewPet(values,userLocation) {
-  let payload ={...values,...userLocation}
-  console.log(payload)
+export function postNewPet(values, userLocation) {
+  let payload = { ...values, ...userLocation };
+  console.log(payload);
   return async function () {
     const newDog = await axios.post("/pets", payload);
     return newDog;
@@ -562,3 +564,15 @@ export function getThisUser(id) {
 export function updateNotReadChats(cantidad) {
   return { type: UPDATE_NOT_READ_CHATS, payload: cantidad };
 }
+
+export const getDetail = (id) => {
+  return async function (dispatch) {
+    try {
+      const get_detail = await axios.get(`/users/${id}`);
+      const detailAll = get_detail.data;
+      return dispatch({ type: GET_USERS_DETAIL, payload: detailAll });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+};

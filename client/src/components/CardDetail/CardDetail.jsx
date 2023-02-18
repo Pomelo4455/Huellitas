@@ -31,34 +31,35 @@ const CardDetail = () => {
         buttons: {
           email: {
             text: "Email",
-            value: "email"
+            value: "email",
           },
           chat: {
             text: "Chat en vivo",
             value: "chat",
           },
         },
-      })
-      .then((value) => {
+      }).then((value) => {
         switch (value) {
           case "email":
-            axios.post("http://localhost:3001/mails", {
-              idUser: userId,
-              idGiver: pet.userId,
-              idPet: pet.id,
-            })
-            .then(() => {
-              swal(
-                "Enviado.",
-                "Se ha informado su interés hacia la mascota.",
-                "success"
-              );
-            })
+            axios
+              .post("http://localhost:3001/mails", {
+                idUser: userId,
+                idGiver: pet.userId,
+                idPet: pet.id,
+              })
+              .then(() => {
+                swal(
+                  "Enviado.",
+                  "Se ha informado su interés hacia la mascota.",
+                  "success"
+                );
+              });
             break;
           case "chat":
             console.log("entre");
-            navigate(`../chat/${userId}/${pet.userId}`)
+            navigate(`../chat/${userId}/${pet.userId}`);
             break;
+          default:
         }
       });
     } catch (error) {
@@ -88,6 +89,11 @@ const CardDetail = () => {
             </button>
           </div>
           <div className={style.btnContainer}>
+            <Link to={`../userDetail/${pet.userId}`}>
+              <button className={style.btnContactBack}>DADOR</button>
+            </Link>
+          </div>
+          <div className={style.btnContainer}>
             <button
               onClick={() => window.history.back()}
               className={style.btnContactBack}
@@ -96,7 +102,7 @@ const CardDetail = () => {
             </button>
           </div>
         </div>
-
+        {console.log(pet)}
         <div className={style.detailDescription}>
           <div className={style.descriptionContainer}>
             <p>

@@ -1,0 +1,123 @@
+@import url("https://fonts.googleapis.com/css2?family=Dosis&family=Noto+Sans+JP:wght@500;900&family=Noto+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Ubuntu&display=swap");
+
+.adoptar {
+  margin-top: 2rem;
+  margin-left: 5.5rem;
+  width: 100%;
+  padding-top: 0rem;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(2, auto);
+  grid-gap: 10px;
+  height: 100%;
+  min-height: 80vh;
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+}
+
+.img_icon {
+  width: 40px;
+  height: 40px;
+}
+
+.detailUserContainer {
+  background-color: #ffff;
+  width: 100%;
+  min-height: 85vh;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  display: flex;
+}
+
+.detailUserInformation {
+  width: 40%;
+  height: auto;
+  padding: 0.5em 5em;
+}
+.userStatus {
+  font-family: "Ubuntu";
+  font-weight: 800;
+  font-size: 200%;
+  text-align: center;
+  color: black;
+  text-shadow: 2px 2px 2px rgba(150, 150, 150, 0.3);
+}
+.userImage {
+  width: 100%;
+  height: 24em;
+  display: flex;
+  justify-content: center;
+}
+
+.userImage img {
+  width: 385px;
+  height: 385px;
+  box-shadow: 2px 2px 5px 2px rgba(0, 0, 0, 0.246);
+  border-radius: 10px;
+  margin-top: 5px;
+}
+
+.btnContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin: 1em;
+}
+
+.btnContactBack {
+  width: 200px;
+  height: 50px;
+  border: none;
+  border-radius: 100px;
+  background-color: #44b7ff;
+  color: #fff;
+  padding: 0.2em;
+  font-size: 25px;
+  font-family: "Ubuntu";
+  margin-top: 5%;
+  box-shadow: 2px 2px 5px 2px rgba(0, 0, 0, 0.246);
+  cursor: pointer;
+  transition: transform 0.5s, filter 1.5s ease-in-out;
+}
+
+.btnContactBack:hover {
+  opacity: 0.9;
+  transform: scale(1.05);
+}
+
+.detailUserDescription {
+  width: 60%;
+  height: auto;
+  padding: 0.5em 5em;
+  padding-top: 5.5em;
+  margin-right: 10%;
+}
+
+.descriptionUserContainer {
+  background: radial-gradient(#54bdff, #aadeff);
+  width: 100%;
+  margin-top: 58px;
+  height: auto;
+  padding: 1em 2em;
+  border-radius: 16px;
+}
+
+.descriptionUserContainer p {
+  font-size: 175%;
+  font-family: "Poppins";
+  font-weight: 400;
+}
+
+.descriptionUserContainer p span {
+  font-weight: 700;
+}
+
+.redes {
+  display: flex;
+  gap: 15px;
+}
+/* Aqui no */
