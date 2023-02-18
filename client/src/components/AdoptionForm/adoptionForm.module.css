@@ -40,10 +40,11 @@
 }
 .input2 {
   
+  
   height: 40px;
   background-color: #f7f8f9;
   border-radius: 8px;
-  border: #e8ecf4 solid 1px;
+  border: none;
   margin: 10px;
   text-align: center;
 }
@@ -51,8 +52,24 @@
 .region{
   display: flex;
   flex-direction: row;
-  background-color: #a80202;
-  width: 400px;
+  width: 50%;
+  
+}
+
+.geo{
+  height: 40px;
+  background-color: #f7f8f9;
+  border-radius: 8px;
+  border: black 1px solid;
+  margin: 10px;
+  align-items: center;
+  text-align: center;
+ display: flex;
+ flex-direction: row;
+ justify-content: space-evenly;
+}
+.geo:hover{
+  background-color: #EDEDED
 }
 
 .btn {
@@ -351,4 +368,5 @@
     font-weight: bold;
     color: #010c01;
   }
+
 }
