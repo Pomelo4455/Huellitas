@@ -320,6 +320,7 @@ const DashBoardAdm = () => {
       name: "ID de usuario",
       selector: (row) => row.userId,
       sortable: true,
+      width: "120px",
     },
     {
       name: "Fue adoptado?",
@@ -399,6 +400,16 @@ const DashBoardAdm = () => {
     {
       name: "Cantidad",
       selector: (row) => row.amount,
+      sortable: true,
+    },
+    {
+      name: "UserId",
+      selector: (row) => row.userId,
+      sortable: true,
+    },
+    {
+      name: "CampaignId",
+      selector: (row) => row.campaignId,
       sortable: true,
     },
   ];
