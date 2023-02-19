@@ -4,7 +4,7 @@ import styles from "./navBar.module.css";
 import { useNavigate } from "react-router-dom";
 
 
-export default function RenderFavorites() {
+export default function RenderFavorites({handleOcultFavorites}) {
 
     let [favorites, setFavorites] = useState([])
     let user = JSON.parse(window.localStorage.getItem("loggedUser"))?.data;
@@ -30,6 +30,11 @@ export default function RenderFavorites() {
         }
     }
 
+    const handleClickFavorite = (pet) => {
+        handleOcultFavorites()
+        navigate(`/detail/${pet.id}`)
+    }
+
     return(
         <div className={styles.listFavorites}>
             {
@@ -41,7 +46,7 @@ export default function RenderFavorites() {
                             {favorites.map((pet, i) => {
                                 pet = pet.seguido;
                                 return (
-                                    <div onClick={() => navigate(`/detail/${pet.id}`)} key={i} className={styles.petInList}>
+                                    <div onClick={() => handleClickFavorite(pet)} key={i} className={styles.petInList}>
                                         <img src={pet.image} alt="nf" style={{margin:"0px", width:"30px", height:"30px"}} />
                                         <div>
                                             <div> nombre: {pet.name}</div>

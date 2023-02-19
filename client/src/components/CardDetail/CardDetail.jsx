@@ -94,11 +94,11 @@ const CardDetail = () => {
               CONTACTAR
             </button>
           </div>
-          <div className={style.btnContainer}>
-            <Link to={`../userDetail/${pet.userId}`}>
-              <button className={style.btnContactBack}>DADOR</button>
-            </Link>
-          </div>
+          <Link to={`../userDetail/${pet.userId}`} style={{textDecoration:"none"}}>
+            <div className={style.btnContainer}>
+                <button className={style.btnContactBack}>DADOR</button>
+            </div>
+          </Link>
           <div className={style.btnContainer}>
             <button
               onClick={() => window.history.back()}

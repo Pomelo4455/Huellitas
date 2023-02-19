@@ -125,14 +125,17 @@ const NavBar = (
       </div>
 
       <div className={styles.rightContainer}>
-        <Icon onClick={handleViewFavorites} className={styles.followButton} icon="ph:heart" />
         {
-          viewFavorites ?
+          loggedUser && viewFavorites ?
+          <><Icon onClick={handleViewFavorites} className={styles.followButton} icon="ph:heart" />
           <div>
             <div className={styles.infoSession}>
-            <RenderFavorites/>
+            <RenderFavorites handleOcultFavorites={handleViewFavorites}/>
             </div>
-          </div>
+          </div></>
+          :
+          loggedUser ?
+            <Icon onClick={handleViewFavorites} className={styles.followButton} icon="ph:heart" />
           :
           null
         }

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import styles from "./card.module.css";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import swal from "sweetalert";
  
 export default function Card({ pets }) {
 
@@ -21,9 +22,12 @@ export default function Card({ pets }) {
   }
 
   const handleFollow = () => {
-    setSeguido(!seguido);
     if (user?.id && pets?.id) {
+      setSeguido(!seguido);
       axios.put(`http://localhost:3001/follow?userId=${user.id}&petId=${pets.id}&seguir=${!seguido}`)
+    }
+    else {
+      swal("Inicia sesion para escoger favoritos", "", "error");
     }
   }
 
