@@ -15,7 +15,6 @@ const userFilters = (name, status, type) => {
   if (name) filters.name = { [Op.iLike]: `%${name}%` };
   if (status) filters.status = status;
   if (type) filters.type = type;
-  console.log(filters);
   return filters;
 };
 

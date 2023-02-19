@@ -48,7 +48,7 @@ export default function RenderFoundations() {
         ) : (
           <>
             <button
-              className={styles.claseUltimoBoton}
+              className={styles.claseboton}
               onClick={() => setMore({ ...more, fundacion: true })}
             >
               VER MAS

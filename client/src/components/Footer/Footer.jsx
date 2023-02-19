@@ -5,6 +5,11 @@ import { Link } from "react-router-dom";
 import styles from "./footer.module.css";
 import swal from "sweetalert";
 
+import Swal from 'sweetalert2'
+
+import axios from "axios"
+
+
 const ADMIN_ID = 1;
 
 function Footer() {
@@ -20,21 +25,71 @@ function Footer() {
     });
   }
 
+  const handleNotReview = () => {
+    swal({
+      title: "No puede dar su opinión.",
+      text: "Debe iniciar sesión para hacerlo.",
+      icon: "info",
+      button: "Ok",
+    });
+  }
+
+  const handleReview = async () => {
+
+    let {value : stars} = await Swal.fire({
+      title: 'Puntúanos',
+      input: 'range',
+      inputAttributes: {
+        min: 1,
+        max: 5,
+        step: 1
+      },
+      inputValue: 5,
+      showCancelButton: true
+    })
+
+    let { value: review } = await Swal.fire({
+      input: 'textarea',
+      inputLabel: 'Dejanos tu opinión',
+      inputPlaceholder: 'Aqui...',
+      inputAttributes: {
+        'aria-label': 'Type your message here'
+      },
+      showCancelButton: true
+    })
+    
+    if (review || stars) {
+      if (!review) review = ""
+      if (!stars) stars = 0
+      await axios.put(`http://localhost:3001/users/${user.data.id}`, {stars, review})
+      Swal.fire('Datos enviados', '', 'success')
+    }
+    else {
+      Swal.fire('Datos no enviados', '', 'info')
+    }
+  }
+
   return (
     <div className={styles.footer}>
       <div className={styles.box}>
-        <Link to={"/home"} className={styles.texts}>
+        {/* <Link to={"/home"} className={styles.texts}>
           <h4 className={styles.texts}>Home</h4>
         </Link>
         <Link to={"/sobreNosotros"} className={styles.texts}>
           <h4 className={styles.texts}>Sobre Nosotros</h4>
-        </Link>
+        </Link> */}
         {
         user?.data?.id ?
+          <>
+          <h4 onClick={handleReview} className={styles.texts} style={{cursor:"pointer"}}>¡Dejanos tu opinión! 🤔</h4>
           <Link to={`/chat/${user.data.id}/${ADMIN_ID}`} className={styles.texts}>
-            <h4 className={styles.texts}>Contactanos</h4>
-          </Link> :
-          <h4 onClick={handleContact} className={styles.texts} style={{cursor:"pointer"}}>Contactanos</h4>
+            <h4 className={styles.texts}>Contactanos 💬</h4>
+          </Link></>
+          :
+          <>
+          <h4 onClick={handleNotReview} className={styles.texts} style={{cursor:"pointer"}}>¡Dejanos tu opinión! 🤔</h4>
+          <h4 onClick={handleContact} className={styles.texts} style={{cursor:"pointer"}}>Contactanos 💬</h4>
+          </>
         }
       </div>
       <div className={styles.box}>

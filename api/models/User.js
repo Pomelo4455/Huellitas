@@ -77,6 +77,18 @@ module.exports = (sequelize) => {
         type: DataTypes.ENUM("activo", "inactivo", "baneado"),
         defaultValue: "activo",
       },
+      review: {
+        type: DataTypes.TEXT,
+        defaultValue: ""
+      },
+      stars: {
+        type: DataTypes.INTEGER,
+        validate: {
+          min: 0,
+          max: 5
+        },
+        defaultValue: 0
+      }
     },
     {
       timestamps: false,
