@@ -18,6 +18,7 @@ import { profileCreationInfo } from "../../Utils/profileFunctions";
 // import { Icon } from '@iconify/react';
 import axios from "axios";
 import styles from "./navBar.module.css";
+import RenderFavorites from "./RenderFavorites";
 
 
 const NavBar = (
@@ -70,6 +71,12 @@ const NavBar = (
     setShowEdit(!showEdit);
   };
 
+  const [viewFavorites, setViewFavorites] = useState(false);
+
+  const handleViewFavorites = () => {
+    setViewFavorites(!viewFavorites)
+  }
+ 
 
   return (
     <nav className={styles.nav}>
@@ -117,12 +124,24 @@ const NavBar = (
         </div>
       </div>
 
-      <div className={styles.followContainer}>
-        <Icon className={styles.followButton} icon="ph:heart" />
+      <div className={styles.rightContainer}>
+        {
+          loggedUser && viewFavorites ?
+          <><Icon onClick={handleViewFavorites} className={styles.followButton} icon="ph:heart" />
+          <div>
+            <div className={styles.infoSession}>
+            <RenderFavorites handleOcultFavorites={handleViewFavorites}/>
+            </div>
+          </div></>
+          :
+          loggedUser ?
+            <Icon onClick={handleViewFavorites} className={styles.followButton} icon="ph:heart" />
+          :
+          null
+        }
         <div className={styles.buttonContainer}>
           {loggedUser ? (
             <div className={styles.infoSession}>
-              {/* <h4>Ha iniciado sesión como: {loggedUser.name.toUpperCase()}</h4> */}
               <img src={loggedUser.image}onClick={handleEdit}/>
               <div className={showEdit ? styles.toggleUser : styles.toggleUserNone}>
                 <div>

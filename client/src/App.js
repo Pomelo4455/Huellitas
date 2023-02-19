@@ -120,8 +120,8 @@ function App() {
         />
         <Route path="/chats" element={<Mensajeria />} />
         <Route path="/chat/:emisorId/:receptorId" element={<Mensajeria />} />
-        <Route path="/:any" element={<NotFound />} />
         <Route path="/fundaciones" element={<Fundaciones />} />
+        <Route path="/:any" element={<NotFound />} />
       </Routes>
       <Footer />
     </>

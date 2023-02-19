@@ -40,11 +40,48 @@
 }
 
 .name {
-  display: flex;
-  justify-content: center;
+  margin: 0px;
   font-family: "Noto Sans JP";
-  font-weight: 500;
-  width: 90%;
-  padding-left: 15px;
-  padding-right: 15px;
+  font-weight: 400;
+  width: 80%;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.corazonUnfollow {
+  font-size: 50px;
+  display: none;
+  margin: 0 auto;
+  color: rgba(52,131,250,0.5);
+  pointer-events: all;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.card:hover .corazonUnfollow {
+  display: flex;
+}
+
+.corazonUnfollow:hover {
+  color: rgba(52,131,250,1);
+}
+
+.corazonFollow {
+  font-size: 45px;
+  display: none;
+  margin: 0 auto;
+  color: rgba(52,131,250,1);
+  pointer-events: all;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.card:hover .corazonFollow {
+  display: flex;
+}
+
+.corazonFollow:hover {
+  color: rgba(52,131,250,0.8);
 }
