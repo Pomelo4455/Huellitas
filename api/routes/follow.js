@@ -1,5 +1,5 @@
 const { Router } = require("express");
-const { putFollow, getFollows } = require("../controllers/favoriteControllers");
+const { putFollow, getFollows, getSeguido } = require("../controllers/followControllers");
 
 const router = Router();
 
@@ -26,4 +26,17 @@ router.get("/", async (req, res) => {
   }
 })
 
-  module.exports = router;
+// devuelve true si el usuario con userId sigue a la mascota con petId, caso contrario false.
+router.get("/:userId/:petId", async (req,res) => {
+  try {
+    let {userId, petId} = req.params;
+    let seguido = await getSeguido(userId, petId);
+    res.status(200).send(seguido);
+  } catch (error) {
+    res.status(400).send(error.message);
+  }
+  
+
+})
+
+module.exports = router;

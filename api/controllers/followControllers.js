@@ -32,14 +32,23 @@ const getFollows = async (userId) => {
     where: {userId, seguir: true},
     include: [{
       model: Pet,
-      attributes: ["id"],
       as: "seguido",
       }]
   })
   return follows
 };
 
+const getSeguido = async (userId, petId) => {
+  let seguido = await Follow.findOne({
+    attributes: ["seguir"],
+    where: {userId, petId}
+  })
+  if (!seguido) seguido = {seguir: false}
+  return seguido;
+}
+
 module.exports = {
   getFollows,
   putFollow,
+  getSeguido,
 };
