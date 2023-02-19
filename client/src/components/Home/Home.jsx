@@ -17,6 +17,7 @@ import RenderPets from "./RenderPets";
 import RenderFoundations from "./RenderFoundations";
 
 import styles from "./home.module.css";
+import RenderReviews from "./RenderReviews";
 
 const Home = () => {
     const dispatch = useDispatch();
@@ -96,6 +97,7 @@ const Home = () => {
           <RenderPets />
           <RenderCampaigns />
           <RenderFoundations />
+          <RenderReviews />
       </div>
     );
 };

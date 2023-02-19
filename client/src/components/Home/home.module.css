@@ -164,7 +164,7 @@
   font-size: 16px;
   width: 150px;
   color: #48bfff;
-  background-color: white;
+  background-color: transparent;
   border: 3px solid #48bfff;
   cursor: pointer;
   transition: all 0.2s ease-in-out;
@@ -329,7 +329,7 @@
     font-size: 16px;
     width: 150px;
     color: #48bfff;
-    background-color: white;
+    background-color: transparent;
     border: 3px solid #48bfff;
     cursor: pointer;
     transition: all 0.2s ease-in-out;
@@ -374,10 +374,6 @@
 
 /* RESPONSIVE PARA DISPOSITIVOS DE 760PX HASTA 1024*/
 @media (min-width: 760px) and (max-width: 1024px) {
-  .home {
-    /* background-color: #ededed; */
-    /* background-color: #2aadf6; */
-  }
   
   /* ESTILOS PARA LA PRESENTACION */
   
@@ -522,7 +518,7 @@
     font-size: 16px;
     width: 150px;
     color: #48bfff;
-    background-color: white;
+    background-color: transparent;
     border: 3px solid #48bfff;
     cursor: pointer;
     transition: all 0.2s ease-in-out;
