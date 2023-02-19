@@ -64,7 +64,7 @@ function Footer() {
           >
             <Icon className={styles.iconSocial} icon="mdi:twitter" />
           </a>
-          <Link to={"/:any"}>
+          <Link to={"https://www.facebook.com/profile.php?viewas=100000686899395&id=100090543606081"}>
             <Icon className={styles.iconSocial} icon="ic:baseline-facebook" />
           </Link>
         </div>

@@ -117,39 +117,42 @@ const NavBar = (
         </div>
       </div>
 
-      <div className={styles.buttonContainer}>
-        {loggedUser ? (
-          <div className={styles.infoSession}>
-            {/* <h4>Ha iniciado sesión como: {loggedUser.name.toUpperCase()}</h4> */}
-            <img src={loggedUser.image}onClick={handleEdit}/>
-            <div className={showEdit ? styles.toggleUser : styles.toggleUserNone}>
-              <div>
-                <Link to='/Profile' onClick={handleEdit} className={styles.editBtnContainer}>
-                  <button className={styles.buttonEdit}> Editar perfil</button>
+      <div className={styles.followContainer}>
+        <Icon className={styles.followButton} icon="ph:heart" />
+        <div className={styles.buttonContainer}>
+          {loggedUser ? (
+            <div className={styles.infoSession}>
+              {/* <h4>Ha iniciado sesión como: {loggedUser.name.toUpperCase()}</h4> */}
+              <img src={loggedUser.image}onClick={handleEdit}/>
+              <div className={showEdit ? styles.toggleUser : styles.toggleUserNone}>
+                <div>
+                  <Link to='/Profile' onClick={handleEdit} className={styles.editBtnContainer}>
+                    <button className={styles.buttonEdit}> Editar perfil</button>
+                  </Link>
+                </div>
+                <Link to='/chats' onClick={handleEdit} className={styles.editBtnContainer}>
+                  <button className={styles.buttonEdit}>
+                    Ver mensajes
+                    {noLeidos <= 0 ?
+                      null :
+                    noLeidos <= 9 ?
+                      <div><Icon icon={`mdi:number-${noLeidos}-circle`} width={"30px"} height={"30px"} style={{marginTop:"10px"}}/></div> :
+                      <div><Icon icon="mdi:number-9-plus-circle" width={"30px"} height={"30px"} style={{marginTop:"10px"}}/></div>
+                    }
+                  </button>
                 </Link>
-              </div>
-              <Link to='/chats' onClick={handleEdit} className={styles.editBtnContainer}>
-                <button className={styles.buttonEdit}>
-                  Ver mensajes
-                  {noLeidos <= 0 ?
-                    null :
-                  noLeidos <= 9 ?
-                    <div><Icon icon={`mdi:number-${noLeidos}-circle`} width={"30px"} height={"30px"} style={{marginTop:"10px"}}/></div> :
-                    <div><Icon icon="mdi:number-9-plus-circle" width={"30px"} height={"30px"} style={{marginTop:"10px"}}/></div>
-                  }
-                </button>
-              </Link>
-              <div className={styles.logoutContainer} onClick={handleEdit}>
-                <LogoutButton />
+                <div className={styles.logoutContainer} onClick={handleEdit}>
+                  <LogoutButton />
+                </div>
               </div>
             </div>
-          </div>
-        ) : (
-          <>
-            <LoginButton />
-          </>
-        )}
-      </div>
+          ) : (
+            <>
+              <LoginButton />
+            </>
+          )}
+        </div>
+      </div> 
 
     </nav>
   );

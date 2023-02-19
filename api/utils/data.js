@@ -213,7 +213,7 @@ const usersData = [
     tiktok: "ErvinMiRey",
     description: "Almorcé con una llama debajo de tu cama porque puedo",
     image:
-      "https://acortar.link/wqGL9W",
+      "https://ucarecdn.com/fc4aae84-317c-4330-9407-d8f6c12081ad/f608x342sf.jpg",
     CVU: "",
     status: "activo",
     password: "1234",
@@ -232,7 +232,7 @@ const usersData = [
     tiktok: "ClemBauch",
     description: "Recibí una fuerte multa pero no logró aplastar mi espíritu",
     image:
-      "https://acortar.link/wqGL9W",
+      "https://ucarecdn.com/5c8c24ae-6895-4849-8301-793e868819cd/pngtransparentfemaleavatargirlfacewomanuserflatclassyusersicon.png",
     CVU: "",
     status: "activo",
     password: "1234",
@@ -253,13 +253,13 @@ const usersData = [
     description:
       "Ella insistió en que limpiar tu armario era la clave para una buena conducción",
     image:
-      "https://acortar.link/wqGL9W",
+      "https://ucarecdn.com/dd6d52be-5c97-4f44-9b51-cdc96130712d/avatarperfilusuariofemeninoesmujerpersonajeprotectorpantallaemociones_505620617.avif",
     CVU: "",
     password: "1234",
   },
   {
     type: "usuario",
-    name: "Chelsey Dietrich",
+    name: "José Dietrich",
     username: "Kamren",
     email: "Lucio_Hettinger@annie.ca",
     address: "Skiles Walks Suite 351, Roscoeview, Santa Fe",
@@ -273,13 +273,13 @@ const usersData = [
     description:
       "Ella le pidió prestado el libro hace muchos años y aún no lo ha devuelto",
     image:
-      "https://acortar.link/wqGL9W",
+      "https://ucarecdn.com/ca905753-2a96-44c2-b997-f7a8d3fd352f/pngtreeuservectoravatarpngimage_1541962.jpg",
     CVU: "",
     password: "1234",
   },
   {
     type: "usuario",
-    name: "Mrs. Dennis Schulist",
+    name: "Mrs. Juan Schulist",
     username: "Leopoldo_Corkery",
     email: "Karley_Dach@jasper.info",
     address: "Norberto Crossing 950, South Christy, Buenos Aires",
@@ -293,13 +293,13 @@ const usersData = [
     description:
       "Tu novia compró tu cereal crujiente de galleta favorito pero se olvidó de comprar leche",
     image:
-      "https://acortar.link/wqGL9W",
+      "https://ucarecdn.com/5868696c-47b5-4569-88b9-13d4011d4533/kisspnguserprofileavatarcomputericons5affbbaf05c5a47133825315267091670237.jpg",
     CVU: "",
     password: "1234",
   },
   {
     type: "usuario",
-    name: "Kurtis Weissnat",
+    name: "Juana Weissnat",
     username: "Elwyn.Skiles",
     email: "Telly.Hoeger@billy.biz",
     address: "Rex Trail 280, Howemouth, Capital Federal",
@@ -313,7 +313,7 @@ const usersData = [
     description:
       "Seamos todos únicos juntos hasta que nos demos cuenta de que todos somos iguales",
     image:
-      "https://acortar.link/wqGL9W",
+      "https://ucarecdn.com/18bf0fce-eb8c-49b0-a192-d2a9bae859be/pngclipartcomputericonsavataruseravatarheroeswoman.png",
     CVU: "",
     password: "1234",
   },
@@ -333,7 +333,7 @@ const usersData = [
     description:
       "Aunque pensaba que el mundo era plano, no veía la ironía de querer viajar alrededor del mundo",
     image:
-      "https://acortar.link/wqGL9W",
+      "https://ucarecdn.com/6d7c0e44-12e6-4719-ae35-908b9e5b4037/pngtransparentcomputericonsuserprofileavataruserheroesbusinessuser.png",
     CVU: "",
     password: "1234",
   },
@@ -352,7 +352,7 @@ const usersData = [
     description:
       "Solo quería decirte que pude ver el amor que sientes por tu hija por la forma en que la miras",
     image:
-      "https://acortar.link/wqGL9W",
+      "https://ucarecdn.com/6af60d4b-3444-43f5-bdc1-db12f38085f8/images.png",
     CVU: "",
     password: "1234",
   },
@@ -371,7 +371,7 @@ const usersData = [
     description:
       "En el momento en que aterrizó comprendió la razón por la que se trataba de un estado de sobrevuelo",
     image:
-      "https://acortar.link/wqGL9W",
+      "https://ucarecdn.com/6d71e24b-53e7-4fbb-b4ab-7b9813d05154/images1.png",
     CVU: "",
     password: "1234",
   },
@@ -390,7 +390,7 @@ const usersData = [
     description:
       "Nuestro Centro de Adopciones está siempre abierto a quienes estén buscando una mascota para amar y cuidar.  Durante todo el año hay perritos de todas las edades, tamaños y colores esperando que lleguen sus nuevos humanos. ",
     image:
-      "https://png.pngtree.com/template/20191017/ourlarge/pngtree-logo-illustration-dog-outline-pet-design-on-white-background-image_319750.jpg",
+      "https://ucarecdn.com/6bc03969-82d2-4ee3-8325-a5c0bbf6c226/exampleimage.jpg",
     CVU: "596013402768904",
     password: "1234",
   },
@@ -409,7 +409,7 @@ const usersData = [
     description:
       "AYUDANOS A AYUDAR!Somos un Grupo que trabaja Ad Honorem, RESCATANDO,AYUDANDO ,CONCIENTIZANDO,",
     image:
-      "https://villaelisacdn.s3.fr-par.scw.cloud/municipalidad/feriapatitas.jpg",
+      "https://ucarecdn.com/a58ebf1f-6c9e-444b-a752-df49492839a5/kisspngdoglogopetkennelclubbonedog5abebc30c2c1138323652015224494567977.jpg",
     CVU: "948360284814368",
     password: "1234",
   },
@@ -428,7 +428,7 @@ const usersData = [
     description:
       "El rescate y adopción de gatos es una experiencia gratificante y gratificante. Como todos los animales, los gatos requieren cuidado y atención. También son una delicia para tener en la familia.",
     image:
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRSOP2ddW8Ud2NC3k7zuo3PvCPESmflx5WLEQ&usqp=CAU",
+      "https://ucarecdn.com/8c49d528-e5cf-4e72-83cb-0879b1bb47b8/1151150090_goggglogosdefundacionesdeanimales.png",
     CVU: "842254369748662",
     password: "1234",
   },
@@ -447,7 +447,83 @@ const usersData = [
     description:
       "Fundación Vidanimal es una organización no gubernamental sin fines de lucro abocada a difundir, proteger y promover los derechos de los animales.",
     image:
-      "https://www.vidanimal.org.ar/wp-content/uploads/2019/04/logo-vidanimal-blanco-original-300x268.png",
+      "https://ucarecdn.com/e0a51a6f-adf4-4596-af49-b861fdb29483/perromascotasconceptologotipoiconovectorconceptodiseno2dh318m.jpg",
+    CVU: "106672908060515",
+    password: "1234",
+  },
+  {
+    type: "fundacion",
+    name: "Fundacion Adoptemos",
+    username: "adop",
+    email: "adop@gmail.com",
+    address: "Buenos aires 963, santa Rosa, La Pampa",
+    phone: "11-6248-3804",
+    website: "adopt.org.ar",
+    facebook: "adop123",
+    instagram: "aoptFund",
+    twitter: "adopte",
+    tiktok: "adopte",
+    description:
+      "Fundación adoptemos es una organización no gubernamental sin fines de lucro abocada a difundir, proteger y promover los derechos de los animales.",
+    image:
+      "https://ucarecdn.com/2eacd4d1-6f11-4dee-a67e-9b2fbbcd6aa6/logofpai001.jpg",
+    CVU: "106672908063515",
+    password: "1234",
+  },
+  {
+    type: "fundacion",
+    name: "Futuro Ideal",
+    username: "Ideal",
+    email: "Ideal@gmail.com",
+    address: "Buenos Fe 968, Santa Rosa, La Pampa",
+    phone: "11-6438-3804",
+    website: "Ideal.org.ar",
+    facebook: "Ideal Vida Animal",
+    instagram: "Ideal123",
+    twitter: "@idealVida",
+    tiktok: "vida_ideal",
+    description:
+      "Fundación futuro ideal es una organización no gubernamental sin fines de lucro abocada a difundir, proteger y promover los derechos de los animales.",
+    image:
+      "https://ucarecdn.com/e885f955-e0be-47a6-b36b-d2233ea0b92f/handlovesignwithincircle260nw1970062876.webp",
+    CVU: "106672908560515",
+    password: "1234",
+  },
+  {
+    type: "fundacion",
+    name: "Fundacion patitas cortas y largas",
+    username: "patis",
+    email: "patis@gmail.com",
+    address: "patis 968, Santa Rosa, La Pampa",
+    phone: "11-41-3804",
+    website: "patis.org.ar",
+    facebook: "patisPa",
+    instagram: "patis__",
+    twitter: "@patiss",
+    tiktok: "pa_tis",
+    description:
+      "Fundación patitas cortas y largas es una organización no gubernamental sin fines de lucro abocada a difundir, proteger y promover los derechos de los animales.",
+    image:
+      "https://ucarecdn.com/b12b8881-581e-4956-bde2-9f68c2fb251e/caridadfundacionlogovector_23987228.avif",
+    CVU: "133372908060515",
+    password: "1234",
+  },
+  {
+    type: "fundacion",
+    name: "Fundacion por la naturaleza",
+    username: "naturaleza",
+    email: "naturaleza@gmail.com",
+    address: "naturaleza 968, Santa Rosa, La Pampa",
+    phone: "11-134-3804",
+    website: "naturaleza.org.ar",
+    facebook: "naturalezaA",
+    instagram: "naturaleza__",
+    twitter: "@naturaleza",
+    tiktok: "natur_aleza",
+    description:
+      "Fundación naturaleza es una organización no gubernamental sin fines de lucro abocada a difundir, proteger y promover los derechos de los animales.",
+    image:
+      "https://ucarecdn.com/4f4c1644-9b38-4da5-86db-f3b7bdd6a9c6/e36255a93896664d4f7f9c439e311721.jpg",
     CVU: "106672908060515",
     password: "1234",
   },
@@ -473,6 +549,76 @@ const campaignsData = [
     image:
       "https://diarioresumen.com.ar/static/old/uploads/2020/01/Perros-calle-web.jpg",
     userId: 12,
+  },
+  {
+    title: "Refugio necesita dinero para perros lisiados",
+    reason: "Recaudar fondos para comprar suministros médicos",
+    description:
+      "La cantidad de mascotas enfermas y heridas nos excede y necesitamos su ayuda!",
+    goal: 175000,
+    image:
+      "https://ucarecdn.com/b1678ac5-096e-4879-87b4-e66e5a5d8d7c/H1xYGQ60ml_1256x620.webp",
+    userId: 13,
+  },
+  {
+    title: "Necesitan un techo",
+    reason: "Pasan la noche afuera y se viene el invierno",
+    description:
+      "No contamos con un techo, nuestros animales se encuentran al aire libre y se acerca el invierno",
+    goal: 670000,
+    image:
+      "https://ucarecdn.com/ae9337bf-41bd-4e67-a48d-5ec34fc6ccd3/Portoalegreperros.jpg",
+    userId: 16,
+  },
+  {
+    title: "Compra de alimentos",
+    reason: "Necesitamos alimento para nuestros animales",
+    description:
+      "La comision se está quedando sin recursos, necesitamos su ayuda, ellos necesitan su ayuda.",
+    goal: 175000,
+    image:
+      "https://ucarecdn.com/ebf9e838-8211-42c8-957d-208ec972278e/dia_mundial_de_los_animales.jpg",
+    userId: 18,
+  },
+  {
+    title: "Necesitamos 20 bolsas de comida",
+    reason: "20 bolsas de comida para repartir a diferentes pequeños refugios de la zona",
+    description:
+      "Muchos refugios cerca del nuestro nos pidieron ayuda y estamos tratando de ayudarlos.",
+    goal: 175000,
+    image:
+      "https://ucarecdn.com/53e16bb7-c749-486a-a16a-7019a65a1a16/PostDonacionesPerro.jpg",
+    userId: 17,
+  },
+  {
+    title: "Refugio necesita ampliar su refugio",
+    reason: "Recaudar fondos para comprar un nuevo terreno para nuestras mascotas.",
+    description:
+      "Nuestro refugio es muy pequeño y tenemos muchos animales. Necesitamos ampliarnos.",
+    goal: 125456,
+    image:
+      "https://ucarecdn.com/c3e8aa64-4d0b-4f18-bec8-72220743f30a/000767173W.jpg",
+    userId: 15,
+  },
+  {
+    title: "Refugios de perros y gatos por separado",
+    reason: "Nuestros perros y gatos no pueden convivir juntos.",
+    description:
+      "Debido a las peleas entre los perros y gatos, para mantener su integridad física estamos en campaña para hacerles refugios separados.",
+    goal: 300000,
+    image:
+      "https://ucarecdn.com/b2eb3317-65d9-4bcb-8267-264a506c31bb/mas.jpg",
+    userId: 13,
+  },
+  {
+    title: "Gastos varios para refugio",
+    reason: "Recaudar fondos para medicina y alimento",
+    description:
+      "Este mes encontramos muchos perritos abandonados y no los podemos cuidar como nos gustaria.",
+    goal: 75000,
+    image:
+      "https://ucarecdn.com/3506f523-7f91-48ad-8427-835bed78b485/jcr_content.png",
+    userId: 14,
   },
 ];
 

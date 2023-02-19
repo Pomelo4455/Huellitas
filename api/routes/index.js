@@ -38,6 +38,6 @@ router.use("/payment",Payment)
 router.use("/mails", Mails)
 router.use("/message", Message)
 router.use("/donations",Donations)
-router.use("/favorite",Favorite)
+router.use("/follow",Favorite)
 
 module.exports = router;
