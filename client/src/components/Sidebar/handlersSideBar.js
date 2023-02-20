@@ -1,5 +1,5 @@
 import { updateFilters, setCurrentPage } from "../../redux/actions";
-
+import { LINK_BACK } from "../../Utils/variablesDeploy";
 
 export const handleSelectedFilter = (e, filtros, dispatch) => {
     e.preventDefault();
@@ -16,6 +16,6 @@ export const handleCleanFilter = (e, filtros, dispatch) => {
 }
 
 export const combinarFiltros = (filtros) => {
-    return `http://localhost:3001/pets?sex=${filtros.sex}&size=${filtros.size}&species=${filtros.species}&order=${filtros.order}&name=${filtros.name}`;
+    return `${LINK_BACK}/pets?sex=${filtros.sex}&size=${filtros.size}&species=${filtros.species}&order=${filtros.order}&name=${filtros.name}`;
 }
   

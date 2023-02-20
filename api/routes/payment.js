@@ -1,12 +1,8 @@
 const { Router } = require("express");
 const mercadopago = require("mercadopago");
+const LINK_FRONT = "http://localhost:3000"
 const { MERCADOPAGO_KEY } = process.env;
-
-
-
-
 const router = Router();
-
 
 mercadopago.configure({access_token: MERCADOPAGO_KEY})
 
@@ -25,8 +21,8 @@ let preference = {
         unit_price: donation.quantity
 }],
 back_urls:{
-    success: 'http://localhost:3000/payment/gracias',
-    failure: 'http://localhost:3000/payment/error',
+    success: `${LINK_FRONT}/payment/gracias`,
+    failure: `${LINK_FRONT}/payment/error`,
     pending:'',
 },
 auto_return: 'approved',

@@ -20,6 +20,7 @@ import {
   getDonations,
 } from "../../redux/actions";
 import DataTable, { createTheme } from "react-data-table-component";
+import { LINK_BACK } from "../../Utils/variablesDeploy.js";
 
 const DashBoardAdm = () => {
   const datos = useSelector((state) => state.users);
@@ -452,7 +453,7 @@ const DashBoardAdm = () => {
           icon: "success",
         }).then(() => {
           dispatch(
-            deleteUsers(`http://localhost:3001/users/${userId}?type=${value}`)
+            deleteUsers(`${LINK_BACK}/users/${userId}?type=${value}`)
           );
           setDelete(`${value}`);
         });
@@ -476,7 +477,7 @@ const DashBoardAdm = () => {
           icon: "success",
         }).then(() => {
           dispatch(
-            deleteUsers(`http://localhost:3001/users/${userId}?status=${value}`)
+            deleteUsers(`${LINK_BACK}/users/${userId}?status=${value}`)
           );
           setDelete(`${value}`);
         });
@@ -501,7 +502,7 @@ const DashBoardAdm = () => {
         }).then(() => {
           dispatch(
             deleteUsers(
-              `http://localhost:3001/campaigns/${CampaignId}?status=${value}`
+              `${LINK_BACK}/campaigns/${CampaignId}?status=${value}`
             )
           );
           setDelete(`${value}`);
@@ -526,7 +527,7 @@ const DashBoardAdm = () => {
           icon: "success",
         }).then(() => {
           dispatch(
-            deleteUsers(`http://localhost:3001/pets/${petId}?adopted=${value}`)
+            deleteUsers(`${LINK_BACK}/pets/${petId}?adopted=${value}`)
           );
           setDelete(`${value}`);
         });
@@ -550,7 +551,7 @@ const DashBoardAdm = () => {
           icon: "success",
         }).then(() => {
           dispatch(
-            deleteUsers(`http://localhost:3001/pets/${petId}?deleted=${value}`)
+            deleteUsers(`${LINK_BACK}/pets/${petId}?deleted=${value}`)
           );
           setDelete(`${value}`);
         });

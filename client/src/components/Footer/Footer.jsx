@@ -5,11 +5,9 @@ import UserBaneado from "../UserBanedo/UserBaneado";
 
 import styles from "./footer.module.css";
 import swal from "sweetalert";
-
 import Swal from 'sweetalert2'
-
 import axios from "axios"
-
+import { LINK_BACK } from "../../Utils/variablesDeploy";
 
 const ADMIN_ID = 1;
 
@@ -64,7 +62,7 @@ function Footer() {
     if (review || stars) {
       if (!review) review = ""
       if (!stars) stars = 0
-      await axios.put(`http://localhost:3001/users/${user.data.id}`, {stars, review})
+      await axios.put(`${LINK_BACK}/users/${user.data.id}`, {stars, review})
       Swal.fire('Datos enviados', '', 'success')
     }
     else {

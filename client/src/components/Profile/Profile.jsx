@@ -14,7 +14,7 @@ import {useNavigate, navigate } from 'react-router-dom';
 import RenderizarEnAdopcion from './RenderEnAdopcion';
 import RenderizarAdoptados from './RenderAdoptados';
 import RenderizarCampaigns from './RenderCampaigns';
-
+import { LINK_BACK } from '../../Utils/variablesDeploy';
 
 
 const Profile = ({setLoggedUser}) => {
@@ -62,7 +62,7 @@ const Profile = ({setLoggedUser}) => {
         .then((value) => {
           switch (value) {
         //     case "email":
-        //       axios.post("http://localhost:3001/mails", {
+        //       axios.post(`${LINK_BACK}/mails`, {
         //         idUser: userId,
         //       })
         //       .then(() => {

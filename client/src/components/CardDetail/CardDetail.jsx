@@ -7,6 +7,7 @@ import style from "./cardDetail.module.css";
 import axios from "axios";
 import swal from "sweetalert";
 import MapView from "../MapView/MapView";
+import { LINK_BACK } from "../../Utils/variablesDeploy";
 
 const CardDetail = () => {
   const mapRef = useRef();
@@ -44,7 +45,7 @@ const CardDetail = () => {
         switch (value) {
           case "email":
             axios
-              .post("http://localhost:3001/mails", {
+              .post(`${LINK_BACK}/mails`, {
                 idUser: userId,
                 idGiver: pet.userId,
                 idPet: pet.id,
