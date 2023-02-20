@@ -194,8 +194,7 @@ const usersData = [
     tiktok: "no",
     description:
       "Administrador global, todos podemos usar este usuario como admin. Para iniciar sesión debemos cargarlo a la base de datos con un post a / y luego en el login ingresar por gmail con huellitas",
-    image:
-      "https://ucarecdn.com/c7c6c96a-edae-49bb-a723-a040d408ee16/",
+    image: "https://ucarecdn.com/c7c6c96a-edae-49bb-a723-a040d408ee16/",
     CVU: "826221765285480",
     status: "activo",
     password: "#huellitas1919",
@@ -214,6 +213,8 @@ const usersData = [
     description: "Almorcé con una llama debajo de tu cama porque puedo",
     image:
       "https://ucarecdn.com/fc4aae84-317c-4330-9407-d8f6c12081ad/f608x342sf.jpg",
+    latitude: -31.41555,
+    longitude: -64.186793,
     CVU: "",
     status: "activo",
     password: "1234",
@@ -233,6 +234,8 @@ const usersData = [
     description: "Recibí una fuerte multa pero no logró aplastar mi espíritu",
     image:
       "https://ucarecdn.com/5c8c24ae-6895-4849-8301-793e868819cd/pngtransparentfemaleavatargirlfacewomanuserflatclassyusersicon.png",
+    latitude: -36.624463,
+    longitude: -64.284073,
     CVU: "",
     status: "activo",
     password: "1234",
@@ -254,6 +257,8 @@ const usersData = [
       "Ella insistió en que limpiar tu armario era la clave para una buena conducción",
     image:
       "https://ucarecdn.com/dd6d52be-5c97-4f44-9b51-cdc96130712d/avatarperfilusuariofemeninoesmujerpersonajeprotectorpantallaemociones_505620617.avif",
+    latitude: -26.184669,
+    longitude: -58.174414,
     CVU: "",
     password: "1234",
   },
@@ -274,6 +279,8 @@ const usersData = [
       "Ella le pidió prestado el libro hace muchos años y aún no lo ha devuelto",
     image:
       "https://ucarecdn.com/ca905753-2a96-44c2-b997-f7a8d3fd352f/pngtreeuservectoravatarpngimage_1541962.jpg",
+    latitude: -31.619454,
+    longitude: -60.697159,
     CVU: "",
     password: "1234",
   },
@@ -294,10 +301,13 @@ const usersData = [
       "Tu novia compró tu cereal crujiente de galleta favorito pero se olvidó de comprar leche",
     image:
       "https://ucarecdn.com/5868696c-47b5-4569-88b9-13d4011d4533/kisspnguserprofileavatarcomputericons5affbbaf05c5a47133825315267091670237.jpg",
+    latitude: -34.796194,
+    longitude: -58.278075,
     CVU: "",
     password: "1234",
-    review: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea quo quidem nihil et voluptates, iusto tenetur delectus fugit repellendus amet, earum eligendi saepe. Quos placeat nam quam voluptatem deserunt minima distinctio eveniet, ratione velit quis aliquid in nobis quia enim repellat facere aliquam eos ducimus? Debitis, corporis iusto quidem numquam autem ipsum eos commodi voluptas dolorem perferendis ullam maxime incidunt neque earum explicabo, maiores placeat cum exercitationem eligendi. Cumque asperiores modi accusamus nesciunt excepturi ratione perferendis, iste officia expedita deleniti rerum eaque laudantium deserunt mollitia sunt quaerat reprehenderit, quo cupiditate amet sed? Iste delectus iusto, corporis incidunt ab natus error possimus eius placeat dicta voluptate beatae. Veniam laudantium expedita blanditiis magnam dolorum alias laborum quod harum officia, autem tenetur voluptate delectus nihil porro ducimus cumque minima, reiciendis itaque dolores quaerat praesentium tempora, esse enim eos! Eius ipsa magni sit tempora, alias distinctio delectus doloribus, deserunt aliquid explicabo, commodi fugit voluptates?",
-    stars: 5
+    review:
+      "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea quo quidem nihil et voluptates, iusto tenetur delectus fugit repellendus amet, earum eligendi saepe. Quos placeat nam quam voluptatem deserunt minima distinctio eveniet, ratione velit quis aliquid in nobis quia enim repellat facere aliquam eos ducimus? Debitis, corporis iusto quidem numquam autem ipsum eos commodi voluptas dolorem perferendis ullam maxime incidunt neque earum explicabo, maiores placeat cum exercitationem eligendi. Cumque asperiores modi accusamus nesciunt excepturi ratione perferendis, iste officia expedita deleniti rerum eaque laudantium deserunt mollitia sunt quaerat reprehenderit, quo cupiditate amet sed? Iste delectus iusto, corporis incidunt ab natus error possimus eius placeat dicta voluptate beatae. Veniam laudantium expedita blanditiis magnam dolorum alias laborum quod harum officia, autem tenetur voluptate delectus nihil porro ducimus cumque minima, reiciendis itaque dolores quaerat praesentium tempora, esse enim eos! Eius ipsa magni sit tempora, alias distinctio delectus doloribus, deserunt aliquid explicabo, commodi fugit voluptates?",
+    stars: 5,
   },
   {
     type: "usuario",
@@ -316,10 +326,13 @@ const usersData = [
       "Seamos todos únicos juntos hasta que nos demos cuenta de que todos somos iguales",
     image:
       "https://ucarecdn.com/18bf0fce-eb8c-49b0-a192-d2a9bae859be/pngclipartcomputericonsavataruseravatarheroeswoman.png",
+    latitude: -34.608052,
+    longitude: -58.376166,
     CVU: "",
     password: "1234",
-    review: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea quo quidem nihil et voluptates, iusto tenetur delectus fugit repellendus amet, earum eligendi saepe. Quos placeat nam quam voluptatem deserunt minima distinctio eveniet, ratione velit quis aliquid in nobis quia enim repellat facere aliquam eos ducimus? Debitis, corporis iusto quidem numquam autem ipsum eos commodi voluptas dolorem perferendis ullam maxime incidunt neque earum explicabo, maiores placeat cum exercitationem eligendi. Cumque asperiores modi accusamus nesciunt excepturi ratione perferendis, iste officia expedita deleniti rerum eaque laudantium deserunt mollitia sunt quaerat reprehenderit, quo cupiditate amet sed? Iste delectus iusto, corporis incidunt ab natus error possimus eius placeat dicta voluptate beatae. Veniam laudantium expedita blanditiis magnam dolorum alias laborum quod harum officia, autem tenetur voluptate delectus nihil porro ducimus cumque minima, reiciendis itaque dolores quaerat praesentium tempora, esse enim eos! Eius ipsa magni sit tempora, alias distinctio delectus doloribus, deserunt aliquid explicabo, commodi fugit voluptates?",
-    stars: 3
+    review:
+      "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea quo quidem nihil et voluptates, iusto tenetur delectus fugit repellendus amet, earum eligendi saepe. Quos placeat nam quam voluptatem deserunt minima distinctio eveniet, ratione velit quis aliquid in nobis quia enim repellat facere aliquam eos ducimus? Debitis, corporis iusto quidem numquam autem ipsum eos commodi voluptas dolorem perferendis ullam maxime incidunt neque earum explicabo, maiores placeat cum exercitationem eligendi. Cumque asperiores modi accusamus nesciunt excepturi ratione perferendis, iste officia expedita deleniti rerum eaque laudantium deserunt mollitia sunt quaerat reprehenderit, quo cupiditate amet sed? Iste delectus iusto, corporis incidunt ab natus error possimus eius placeat dicta voluptate beatae. Veniam laudantium expedita blanditiis magnam dolorum alias laborum quod harum officia, autem tenetur voluptate delectus nihil porro ducimus cumque minima, reiciendis itaque dolores quaerat praesentium tempora, esse enim eos! Eius ipsa magni sit tempora, alias distinctio delectus doloribus, deserunt aliquid explicabo, commodi fugit voluptates?",
+    stars: 3,
   },
   {
     type: "usuario",
@@ -338,10 +351,13 @@ const usersData = [
       "Aunque pensaba que el mundo era plano, no veía la ironía de querer viajar alrededor del mundo",
     image:
       "https://ucarecdn.com/6d7c0e44-12e6-4719-ae35-908b9e5b4037/pngtransparentcomputericonsuserprofileavataruserheroesbusinessuser.png",
+    latitude: -34.608052,
+    longitude: -58.376166,
     CVU: "",
     password: "1234",
-    review: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea quo quidem nihil et voluptates, iusto tenetur delectus fugit repellendus amet, earum eligendi saepe. Quos placeat nam quam voluptatem deserunt minima distinctio eveniet, ratione velit quis aliquid in nobis quia enim repellat facere aliquam eos ducimus? Debitis, corporis iusto quidem numquam autem ipsum eos commodi voluptas dolorem perferendis ullam maxime incidunt neque earum explicabo, maiores placeat cum exercitationem eligendi. Cumque asperiores modi accusamus nesciunt excepturi ratione perferendis, iste officia expedita deleniti rerum eaque laudantium deserunt mollitia sunt quaerat reprehenderit, quo cupiditate amet sed? Iste delectus iusto, corporis incidunt ab natus error possimus eius placeat dicta voluptate beatae. Veniam laudantium expedita blanditiis magnam dolorum alias laborum quod harum officia, autem tenetur voluptate delectus nihil porro ducimus cumque minima, reiciendis itaque dolores quaerat praesentium tempora, esse enim eos! Eius ipsa magni sit tempora, alias distinctio delectus doloribus, deserunt aliquid explicabo, commodi fugit voluptates?",
-    stars: 4
+    review:
+      "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea quo quidem nihil et voluptates, iusto tenetur delectus fugit repellendus amet, earum eligendi saepe. Quos placeat nam quam voluptatem deserunt minima distinctio eveniet, ratione velit quis aliquid in nobis quia enim repellat facere aliquam eos ducimus? Debitis, corporis iusto quidem numquam autem ipsum eos commodi voluptas dolorem perferendis ullam maxime incidunt neque earum explicabo, maiores placeat cum exercitationem eligendi. Cumque asperiores modi accusamus nesciunt excepturi ratione perferendis, iste officia expedita deleniti rerum eaque laudantium deserunt mollitia sunt quaerat reprehenderit, quo cupiditate amet sed? Iste delectus iusto, corporis incidunt ab natus error possimus eius placeat dicta voluptate beatae. Veniam laudantium expedita blanditiis magnam dolorum alias laborum quod harum officia, autem tenetur voluptate delectus nihil porro ducimus cumque minima, reiciendis itaque dolores quaerat praesentium tempora, esse enim eos! Eius ipsa magni sit tempora, alias distinctio delectus doloribus, deserunt aliquid explicabo, commodi fugit voluptates?",
+    stars: 4,
   },
   {
     type: "usuario",
@@ -359,6 +375,8 @@ const usersData = [
       "Solo quería decirte que pude ver el amor que sientes por tu hija por la forma en que la miras",
     image:
       "https://ucarecdn.com/6af60d4b-3444-43f5-bdc1-db12f38085f8/images.png",
+    latitude: -31.41555,
+    longitude: -64.186793,
     CVU: "",
     password: "1234",
   },
@@ -378,6 +396,8 @@ const usersData = [
       "En el momento en que aterrizó comprendió la razón por la que se trataba de un estado de sobrevuelo",
     image:
       "https://ucarecdn.com/6d71e24b-53e7-4fbb-b4ab-7b9813d05154/images1.png",
+    latitude: -34.608052,
+    longitude: -58.376166,
     CVU: "",
     password: "1234",
   },
@@ -397,6 +417,8 @@ const usersData = [
       "Nuestro Centro de Adopciones está siempre abierto a quienes estén buscando una mascota para amar y cuidar.  Durante todo el año hay perritos de todas las edades, tamaños y colores esperando que lleguen sus nuevos humanos. ",
     image:
       "https://ucarecdn.com/6bc03969-82d2-4ee3-8325-a5c0bbf6c226/exampleimage.jpg",
+    latitude: -32.175477,
+    longitude: -64.111845,
     CVU: "596013402768904",
     password: "1234",
   },
@@ -416,6 +438,8 @@ const usersData = [
       "AYUDANOS A AYUDAR!Somos un Grupo que trabaja Ad Honorem, RESCATANDO,AYUDANDO ,CONCIENTIZANDO,",
     image:
       "https://ucarecdn.com/a58ebf1f-6c9e-444b-a752-df49492839a5/kisspngdoglogopetkennelclubbonedog5abebc30c2c1138323652015224494567977.jpg",
+    latitude: -26.826678,
+    longitude: -65.187033,
     CVU: "948360284814368",
     password: "1234",
   },
@@ -435,6 +459,8 @@ const usersData = [
       "El rescate y adopción de gatos es una experiencia gratificante y gratificante. Como todos los animales, los gatos requieren cuidado y atención. También son una delicia para tener en la familia.",
     image:
       "https://ucarecdn.com/8c49d528-e5cf-4e72-83cb-0879b1bb47b8/1151150090_goggglogosdefundacionesdeanimales.png",
+    latitude: -24.816949,
+    longitude: -65.410718,
     CVU: "842254369748662",
     password: "1234",
   },
@@ -454,6 +480,8 @@ const usersData = [
       "Fundación Vidanimal es una organización no gubernamental sin fines de lucro abocada a difundir, proteger y promover los derechos de los animales.",
     image:
       "https://ucarecdn.com/e0a51a6f-adf4-4596-af49-b861fdb29483/perromascotasconceptologotipoiconovectorconceptodiseno2dh318m.jpg",
+    latitude: -36.624463,
+    longitude: -64.284073,
     CVU: "106672908060515",
     password: "1234",
   },
@@ -473,6 +501,8 @@ const usersData = [
       "Fundación adoptemos es una organización no gubernamental sin fines de lucro abocada a difundir, proteger y promover los derechos de los animales.",
     image:
       "https://ucarecdn.com/2eacd4d1-6f11-4dee-a67e-9b2fbbcd6aa6/logofpai001.jpg",
+    latitude: -36.624463,
+    longitude: -64.284073,
     CVU: "106672908063515",
     password: "1234",
   },
@@ -492,10 +522,13 @@ const usersData = [
       "Fundación futuro ideal es una organización no gubernamental sin fines de lucro abocada a difundir, proteger y promover los derechos de los animales.",
     image:
       "https://ucarecdn.com/e885f955-e0be-47a6-b36b-d2233ea0b92f/handlovesignwithincircle260nw1970062876.webp",
+    latitude: -36.624463,
+    longitude: -64.284073,
     CVU: "106672908560515",
     password: "1234",
-    review: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea quo quidem nihil et voluptates, iusto tenetur delectus fugit repellendus amet, earum eligendi saepe. Quos placeat nam quam voluptatem deserunt minima distinctio eveniet, ratione velit quis aliquid in nobis quia enim repellat facere aliquam eos ducimus? Debitis, corporis iusto quidem numquam autem ipsum eos commodi voluptas dolorem perferendis ullam maxime incidunt neque earum explicabo, maiores placeat cum exercitationem eligendi. Cumque asperiores modi accusamus nesciunt excepturi ratione perferendis, iste officia expedita deleniti rerum eaque laudantium deserunt mollitia sunt quaerat reprehenderit, quo cupiditate amet sed? Iste delectus iusto, corporis incidunt ab natus error possimus eius placeat dicta voluptate beatae. Veniam laudantium expedita blanditiis magnam dolorum alias laborum quod harum officia, autem tenetur voluptate delectus nihil porro ducimus cumque minima, reiciendis itaque dolores quaerat praesentium tempora, esse enim eos! Eius ipsa magni sit tempora, alias distinctio delectus doloribus, deserunt aliquid explicabo, commodi fugit voluptates?",
-    stars: 5
+    review:
+      "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea quo quidem nihil et voluptates, iusto tenetur delectus fugit repellendus amet, earum eligendi saepe. Quos placeat nam quam voluptatem deserunt minima distinctio eveniet, ratione velit quis aliquid in nobis quia enim repellat facere aliquam eos ducimus? Debitis, corporis iusto quidem numquam autem ipsum eos commodi voluptas dolorem perferendis ullam maxime incidunt neque earum explicabo, maiores placeat cum exercitationem eligendi. Cumque asperiores modi accusamus nesciunt excepturi ratione perferendis, iste officia expedita deleniti rerum eaque laudantium deserunt mollitia sunt quaerat reprehenderit, quo cupiditate amet sed? Iste delectus iusto, corporis incidunt ab natus error possimus eius placeat dicta voluptate beatae. Veniam laudantium expedita blanditiis magnam dolorum alias laborum quod harum officia, autem tenetur voluptate delectus nihil porro ducimus cumque minima, reiciendis itaque dolores quaerat praesentium tempora, esse enim eos! Eius ipsa magni sit tempora, alias distinctio delectus doloribus, deserunt aliquid explicabo, commodi fugit voluptates?",
+    stars: 5,
   },
   {
     type: "fundacion",
@@ -513,6 +546,8 @@ const usersData = [
       "Fundación patitas cortas y largas es una organización no gubernamental sin fines de lucro abocada a difundir, proteger y promover los derechos de los animales.",
     image:
       "https://ucarecdn.com/b12b8881-581e-4956-bde2-9f68c2fb251e/caridadfundacionlogovector_23987228.avif",
+    latitude: -36.624463,
+    longitude: -64.284073,
     CVU: "133372908060515",
     password: "1234",
   },
@@ -532,10 +567,13 @@ const usersData = [
       "Fundación naturaleza es una organización no gubernamental sin fines de lucro abocada a difundir, proteger y promover los derechos de los animales.",
     image:
       "https://ucarecdn.com/4f4c1644-9b38-4da5-86db-f3b7bdd6a9c6/e36255a93896664d4f7f9c439e311721.jpg",
+    latitude: -36.624463,
+    longitude: -64.284073,
     CVU: "106672908060515",
     password: "1234",
-    review: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea quo quidem nihil et voluptates, iusto tenetur delectus fugit repellendus amet, earum eligendi saepe. Quos placeat nam quam voluptatem deserunt minima distinctio eveniet, ratione velit quis aliquid in nobis quia enim repellat facere aliquam eos ducimus? Debitis, corporis iusto quidem numquam autem ipsum eos commodi voluptas dolorem perferendis ullam maxime incidunt neque earum explicabo, maiores placeat cum exercitationem eligendi. Cumque asperiores modi accusamus nesciunt excepturi ratione perferendis, iste officia expedita deleniti rerum eaque laudantium deserunt mollitia sunt quaerat reprehenderit, quo cupiditate amet sed? Iste delectus iusto, corporis incidunt ab natus error possimus eius placeat dicta voluptate beatae. Veniam laudantium expedita blanditiis magnam dolorum alias laborum quod harum officia, autem tenetur voluptate delectus nihil porro ducimus cumque minima, reiciendis itaque dolores quaerat praesentium tempora, esse enim eos! Eius ipsa magni sit tempora, alias distinctio delectus doloribus, deserunt aliquid explicabo, commodi fugit voluptates?",
-    stars: 5
+    review:
+      "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea quo quidem nihil et voluptates, iusto tenetur delectus fugit repellendus amet, earum eligendi saepe. Quos placeat nam quam voluptatem deserunt minima distinctio eveniet, ratione velit quis aliquid in nobis quia enim repellat facere aliquam eos ducimus? Debitis, corporis iusto quidem numquam autem ipsum eos commodi voluptas dolorem perferendis ullam maxime incidunt neque earum explicabo, maiores placeat cum exercitationem eligendi. Cumque asperiores modi accusamus nesciunt excepturi ratione perferendis, iste officia expedita deleniti rerum eaque laudantium deserunt mollitia sunt quaerat reprehenderit, quo cupiditate amet sed? Iste delectus iusto, corporis incidunt ab natus error possimus eius placeat dicta voluptate beatae. Veniam laudantium expedita blanditiis magnam dolorum alias laborum quod harum officia, autem tenetur voluptate delectus nihil porro ducimus cumque minima, reiciendis itaque dolores quaerat praesentium tempora, esse enim eos! Eius ipsa magni sit tempora, alias distinctio delectus doloribus, deserunt aliquid explicabo, commodi fugit voluptates?",
+    stars: 5,
   },
 ];
 
@@ -592,7 +630,8 @@ const campaignsData = [
   },
   {
     title: "Necesitamos 20 bolsas de comida",
-    reason: "20 bolsas de comida para repartir a diferentes pequeños refugios de la zona",
+    reason:
+      "20 bolsas de comida para repartir a diferentes pequeños refugios de la zona",
     description:
       "Muchos refugios cerca del nuestro nos pidieron ayuda y estamos tratando de ayudarlos.",
     goal: 175000,
@@ -602,7 +641,8 @@ const campaignsData = [
   },
   {
     title: "Refugio necesita ampliar su refugio",
-    reason: "Recaudar fondos para comprar un nuevo terreno para nuestras mascotas.",
+    reason:
+      "Recaudar fondos para comprar un nuevo terreno para nuestras mascotas.",
     description:
       "Nuestro refugio es muy pequeño y tenemos muchos animales. Necesitamos ampliarnos.",
     goal: 125456,
@@ -616,8 +656,7 @@ const campaignsData = [
     description:
       "Debido a las peleas entre los perros y gatos, para mantener su integridad física estamos en campaña para hacerles refugios separados.",
     goal: 300000,
-    image:
-      "https://ucarecdn.com/b2eb3317-65d9-4bcb-8267-264a506c31bb/mas.jpg",
+    image: "https://ucarecdn.com/b2eb3317-65d9-4bcb-8267-264a506c31bb/mas.jpg",
     userId: 13,
   },
   {
