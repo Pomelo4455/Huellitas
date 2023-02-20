@@ -5,21 +5,21 @@ import "leaflet/dist/leaflet.css";
 const MapView = ({ latitude, longitude }) => {
   const fillBlueOptions = { fillColor: "blue" };
   const fillRedOptions = { fillColor: "red" };
-  const [map, setMap] = useState({currentLocation: {lat: '-35.89180006651545', lng:'-64.5118360741946'}});
+  const [map, setMap] = useState({currentLocation: {lat: latitude, lng: longitude}});
 
  // function loadState(e) {
     
-  //console.log({'lat':latitude, 'lng': longitude})
+  console.log({'lat':latitude, 'lng': longitude})
 
-  useEffect(() => {
-    if (latitude && longitude) {
-      const currentLocation = {
-        lat: latitude, 
-        lng: longitude 
-      }
-      setMap({ ...map, currentLocation });
-    }
-  }, [])
+  // useEffect(() => {  
+  //   if (latitude && longitude) {
+      
+  //     setMap({ ...map, currentLocation: {
+  //       lat: latitude, 
+  //       lng: longitude 
+  //     } });
+  //   }
+  // }, [])
   //<button  onClick={(e) => loadState(e)} >Usar mi ubicación</button>
 
   return (
@@ -31,7 +31,7 @@ const MapView = ({ latitude, longitude }) => {
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         />
-      <LayerGroup> 
+      <LayerGroup>
         <Circle
           center={map.currentLocation}
           pathOptions={fillBlueOptions}
