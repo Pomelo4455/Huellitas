@@ -19,7 +19,9 @@ const Profile = ({setLoggedUser}) => {
     const dispatch = useDispatch()
     let profile = useSelector(state => state.profile)
     useEffect(() => {}, [profile])
-  
+    const latitude = profile.latitude
+    const longitude = profile.longitude
+    
     let userId = JSON.parse(localStorage.getItem("loggedUser"));
 
     // useEffect(() => {
@@ -163,7 +165,9 @@ const Profile = ({setLoggedUser}) => {
           </React.Fragment>
         )}
       </div>
-      <MapView />
+      {latitude && longitude ? <MapView latitude={latitude} longitude={longitude}/>
+      : null
+      }
 
     </div>
     </div>
