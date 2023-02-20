@@ -14,8 +14,7 @@ import {useNavigate, navigate } from 'react-router-dom';
 import RenderizarEnAdopcion from './RenderEnAdopcion';
 import RenderizarAdoptados from './RenderAdoptados';
 import RenderizarCampaigns from './RenderCampaigns';
-const { LINK_BACK } = process.env;
-
+import { LINK_BACK } from '../../Utils/variablesDeploy';
 
 
 const Profile = ({setLoggedUser}) => {

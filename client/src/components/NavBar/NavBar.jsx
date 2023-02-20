@@ -19,8 +19,7 @@ import { profileCreationInfo } from "../../Utils/profileFunctions";
 import axios from "axios";
 import styles from "./navBar.module.css";
 import RenderFavorites from "./RenderFavorites";
-const { LINK_BACK } = process.env;
-
+import { LINK_BACK } from "../../Utils/variablesDeploy";
 
 const NavBar = (
   {loggedUser,setLoggedUser}

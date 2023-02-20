@@ -6,8 +6,7 @@ import io from "socket.io-client"
 import RenderizarChats from "./RenderizarChats";
 import { Icon } from '@iconify/react';
 import NotFound from "../NotFound/NotFound";
-const { LINK_BACK } = process.env;
-
+import { LINK_BACK } from "../../Utils/variablesDeploy";
 
 const INICIAL_INPUT = "Escriba su mensaje..."
 const socket = io(`${LINK_BACK}`)

@@ -2,7 +2,7 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import styles from "./navBar.module.css";
 import { useNavigate } from "react-router-dom";
-const { LINK_BACK } = process.env;
+import { LINK_BACK } from "../../Utils/variablesDeploy";
 
 
 export default function RenderFavorites({handleOcultFavorites}) {

@@ -1,5 +1,5 @@
 import { updateFilters, setCurrentPage } from "../../redux/actions";
-const { LINK_BACK } = process.env;
+import { LINK_BACK } from "../../Utils/variablesDeploy";
 
 export const handleSelectedFilter = (e, filtros, dispatch) => {
     e.preventDefault();

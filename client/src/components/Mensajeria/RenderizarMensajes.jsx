@@ -5,7 +5,7 @@ import io from "socket.io-client";
 import { useDispatch } from "react-redux";
 import { updateNotReadChats } from "../../redux/actions";
 import { Link } from "react-router-dom";
-const { LINK_BACK, LINK_FRONT } = process.env;
+import { LINK_BACK, LINK_FRONT } from "../../Utils/variablesDeploy";
 
 const socket = io(`${LINK_BACK}`);
 

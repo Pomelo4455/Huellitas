@@ -1,5 +1,6 @@
 import axios from "axios";
 import swal from "sweetalert";
+import { LINK_BACK } from "../../Utils/variablesDeploy";
 export const GET_PETS = "GET_PETS";
 export const GET_PETS_DETAIL = "GET_PETS_DETAIL";
 export const GET_PET_NAME = "GET_PET_NAME";
@@ -33,7 +34,6 @@ export const GET_DONATIONS = "GET_DONATIONS";
 export const UPDATE_NOT_READ_CHATS = "UPDATE_NOT_READ_CHATS";
 export const GET_THIS_USER = "GET_THIS_USER";
 export const GET_USERS_DETAIL = "GET_USERS_DETAIL";
-const { LINK_BACK } = process.env;
 
 export const getPets = () => {
   return async function (dispatch) {

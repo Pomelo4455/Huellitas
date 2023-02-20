@@ -7,7 +7,7 @@ import style from "./cardDetail.module.css";
 import axios from "axios";
 import swal from "sweetalert";
 import MapView from "../MapView/MapView";
-const {LINK_BACK}=process.env
+import { LINK_BACK } from "../../Utils/variablesDeploy";
 
 const CardDetail = () => {
   const mapRef = useRef()

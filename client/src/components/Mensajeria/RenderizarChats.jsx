@@ -4,7 +4,7 @@ import axios from "axios";
 import io from "socket.io-client"
 import { useDispatch } from "react-redux"
 import { updateNotReadChats } from "../../redux/actions";
-const { LINK_BACK, LINK_FRONT } = process.env;
+import { LINK_BACK, LINK_FRONT } from "../../Utils/variablesDeploy";
 
 const socket = io(`${LINK_BACK}`)
 

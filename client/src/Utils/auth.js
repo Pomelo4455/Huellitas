@@ -1,6 +1,6 @@
 import auth0 from 'auth0-js'
 import history from './history';
-const { LINK_FRONT } = process.env;
+import { LINK_FRONT } from './variablesDeploy';
 
 export default class Auth {
   auth0 = new auth0.WebAuth({

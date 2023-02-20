@@ -3,7 +3,7 @@ import styles from "./card.module.css";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import swal from "sweetalert";
-const {LINK_BACK}=process.env
+import { LINK_BACK } from "../../Utils/variablesDeploy";
  
 export default function Card({ pets }) {
 

@@ -1,7 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import Card from "../Card/Card.jsx";
-const { LINK_BACK } = process.env;
+import { LINK_BACK } from "../../Utils/variablesDeploy.js";
 
 const renderizarPetCards = (allPets, cantidad) => {
     return allPets.slice(0, cantidad).map((pet) => {

@@ -1,7 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import Campaña from "../Campaigns/Campaing";
-const { LINK_BACK } = process.env;
+import { LINK_BACK } from "../../Utils/variablesDeploy";
 
 const renderizarCampaignsCards = (allCampaigns, cantidad) => {
     return allCampaigns.slice(0, cantidad).map((camp) => {

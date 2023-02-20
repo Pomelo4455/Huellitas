@@ -3,9 +3,9 @@ import styles from "./home.module.css";
 import styles2 from "./renderReviews.module.css";
 import { Icon } from '@iconify/react';
 import axios from "axios";
+import { LINK_BACK } from "../../Utils/variablesDeploy";
 const backgrounds = ["rgba(54,181,255,0.2)", "rgba(120,142,255,0.2)", "rgba(117,227,234,0.2)"]
 const MAX_CHARACTERS = 250;
-const { LINK_BACK } = process.env;
 
 const renderStars = (cantidad) => {
     let stars = []

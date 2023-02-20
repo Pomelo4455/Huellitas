@@ -5,8 +5,7 @@ import styles from "./footer.module.css";
 import swal from "sweetalert";
 import Swal from 'sweetalert2'
 import axios from "axios"
-const {LINK_BACK} = process.env;
-
+import { LINK_BACK } from "../../Utils/variablesDeploy";
 
 const ADMIN_ID = 1;
 

@@ -63,12 +63,16 @@
 - APP_PASSWORD_NODEMAILER = gdmrvfsbqonuieih
 - MERCADOPAGO_KEY= TEST-293281331158507-020717-70b9282513602337f43a8d61500c40f9-1305153224
 
-## Para usar el deploy cambiar los siguientes links en ambos .env
+## Para usar el deploy cambiar los siguientes links en "variablesDeploy.js"
 
 - LINK_FRONT=https://huellitasapp.netlify.app
 - LINK_BACK=https://huellitas-production.up.railway.app
+- En "payment.js" asegurarse que la siguiente linea coincida: const LINK_FRONT = "https://huellitasapp.netlify.app"
+- En "index.js" dentro de src asegurarse que la siguiente linea coincida: axios.defaults.baseURL = 'https://huellitas-production.up.railway.app';
 
 ## Para usar los servidores locales:
 
 - LINK_FRONT=http://localhost:3000
 - LINK_BACK=http://localhost:3001
+- En "payment.js" asegurarse que la siguiente linea coincida: const LINK_FRONT = "http://localhost:3000"
+- En "index.js" dentro de src asegurarse que la siguiente linea coincida: axios.defaults.baseURL = 'http://localhost:3001';

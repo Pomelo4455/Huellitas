@@ -20,7 +20,7 @@ import {
   getDonations,
 } from "../../redux/actions";
 import DataTable, { createTheme } from "react-data-table-component";
-const {LINK_BACK}=process.env
+import { LINK_BACK } from "../../Utils/variablesDeploy.js";
 
 const DashBoardAdm = () => {
   const datos = useSelector((state) => state.users);
