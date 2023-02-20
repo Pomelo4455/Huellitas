@@ -11,6 +11,9 @@ import MapView from "../MapView/MapView";
 import axios from "axios";
 import swal from "sweetalert";
 import {useNavigate, navigate } from 'react-router-dom';
+import RenderizarEnAdopcion from './RenderEnAdopcion';
+import RenderizarAdoptados from './RenderAdoptados';
+import RenderizarCampaigns from './RenderCampaigns';
 const { LINK_BACK } = process.env;
 
 
@@ -39,7 +42,9 @@ const Profile = ({setLoggedUser}) => {
       image: userId.data.image,
       adopciones: "No realizaste adopciones",
       donaciones: "No realizaste donaciones",
-      status: userId.data.status
+      status: userId.data.status,
+      type: userId.data.type,
+      id: userId.data.id
     });
     const handleSendMail = async () => {
       try {
@@ -164,8 +169,10 @@ const Profile = ({setLoggedUser}) => {
           </React.Fragment>
         )}
       </div>
-      <MapView />
-
+      {/* latitud && longitud && <MapView latitud longitud /> */}
+      <RenderizarEnAdopcion user={formData}/>
+      {/* <RenderizarAdoptados/> */}
+      {formData.type === "fundacion" && <RenderizarCampaigns user={formData}/>}
     </div>
     </div>
       

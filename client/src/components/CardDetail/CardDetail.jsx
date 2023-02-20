@@ -1,8 +1,8 @@
 import React from "react";
-import { useEffect } from "react";
-import { Link, redirect, useNavigate, useParams } from "react-router-dom";
+import { useEffect, useRef} from "react";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { getPetsDetail, getThisUser, getUsers } from "../../redux/actions";
+import { getPetsDetail,getUsers } from "../../redux/actions";
 import style from "./cardDetail.module.css";
 import axios from "axios";
 import swal from "sweetalert";
@@ -10,10 +10,10 @@ import MapView from "../MapView/MapView";
 const {LINK_BACK}=process.env
 
 const CardDetail = () => {
+  const mapRef = useRef()
   const dispatch = useDispatch();
   const pet = useSelector((state) => state.pet);
   const navigate = useNavigate();
-  //const user = useSelector((state) => state.thisUser);
   const allUsers = useSelector((state) => state.users);
   const { id } = useParams();
 
@@ -24,7 +24,7 @@ const CardDetail = () => {
   useEffect(() => {
     dispatch(getUsers())
     dispatch(getPetsDetail(id));
-    //dispatch(getThisUser(15));
+    
   }, [dispatch, id]);
 
   const handleSendMail = async () => {
@@ -77,7 +77,7 @@ const CardDetail = () => {
 
   return (
     <>
-      {/* <NavBar /> */}
+     
       <div className={style.detailContainer}>
         <div className={style.detailInformation}>
           <div className={style.petName}>
@@ -106,7 +106,7 @@ const CardDetail = () => {
             </button>
           </div>
         </div>
-        {console.log(pet)}
+        
         <div className={style.detailDescription}>
           <div className={style.descriptionContainer}>
             <p>
@@ -127,9 +127,11 @@ const CardDetail = () => {
           </div>
         </div>
       </div>
-      {console.log(giver[0])}
-      <MapView latitude={latitude} longitude={longitude}/>
-      {/* <Footer /> */}
+     
+      {latitude && longitude ? <MapView latitude={latitude} longitude={longitude}/>
+      : null
+      }
+   
     </>
   );
 };
