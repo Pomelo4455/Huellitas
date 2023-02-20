@@ -10,6 +10,7 @@
     margin: 0;
     box-sizing: border-box;
     display: flex;
+    flex-direction: row;
 }
 
 /* ESTILOS PARA CONTENEDOR DE TITULO E IMAGEN */
@@ -118,6 +119,9 @@
     font-size: 175%;
     font-family: "Poppins";
     font-weight: 400;
+    overflow: visible;
+    word-wrap: break-word;
+    height: fit-content;
 }
 
 .descriptionContainer p span {

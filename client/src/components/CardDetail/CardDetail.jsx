@@ -1,8 +1,8 @@
 import React from "react";
-import { useEffect, useRef} from "react";
+import { useEffect, useRef } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { getPetsDetail,getUsers } from "../../redux/actions";
+import { getPetsDetail, getUsers } from "../../redux/actions";
 import style from "./cardDetail.module.css";
 import axios from "axios";
 import swal from "sweetalert";
@@ -10,21 +10,20 @@ import MapView from "../MapView/MapView";
 import { LINK_BACK } from "../../Utils/variablesDeploy";
 
 const CardDetail = () => {
-  const mapRef = useRef()
+  const mapRef = useRef();
   const dispatch = useDispatch();
   const pet = useSelector((state) => state.pet);
   const navigate = useNavigate();
   const allUsers = useSelector((state) => state.users);
   const { id } = useParams();
 
-  const giver = allUsers.filter(user => pet.userId === user.id);
+  const giver = allUsers.filter((user) => pet.userId === user.id);
   const latitude = giver[0]?.latitude;
   const longitude = giver[0]?.longitude;
 
   useEffect(() => {
-    dispatch(getUsers())
+    dispatch(getUsers());
     dispatch(getPetsDetail(id));
-    
   }, [dispatch, id]);
 
   const handleSendMail = async () => {
@@ -77,7 +76,6 @@ const CardDetail = () => {
 
   return (
     <>
-     
       <div className={style.detailContainer}>
         <div className={style.detailInformation}>
           <div className={style.petName}>
@@ -86,27 +84,30 @@ const CardDetail = () => {
           <div className={style.petImage}>
             <img src={pet.image} alt={`Imagen de ${pet.name}`} />
           </div>
-
-          <div className={style.btnContainer}>
-            <button onClick={handleSendMail} className={style.btnContact}>
-              CONTACTAR
-            </button>
-          </div>
-          <Link to={`../userDetail/${pet.userId}`} style={{textDecoration:"none"}}>
             <div className={style.btnContainer}>
-                <button className={style.btnContactBack}>DADOR</button>
+              <button onClick={handleSendMail} className={style.btnContact}>
+                CONTACTAR
+              </button>
             </div>
-          </Link>
-          <div className={style.btnContainer}>
-            <button
-              onClick={() => window.history.back()}
-              className={style.btnContactBack}
+            <Link
+              to={`../userDetail/${pet.userId}`}
+              style={{ textDecoration: "none" }}
             >
-              VOLVER
-            </button>
+              <div className={style.btnContainer}>
+                <button className={style.btnContactBack}>DADOR</button>
+              </div>
+            </Link>
+            <div className={style.btnContainer}>
+              <button
+                onClick={() => window.history.back()}
+                className={style.btnContactBack}
+              >
+                VOLVER
+              </button>
+          
           </div>
         </div>
-        
+
         <div className={style.detailDescription}>
           <div className={style.descriptionContainer}>
             <p>
@@ -127,11 +128,11 @@ const CardDetail = () => {
           </div>
         </div>
       </div>
-     
-      {latitude && longitude ? <MapView latitude={latitude} longitude={longitude}/>
-      : null
-      }
-   
+      <div className={style.mapa}>
+        {latitude && longitude ? (
+          <MapView latitude={latitude} longitude={longitude} />
+        ) : null}
+      </div>
     </>
   );
 };
