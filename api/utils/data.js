@@ -10,7 +10,7 @@ const petsData = [
     sex: "hembra",
     temperament: "tranquilo",
     adopted: "no",
-    userId: 3,
+    userId: 11,
   },
   {
     name: "Caramelo",
@@ -23,7 +23,7 @@ const petsData = [
     sex: "macho",
     temperament: "tranquilo",
     adopted: "no",
-    userId: 3,
+    userId: 11,
   },
   {
     name: "Toby",
@@ -36,7 +36,7 @@ const petsData = [
     sex: "macho",
     temperament: "tranquilo",
     adopted: "no",
-    userId: 3,
+    userId: 12,
   },
   {
     name: "Thor",
@@ -48,7 +48,7 @@ const petsData = [
     sex: "macho",
     temperament: "inquieto",
     adopted: "no",
-    userId: 2,
+    userId: 13,
   },
   {
     name: "Chipirón",
@@ -61,7 +61,7 @@ const petsData = [
     sex: "macho",
     temperament: "alegre",
     adopted: "no",
-    userId: 3,
+    userId: 14,
   },
   {
     name: "Bimba",
@@ -87,7 +87,7 @@ const petsData = [
     sex: "hembra",
     temperament: "cuidadora",
     adopted: "no",
-    userId: 5,
+    userId: 17,
   },
   {
     name: "Pupi",
@@ -99,7 +99,7 @@ const petsData = [
     sex: "hembra",
     temperament: "afable",
     adopted: "no",
-    userId: 6,
+    userId: 16,
   },
   {
     name: "Bigotes",
@@ -136,7 +136,7 @@ const petsData = [
     sex: "macho",
     temperament: "jugueton",
     adopted: "no",
-    userId: 5,
+    userId: 18,
   },
   {
     name: "Ron",
@@ -162,7 +162,7 @@ const petsData = [
     sex: "macho",
     temperament: "relajado",
     adopted: "no",
-    userId: 3,
+    userId: 15,
   },
   {
     name: "Minnie",
@@ -175,7 +175,7 @@ const petsData = [
     sex: "hembra",
     temperament: "juguetona",
     adopted: "no",
-    userId: 5,
+    userId: 17,
   },
 ];
 
