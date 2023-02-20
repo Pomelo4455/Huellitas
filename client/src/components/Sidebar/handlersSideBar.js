@@ -16,6 +16,6 @@ export const handleCleanFilter = (e, filtros, dispatch) => {
 }
 
 export const combinarFiltros = (filtros) => {
-    return `http://localhost:3001/pets?sex=${filtros.sex}&size=${filtros.size}&species=${filtros.species}&order=${filtros.order}&name=${filtros.name}`;
+    return `http://localhost:3001/pets?sex=${filtros.sex}&size=${filtros.size}&species=${filtros.species}&order=${filtros.order}&name=${filtros.name}&adopted=no`;
 }
   

@@ -22,8 +22,8 @@ const Profile = ({setLoggedUser}) => {
     const dispatch = useDispatch()
     let profile = useSelector(state => state.profile)
     useEffect(() => {}, [profile])
-    const latitude = profile.latitude
-    const longitude = profile.longitude
+    const latitude = profile?.latitude
+    const longitude = profile?.longitude
     
     let userId = JSON.parse(localStorage.getItem("loggedUser"));
 
@@ -174,7 +174,7 @@ const Profile = ({setLoggedUser}) => {
       : null
       }
       <RenderizarEnAdopcion user={formData}/>
-      {/* <RenderizarAdoptados/> */}
+      <RenderizarAdoptados user={formData}/>
       {formData.type === "fundacion" && <RenderizarCampaigns user={formData}/>}
     </div>
     </div>
