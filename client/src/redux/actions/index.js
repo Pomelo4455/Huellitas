@@ -548,19 +548,6 @@ export function getSearchFundation(name) {
     }
   };
 }
-export function getThisUser(id) {
-  console.log(id);
-  return async function (dispatch) {
-    try {
-      const users = await axios.get(`/users/${id}`);
-      return dispatch({
-        type: GET_THIS_USER,
-        payload: users.data,
-      });
-    } catch (error) {}
-  };
-};
-
 export function updateNotReadChats(cantidad) {
   return { type: UPDATE_NOT_READ_CHATS, payload: cantidad };
 }
