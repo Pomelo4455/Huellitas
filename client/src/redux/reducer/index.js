@@ -27,7 +27,6 @@ import {
   GET_CIUDADES,
   GET_DONATIONS,
   UPDATE_NOT_READ_CHATS,
-  GET_THIS_USER,
   GET_USERS_DETAIL,
 } from "../actions";
 
@@ -227,11 +226,6 @@ const rootReducer = (state = initialState, action) => {
         ...state,
         noLeidos : action.payload,
       }
-      case GET_THIS_USER:
-        return {
-          ...state,
-          thisUser : action.payload,
-        }
      case GET_DONATIONS:
       return {
         ...state,
