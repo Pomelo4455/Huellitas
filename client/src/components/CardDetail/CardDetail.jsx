@@ -130,7 +130,9 @@ const CardDetail = () => {
         </div>
       </div>
       {console.log(giver[0])}
-      <MapView latitude={latitude} longitude={longitude}/>
+      {latitude && longitude ? <MapView latitude={latitude} longitude={longitude}/>
+      : null
+      }
       {/* <Footer /> */}
     </>
   );
