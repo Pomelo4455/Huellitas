@@ -5,8 +5,9 @@ import io from "socket.io-client";
 import { useDispatch } from "react-redux";
 import { updateNotReadChats } from "../../redux/actions";
 import { Link } from "react-router-dom";
+import { LINK_BACK, LINK_FRONT } from "../../Utils/variablesDeploy";
 
-const socket = io("http://localhost:3001");
+const socket = io(`${LINK_BACK}`);
 
 const renderizarMensajes = (mensajes, emisor, receptor) => {
   return mensajes.map((mensaje, i) => {
@@ -38,20 +39,20 @@ export default function RenderizarMensajes() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    axios(`http://localhost:3001/users/${emisorId}`).then((user) =>
+    axios(`${LINK_BACK}/users/${emisorId}`).then((user) =>
       setEmisor(user.data)
     );
-    axios(`http://localhost:3001/users/${receptorId}`).then((user) =>
+    axios(`${LINK_BACK}/users/${receptorId}`).then((user) =>
       setReceptor(user.data)
     );
     axios
       .put(
-        `http://localhost:3001/message/leido?emisorId=${receptorId}&receptorId=${emisorId}`
+        `${LINK_BACK}/message/leido?emisorId=${receptorId}&receptorId=${emisorId}`
       )
       .then((data) => {});
-    axios(`http://localhost:3001/message/noleidos?userId=${emisorId}`)
+    axios(`${LINK_BACK}/message/noleidos?userId=${emisorId}`)
       .then((data) => dispatch(updateNotReadChats(data.data.cantidad)))
-      .catch(() => (window.location.href = `http://localhost:3000/chats`));
+      .catch(() => (window.location.href = `${LINK_FRONT}/chats`));
   }, []);
 
   useEffect(() => {
@@ -65,11 +66,11 @@ export default function RenderizarMensajes() {
         if (emisorId == message.ReceptorId) {
           axios
             .put(
-              `http://localhost:3001/message/leido?emisorId=${message.EmisorId}&receptorId=${message.ReceptorId}`
+              `${LINK_BACK}/message/leido?emisorId=${message.EmisorId}&receptorId=${message.ReceptorId}`
             )
             .then((data) => console.log(data.data));
           axios(
-            `http://localhost:3001/message/noleidos?userId=${emisorId}`
+            `${LINK_BACK}/message/noleidos?userId=${emisorId}`
           ).then((data) => dispatch(updateNotReadChats(data.data.cantidad)));
         }
       }
@@ -82,7 +83,7 @@ export default function RenderizarMensajes() {
 
   useEffect(() => {
     axios(
-      `http://localhost:3001/message?emisorId=${emisorId}&receptorId=${receptorId}`
+      `${LINK_BACK}/message?emisorId=${emisorId}&receptorId=${receptorId}`
     ).then((mensajes) => setMessages(mensajes.data));
   }, []);
 

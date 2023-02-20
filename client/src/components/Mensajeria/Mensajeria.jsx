@@ -6,10 +6,10 @@ import io from "socket.io-client"
 import RenderizarChats from "./RenderizarChats";
 import { Icon } from '@iconify/react';
 import NotFound from "../NotFound/NotFound";
-
+import { LINK_BACK } from "../../Utils/variablesDeploy";
 
 const INICIAL_INPUT = "Escriba su mensaje..."
-const socket = io('http://localhost:3001')
+const socket = io(`${LINK_BACK}`)
 
 const validar_url = (emisorId, receptorId, userId) => {
   if (String(emisorId) !== String(userId) && receptorId !== "chats") return true
@@ -59,7 +59,7 @@ export default function Mensajeria() {
   else {
     const handleEnviar = (e) => {
       if ((e.key === "Enter" || e.type === "click") && message.length > 0 && !message.includes("\n")) {
-          axios.post("http://localhost:3001/message", {"message" : message, "emisorId": emisorId, "receptorId": receptorId})
+          axios.post(`${LINK_BACK}/message`, {"message" : message, "emisorId": emisorId, "receptorId": receptorId})
           .then(() => {
             socket.emit('message', {message, EmisorId: emisorId, ReceptorId: receptorId})
             setMessage("")

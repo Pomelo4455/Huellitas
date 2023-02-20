@@ -3,6 +3,7 @@ import styles from "./card.module.css";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import swal from "sweetalert";
+import { LINK_BACK } from "../../Utils/variablesDeploy";
  
 export default function Card({ pets }) {
 
@@ -12,7 +13,7 @@ export default function Card({ pets }) {
 
   useEffect (() => {
     if (user?.id && pets?.id) {
-      axios(`http://localhost:3001/follow/${user.id}/${pets.id}`)
+      axios(`${LINK_BACK}/follow/${user.id}/${pets.id}`)
       .then(data => setSeguido(data.data.seguir))
     }
   }, [])
@@ -24,7 +25,7 @@ export default function Card({ pets }) {
   const handleFollow = () => {
     if (user?.id && pets?.id) {
       setSeguido(!seguido);
-      axios.put(`http://localhost:3001/follow?userId=${user.id}&petId=${pets.id}&seguir=${!seguido}`)
+      axios.put(`${LINK_BACK}/follow?userId=${user.id}&petId=${pets.id}&seguir=${!seguido}`)
     }
     else {
       swal("Inicia sesion para escoger favoritos", "", "error");
