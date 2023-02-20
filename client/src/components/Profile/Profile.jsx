@@ -11,6 +11,7 @@ import MapView from "../MapView/MapView";
 import axios from "axios";
 import swal from "sweetalert";
 import {useNavigate, navigate } from 'react-router-dom';
+const { LINK_BACK } = process.env;
 
 
 
@@ -55,7 +56,7 @@ const Profile = ({setLoggedUser}) => {
         .then((value) => {
           switch (value) {
         //     case "email":
-        //       axios.post("http://localhost:3001/mails", {
+        //       axios.post(`${LINK_BACK}/mails`, {
         //         idUser: userId,
         //       })
         //       .then(() => {

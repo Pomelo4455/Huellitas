@@ -2,14 +2,12 @@ import React from "react";
 import { useEffect } from "react";
 import { Link, redirect, useNavigate, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-
-// import Footer from "../Footer/Footer";
-// import NavBar from "../NavBar/NavBar";
 import { getPetsDetail, getThisUser, getUsers } from "../../redux/actions";
 import style from "./cardDetail.module.css";
 import axios from "axios";
 import swal from "sweetalert";
 import MapView from "../MapView/MapView";
+const {LINK_BACK}=process.env
 
 const CardDetail = () => {
   const dispatch = useDispatch();
@@ -48,7 +46,7 @@ const CardDetail = () => {
         switch (value) {
           case "email":
             axios
-              .post("http://localhost:3001/mails", {
+              .post(`${LINK_BACK}/mails`, {
                 idUser: userId,
                 idGiver: pet.userId,
                 idPet: pet.id,

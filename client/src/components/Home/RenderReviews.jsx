@@ -5,6 +5,7 @@ import { Icon } from '@iconify/react';
 import axios from "axios";
 const backgrounds = ["rgba(54,181,255,0.2)", "rgba(120,142,255,0.2)", "rgba(117,227,234,0.2)"]
 const MAX_CHARACTERS = 250;
+const { LINK_BACK } = process.env;
 
 const renderStars = (cantidad) => {
     let stars = []
@@ -39,7 +40,7 @@ export default function RenderReviews() {
   let [more, setMore] = useState(false)
 
   useEffect(() => {
-    axios("http://localhost:3001/reviews")
+    axios(`${LINK_BACK}/reviews`)
     .then(data => setReviews(data.data))
   }, [])
 

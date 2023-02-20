@@ -1,11 +1,12 @@
 import auth0 from 'auth0-js'
 import history from './history';
+const { LINK_FRONT } = process.env;
 
 export default class Auth {
   auth0 = new auth0.WebAuth({
     domain: 'webapp1.auth0.com',
     clientID: 'uZxUdMAsiDWeu3OrNpoi4JwJscdF5nAx',
-    redirectUri: 'http://localhost:3000/callback',
+    redirectUri: `${LINK_FRONT}/callback`,
     responseType: 'token id_token',
     scope: 'openid profile email'
   })

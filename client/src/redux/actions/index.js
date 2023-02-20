@@ -33,6 +33,7 @@ export const GET_DONATIONS = "GET_DONATIONS";
 export const UPDATE_NOT_READ_CHATS = "UPDATE_NOT_READ_CHATS";
 export const GET_THIS_USER = "GET_THIS_USER";
 export const GET_USERS_DETAIL = "GET_USERS_DETAIL";
+const { LINK_BACK } = process.env;
 
 export const getPets = () => {
   return async function (dispatch) {
@@ -296,7 +297,7 @@ export const deleteCampaigns = (url) => {
 export function getUsersAdm() {
   return async function (dispatch) {
     try {
-      const response = await axios.get("http://localhost:3001/users/Adm/Admin");
+      const response = await axios.get(`${LINK_BACK}/users/Adm/Admin`);
       const allUsersAdm = response.data;
 
       return dispatch({

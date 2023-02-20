@@ -2,6 +2,7 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import styles from "./navBar.module.css";
 import { useNavigate } from "react-router-dom";
+const { LINK_BACK } = process.env;
 
 
 export default function RenderFavorites({handleOcultFavorites}) {
@@ -13,7 +14,7 @@ export default function RenderFavorites({handleOcultFavorites}) {
 
     useEffect(() => {
         if (user?.id) {
-            axios(`http://localhost:3001/follow?userId=${user.id}`)
+            axios(`${LINK_BACK}/follow?userId=${user.id}`)
             .then(data => setFavorites(data.data.splice(0,3)))
         }
     },[])
@@ -21,11 +22,11 @@ export default function RenderFavorites({handleOcultFavorites}) {
     const handleShowMore = () => {
         setMore(!more)
         if (!more && user?.id) {
-            axios(`http://localhost:3001/follow?userId=${user.id}`)
+            axios(`${LINK_BACK}/follow?userId=${user.id}`)
             .then(data => setFavorites(data.data))
         }
         else if (user?.id) {
-            axios(`http://localhost:3001/follow?userId=${user.id}`)
+            axios(`${LINK_BACK}/follow?userId=${user.id}`)
             .then(data => setFavorites(data.data.splice(0,3)))
         }
     }

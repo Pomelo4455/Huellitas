@@ -62,3 +62,13 @@
 ### Agregar las siguientes variables al archivo .env de api:
 - APP_PASSWORD_NODEMAILER = gdmrvfsbqonuieih
 - MERCADOPAGO_KEY= TEST-293281331158507-020717-70b9282513602337f43a8d61500c40f9-1305153224
+
+## Para usar el deploy cambiar los siguientes links en ambos .env
+
+- LINK_FRONT=https://huellitasapp.netlify.app
+- LINK_BACK=https://huellitas-production.up.railway.app
+
+## Para usar los servidores locales:
+
+- LINK_FRONT=http://localhost:3000
+- LINK_BACK=http://localhost:3001

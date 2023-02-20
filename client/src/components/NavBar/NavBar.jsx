@@ -19,6 +19,7 @@ import { profileCreationInfo } from "../../Utils/profileFunctions";
 import axios from "axios";
 import styles from "./navBar.module.css";
 import RenderFavorites from "./RenderFavorites";
+const { LINK_BACK } = process.env;
 
 
 const NavBar = (
@@ -33,7 +34,7 @@ const NavBar = (
 
   useEffect(() => {
     if (loggedUser?.id) {
-      axios(`http://localhost:3001/message/noleidos?userId=${loggedUser?.id}`)
+      axios(`${LINK_BACK}/message/noleidos?userId=${loggedUser?.id}`)
       .then(data => dispatch(updateNotReadChats(data.data.cantidad)))
     }
   }, [])

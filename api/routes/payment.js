@@ -1,9 +1,6 @@
 const { Router } = require("express");
 const mercadopago = require("mercadopago");
-const { MERCADOPAGO_KEY } = process.env;
-
-
-
+const { MERCADOPAGO_KEY, LINK_FRONT } = process.env;
 
 const router = Router();
 
@@ -25,8 +22,8 @@ let preference = {
         unit_price: donation.quantity
 }],
 back_urls:{
-    success: 'http://localhost:3000/payment/gracias',
-    failure: 'http://localhost:3000/payment/error',
+    success: `${LINK_FRONT}/payment/gracias`,
+    failure: `${LINK_FRONT}/payment/error`,
     pending:'',
 },
 auto_return: 'approved',
