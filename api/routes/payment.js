@@ -1,6 +1,7 @@
 const { Router } = require("express");
 const mercadopago = require("mercadopago");
-const { MERCADOPAGO_KEY ,LINK_FRONT} = process.env;
+const { MERCADOPAGO_KEY } = process.env;
+const LINK_FRONT = "https://huellitasapp.netlify.app"
 const router = Router();
 
 mercadopago.configure({access_token: MERCADOPAGO_KEY})
