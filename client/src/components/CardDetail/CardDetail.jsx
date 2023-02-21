@@ -47,7 +47,8 @@ const CardDetail = () => {
       setSeguido(!seguido);
       axios.put(`http://localhost:3001/follow?userId=${user.id}&petId=${pet.id}&seguir=${!seguido}`);
     } else {
-      swal("Inicia sesion para escoger favoritos", "", "error"); //
+      swal("Inicia sesion para escoger favoritos", "", "error")
+      .then(() => loginWithPopup());
     }
   };
 
