@@ -596,8 +596,7 @@ const DashBoardAdm = () => {
 
   return (
     <div className={styles.dashBoardAdm_container}>
-      {/* <NavBar /> */}
-      <h2>DashBoard Administrador</h2>
+      {/* <h2>DashBoard Administrador</h2> */}
       <div className={styles.dashBoardAdm_searchbar}>
         <input
           type="text"
@@ -624,9 +623,6 @@ const DashBoardAdm = () => {
         pagination
         paginationComponentOptions={paginateOptions}
         theme="solarized"
-        // responsive
-        // fixedHeader
-        // fixedHeaderScrollHeight="600px"
       />
       <div className={styles.dashBoardAdm_searchbar}>
         <input

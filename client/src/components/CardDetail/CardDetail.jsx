@@ -1,5 +1,5 @@
 import React from "react";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { getPetsDetail, getUsers } from "../../redux/actions";
@@ -8,6 +8,7 @@ import axios from "axios";
 import swal from "sweetalert";
 import MapView from "../MapView/MapView";
 import { LINK_BACK } from "../../Utils/variablesDeploy";
+import { useAuth0 } from "@auth0/auth0-react";
 
 const CardDetail = () => {
   const mapRef = useRef();
@@ -16,15 +17,34 @@ const CardDetail = () => {
   const navigate = useNavigate();
   const allUsers = useSelector((state) => state.users);
   const { id } = useParams();
-
+  const { loginWithPopup } = useAuth0();
+  let [seguido, setSeguido] = useState(false);
   const giver = allUsers.filter((user) => pet.userId === user.id);
   const latitude = giver[0]?.latitude;
   const longitude = giver[0]?.longitude;
-
+  let user = JSON.parse(window.localStorage.getItem("loggedUser"))?.data;
   useEffect(() => {
     dispatch(getUsers());
     dispatch(getPetsDetail(id));
+    if (user?.id && pet?.id) {
+      axios(`http://localhost:3001/follow/${user.id}/${pet.id}`).then((data) =>
+        setSeguido(data.data.seguir)
+      );
+    }
   }, [dispatch, id]);
+
+  const handleFollow = () => {
+    if (user?.id && pet?.id) {
+      setSeguido(!seguido);
+      axios.put(
+        `http://localhost:3001/follow?userId=${user.id}&petId=${
+          pet.id
+        }&seguir=${!seguido}`
+      );
+    } else {
+      swal("Inicia sesion para escoger favoritos", "", "error");
+    }
+  };
 
   const handleSendMail = async () => {
     try {
@@ -59,7 +79,6 @@ const CardDetail = () => {
               });
             break;
           case "chat":
-            console.log("entre");
             navigate(`../chat/${userId}/${pet.userId}`);
             break;
           default:
@@ -70,7 +89,7 @@ const CardDetail = () => {
         "No es posible contactarse con el dueño de la mascota.",
         "Debe registrarse para poder hacerlo.",
         "error"
-      );
+      ).then(() => loginWithPopup());
     }
   };
 
@@ -84,47 +103,62 @@ const CardDetail = () => {
           <div className={style.petImage}>
             <img src={pet.image} alt={`Imagen de ${pet.name}`} />
           </div>
+          <div className={style.btnContainer}>
+            <button onClick={handleSendMail} className={style.btnContact}>
+              CONTACTAR
+            </button>
+          </div>
+          <Link
+            to={`../userDetail/${pet.userId}`}
+            style={{ textDecoration: "none" }}
+          >
             <div className={style.btnContainer}>
-              <button onClick={handleSendMail} className={style.btnContact}>
-                CONTACTAR
-              </button>
+              <button className={style.btnContactBack}>DADOR</button>
             </div>
-            <Link
-              to={`../userDetail/${pet.userId}`}
-              style={{ textDecoration: "none" }}
+          </Link>
+          <div className={style.btnContainer}>
+            <button
+              onClick={() => window.history.back()}
+              className={style.btnContactBack}
             >
-              <div className={style.btnContainer}>
-                <button className={style.btnContactBack}>DADOR</button>
-              </div>
-            </Link>
-            <div className={style.btnContainer}>
-              <button
-                onClick={() => window.history.back()}
-                className={style.btnContactBack}
-              >
-                VOLVER
-              </button>
-          
+              VOLVER
+            </button>
           </div>
         </div>
 
         <div className={style.detailDescription}>
           <div className={style.descriptionContainer}>
-            <p>
-              <span>Nombre:</span> {pet.name}
-            </p>
-            <p>
-              <span>Edad:</span> {pet.age}
-            </p>
-            <p>
-              <span>Tamaño:</span> {pet.size}
-            </p>
-            <p>
-              <span>Color:</span> {pet.color}
-            </p>
-            <p>
-              <span>Descripcion:</span> {pet.temperament}
-            </p>
+            <div className={style.text}>
+              <p>
+                <span>Nombre:</span> {pet.name}
+              </p>
+              <p>
+                <span>Edad:</span> {pet.age}
+              </p>
+              <p>
+                <span>Tamaño:</span> {pet.size}
+              </p>
+              <p>
+                <span>Color:</span> {pet.color}
+              </p>
+              <p>
+                <span>Descripcion:</span> {pet.temperament}
+              </p>
+            </div>
+            <div className={style.favs}>
+              {seguido ? (
+                <button onClick={handleFollow} className={style.corazonFollow}>
+                  ❤
+                </button>
+              ) : (
+                <button
+                  onClick={handleFollow}
+                  className={style.corazonUnfollow}
+                >
+                  ♡
+                </button>
+              )}
+            </div>
           </div>
         </div>
       </div>

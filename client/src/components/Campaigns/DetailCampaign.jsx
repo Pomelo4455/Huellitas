@@ -10,17 +10,19 @@ import style from "./detailCampaign.module.css";
 import ProgressBar from "@ramonak/react-progress-bar";
 import { Icon } from "@iconify/react";
 import imgCumplido from "../../img/ObjetivoCumplido.png";
+import swal from "sweetalert";
+import { useAuth0 } from "@auth0/auth0-react";
 
 const Detail = (props) => {
   const dispatch = useDispatch();
   const campaignId = useSelector((state) => state.detailCamp);
   const { id } = useParams();
   const profile = useSelector((state) => state.profile);
+  const { loginWithPopup } = useAuth0();
 
   useEffect(() => {
     dispatch(getDetailCamp(id));
   }, [dispatch]);
-
   return (
     <>
       {campaignId.length !== 0 ? (
@@ -94,16 +96,24 @@ const Detail = (props) => {
                 return errors;
               }}
               onSubmit={(values, { resetForm }) => {
-                localStorage.setItem(
-                  "datosDonacion",
-                  JSON.stringify({
-                    amount: values.quantity,
-                    campaignId: campaignId[0].id,
-                    userId: profile.id,
-                  })
-                );
-                dispatch(donate(values));
-                resetForm();
+                if (!profile) {
+                  swal(
+                    "No es posible donar a la campaña.",
+                    "Debe registrarse para poder hacerlo.",
+                    "error"
+                  ).then(() => loginWithPopup());
+                } else {
+                  localStorage.setItem(
+                    "datosDonacion",
+                    JSON.stringify({
+                      amount: values.quantity,
+                      campaignId: campaignId[0].id,
+                      userId: profile.id,
+                    })
+                  );
+                  dispatch(donate(values));
+                  resetForm();
+                }
               }}
               validateOnMount
             >

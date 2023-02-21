@@ -4,7 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import BtnHome from "../BtnHome/BtnHome";
 import Card from "../Card/Card";
 import CardFundacion from "../Card/CardFundacion";
-import { getPets, getCampaigns, getFundaciones } from "../../redux/actions";
+import { getPets, getCampaigns, getFundaciones, setCurrentPage } from "../../redux/actions";
 import swal from "sweetalert";
 import { useAuth0 } from "@auth0/auth0-react";
 import Landing from "../Landing/Landing";
@@ -32,6 +32,7 @@ const Home = () => {
         dispatch(getPets());
         dispatch(getCampaigns());
         dispatch(getFundaciones());
+        dispatch(setCurrentPage(1))
     }, [dispatch]);
     useEffect(() => {
         AOS.init({ duration: 1000 });

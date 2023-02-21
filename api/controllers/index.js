@@ -10,7 +10,8 @@ const loadUsers= async (data=usersData)=>{
 const loadPets= async (data=petsData)=>{
     for (const pet of data) {
         const newPet=await Pet.create(pet);
-        await newPet.setUser(pet.userId)
+        await newPet.setGiver(pet.userId);
+        await newPet.setAdoptante(pet.adoptanteId)
     }
 };
 

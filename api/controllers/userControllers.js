@@ -25,38 +25,21 @@ const getAllUser = async (filters) => {
     include: [
       {
         model: Pet,
-        // attributes: [
-        //   "name",
-        //   "age",
-        //   "species",
-        //   "image",
-        //   "size",
-        //   "color",
-        //   "sex",
-        //   "temperament",
-        //   "adopted",
-        // ],
+        as: "giver"
       },
       {
         model: Campaign,
-        // attributes: ["title", "reason", "description", "goal", "status"],
-        // where: {
-        //   status: "activo",
-        // },
-      },
-      {
-        model: Adoption,
-        attributes: ["date"],
       },
       {
         model: Donation,
         as: "donante",
       },
+      {
+        model: Pet,
+        as: "adoptante"
+      },
     ],
   });
-  // const userTotal = userData.concat(users)
-  // const usersActive = userTotal.filter(e=> e.status==="activo")
-  // return usersActive
   return users;
 };
 
@@ -94,13 +77,14 @@ const getAllUserAdm = async (filters) => {
     include: [
       {
         model: Pet,
+        as: "adoptante"
+      },
+      {
+        model: Pet,
+        as: "giver"
       },
       {
         model: Campaign,
-      },
-      {
-        model: Adoption,
-        attributes: ["date"],
       },
       {
         model: Donation,
@@ -125,10 +109,6 @@ const getAllUserFund = async (filters) => {
           model: Campaign,
         },
         {
-          model: Adoption,
-          attributes: ["date"],
-        },
-        {
           model: Donation,
           as: "donante",
         },
@@ -143,10 +123,6 @@ const getAllUserFund = async (filters) => {
         },
         {
           model: Campaign,
-        },
-        {
-          model: Adoption,
-          attributes: ["date"],
         },
         {
           model: Donation,
