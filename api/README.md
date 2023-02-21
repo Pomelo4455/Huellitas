@@ -66,9 +66,9 @@
 ## Para usar el deploy cambiar los siguientes links en "variablesDeploy.js"
 
 - LINK_FRONT=https://huellitasapp.netlify.app
-- LINK_BACK=https://huellitas-production.up.railway.app
+- LINK_BACK=https://huellitas-production-f7c9.up.railway.app
 - En "payment.js" asegurarse que la siguiente linea coincida: const LINK_FRONT = "https://huellitasapp.netlify.app"
-- En "index.js" dentro de src asegurarse que la siguiente linea coincida: axios.defaults.baseURL = 'https://huellitas-production.up.railway.app';
+- En "index.js" dentro de src asegurarse que la siguiente linea coincida: axios.defaults.baseURL = 'https://huellitas-production-f7c9.up.railway.app';
 
 ## Para usar los servidores locales:
 

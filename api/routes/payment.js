@@ -1,7 +1,6 @@
 const { Router } = require("express");
 const mercadopago = require("mercadopago");
-const LINK_FRONT = require("../../client/src/Utils/variablesDeploy");
-const { MERCADOPAGO_KEY } = process.env;
+const { MERCADOPAGO_KEY ,LINK_FRONT} = process.env;
 const router = Router();
 
 mercadopago.configure({access_token: MERCADOPAGO_KEY})
