@@ -23,6 +23,7 @@ const CardDetail = () => {
   const latitude = giver[0]?.latitude;
   const longitude = giver[0]?.longitude;
   let user = JSON.parse(window.localStorage.getItem("loggedUser"))?.data;
+
   useEffect(() => {
     dispatch(getUsers());
     dispatch(getPetsDetail(id));
@@ -33,16 +34,20 @@ const CardDetail = () => {
     }
   }, [dispatch, id]);
 
+  useEffect(() => {
+    if (user?.id && pet?.id) {
+      axios(`${LINK_BACK}/follow/${user.id}/${pet.id}`).then((data) =>
+        setSeguido(data.data.seguir)
+      );
+    }
+  }, [pet]);
+
   const handleFollow = () => {
     if (user?.id && pet?.id) {
       setSeguido(!seguido);
-      axios.put(
-        `http://localhost:3001/follow?userId=${user.id}&petId=${
-          pet.id
-        }&seguir=${!seguido}`
-      );
+      axios.put(`http://localhost:3001/follow?userId=${user.id}&petId=${pet.id}&seguir=${!seguido}`);
     } else {
-      swal("Inicia sesion para escoger favoritos", "", "error");
+      swal("Inicia sesion para escoger favoritos", "", "error"); //
     }
   };
 
