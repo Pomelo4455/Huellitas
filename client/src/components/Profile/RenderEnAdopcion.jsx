@@ -4,8 +4,9 @@ import Card from "../Card/Card.jsx";
 import { LINK_BACK } from "../../Utils/variablesDeploy.js";
 
 const renderizarPetCards = (allPets, cantidad) => {
+    allPets = allPets.filter(pet => pet.adopted === "no" && pet.deleted === "no")
     return allPets.slice(0, cantidad).map((pet) => {
-      return <Card pets={pet} key={pet.id} />;
+        return <Card pets={pet} key={pet.id} />;
     });
   };
 
