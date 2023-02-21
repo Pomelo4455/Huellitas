@@ -105,7 +105,7 @@ function App() {
           }
         />
         <Route path="/payment/error" element={<Fail />} />
-        <Route path="payment/gracias" element={<Gratitude />} />
+        <Route path="/payment/gracias" element={<Gratitude />} />
         <Route path="/DashBoardAdm" element={
           loggedUser.data?.status === 'baneado' ? <UserBaneado /> :
             <AdminProtectedRoute>
