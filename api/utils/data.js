@@ -126,7 +126,7 @@ const petsData = [
     color: "amarillo",
     sex: "macho",
     temperament: "Confiable, muy mimoso t compañero",
-    adopted: "no",
+    adopted: "si",
     userId: 4,
     adoptanteId: 11
   },
