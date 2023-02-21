@@ -2,7 +2,7 @@ import React from "react";
 import { useEffect, useRef, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { getPetsDetail, getUsers } from "../../redux/actions";
+import { getPetsDetail, getUsers, resetPetDetail } from "../../redux/actions";
 import style from "./cardDetail.module.css";
 import axios from "axios";
 import swal from "sweetalert";
@@ -31,6 +31,10 @@ const CardDetail = () => {
       axios(`http://localhost:3001/follow/${user.id}/${pet.id}`).then((data) =>
         setSeguido(data.data.seguir)
       );
+    }
+
+    return () => {
+      dispatch(resetPetDetail());
     }
   }, [dispatch, id]);
 

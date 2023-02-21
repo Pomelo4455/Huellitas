@@ -29,6 +29,7 @@ import {
   UPDATE_NOT_READ_CHATS,
   GET_USERS_DETAIL,
   RESET_USER_DETAIL,
+  RESET_PET_DETAIL
 } from "../actions";
 
 const initialState = {
@@ -239,6 +240,9 @@ const rootReducer = (state = initialState, action) => {
       };
     case RESET_USER_DETAIL:
       return { ...state, userDetail: {} };
+    
+      case RESET_PET_DETAIL:
+      return { ...state, pet: [] };
 
     default:
       return {
