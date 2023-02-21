@@ -1,5 +1,5 @@
 import styles from "./UserDetail.module.css";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { getDetail, resetDetail } from "../../redux/actions";
@@ -8,11 +8,14 @@ import Campaing from "../Campaigns/Campaing";
 import facebookIcon from "../../img/facebookIcon.png";
 import instagramIcon from "../../img/instagramIcon.webp";
 import tiktokIcon from "../../img/tiktokIcon.png";
+import swal from "sweetalert";
+import { useAuth0 } from "@auth0/auth0-react";
 
 const UserDetail = () => {
   const { id } = useParams();
   const dispatch = useDispatch();
-
+  const navigate = useNavigate();
+  const { loginWithPopup } = useAuth0();
   useEffect(() => {
     dispatch(getDetail(id));
     return () => {
@@ -21,7 +24,21 @@ const UserDetail = () => {
   }, [id, dispatch]);
 
   const detail = useSelector((state) => state.userDetail);
-  console.log(detail);
+
+  const contact = () => {
+    try {
+      const userLocalStorage = JSON.parse(localStorage.getItem("loggedUser"));
+      const userId = userLocalStorage.data.id;
+
+      navigate(`../chat/${userId}/${detail.id}`);
+    } catch (error) {
+      swal(
+        "No es posible contactarse con el usuario.",
+        "Debe registrarse para poder hacerlo.",
+        "error"
+      ).then(() => loginWithPopup());
+    }
+  };
   return (
     <>
       <div className={styles.detailUserContainer}>
@@ -48,6 +65,11 @@ const UserDetail = () => {
               className={styles.btnContactBack}
             >
               VOLVER
+            </button>
+          </div>
+          <div className={styles.btnContainer}>
+            <button onClick={contact} className={styles.btnContactBack}>
+              CONTACTAR
             </button>
           </div>
         </div>
