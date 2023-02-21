@@ -1,8 +1,8 @@
 import React from "react";
 import { Icon } from "@iconify/react";
 import { Link } from "react-router-dom";
+import { useAuth0 } from "@auth0/auth0-react";
 import UserBaneado from "../UserBanedo/UserBaneado";
-
 import styles from "./footer.module.css";
 import swal from "sweetalert";
 import Swal from 'sweetalert2'
@@ -12,7 +12,7 @@ import { LINK_BACK } from "../../Utils/variablesDeploy";
 const ADMIN_ID = 1;
 
 function Footer() {
-
+  const { loginWithPopup } = useAuth0();
   let user = JSON.parse(window.localStorage.getItem("loggedUser"));
 
   const handleContact = () => {
@@ -22,7 +22,7 @@ function Footer() {
       text: "Debe iniciar sesión para hacerlo.",
       icon: "info",
       button: "Ok",
-    });
+    }).then(() => loginWithPopup());;
   }
 
   const handleNotReview = () => {
@@ -32,7 +32,7 @@ function Footer() {
       text: "Debe iniciar sesión para hacerlo.",
       icon: "info",
       button: "Ok",
-    });
+    }).then(() => loginWithPopup());
   }
 
   const handleReview = async () => {
