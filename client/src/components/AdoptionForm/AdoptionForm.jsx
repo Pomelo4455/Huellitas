@@ -25,8 +25,6 @@ export default function AdoptionForm() {
   useEffect(() => {
     if (isMounted.current === true) {
       dispatch(getProvincias());
-
-      console.log("cargado");
     } else isMounted.current = true;
   }, []);
 
@@ -35,8 +33,7 @@ export default function AdoptionForm() {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(
         (position) => {
-          console.log(position.coords.latitude, position.coords.longitude);
-          setLocation({
+           setLocation({
             latitude: position.coords.latitude,
             longitude: position.coords.longitude,
           });
@@ -272,6 +269,7 @@ export default function AdoptionForm() {
                     height="40px"
                   />
                 </button>
+                {userLocation.latitude !== 0 ?<Icon icon="material-symbols:check-circle-rounded" color="#025c4c" width="30" height="30" />:null}
               </div>
               <label>o seleccionar </label>
               <div className={styles.region}>

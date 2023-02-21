@@ -24,7 +24,6 @@ const Home = () => {
     const navigate = useNavigate();
     const profile = useSelector((state) => state.profile);
     const isAuth = useSelector((state) => state.is_authenticated);
-    const [userLocation, setLocation] = useState({ lat: 0, lng: 0 });
     const { loginWithPopup } = useAuth0();
     let user = JSON.parse(window.localStorage.getItem("loggedUser"));
 
@@ -95,7 +94,7 @@ const Home = () => {
                     </Link>
                 ) : null}
           </div>
-          <RenderPets />
+          <RenderPets/>
           <RenderCampaigns />
           <RenderFoundations />
           <RenderReviews />
