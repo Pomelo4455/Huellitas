@@ -128,7 +128,7 @@ const petsData = [
     temperament: "Confiable, muy mimoso t compañero",
     adopted: "si",
     userId: 4,
-    adoptanteId: 11
+    adoptanteId: 11,
   },
   {
     name: "Trufa",
@@ -152,7 +152,8 @@ const petsData = [
     size: "mediano",
     color: "marron atigrado con manchas blancas",
     sex: "hembra",
-    temperament: "Es muy mimosa y dormilona, ama el invierno y una dormit una buena siesta con su humanx",
+    temperament:
+      "Es muy mimosa y dormilona, ama el invierno y una dormit una buena siesta con su humanx",
     adopted: "no",
     userId: 17,
   },
@@ -882,6 +883,91 @@ const campaignsData = [
     image:
       "https://ucarecdn.com/3506f523-7f91-48ad-8427-835bed78b485/jcr_content.png",
     userId: 14,
+  },
+  {
+    title: "Necesitamos ayuda para gastos veterinarios",
+    reason: "Cuidar y currar a animalitos heridos",
+    description:
+      "Los gastos veterinarios no son baratos y necesitamos ayuda para seguir ayudando.",
+    goal: 150000,
+    image:
+      "https://is2.sosvox.net/petitions/b/ff/ffbea41b5cae8de4a663670de9d71c23.jpg",
+    userId: 19,
+  },
+  {
+    title: "Necesitamos comprar productos de limpieza",
+    reason: "Se necesita un ambiente limpio para los animalitos rescatados",
+    description:
+      "Muchos de nuestros rescatados vienen heridos, por lo que es necesario un ambiente higienizado y bien cuidado.",
+    goal: 100000,
+    image:
+      "https://selecciones.com.mx/wp-content/uploads/2021/10/con-que-frecuencia-lbanar-a-tus-mascotas.jpg",
+    userId: 20,
+  },
+  {
+    title: "Necesitamos comprar medicamentos",
+    reason: "Se necesitan medicamentos",
+    description:
+      "Se necesitan medicamentos para mantener estables a algunos de los peluditos enfermos/tratados de condición especial.",
+    goal: 175000,
+    image:
+      "https://klean-vet.com/wp-content/uploads/2022/01/cbd-para-mascotas.jpg",
+    userId: 21,
+  },
+  {
+    title: "Donaciones para rescates",
+    reason: "Comprar materiales para realizar rescates de mascotas ",
+    description:
+      "Estamos buscando recaudar fondos para adquirir los materiales necesarios para llevar a cabo rescates de mascotas abandonadas y brindarles el cuidado que merecen. Con tu generosa contribución, podremos obtener los recursos que necesitamos para llevar a cabo estas misiones de manera efectiva y brindar atención médica, alimento y refugio a estas mascotas desprotegidas. Tu donación ayudará a marcar la diferencia en la vida de estas mascotas y les dará una segunda oportunidad para tener un hogar amoroso. ¡Gracias por tu apoyo!",
+    goal: 150000,
+    image:
+      "https://cdn.cnn.com/cnnnext/dam/assets/201014193505-coronavirus-rescate-de-animales-abandonados-a-nivel-mundial-perros-gatos-pandemia-pkg-original-digital-patino-00012911.jpg",
+    userId: 22,
+  },
+
+  {
+    title: "Ayuda a nuestros amigos peludos en necesidad",
+    reason:
+      "Hay muchos perros y gatos abandonados o sin hogar que necesitan atención médica, alimento y amor",
+    description:
+      "Esta campaña busca recaudar fondos para ayudar a los perros y gatos que están en situaciones precarias. Cada donación ayuda a proporcionar alimento, atención médica y refugio para estas mascotas necesitadas. ¡Únete a nosotros para ayudar a nuestros amigos peludos a encontrar hogares amorosos y cariñosos!",
+    goal: 115000,
+    image:
+      "https://diariocorreo.pe/resizer/AgcmGB6FJtQiRr_SiFW1BbnoGGw=/580x330/smart/filters:format(jpeg):quality(75)/cloudfront-us-east-1.images.arcpublishing.com/elcomercio/3KY2TU2U65HTRA6QNZBYV42QK4.jpg",
+    userId: 23,
+  },
+  {
+    title: "Un hogar para cada mascota",
+    reason:
+      "Hay muchos perros y gatos que necesitan hogares amorosos y permanentes.",
+    description:
+      "Esta campaña tiene como objetivo ayudar a encontrar hogares amorosos y permanentes para perros y gatos que necesitan un lugar donde vivir. Cada donación ayuda a cubrir los costos asociados con la atención médica, vacunación, esterilización y otros gastos necesarios para preparar a estos animales para ser adoptados. ¡Ayuda a hacer posible que cada mascota tenga un hogar amoroso y permanente!",
+    goal: 150000,
+    image:
+      "https://elcomercio.pe/resizer/fVOzIUcSefdkJF2uwOkIoF-j4Sw=/580x330/smart/filters:format(jpeg):quality(75)/cloudfront-us-east-1.images.arcpublishing.com/elcomercio/AOWDTIZ6AJEZ5HT76BUIQLPCBA.jpg",
+    userId: 24,
+  },
+  {
+    title: "Dona para salvar una vida",
+    reason:
+      "Muchos perros y gatos necesitan atención médica urgente para salvar sus vidas.",
+    description:
+      "Esta campaña busca recaudar fondos para ayudar a proporcionar atención médica a perros y gatos que necesitan ayuda urgente para salvar sus vidas. Cada donación ayuda a cubrir los costos de tratamiento y cuidado, lo que puede marcar la diferencia en la vida de estos animales. ¡Ayuda a salvar una vida hoy con tu donación!",
+    goal: 90000,
+    image:
+      "https://pampermut.com/blog/wp-content/uploads/2020/07/Disen%CC%83o-sin-ti%CC%81tulo-2020-07-06T160520.987-1155x770.jpg",
+    userId: 19,
+  },
+  {
+    title: "Ayuda a nuestros amigos de cuatro patas",
+    reason:
+      "Hay muchos perros y gatos que necesitan alimento y suministros para sobrevivir",
+    description:
+      "Esta campaña tiene como objetivo recaudar fondos y suministros para ayudar a los perros y gatos que necesitan alimento y suministros para sobrevivir. Cada donación ayuda a proporcionar comida, juguetes, mantas y otros suministros necesarios para mantener a estos animales felices y saludables. ¡Únete a nosotros para ayudar a nuestros amigos de cuatro patas!",
+    goal: 130000,
+    image:
+      "https://www.enexclusiva.com/wp-content/uploads/2019/09/GettyImages-981844828-1-724x375.jpg",
+    userId: 20,
   },
 ];
 
