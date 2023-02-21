@@ -6,13 +6,14 @@ import swal from "sweetalert";
 import { LINK_BACK } from "../../Utils/variablesDeploy";
 import { useAuth0 } from "@auth0/auth0-react";
 
-export default function Card({ pets }) {
+export default function Card({ pets, distancia }) {
   let user = JSON.parse(window.localStorage.getItem("loggedUser"))?.data;
   let [seguido, setSeguido] = useState(false);
   const navigate = useNavigate();
   const { loginWithPopup } = useAuth0();
 
   useEffect(() => {
+   
     if (user?.id && pets?.id) {
       axios(`${LINK_BACK}/follow/${user.id}/${pets.id}`).then((data) =>
         setSeguido(data.data.seguir)
@@ -38,10 +39,19 @@ export default function Card({ pets }) {
       );
     }
   };
-
+  
   return (
     <div key={pets.id} className={styles.card}>
       <div className={styles.center}>
+        {seguido ? (
+         <button onClick={handleFollow} className={styles.corazonFollow}>
+           ❤
+         </button>
+       ) : (
+         <button onClick={handleFollow} className={styles.corazonUnfollow}>
+           ♡
+         </button>
+       )}
         <img
           onClick={handleDetail}
           src={pets.image}
@@ -51,18 +61,11 @@ export default function Card({ pets }) {
         <h1 onClick={handleDetail} className={styles.name}>
           {pets.name}
         </h1>
+       {distancia? <p>Se encuentra a {distancia} kms de tu ubicación</p>:null}
+       {distancia === 0? <p>Se encuentra muy cerca de tu ubicación</p>:null}
         <h2 onClick={handleDetail} className={styles.name}>
           {pets.giver}
-        </h2>
-        {seguido ? (
-          <button onClick={handleFollow} className={styles.corazonFollow}>
-            ❤
-          </button>
-        ) : (
-          <button onClick={handleFollow} className={styles.corazonUnfollow}>
-            ♡
-          </button>
-        )}
+         </h2>
       </div>
     </div>
   );

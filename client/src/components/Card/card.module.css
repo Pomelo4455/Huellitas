@@ -11,7 +11,7 @@
   margin: 1rem;
   background: #f8f8f8;
   height: 400px;
-  width: 280px;
+  width: 300px;
   background: linear-gradient(360deg, #c7eaff, #059ff6);
   transition: 0.5s;
   cursor: pointer;
@@ -19,20 +19,25 @@
   color: white;
   box-shadow: 10px 20px rgba(0, 0, 0, 0.15);
   transition: all 0.4s ease;
+
 }
 
 .card:hover {
   border-radius: 0% 0% 50% 50% / 0% 0% 5% 5%;
   box-shadow: 10px 10px rgba(0, 0, 0, 0.25);
 }
-
+.center{
+ display: flex;
+ text-align: center;
+ flex-direction: column;
+}
 .img {
   display: flex;
   flex-direction: column;
   justify-content: center;
   margin-left: auto;
   margin-right: auto;
-  width: 280px;
+  width: 300px;
   height: 225px;
   object-fit: cover;
   align-content: center;
@@ -49,10 +54,12 @@
 }
 
 .corazonUnfollow {
+  position: absolute;
+  z-index: 1;
   font-size: 50px;
   display: none;
-  margin: 0 auto;
-  color: rgba(52,131,250,0.5);
+  margin-top: -15px;
+  color: #C2F4FF;
   pointer-events: all;
   background: none;
   border: none;
@@ -64,14 +71,16 @@
 }
 
 .corazonUnfollow:hover {
-  color: rgba(52,131,250,1);
+  color: #ECA0A0;
 }
 
 .corazonFollow {
+  position: absolute;
+  z-index: 1;
   font-size: 45px;
   display: none;
-  margin: 0 auto;
-  color: rgba(52,131,250,1);
+  margin-top: -10px;
+  color: #ECA0A0;
   pointer-events: all;
   background: none;
   border: none;
@@ -80,8 +89,4 @@
 
 .card:hover .corazonFollow {
   display: flex;
-}
-
-.corazonFollow:hover {
-  color: rgba(52,131,250,0.8);
 }
