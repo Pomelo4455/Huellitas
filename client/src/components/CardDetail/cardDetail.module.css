@@ -95,6 +95,36 @@
     opacity: .9;
     transform: scale(1.05);
 }
+.favs{
+    background: none;
+    border-radius: 4px;
+    height: 60px;
+    width: 100px;
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+
+.corazonUnfollow {
+margin-top: -10%;
+font-size: 60px;
+color: #C2F4FF;
+background: none;
+border: none;
+cursor: pointer;
+  }
+
+.corazonUnfollow:hover {
+    color: #ECA0A0;
+}
+
+.corazonFollow {
+    font-size: 45px;
+    color: #ECA0A0;
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
 
 /* ESTILOS PARA EL CONTENEDOR DE DETALLE DE LA MASCOTA */
 
@@ -107,21 +137,24 @@
 }
 
 .descriptionContainer {
+    display: flex;
+    flex-direction: row;
     background: radial-gradient(#54bdff, #aadeff);
-    width: 100%;
+    width: 80%;
     margin-top: 58px;
     height: auto;
     padding: 1em 2em;
     border-radius: 16px;
 }
 
-.descriptionContainer p {
+.text {
     font-size: 175%;
     font-family: "Poppins";
     font-weight: 400;
     overflow: visible;
     word-wrap: break-word;
     height: fit-content;
+    width: 90%;
 }
 
 .descriptionContainer p span {
