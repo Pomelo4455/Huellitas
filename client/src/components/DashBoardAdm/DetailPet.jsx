@@ -1,6 +1,12 @@
 import styles from "./DetailPet.module.css";
+import { useEffect } from "react";
 
 const DetailPet = ({ dataModal, defaultData, setModalDetailPet }) => {
+  useEffect(() => {
+    return () => {
+      localStorage.setItem("dataChange", JSON.stringify({}));
+    };
+  }, []);
   return (
     <div className={styles.modalUser}>
       <div className={styles.container}>

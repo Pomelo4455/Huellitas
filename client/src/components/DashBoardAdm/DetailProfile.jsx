@@ -1,6 +1,12 @@
 import styles from "./DetailProfile.module.css";
+import { useEffect } from "react";
 
 const DetailProfile = ({ dataModal, defaultData, setModalDetailProfile }) => {
+  useEffect(() => {
+    return () => {
+      localStorage.setItem("dataChange", JSON.stringify({}));
+    };
+  }, []);
   return (
     <div className={styles.modalUser}>
       <div className={styles.container}>
