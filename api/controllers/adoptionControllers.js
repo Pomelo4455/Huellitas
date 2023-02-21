@@ -26,6 +26,7 @@ const postAdopcion = async (AdoptanteId, MascotaId) => {
     let petDb = await Pet.findOne({where: {id : MascotaId}});
     let userDb = await User.findOne({where:{id : AdoptanteId}});
     await petDb.setAdoptante(userDb)
+    await petDb.update({adopted: "si"});
 }
 
 module.exports = {
