@@ -1,18 +1,69 @@
 .sideBar {
+    background-color: rgba(3, 3, 3, 0.97);
     width: 100%;
     height: 100%;
-    background-color: rgba(3, 3, 3, 0.875);
-
+    border-radius: 24px  0  0 24px;
     margin-top: -3.77em;
     margin-left: -4em;
 
     z-index: 100;
     position: fixed;
+    overflow: unset;
+}
+
+.profileCnt:hover .textCnt {
+    display: block;
+}
+
+.textCnt {
+    width: 10%;
+    /* background-color: aquamarine; */
+    text-align: center;
+    /* display: none; */
+}
+
+
+.btnLink {
+    /* background-color: rgb(167, 116, 50); */
+    display: inline-block;
+    width: 4%;
+    height: auto;
+    margin: 1em .5em;
+}
+
+.textCnt .textIcon {
+    color: #FFF;
+    font-size: 1.4em;
+}
+
+
+.profileCnt {
+    /* background-color: burlywood; */
+    display: flex;
+    margin: 1em 0;
+}
+
+.profileBtn {
+    padding-left: .5em;
+    height: 3em;
+    width: 2em;
+    color: #FFF;
+}
+
+
+.chatsBtn {
+    padding-left: .8em;
+
+    height: 3em;
+    width: 2em;
+    color: #FFF;
 }
 
 .closedSide {
     /* background-color: #fff; */
+    width: 75%;
     height: auto;
+    margin: 0 auto;
 }
 
 .closedSide p {
@@ -27,4 +78,12 @@
     font-size: 1.2em;
     margin: .4em;
     font-weight: bold;
+    cursor: pointer;
+}
+
+.logoutContainer {
+    width: 100%;
+    height: auto;
+    margin: 0 auto;
+    /* background-color: aqua; */
 }

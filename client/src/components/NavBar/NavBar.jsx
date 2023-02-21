@@ -175,6 +175,7 @@ const NavBar = ({ loggedUser, setLoggedUser }) => {
                               
                               <ProfileSideBar 
                                 handleEdit={handleEdit}
+                                noLeidos={noLeidos}
                               />
                                         
                               </div>
@@ -182,6 +183,7 @@ const NavBar = ({ loggedUser, setLoggedUser }) => {
                             ) : (
                                 <>
                                     <LoginButton />
+
                                 </>
                             )}
                         </div>

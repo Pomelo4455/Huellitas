@@ -11,53 +11,88 @@ const ProfileSideBar = ({ handleEdit, noLeidos }) => {
 
             <div 
                 className={styles.closedSide}
-                onClick={handleEdit}
+                onClick={handleEdit}    
             >
                 <p>X</p>
             </div>
 
-            <div>
+
+            {/* PERFIL */}
+            <div className={styles.profileCnt}>
                 <Link
                     to="/Profile"
                     onClick={handleEdit}
-                    className={styles.editBtnContainer}
+                    className={styles.btnLink}
                 >
-                    <button className={styles.buttonEdit}>Editar perfil</button>
+
+                    <Icon 
+                        className={styles.profileBtn}
+                        icon="carbon:user-profile" 
+                    />
+
                 </Link>
+
+                <div className={styles.textCnt}> 
+                    <p className={styles.textIcon}>Editar perfil</p>
+                </div>
             </div>
-            <Link
-                to="/chats"
+
+            {/* CHATS */}
+            <div className={styles.profileCnt}>
+
+                <Link
+                    to="/chats"
+                    onClick={handleEdit}
+                    className={styles.btnLink}
+                >
+
+                    <Icon 
+                        className={styles.chatsBtn}    
+                        icon="ic:baseline-message" 
+                    />
+                
+
+                    {
+                        noLeidos <= 0 ? null : noLeidos <= 9 ? 
+                        (
+                            <div>
+                                <Icon
+                                    icon={`mdi:number-${noLeidos}-circle`}
+                                    width={"30px"}
+                                    height={"30px"}
+                                    style={{
+                                        marginTop: "10px",
+                                    }}
+                                />
+                            </div>
+                        ) 
+                        : 
+                        (
+                            <div>
+                                <Icon
+                                    icon="mdi:number-9-plus-circle"
+                                    width={"30px"}
+                                    height={"30px"}
+                                    style={{
+                                        marginTop: "10px",
+                                    }}
+                                />
+                            </div>
+                        )
+                    }
+
+                </Link>
+
+                <div className={styles.textCnt}> 
+                    <p className={styles.textIcon}>Ver mensajes</p>
+                </div>
+
+            </div>
+
+            <div 
+                className={styles.logoutContainer} 
                 onClick={handleEdit}
-                className={styles.editBtnContainer}
             >
-                <button className={styles.buttonEdit}>
-                    Ver mensajes
-                    {noLeidos <= 0 ? null : noLeidos <= 9 ? (
-                        <div>
-                            <Icon
-                                icon={`mdi:number-${noLeidos}-circle`}
-                                width={"30px"}
-                                height={"30px"}
-                                style={{
-                                    marginTop: "10px",
-                                }}
-                            />
-                        </div>
-                    ) : (
-                        <div>
-                            <Icon
-                                icon="mdi:number-9-plus-circle"
-                                width={"30px"}
-                                height={"30px"}
-                                style={{
-                                    marginTop: "10px",
-                                }}
-                            />
-                        </div>
-                    )}
-                </button>
-            </Link>
-            <div className={styles.logoutContainer} onClick={handleEdit}>
                 <LogoutButton />
             </div>
         </div>
