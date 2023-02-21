@@ -150,18 +150,23 @@ const Profile = ({setLoggedUser}) => {
             <h1 className="profile-name">{formData.name}</h1>
             <p className="profile-email"><strong>Email:</strong> {formData.email}</p>
             <p className="profile-phone" ><strong>Telefono:</strong> {formData.phone}</p>
-            <p className="profile-phone"><strong>Adopciones:</strong> {formData.adopciones} </p>
-            <p className="profile-phone"><strong>Mis donaciones:</strong> {formData.donaciones} </p>
             {/* <p className="profile-phone"><strong>Status:</strong> {formData.status} </p> */}
+            {latitude && longitude ? <MapView latitude={latitude} longitude={longitude}/>
+      : null
+      }
+      <RenderizarEnAdopcion user={formData}/>
+      <RenderizarAdoptados user={formData}/>
+      {formData.type === "fundacion" && <RenderizarCampaigns user={formData}/>}
           </React.Fragment>
         )}
       </div>
       <div className="profile-actions">
         {editMode ? (
           <React.Fragment>
+            
             <button onClick={handleSave} className="profile-action-button">Save</button>
             <button onClick={handleCancel} className="profile-action-button2">Cancel</button>
-            <button onClick={handleSendMail} className="profile-action-button3"> Solicitar cambio a fundacion</button>
+            { formData.type === "usuario" && <button onClick={handleSendMail} className="profile-action-button3"> Solicitar cambio a fundacion</button>}
           </React.Fragment>
         ) : (
           <React.Fragment>
@@ -170,12 +175,6 @@ const Profile = ({setLoggedUser}) => {
           </React.Fragment>
         )}
       </div>
-      {latitude && longitude ? <MapView latitude={latitude} longitude={longitude}/>
-      : null
-      }
-      <RenderizarEnAdopcion user={formData}/>
-      <RenderizarAdoptados user={formData}/>
-      {formData.type === "fundacion" && <RenderizarCampaigns user={formData}/>}
     </div>
     </div>
       
