@@ -5,10 +5,6 @@ import { getCampaigns, setCurrentPage } from "../../redux/actions";
 import Campaña from "./Campaing";
 import { Icon } from "@iconify/react";
 import Paginado from "../Paginado/Paginado";
-
-// import Footer from "../Footer/Footer";
-// import NavBar from "../NavBar/NavBar";
-
 import styles from "./campaigns.module.css";
 
 const Campañas = () => {
@@ -32,11 +28,12 @@ const Campañas = () => {
 
   useEffect(() => {
     dispatch(getCampaigns());
+    
   }, [dispatch]);
 
   return (
     <div className={styles.body}>
-      {/* <NavBar/> */}
+     
       <div className={styles.divIcon}>
         <Link to={"/Home"} className={styles.icon}>
           <Icon icon="pajamas:go-back" width="50px" />
@@ -62,7 +59,7 @@ const Campañas = () => {
       <Paginado paginado={paginado} currentPage={currentPage} petMax={campMax} />
 
 
-      {/* <Footer/> */}
+    
     </div>
   );
 };
