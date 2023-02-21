@@ -1,0 +1,30 @@
+.sideBar {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(3, 3, 3, 0.875);
+
+    margin-top: -3.77em;
+    margin-left: -4em;
+
+    z-index: 100;
+    position: fixed;
+}
+
+.closedSide {
+    /* background-color: #fff; */
+    height: auto;
+}
+
+.closedSide p {
+    background-color: rgb(157, 0, 0);
+    color: #fff;
+    display: inline-block;
+    width: 1.5em;
+    height: 1.5em;
+    border-radius: 50%;
+    padding: .5em;
+    text-align: center;
+    font-size: 1.2em;
+    margin: .4em;
+    font-weight: bold;
+}

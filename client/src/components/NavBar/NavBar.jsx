@@ -20,6 +20,7 @@ import axios from "axios";
 import styles from "./navBar.module.css";
 import RenderFavorites from "./RenderFavorites";
 import { LINK_BACK } from "../../Utils/variablesDeploy";
+import ProfileSideBar from "../ProfileSideBar/ProfileSideBar";
 
 const NavBar = ({ loggedUser, setLoggedUser }) => {
     // console.log(loggedUser)
@@ -109,118 +110,75 @@ const NavBar = ({ loggedUser, setLoggedUser }) => {
                             Sobre Nosotros
                         </Link>
                     </li>
+
                   </div>
 
-                    <div className={styles.rightContainer}>
-                        {
-                          loggedUser && viewFavorites ? (
-                            
-                            <li>
-                                <Icon
-                                    onClick={handleViewFavorites}
-                                    className={styles.followButton}
-                                    icon="ph:heart"
-                                />
-                                <div>
-                                  <div className={styles.infoSession}>
-                                      <RenderFavorites
-                                          handleOcultFavorites={
-                                            handleViewFavorites
-                                          }
-                                          />
-                                  </div>
-                                </div>
-                          </li>
-                          
-                        ) : loggedUser ? (
+                  <div className={styles.rightContainer}>
+                    {
+                      loggedUser && viewFavorites ? 
+                      (
+                        
 
-                          <li>
-
+                        // FAVS
+                        <li>
                             <Icon
+                                onClick={handleViewFavorites}
+                                className={styles.followButton}
+                                icon="ph:heart"
+                            />
+                            <div>
+                              <div className={styles.infoSession}>
+                                  <RenderFavorites
+                                      handleOcultFavorites={
+                                        handleViewFavorites
+                                      }
+                                      />
+                              </div>
+                            </div>
+                        </li>
+                      
+                      ) 
+                      : loggedUser ? 
+                      (
+
+                        <li>
+
+                          <Icon
                             onClick={handleViewFavorites}
                             className={styles.followButton}
                             icon="ph:heart"
-                            />
-                          </li>
-                          ) : null
-                        }
-                        <div className={styles.buttonContainer}>
-                            {loggedUser ? (
-                                <div className={styles.infoSession}>
-                                    <img
-                                        src={loggedUser.image}
-                                        onClick={handleEdit}
-                                    />
-                                    <div
-                                        className={
-                                            showEdit
-                                                ? styles.toggleUser
-                                                : styles.toggleUserNone
-                                        }
-                                    >
-                                        <div>
-                                            <Link
-                                                to="/Profile"
-                                                onClick={handleEdit}
-                                                className={
-                                                    styles.editBtnContainer
-                                                }
-                                            >
-                                                <button
-                                                    className={
-                                                        styles.buttonEdit
-                                                    }
-                                                >
-                                                    {" "}
-                                                    Editar perfil
-                                                </button>
-                                            </Link>
-                                        </div>
-                                        <Link
-                                            to="/chats"
-                                            onClick={handleEdit}
-                                            className={styles.editBtnContainer}
-                                        >
-                                            <button
-                                                className={styles.buttonEdit}
-                                            >
-                                                Ver mensajes
-                                                {noLeidos <=
-                                                0 ? null : noLeidos <= 9 ? (
-                                                    <div>
-                                                        <Icon
-                                                            icon={`mdi:number-${noLeidos}-circle`}
-                                                            width={"30px"}
-                                                            height={"30px"}
-                                                            style={{
-                                                                marginTop:
-                                                                    "10px",
-                                                            }}
-                                                        />
-                                                    </div>
-                                                ) : (
-                                                    <div>
-                                                        <Icon
-                                                            icon="mdi:number-9-plus-circle"
-                                                            width={"30px"}
-                                                            height={"30px"}
-                                                            style={{
-                                                                marginTop:
-                                                                    "10px",
-                                                            }}
-                                                        />
-                                                    </div>
-                                                )}
-                                            </button>
-                                        </Link>
-                                        <div
-                                            className={styles.logoutContainer}
-                                            onClick={handleEdit}
-                                        >
-                                            <LogoutButton />
-                                        </div>
-                                    </div>
-                                </div>
+                          />
+                          
+                        </li>
+                      ) 
+                      : null
+                    }
+
+                      <div className={styles.buttonContainer}>
+                        {
+                          
+                          // PROFILE
+                          loggedUser ? 
+                          (
+                            <div className={styles.infoSession}>
+                              <img
+                                  src={loggedUser.image}
+                                  onClick={handleEdit}
+                              />
+                              <div
+                                className={
+                                  showEdit
+                                  ? styles.toggleUser
+                                  : styles.toggleUserNone
+                                }
+                              >
+                              
+                              <ProfileSideBar 
+                                handleEdit={handleEdit}
+                              />
+                                        
+                              </div>
+                            </div>
                             ) : (
                                 <>
                                     <LoginButton />

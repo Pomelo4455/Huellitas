@@ -191,15 +191,15 @@
   }
 
   .toggleUser {
-    background-color: rgba(3, 3, 3, 0.875);
+    /* background-color: rgba(3, 3, 3, 0.875);
     border-radius: 16px;
     width: 10em;
     height: auto;
-    margin-top: 2em;
+    margin-top: 4em;
     margin-left: -4em;
 
     z-index: 100;
-    position: absolute;
+    position: absolute; */
   }
 
   .toggleUserNone {
