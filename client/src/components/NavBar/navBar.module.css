@@ -11,6 +11,7 @@
   z-index: 1;
   background-color: #c2f4ff;
   
+  
   /* align-items: center; */
 }
 
@@ -22,7 +23,9 @@
   width: 60%;
   height: 100%;
   
-  
+  padding: .5em 0;
+
+
   /* background-color: red; */
   /* display: inline-block; */
   /* margin-left: 5%; */
@@ -32,7 +35,7 @@
 .leftContainer {
   display: flex;
   justify-content: space-around;
-  width: 80%;
+  width: 90%;
   list-style-type: none;
   margin: 0 auto;
   /* background-color: #646BFF; */
@@ -114,7 +117,7 @@
 }
 
 
-.txt:hover {
+.nav a:hover {
   color: white;
   transition: 0.2s;
 }
