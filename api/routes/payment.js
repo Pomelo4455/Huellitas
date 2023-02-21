@@ -1,8 +1,6 @@
 const { Router } = require("express");
 const mercadopago = require("mercadopago");
 const LINK_FRONT = require("../../client/src/Utils/variablesDeploy");
-/* import { LINK_FRONT } from "../../client/src/Utils/variablesDeploy"; */
-/* const LINK_FRONT = "http://localhost:3000" */
 const { MERCADOPAGO_KEY } = process.env;
 const router = Router();
 
