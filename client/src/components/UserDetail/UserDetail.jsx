@@ -2,10 +2,10 @@ import styles from "./UserDetail.module.css";
 import { useParams } from "react-router-dom";
 import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { getDetail } from "../../redux/actions";
+import { getDetail, resetDetail } from "../../redux/actions";
 import Card from "../Card/Card";
 import Campaing from "../Campaigns/Campaing";
-import facebookIcon from "../../img/facebookIcon.jpg";
+import facebookIcon from "../../img/facebookIcon.png";
 import instagramIcon from "../../img/instagramIcon.webp";
 import tiktokIcon from "../../img/tiktokIcon.png";
 
@@ -15,6 +15,9 @@ const UserDetail = () => {
 
   useEffect(() => {
     dispatch(getDetail(id));
+    return () => {
+      dispatch(resetDetail());
+    };
   }, [id, dispatch]);
 
   const detail = useSelector((state) => state.userDetail);

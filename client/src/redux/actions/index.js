@@ -33,6 +33,7 @@ export const GET_DONATIONS = "GET_DONATIONS";
 export const UPDATE_NOT_READ_CHATS = "UPDATE_NOT_READ_CHATS";
 export const GET_THIS_USER = "GET_THIS_USER";
 export const GET_USERS_DETAIL = "GET_USERS_DETAIL";
+export const RESET_USER_DETAIL = "RESET_USER_DETAIL";
 
 export const getPets = () => {
   return async function (dispatch) {
@@ -562,4 +563,8 @@ export const getDetail = (id) => {
       console.log(error);
     }
   };
+};
+
+export const resetDetail = () => {
+  return { type: RESET_USER_DETAIL };
 };
