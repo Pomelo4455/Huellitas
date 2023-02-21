@@ -654,7 +654,7 @@ const usersData = [
     CVU: "106672908060515",
     password: "1234",
     review:
-      "Nos ayudó muchísimo esta plataforma para visibilizar la ayuda ecnómica que tanto necesitamos para cuidar a tantos peluditos en nuestro refugio, muchísimas gracias ❤️",
+      "Nos ayudó muchísimo esta plataforma para visibilizar la ayuda económica que tanto necesitamos para cuidar a tantos peluditos en nuestro refugio, muchísimas gracias ❤️",
     stars: 5,
   },
   {
@@ -677,9 +677,6 @@ const usersData = [
     longitude: -64.36201824330612,
     CVU: "106672909863542",
     password: "6523",
-    review:
-      "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea quo quidem nihil et voluptates, iusto tenetur delectus fugit repellendus amet, earum eligendi saepe. Quos placeat nam quam voluptatem deserunt minima distinctio eveniet, ratione velit quis aliquid in nobis quia enim repellat facere aliquam eos ducimus? Debitis, corporis iusto quidem numquam autem ipsum eos commodi voluptas dolorem perferendis ullam maxime incidunt neque earum explicabo, maiores placeat cum exercitationem eligendi. Cumque asperiores modi accusamus nesciunt excepturi ratione perferendis, iste officia expedita deleniti rerum eaque laudantium deserunt mollitia sunt quaerat reprehenderit, quo cupiditate amet sed? Iste delectus iusto, corporis incidunt ab natus error possimus eius placeat dicta voluptate beatae. Veniam laudantium expedita blanditiis magnam dolorum alias laborum quod harum officia, autem tenetur voluptate delectus nihil porro ducimus cumque minima, reiciendis itaque dolores quaerat praesentium tempora, esse enim eos! Eius ipsa magni sit tempora, alias distinctio delectus doloribus, deserunt aliquid explicabo, commodi fugit voluptates?",
-    stars: 5,
   },
   {
     type: "fundacion",
@@ -701,9 +698,6 @@ const usersData = [
     longitude: -65.6408826471163,
     CVU: "105622908987654",
     password: "9654",
-    review:
-      "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea quo quidem nihil et voluptates, iusto tenetur delectus fugit repellendus amet, earum eligendi saepe. Quos placeat nam quam voluptatem deserunt minima distinctio eveniet, ratione velit quis aliquid in nobis quia enim repellat facere aliquam eos ducimus? Debitis, corporis iusto quidem numquam autem ipsum eos commodi voluptas dolorem perferendis ullam maxime incidunt neque earum explicabo, maiores placeat cum exercitationem eligendi. Cumque asperiores modi accusamus nesciunt excepturi ratione perferendis, iste officia expedita deleniti rerum eaque laudantium deserunt mollitia sunt quaerat reprehenderit, quo cupiditate amet sed? Iste delectus iusto, corporis incidunt ab natus error possimus eius placeat dicta voluptate beatae. Veniam laudantium expedita blanditiis magnam dolorum alias laborum quod harum officia, autem tenetur voluptate delectus nihil porro ducimus cumque minima, reiciendis itaque dolores quaerat praesentium tempora, esse enim eos! Eius ipsa magni sit tempora, alias distinctio delectus doloribus, deserunt aliquid explicabo, commodi fugit voluptates?",
-    stars: 4,
   },
   {
     type: "fundacion",
@@ -725,9 +719,6 @@ const usersData = [
     longitude: -67.55250375022077,
     CVU: "103542908654321",
     password: "4563",
-    review:
-      "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea quo quidem nihil et voluptates, iusto tenetur delectus fugit repellendus amet, earum eligendi saepe. Quos placeat nam quam voluptatem deserunt minima distinctio eveniet, ratione velit quis aliquid in nobis quia enim repellat facere aliquam eos ducimus? Debitis, corporis iusto quidem numquam autem ipsum eos commodi voluptas dolorem perferendis ullam maxime incidunt neque earum explicabo, maiores placeat cum exercitationem eligendi. Cumque asperiores modi accusamus nesciunt excepturi ratione perferendis, iste officia expedita deleniti rerum eaque laudantium deserunt mollitia sunt quaerat reprehenderit, quo cupiditate amet sed? Iste delectus iusto, corporis incidunt ab natus error possimus eius placeat dicta voluptate beatae. Veniam laudantium expedita blanditiis magnam dolorum alias laborum quod harum officia, autem tenetur voluptate delectus nihil porro ducimus cumque minima, reiciendis itaque dolores quaerat praesentium tempora, esse enim eos! Eius ipsa magni sit tempora, alias distinctio delectus doloribus, deserunt aliquid explicabo, commodi fugit voluptates?",
-    stars: 5,
   },
   {
     type: "fundacion",
@@ -750,7 +741,7 @@ const usersData = [
     CVU: "546322908984651",
     password: "3524",
     review:
-      "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea quo quidem nihil et voluptates, iusto tenetur delectus fugit repellendus amet, earum eligendi saepe. Quos placeat nam quam voluptatem deserunt minima distinctio eveniet, ratione velit quis aliquid in nobis quia enim repellat facere aliquam eos ducimus? Debitis, corporis iusto quidem numquam autem ipsum eos commodi voluptas dolorem perferendis ullam maxime incidunt neque earum explicabo, maiores placeat cum exercitationem eligendi. Cumque asperiores modi accusamus nesciunt excepturi ratione perferendis, iste officia expedita deleniti rerum eaque laudantium deserunt mollitia sunt quaerat reprehenderit, quo cupiditate amet sed? Iste delectus iusto, corporis incidunt ab natus error possimus eius placeat dicta voluptate beatae. Veniam laudantium expedita blanditiis magnam dolorum alias laborum quod harum officia, autem tenetur voluptate delectus nihil porro ducimus cumque minima, reiciendis itaque dolores quaerat praesentium tempora, esse enim eos! Eius ipsa magni sit tempora, alias distinctio delectus doloribus, deserunt aliquid explicabo, commodi fugit voluptates?",
+      "Gracias a esta app fue posible visibilizar la campaña que lideramos para recaudar fondos para perritos necesitados de hogar, para alimentarlos con comida de calidad y comprarles frazadas para que no pasen frío <3. Y para que cada uno vaya encontrando un hogar lleno de amor y para siempre. Excelente app",
     stars: 5,
   },
   {
@@ -773,9 +764,6 @@ const usersData = [
     longitude: -67.42066783099962,
     CVU: "107871908047424",
     password: "7841",
-    review:
-      "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea quo quidem nihil et voluptates, iusto tenetur delectus fugit repellendus amet, earum eligendi saepe. Quos placeat nam quam voluptatem deserunt minima distinctio eveniet, ratione velit quis aliquid in nobis quia enim repellat facere aliquam eos ducimus? Debitis, corporis iusto quidem numquam autem ipsum eos commodi voluptas dolorem perferendis ullam maxime incidunt neque earum explicabo, maiores placeat cum exercitationem eligendi. Cumque asperiores modi accusamus nesciunt excepturi ratione perferendis, iste officia expedita deleniti rerum eaque laudantium deserunt mollitia sunt quaerat reprehenderit, quo cupiditate amet sed? Iste delectus iusto, corporis incidunt ab natus error possimus eius placeat dicta voluptate beatae. Veniam laudantium expedita blanditiis magnam dolorum alias laborum quod harum officia, autem tenetur voluptate delectus nihil porro ducimus cumque minima, reiciendis itaque dolores quaerat praesentium tempora, esse enim eos! Eius ipsa magni sit tempora, alias distinctio delectus doloribus, deserunt aliquid explicabo, commodi fugit voluptates?",
-    stars: 4,
   },
   {
     type: "fundacion",
@@ -798,7 +786,7 @@ const usersData = [
     CVU: "101112908078454",
     password: "7871",
     review:
-      "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea quo quidem nihil et voluptates, iusto tenetur delectus fugit repellendus amet, earum eligendi saepe. Quos placeat nam quam voluptatem deserunt minima distinctio eveniet, ratione velit quis aliquid in nobis quia enim repellat facere aliquam eos ducimus? Debitis, corporis iusto quidem numquam autem ipsum eos commodi voluptas dolorem perferendis ullam maxime incidunt neque earum explicabo, maiores placeat cum exercitationem eligendi. Cumque asperiores modi accusamus nesciunt excepturi ratione perferendis, iste officia expedita deleniti rerum eaque laudantium deserunt mollitia sunt quaerat reprehenderit, quo cupiditate amet sed? Iste delectus iusto, corporis incidunt ab natus error possimus eius placeat dicta voluptate beatae. Veniam laudantium expedita blanditiis magnam dolorum alias laborum quod harum officia, autem tenetur voluptate delectus nihil porro ducimus cumque minima, reiciendis itaque dolores quaerat praesentium tempora, esse enim eos! Eius ipsa magni sit tempora, alias distinctio delectus doloribus, deserunt aliquid explicabo, commodi fugit voluptates?",
+      "Pudimos encontrar muchas personas muy amables y llenas de amor a quien dar a nuestros preciados peluditos <3. Muy contenta con esta idea de visibilizar campañas para ayudas económicas como para dar en adopción a amorosos animalitos.",
     stars: 5,
   },
 ];
