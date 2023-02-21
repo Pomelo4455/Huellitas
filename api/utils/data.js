@@ -14,7 +14,7 @@ const petsData = [
   },
   {
     name: "Moro",
-    age: "1 mes",
+    age: "Menos de un año",
     species: "perro",
     image:
       "https://images.hola.com/imagenes/mascotas/20221020219416/razas-perros-toy/1-154-385/razas-de-perro-toy-t.jpg",
@@ -27,7 +27,7 @@ const petsData = [
   },
   {
     name: "Caramelo",
-    age: "1 mes",
+    age: "Menos de un año",
     species: "perro",
     image:
       "https://phantom-marca.unidadeditorial.es/5f35dc7ba0a175d12db238a6c6e8d549/resize/1320/f/jpg/assets/multimedia/imagenes/2022/02/24/16456899624763.jpg",
@@ -53,7 +53,7 @@ const petsData = [
   },
   {
     name: "Toby",
-    age: "8 años",
+    age: "Mas de 2 años",
     species: "perro",
     image:
       "https://cdnb.20m.es/animalesenadopcion/files/2015/04/a1-620x465.jpg",
@@ -66,7 +66,7 @@ const petsData = [
   },
   {
     name: "Thor",
-    age: "1 año",
+    age: "Entre 1 y 2 años",
     species: "perro",
     image: "https://acortar.link/iPCotm",
     size: "pequeño",
@@ -91,7 +91,7 @@ const petsData = [
   },
   {
     name: "Chipirón",
-    age: "6 meses",
+    age: "Menos de un año",
     species: "perro",
     image:
       "https://thumbs.dreamstime.com/z/perro-mezclado-blanco-y-negro-de-la-raza-96823458.jpg",
@@ -104,7 +104,7 @@ const petsData = [
   },
   {
     name: "Bimba",
-    age: "3 años",
+    age: "Mas de 2 años",
     species: "perro",
     image:
       "https://www.molaunhuevo.com/wp-content/uploads/2014/06/border-collie.jpg",
@@ -114,7 +114,7 @@ const petsData = [
     temperament: "confiable",
     adopted: "si",
     userId: 4,
-    adoptanteId: 11
+    adoptanteId: 11,
   },
   {
     name: "Timmy",
@@ -132,7 +132,7 @@ const petsData = [
   },
   {
     name: "Trufa",
-    age: "3 años",
+    age: "Mas de 2 años",
     species: "perro",
     image:
       "https://t1.ea.ltmcdn.com/es/posts/0/2/5/16_pastor_leones_24520_15_600.jpg",
@@ -158,7 +158,7 @@ const petsData = [
   },
   {
     name: "Pupi",
-    age: "9 meses",
+    age: "Menos de un año",
     species: "perro",
     image: "https://acortar.link/BuCrm0",
     size: "pequeño",
@@ -170,7 +170,7 @@ const petsData = [
   },
   {
     name: "Bigotes",
-    age: "2 años",
+    age: "Mas de 2 años",
     species: "gato",
     image: "https://t2.ea.ltmcdn.com/es/posts/8/1/2/maine_coon_25218_3_600.jpg",
     size: "mediano",
@@ -179,11 +179,11 @@ const petsData = [
     temperament: "jugueton",
     adopted: "si",
     userId: 7,
-    adoptanteId: 11
+    adoptanteId: 11,
   },
   {
     name: "Manchas",
-    age: "4 años",
+    age: "Mas de 2 años",
     species: "gato",
     image:
       "https://image.europafm.com//clipping/cmsimages01//2015/12/29/E3CDD244-FAC7-45D1-B33D-7032A7C22C49/30.jpg",
@@ -208,7 +208,7 @@ const petsData = [
   },
   {
     name: "Ron",
-    age: "3 años",
+    age: "Entre 1 y 2 años",
     species: "gato",
     image:
       "https://static.vecteezy.com/system/resources/previews/002/857/818/non_2x/orange-tabby-cat-photo.jpg",
@@ -234,7 +234,7 @@ const petsData = [
   },
   {
     name: "Simba",
-    age: "1 año",
+    age: "Entre 1 y 2 años",
     species: "gato",
     image:
       "https://www.feelcats.com/wp-content/uploads/2018/10/gato-atigrado-tic-ticked.jpg",
@@ -244,11 +244,11 @@ const petsData = [
     temperament: "relajado",
     adopted: "si",
     userId: 15,
-    adoptanteId: 9
+    adoptanteId: 9,
   },
   {
     name: "Minnie",
-    age: "3 meses",
+    age: "Menos de un año",
     species: "gato",
     image:
       "https://i.pinimg.com/474x/e3/98/64/e39864f7f4f7c3ae41e7a009379d8721.jpg",
@@ -388,7 +388,7 @@ const usersData = [
     CVU: "",
     password: "1234",
     review:
-      "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea quo quidem nihil et voluptates, iusto tenetur delectus fugit repellendus amet, earum eligendi saepe. Quos placeat nam quam voluptatem deserunt minima distinctio eveniet, ratione velit quis aliquid in nobis quia enim repellat facere aliquam eos ducimus? Debitis, corporis iusto quidem numquam autem ipsum eos commodi voluptas dolorem perferendis ullam maxime incidunt neque earum explicabo, maiores placeat cum exercitationem eligendi. Cumque asperiores modi accusamus nesciunt excepturi ratione perferendis, iste officia expedita deleniti rerum eaque laudantium deserunt mollitia sunt quaerat reprehenderit, quo cupiditate amet sed? Iste delectus iusto, corporis incidunt ab natus error possimus eius placeat dicta voluptate beatae. Veniam laudantium expedita blanditiis magnam dolorum alias laborum quod harum officia, autem tenetur voluptate delectus nihil porro ducimus cumque minima, reiciendis itaque dolores quaerat praesentium tempora, esse enim eos! Eius ipsa magni sit tempora, alias distinctio delectus doloribus, deserunt aliquid explicabo, commodi fugit voluptates?",
+      "Aquí en esta app pude encontrar a mi mejor amigo perruno, muchas gracias ❤",
     stars: 5,
   },
   {
@@ -413,7 +413,7 @@ const usersData = [
     CVU: "",
     password: "1234",
     review:
-      "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea quo quidem nihil et voluptates, iusto tenetur delectus fugit repellendus amet, earum eligendi saepe. Quos placeat nam quam voluptatem deserunt minima distinctio eveniet, ratione velit quis aliquid in nobis quia enim repellat facere aliquam eos ducimus? Debitis, corporis iusto quidem numquam autem ipsum eos commodi voluptas dolorem perferendis ullam maxime incidunt neque earum explicabo, maiores placeat cum exercitationem eligendi. Cumque asperiores modi accusamus nesciunt excepturi ratione perferendis, iste officia expedita deleniti rerum eaque laudantium deserunt mollitia sunt quaerat reprehenderit, quo cupiditate amet sed? Iste delectus iusto, corporis incidunt ab natus error possimus eius placeat dicta voluptate beatae. Veniam laudantium expedita blanditiis magnam dolorum alias laborum quod harum officia, autem tenetur voluptate delectus nihil porro ducimus cumque minima, reiciendis itaque dolores quaerat praesentium tempora, esse enim eos! Eius ipsa magni sit tempora, alias distinctio delectus doloribus, deserunt aliquid explicabo, commodi fugit voluptates?",
+      "Muy necesaria esta app que visibiliza a todas las patitas sin voz que necesitan ayuda, muy buena!",
     stars: 3,
   },
   {
@@ -438,7 +438,7 @@ const usersData = [
     CVU: "",
     password: "1234",
     review:
-      "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea quo quidem nihil et voluptates, iusto tenetur delectus fugit repellendus amet, earum eligendi saepe. Quos placeat nam quam voluptatem deserunt minima distinctio eveniet, ratione velit quis aliquid in nobis quia enim repellat facere aliquam eos ducimus? Debitis, corporis iusto quidem numquam autem ipsum eos commodi voluptas dolorem perferendis ullam maxime incidunt neque earum explicabo, maiores placeat cum exercitationem eligendi. Cumque asperiores modi accusamus nesciunt excepturi ratione perferendis, iste officia expedita deleniti rerum eaque laudantium deserunt mollitia sunt quaerat reprehenderit, quo cupiditate amet sed? Iste delectus iusto, corporis incidunt ab natus error possimus eius placeat dicta voluptate beatae. Veniam laudantium expedita blanditiis magnam dolorum alias laborum quod harum officia, autem tenetur voluptate delectus nihil porro ducimus cumque minima, reiciendis itaque dolores quaerat praesentium tempora, esse enim eos! Eius ipsa magni sit tempora, alias distinctio delectus doloribus, deserunt aliquid explicabo, commodi fugit voluptates?",
+      "Muy buena app, encontré a mi mejor amiga gatuna y fue muy agradable la forma de contactar a la persona que daba en adopción, que además fue muy amable. 10/10",
     stars: 4,
   },
   {
@@ -609,7 +609,7 @@ const usersData = [
     CVU: "106672908560515",
     password: "1234",
     review:
-      "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea quo quidem nihil et voluptates, iusto tenetur delectus fugit repellendus amet, earum eligendi saepe. Quos placeat nam quam voluptatem deserunt minima distinctio eveniet, ratione velit quis aliquid in nobis quia enim repellat facere aliquam eos ducimus? Debitis, corporis iusto quidem numquam autem ipsum eos commodi voluptas dolorem perferendis ullam maxime incidunt neque earum explicabo, maiores placeat cum exercitationem eligendi. Cumque asperiores modi accusamus nesciunt excepturi ratione perferendis, iste officia expedita deleniti rerum eaque laudantium deserunt mollitia sunt quaerat reprehenderit, quo cupiditate amet sed? Iste delectus iusto, corporis incidunt ab natus error possimus eius placeat dicta voluptate beatae. Veniam laudantium expedita blanditiis magnam dolorum alias laborum quod harum officia, autem tenetur voluptate delectus nihil porro ducimus cumque minima, reiciendis itaque dolores quaerat praesentium tempora, esse enim eos! Eius ipsa magni sit tempora, alias distinctio delectus doloribus, deserunt aliquid explicabo, commodi fugit voluptates?",
+      "Dimos a todos los cachorritos de la perrita que encontramos en adopción por esta página y todos fueron adoptados por personas muy amables y llenas de amor. Muchas gracias por facilitar su adopción con esta sombrosa app❣️",
     stars: 5,
   },
   {
@@ -653,6 +653,150 @@ const usersData = [
     longitude: -64.284073,
     CVU: "106672908060515",
     password: "1234",
+    review:
+      "Nos ayudó muchísimo esta plataforma para visibilizar la ayuda ecnómica que tanto necesitamos para cuidar a tantos peluditos en nuestro refugio, muchísimas gracias ❤️",
+    stars: 5,
+  },
+  {
+    type: "fundacion",
+    name: "Fundacion por Animalitos perdidos",
+    username: "perdidos",
+    email: "perdidos@gmail.com",
+    address: "perdidos 968, Santa Rosa, La Pampa",
+    phone: "01-030-0814",
+    website: "perdidos.org.ar",
+    facebook: "perdidosA",
+    instagram: "perdidos__",
+    twitter: "@perdidos",
+    tiktok: "per_didos",
+    description:
+      "Fundación perdidos es una organización no gubernamental sin fines de lucro abocada a encontrar, proteger y ayudar a todas las mascotas perdidas.",
+    image:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQfqHWzT4EwugUZKSKC5_aEwQs5JUVMrSuPvg&usqp=CAU",
+    latitude: -36.72751003983717,
+    longitude: -64.36201824330612,
+    CVU: "106672909863542",
+    password: "6523",
+    review:
+      "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea quo quidem nihil et voluptates, iusto tenetur delectus fugit repellendus amet, earum eligendi saepe. Quos placeat nam quam voluptatem deserunt minima distinctio eveniet, ratione velit quis aliquid in nobis quia enim repellat facere aliquam eos ducimus? Debitis, corporis iusto quidem numquam autem ipsum eos commodi voluptas dolorem perferendis ullam maxime incidunt neque earum explicabo, maiores placeat cum exercitationem eligendi. Cumque asperiores modi accusamus nesciunt excepturi ratione perferendis, iste officia expedita deleniti rerum eaque laudantium deserunt mollitia sunt quaerat reprehenderit, quo cupiditate amet sed? Iste delectus iusto, corporis incidunt ab natus error possimus eius placeat dicta voluptate beatae. Veniam laudantium expedita blanditiis magnam dolorum alias laborum quod harum officia, autem tenetur voluptate delectus nihil porro ducimus cumque minima, reiciendis itaque dolores quaerat praesentium tempora, esse enim eos! Eius ipsa magni sit tempora, alias distinctio delectus doloribus, deserunt aliquid explicabo, commodi fugit voluptates?",
+    stars: 5,
+  },
+  {
+    type: "fundacion",
+    name: "Huellitas con frio",
+    username: "HuelliF",
+    email: "HuelliF@gmail.com",
+    address: "HuelliF 968, Santa Rosa, La Pampa",
+    phone: "12-184-1894",
+    website: "HuelliF.org.ar",
+    facebook: "HuelliFA",
+    instagram: "HuelliF__",
+    twitter: "@HuelliF",
+    tiktok: "Huellita_frio",
+    description:
+      "Huellitas con frio es una organización no gubernamental sin fines de lucro encontrar a los perritos de la calle y darles un lugar agradable para vivir.",
+    image:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRG3Dg4FIUCnxkBjfeIhXyI3IfMuXibsceQ8w&usqp=CAU",
+    latitude: -28.97288586921666,
+    longitude: -65.6408826471163,
+    CVU: "105622908987654",
+    password: "9654",
+    review:
+      "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea quo quidem nihil et voluptates, iusto tenetur delectus fugit repellendus amet, earum eligendi saepe. Quos placeat nam quam voluptatem deserunt minima distinctio eveniet, ratione velit quis aliquid in nobis quia enim repellat facere aliquam eos ducimus? Debitis, corporis iusto quidem numquam autem ipsum eos commodi voluptas dolorem perferendis ullam maxime incidunt neque earum explicabo, maiores placeat cum exercitationem eligendi. Cumque asperiores modi accusamus nesciunt excepturi ratione perferendis, iste officia expedita deleniti rerum eaque laudantium deserunt mollitia sunt quaerat reprehenderit, quo cupiditate amet sed? Iste delectus iusto, corporis incidunt ab natus error possimus eius placeat dicta voluptate beatae. Veniam laudantium expedita blanditiis magnam dolorum alias laborum quod harum officia, autem tenetur voluptate delectus nihil porro ducimus cumque minima, reiciendis itaque dolores quaerat praesentium tempora, esse enim eos! Eius ipsa magni sit tempora, alias distinctio delectus doloribus, deserunt aliquid explicabo, commodi fugit voluptates?",
+    stars: 4,
+  },
+  {
+    type: "fundacion",
+    name: "El refugio",
+    username: "refugio",
+    email: "refugio@gmail.com",
+    address: "refugio 968, Santa Rosa, La Pampa",
+    phone: "02-034-3254",
+    website: "refugio.org.ar",
+    facebook: "refugioA",
+    instagram: "refugio__",
+    twitter: "@refugio",
+    tiktok: "natur_aleza",
+    description:
+      "El refugio es una organización no gubernamental sin fines de lucro abocada a darles un techo donde vivir a las mascotas encontradas en la calle.",
+    image:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQadt9nbBCbz8w4WpFrHCmvSmZf2v1EAkolFw&usqp=CAU",
+    latitude: -37.55617368401427,
+    longitude: -67.55250375022077,
+    CVU: "103542908654321",
+    password: "4563",
+    review:
+      "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea quo quidem nihil et voluptates, iusto tenetur delectus fugit repellendus amet, earum eligendi saepe. Quos placeat nam quam voluptatem deserunt minima distinctio eveniet, ratione velit quis aliquid in nobis quia enim repellat facere aliquam eos ducimus? Debitis, corporis iusto quidem numquam autem ipsum eos commodi voluptas dolorem perferendis ullam maxime incidunt neque earum explicabo, maiores placeat cum exercitationem eligendi. Cumque asperiores modi accusamus nesciunt excepturi ratione perferendis, iste officia expedita deleniti rerum eaque laudantium deserunt mollitia sunt quaerat reprehenderit, quo cupiditate amet sed? Iste delectus iusto, corporis incidunt ab natus error possimus eius placeat dicta voluptate beatae. Veniam laudantium expedita blanditiis magnam dolorum alias laborum quod harum officia, autem tenetur voluptate delectus nihil porro ducimus cumque minima, reiciendis itaque dolores quaerat praesentium tempora, esse enim eos! Eius ipsa magni sit tempora, alias distinctio delectus doloribus, deserunt aliquid explicabo, commodi fugit voluptates?",
+    stars: 5,
+  },
+  {
+    type: "fundacion",
+    name: "Huellitas seguras",
+    username: "HuellitasSegu",
+    email: "HuellitasSegu@gmail.com",
+    address: "HuellitasSegu 968, Santa Rosa, La Pampa",
+    phone: "11-134-3804",
+    website: "HuellitasSegu.org.ar",
+    facebook: "HuellitasSeguA",
+    instagram: "HuellitasSegu",
+    twitter: "@HuellitasSegu",
+    tiktok: "huellitas_segura",
+    description:
+      "Huellitas seguras es una organización no gubernamental sin fines de lucro enfocada proteger y promover los derechos de los animales que son maltratados por sus dueños",
+    image:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTDVzB7wkD1uZEFMFjedXee-VL03R1usXD5UQ&usqp=CAU",
+    latitude: -40.2906834495888,
+    longitude: -68.91480844438716,
+    CVU: "546322908984651",
+    password: "3524",
+    review:
+      "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea quo quidem nihil et voluptates, iusto tenetur delectus fugit repellendus amet, earum eligendi saepe. Quos placeat nam quam voluptatem deserunt minima distinctio eveniet, ratione velit quis aliquid in nobis quia enim repellat facere aliquam eos ducimus? Debitis, corporis iusto quidem numquam autem ipsum eos commodi voluptas dolorem perferendis ullam maxime incidunt neque earum explicabo, maiores placeat cum exercitationem eligendi. Cumque asperiores modi accusamus nesciunt excepturi ratione perferendis, iste officia expedita deleniti rerum eaque laudantium deserunt mollitia sunt quaerat reprehenderit, quo cupiditate amet sed? Iste delectus iusto, corporis incidunt ab natus error possimus eius placeat dicta voluptate beatae. Veniam laudantium expedita blanditiis magnam dolorum alias laborum quod harum officia, autem tenetur voluptate delectus nihil porro ducimus cumque minima, reiciendis itaque dolores quaerat praesentium tempora, esse enim eos! Eius ipsa magni sit tempora, alias distinctio delectus doloribus, deserunt aliquid explicabo, commodi fugit voluptates?",
+    stars: 5,
+  },
+  {
+    type: "fundacion",
+    name: "Refugio Apanot",
+    username: "Apanot",
+    email: "Apanot@gmail.com",
+    address: "Apanot 968, Santa Rosa, La Pampa",
+    phone: "19-134-7821",
+    website: "Apanot.org.ar",
+    facebook: "ApanotA",
+    instagram: "Apanot__",
+    twitter: "@Apanot",
+    tiktok: "refugio_Apanot",
+    description:
+      "La fundacion refugio Apanot es una organización no gubernamental sin fines de lucro que busca darles un nuevo comienzo a las mascotas rescatadas.",
+    image:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTP0Q5zbwhgcJs4EbLexxlAqKJahKKIvkTSOQ&usqp=CAU",
+    latitude: -54.325054318930945,
+    longitude: -67.42066783099962,
+    CVU: "107871908047424",
+    password: "7841",
+    review:
+      "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea quo quidem nihil et voluptates, iusto tenetur delectus fugit repellendus amet, earum eligendi saepe. Quos placeat nam quam voluptatem deserunt minima distinctio eveniet, ratione velit quis aliquid in nobis quia enim repellat facere aliquam eos ducimus? Debitis, corporis iusto quidem numquam autem ipsum eos commodi voluptas dolorem perferendis ullam maxime incidunt neque earum explicabo, maiores placeat cum exercitationem eligendi. Cumque asperiores modi accusamus nesciunt excepturi ratione perferendis, iste officia expedita deleniti rerum eaque laudantium deserunt mollitia sunt quaerat reprehenderit, quo cupiditate amet sed? Iste delectus iusto, corporis incidunt ab natus error possimus eius placeat dicta voluptate beatae. Veniam laudantium expedita blanditiis magnam dolorum alias laborum quod harum officia, autem tenetur voluptate delectus nihil porro ducimus cumque minima, reiciendis itaque dolores quaerat praesentium tempora, esse enim eos! Eius ipsa magni sit tempora, alias distinctio delectus doloribus, deserunt aliquid explicabo, commodi fugit voluptates?",
+    stars: 4,
+  },
+  {
+    type: "fundacion",
+    name: "Refugio Canino la reserva",
+    username: "Lareserva",
+    email: "Lareserva@gmail.com",
+    address: "Lareserva 968, Santa Rosa, La Pampa",
+    phone: "17-114-1814",
+    website: "Lareserva.org.ar",
+    facebook: "LareservaA",
+    instagram: "Lareserva__",
+    twitter: "@Lareserva",
+    tiktok: "La_reserva",
+    description:
+      "Fundación La reserva es una organización no gubernamental sin fines de lucro enfocada en ayudar a los perros encontrados en la calle, dandoles un nuevo hogar.",
+    image:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR5nvblnKdH3OWaJ2Omq8MHlUIcjyRRrauTzQ&usqp=CAU",
+    latitude: -42.10907484676562,
+    longitude: -70.05738659390231,
+    CVU: "101112908078454",
+    password: "7871",
     review:
       "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea quo quidem nihil et voluptates, iusto tenetur delectus fugit repellendus amet, earum eligendi saepe. Quos placeat nam quam voluptatem deserunt minima distinctio eveniet, ratione velit quis aliquid in nobis quia enim repellat facere aliquam eos ducimus? Debitis, corporis iusto quidem numquam autem ipsum eos commodi voluptas dolorem perferendis ullam maxime incidunt neque earum explicabo, maiores placeat cum exercitationem eligendi. Cumque asperiores modi accusamus nesciunt excepturi ratione perferendis, iste officia expedita deleniti rerum eaque laudantium deserunt mollitia sunt quaerat reprehenderit, quo cupiditate amet sed? Iste delectus iusto, corporis incidunt ab natus error possimus eius placeat dicta voluptate beatae. Veniam laudantium expedita blanditiis magnam dolorum alias laborum quod harum officia, autem tenetur voluptate delectus nihil porro ducimus cumque minima, reiciendis itaque dolores quaerat praesentium tempora, esse enim eos! Eius ipsa magni sit tempora, alias distinctio delectus doloribus, deserunt aliquid explicabo, commodi fugit voluptates?",
     stars: 5,
