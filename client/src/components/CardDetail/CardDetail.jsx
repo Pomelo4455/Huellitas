@@ -8,6 +8,7 @@ import axios from "axios";
 import swal from "sweetalert";
 import MapView from "../MapView/MapView";
 import { LINK_BACK } from "../../Utils/variablesDeploy";
+import { useAuth0 } from "@auth0/auth0-react";
 
 const CardDetail = () => {
   const mapRef = useRef();
@@ -16,7 +17,7 @@ const CardDetail = () => {
   const navigate = useNavigate();
   const allUsers = useSelector((state) => state.users);
   const { id } = useParams();
-
+  const { loginWithPopup } = useAuth0();
   const giver = allUsers.filter((user) => pet.userId === user.id);
   const latitude = giver[0]?.latitude;
   const longitude = giver[0]?.longitude;
@@ -59,7 +60,6 @@ const CardDetail = () => {
               });
             break;
           case "chat":
-            console.log("entre");
             navigate(`../chat/${userId}/${pet.userId}`);
             break;
           default:
@@ -70,7 +70,7 @@ const CardDetail = () => {
         "No es posible contactarse con el dueño de la mascota.",
         "Debe registrarse para poder hacerlo.",
         "error"
-      );
+      ).then(() => loginWithPopup());
     }
   };
 
@@ -84,27 +84,26 @@ const CardDetail = () => {
           <div className={style.petImage}>
             <img src={pet.image} alt={`Imagen de ${pet.name}`} />
           </div>
+          <div className={style.btnContainer}>
+            <button onClick={handleSendMail} className={style.btnContact}>
+              CONTACTAR
+            </button>
+          </div>
+          <Link
+            to={`../userDetail/${pet.userId}`}
+            style={{ textDecoration: "none" }}
+          >
             <div className={style.btnContainer}>
-              <button onClick={handleSendMail} className={style.btnContact}>
-                CONTACTAR
-              </button>
+              <button className={style.btnContactBack}>DADOR</button>
             </div>
-            <Link
-              to={`../userDetail/${pet.userId}`}
-              style={{ textDecoration: "none" }}
+          </Link>
+          <div className={style.btnContainer}>
+            <button
+              onClick={() => window.history.back()}
+              className={style.btnContactBack}
             >
-              <div className={style.btnContainer}>
-                <button className={style.btnContactBack}>DADOR</button>
-              </div>
-            </Link>
-            <div className={style.btnContainer}>
-              <button
-                onClick={() => window.history.back()}
-                className={style.btnContactBack}
-              >
-                VOLVER
-              </button>
-          
+              VOLVER
+            </button>
           </div>
         </div>
 
