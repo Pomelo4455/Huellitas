@@ -12,7 +12,7 @@ const server = express();
 server.name = "API";
 
 var corsOptions= {
-  origin: ["https://huellitas.us.auth0.com","http://localhost:3000"],
+  origin: ["https://huellitas.us.auth0.com","http://localhost:3000", "https://huellitasapp.netlify.app"],
 }
 
 //edicion mia del json
