@@ -27,7 +27,7 @@ const CardDetail = () => {
     dispatch(getUsers());
     dispatch(getPetsDetail(id));
     if (user?.id && pet?.id) {
-      axios(`http://localhost:3001/follow/${user.id}/${pet.id}`).then((data) =>
+      axios(`${LINK_BACK}/follow/${user.id}/${pet.id}`).then((data) =>
         setSeguido(data.data.seguir)
       );
     }
@@ -37,7 +37,7 @@ const CardDetail = () => {
     if (user?.id && pet?.id) {
       setSeguido(!seguido);
       axios.put(
-        `http://localhost:3001/follow?userId=${user.id}&petId=${
+        `${LINK_BACK}/follow?userId=${user.id}&petId=${
           pet.id
         }&seguir=${!seguido}`
       );
