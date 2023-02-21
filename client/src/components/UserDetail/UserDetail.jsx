@@ -60,16 +60,16 @@ const UserDetail = () => {
             <img src={detail.image} alt={detail.name} />
           </div>
           <div className={styles.btnContainer}>
+            <button onClick={contact} className={styles.btnContactBack}>
+              CONTACTAR
+            </button>
+          </div>
+          <div className={styles.btnContainer}>
             <button
               onClick={() => window.history.back()}
               className={styles.btnContactBack}
             >
               VOLVER
-            </button>
-          </div>
-          <div className={styles.btnContainer}>
-            <button onClick={contact} className={styles.btnContactBack}>
-              CONTACTAR
             </button>
           </div>
         </div>
