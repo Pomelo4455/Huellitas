@@ -1,5 +1,6 @@
 import axios from "axios";
 import swal from "sweetalert";
+import { LINK_BACK } from "../../Utils/variablesDeploy";
 export const GET_PETS = "GET_PETS";
 export const GET_PETS_DETAIL = "GET_PETS_DETAIL";
 export const GET_PET_NAME = "GET_PET_NAME";
@@ -296,7 +297,7 @@ export const deleteCampaigns = (url) => {
 export function getUsersAdm() {
   return async function (dispatch) {
     try {
-      const response = await axios.get("http://localhost:3001/users/Adm/Admin");
+      const response = await axios.get(`${LINK_BACK}/users/Adm/Admin`);
       const allUsersAdm = response.data;
 
       return dispatch({

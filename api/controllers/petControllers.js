@@ -9,8 +9,9 @@ const getAllPets = async (filters, order) => {
     const pet = pets[i].dataValues;
     let giver = await User.findOne({
       attributes: ["name", "latitude", "longitude"],
-      where: { id: pet.userId },
+      where: { id: pet.GiverId },
     });
+    pet.userId = pet.GiverId;
     if (giver) pets[i] = { ...pet, giver: giver.dataValues.name, latitude: giver.dataValues.latitude, longitude: giver.dataValues.longitude };
   }
   return pets;
@@ -24,8 +25,9 @@ const getAllPetsAdm = async (filters) => {
     const pet = pets[i].dataValues;
     let giver = await User.findOne({
       attributes: ["name"],
-      where: { id: pet.userId },
+      where: { id: pet.GiverId },
     });
+    pet.userId = pet.GiverId;
     if (giver) pets[i] = { ...pet, giver: giver.dataValues.name };
   }
   return pets;
@@ -33,22 +35,10 @@ const getAllPetsAdm = async (filters) => {
 
 const getPetById = async (id) => {
   let pet = await Pet.findOne({
-    attributes: [
-      "id",
-      "name",
-      "age",
-      "species",
-      "image",
-      "size",
-      "color",
-      "sex",
-      "temperament",
-      "adopted",
-      "userId",
-    ],
     where: { id: Number(id) },
   });
-  return pet;
+  
+  return {...pet.dataValues, userId : pet.GiverId};
 };
 
 module.exports = { getAllPets, getPetById, getAllPetsAdm };

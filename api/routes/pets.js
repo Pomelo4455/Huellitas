@@ -17,8 +17,8 @@ const router = Router();
 
 router.get("/", async (req, res) => {
   try {
-    const { name, species, sex, size, order } = req.query;
-    const filtersPet = createFilters(species, sex, size);
+    const { name, species, sex, size, order, adopted } = req.query;
+    const filtersPet = createFilters(species, sex, size, adopted);
     const orderPets = setOrder(order);
     let pets = await getAllPets(filtersPet, orderPets);
     if (req.query && !pets.length) throw new Error("No se encontro perritos");
@@ -29,7 +29,7 @@ router.get("/", async (req, res) => {
       let userIds = users.map((user) => user.id);
       // if (!userIds.length) throw new Error("No se encontro la fundacion");
       // console.log("soy el userId", userIds);
-      pets = pets.filter((pet) => userIds.includes(pet.userId));
+      pets = pets.filter((pet) => userIds.includes(pet.GiverId));
       if (!pets.length) throw new Error("No se encontro la fundacion");
     }
     res.status(200).send(pets);
@@ -75,7 +75,7 @@ router.post("/", async (req, res) => {
       await updateUser(userId, data);
     }
 
-    await newPet.setUser(userId);
+    await newPet.setGiver(userId);
     res.status(200).send("La mascota fue creada");
   } catch (error) {
     res.status(400).send(error.message);

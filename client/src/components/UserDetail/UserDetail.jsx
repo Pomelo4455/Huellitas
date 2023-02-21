@@ -18,7 +18,7 @@ const UserDetail = () => {
   }, [id, dispatch]);
 
   const detail = useSelector((state) => state.userDetail);
-  console.log("soy el detail", detail);
+  console.log(detail);
   return (
     <>
       <div className={styles.detailUserContainer}>
@@ -142,23 +142,20 @@ const UserDetail = () => {
           </div>
         </div>
       </div>
-
-      <div>
-        {detail.pets && detail.pets.length > 0 && (
-          <div>
-            <div className={styles.userStatus}>
-              <h2>Mascotas en adopcion : </h2>
-            </div>
-            <div className={styles.container}>
-              <div className={styles.adoptar}>
-                {detail.pets.map((pet) => (
-                  <Card pets={pet} key={pet.id} />
-                ))}
-              </div>
+      {detail.giver && detail.giver.length > 0 && (
+        <div>
+          <div className={styles.userStatus}>
+            <h2>Mascotas en adopcion : </h2>
+          </div>
+          <div className={styles.container}>
+            <div className={styles.adoptar}>
+              {detail.giver.map((pet) => (
+                <Card pets={pet} key={pet.id} />
+              ))}
             </div>
           </div>
-        )}
-      </div>
+        </div>
+      )}
       {detail.campaigns && detail.campaigns.length > 0 && (
         <div>
           <div className={styles.userStatus}>
@@ -176,6 +173,20 @@ const UserDetail = () => {
                   image={campaign.image}
                   goal={campaign.goal}
                 />
+              ))}
+            </div>
+          </div>
+        </div>
+      )}
+      {detail.adoptante && detail.adoptante.length > 0 && (
+        <div>
+          <div className={styles.userStatus}>
+            <h2>Mascotas adoptadas : </h2>
+          </div>
+          <div className={styles.container}>
+            <div className={styles.adoptar}>
+              {detail.adoptante.map((pet) => (
+                <Card pets={pet} key={pet.id} />
               ))}
             </div>
           </div>

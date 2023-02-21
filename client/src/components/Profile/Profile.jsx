@@ -14,7 +14,7 @@ import {useNavigate, navigate } from 'react-router-dom';
 import RenderizarEnAdopcion from './RenderEnAdopcion';
 import RenderizarAdoptados from './RenderAdoptados';
 import RenderizarCampaigns from './RenderCampaigns';
-
+import { LINK_BACK } from '../../Utils/variablesDeploy';
 
 
 const Profile = ({setLoggedUser}) => {
@@ -22,8 +22,8 @@ const Profile = ({setLoggedUser}) => {
     const dispatch = useDispatch()
     let profile = useSelector(state => state.profile)
     useEffect(() => {}, [profile])
-    const latitude = profile.latitude
-    const longitude = profile.longitude
+    const latitude = profile?.latitude
+    const longitude = profile?.longitude
     
     let userId = JSON.parse(localStorage.getItem("loggedUser"));
 
@@ -62,7 +62,7 @@ const Profile = ({setLoggedUser}) => {
         .then((value) => {
           switch (value) {
         //     case "email":
-        //       axios.post("http://localhost:3001/mails", {
+        //       axios.post(`${LINK_BACK}/mails`, {
         //         idUser: userId,
         //       })
         //       .then(() => {
@@ -174,7 +174,7 @@ const Profile = ({setLoggedUser}) => {
       : null
       }
       <RenderizarEnAdopcion user={formData}/>
-      {/* <RenderizarAdoptados/> */}
+      <RenderizarAdoptados user={formData}/>
       {formData.type === "fundacion" && <RenderizarCampaigns user={formData}/>}
     </div>
     </div>

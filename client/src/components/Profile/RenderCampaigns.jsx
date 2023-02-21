@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import Campaña from "../Campaigns/Campaing";
+import { LINK_BACK } from "../../Utils/variablesDeploy";
 
 const renderizarCampaignsCards = (allCampaigns, cantidad) => {
     return allCampaigns.slice(0, cantidad).map((camp) => {
@@ -25,7 +26,7 @@ export default function RenderizarCampaigns({user}) {
     let [more, setMore] = useState(false);
 
     useEffect(() => {
-        axios(`http://localhost:3001/users/${user.id}`)
+        axios(`${LINK_BACK}/users/${user.id}`)
         .then(data => setCampaigns(data.data.campaigns));
     }, [])
 

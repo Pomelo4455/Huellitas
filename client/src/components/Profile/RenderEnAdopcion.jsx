@@ -1,7 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import Card from "../Card/Card.jsx";
-
+import { LINK_BACK } from "../../Utils/variablesDeploy.js";
 
 const renderizarPetCards = (allPets, cantidad) => {
     return allPets.slice(0, cantidad).map((pet) => {
@@ -15,31 +15,34 @@ export default function RenderizarEnAdopcion({user}) {
     let [more, setMore] = useState(false)
 
     useEffect(() => {
-        axios(`http://localhost:3001/users/${user.id}`)
-        .then(data => setPets(data.data.pets));
+        axios(`${LINK_BACK}/users/${user.id}`)
+        .then(data => setPets(data.data.giver));
     }, [])
 
     const handleShowMore = () => {
         setMore(!more)
     } 
 
-    return (
-        <>
-        <h1>En adopcion:</h1>
-        <div style={{display: "flex"}}>
-            {more ? 
-                <>
-                {renderizarPetCards(pets, pets.length)}
-                <button onClick={handleShowMore}>VER MENOS</button>
-                </>
-            :
-                <>
-                {renderizarPetCards(pets, 1)}
-                <button onClick={handleShowMore}>VER MAS</button>
-                </>
-            }
-        </div>
+    if (pets.length > 0) {
+        return (
+            <>
+            <h1>En adopcion:</h1>
+            <div style={{display: "flex"}}>
+                {more ? 
+                    <>
+                    {renderizarPetCards(pets, pets.length)}
+                    <button onClick={handleShowMore}>VER MENOS</button>
+                    </>
+                :
+                    <>
+                    {renderizarPetCards(pets, 1)}
+                    <button onClick={handleShowMore}>VER MAS</button>
+                    </>
+                }
+            </div>
 
-        </>
-    )
+            </>
+        )
+    }
+    else return null
 }

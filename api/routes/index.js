@@ -29,7 +29,7 @@ router.post('/', async (req, res) => {
     await loadCampaigns();
     res.status(200).send("Datos cargados correctamente")
    }catch(error){
-    res.status(400).send("error en la carga de datos")
+    res.status(400).send(error.message)
    }
 });
 

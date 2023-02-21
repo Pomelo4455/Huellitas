@@ -4,8 +4,9 @@ import axios from "axios";
 import io from "socket.io-client"
 import { useDispatch } from "react-redux"
 import { updateNotReadChats } from "../../redux/actions";
+import { LINK_BACK, LINK_FRONT } from "../../Utils/variablesDeploy";
 
-const socket = io('http://localhost:3001')
+const socket = io(`${LINK_BACK}`)
 
 export default function RenderizarChats({emisorId, receptorActualId}) {
 
@@ -13,7 +14,7 @@ export default function RenderizarChats({emisorId, receptorActualId}) {
     const dispatch = useDispatch()
 
     useEffect(() => {
-        axios(`http://localhost:3001/message/chats?emisorId=${emisorId}`)
+        axios(`${LINK_BACK}/message/chats?emisorId=${emisorId}`)
         .then(chats => setChats(chats.data));
     }, [])
 
@@ -21,12 +22,12 @@ export default function RenderizarChats({emisorId, receptorActualId}) {
         // ACA ACTUALIZAR LOS MENSAJES NO LEIDOS PARA SUMAR.
         const updateChats = (message) => {
             if (emisorId == message.ReceptorId || emisorId == message.EmisorId) {
-                axios(`http://localhost:3001/message/chats?emisorId=${emisorId}`)
+                axios(`${LINK_BACK}/message/chats?emisorId=${emisorId}`)
                 .then(chats => {
                     setChats(chats.data)
                 });
                 if (emisorId == message.ReceptorId) {
-                    axios(`http://localhost:3001/message/noleidos?userId=${emisorId}`)
+                    axios(`${LINK_BACK}/message/noleidos?userId=${emisorId}`)
                     .then(data => dispatch(updateNotReadChats(data.data.cantidad)))
                 }
             }
@@ -38,10 +39,10 @@ export default function RenderizarChats({emisorId, receptorActualId}) {
     }, [chats])
 
     const cambiarChat = (emisorId, receptorId) => {
-        window.location.href = `http://localhost:3000/chat/${emisorId}/${receptorId}`
-        axios.put(`http://localhost:3001/message/leido?emisorId=${receptorId}&receptorId=${emisorId}`)
+        window.location.href = `${LINK_FRONT}/chat/${emisorId}/${receptorId}`
+        axios.put(`${LINK_BACK}/message/leido?emisorId=${receptorId}&receptorId=${emisorId}`)
         .then(data => console.log("en click chat", data.data));
-        axios(`http://localhost:3001/message/noleidos?userId=${emisorId}`)
+        axios(`${LINK_BACK}/message/noleidos?userId=${emisorId}`)
         .then(data => dispatch(updateNotReadChats(data.data.cantidad)))
     }
     

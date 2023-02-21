@@ -1,0 +1,20 @@
+.body {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #EDEDED;
+}
+.baneado {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.img {
+    height: 48%;
+    width: 48%;
+    margin-bottom: 15px;
+    border: #000000 1px solid;
+}

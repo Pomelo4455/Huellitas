@@ -73,8 +73,9 @@ const petsData = [
     color: "blanco y negro",
     sex: "hembra",
     temperament: "confiable",
-    adopted: "no",
+    adopted: "si",
     userId: 4,
+    adoptanteId: 11
   },
   {
     name: "Trufa",
@@ -110,8 +111,9 @@ const petsData = [
     color: "anaranjado",
     sex: "hembra",
     temperament: "jugueton",
-    adopted: "no",
+    adopted: "si",
     userId: 7,
+    adoptanteId: 11
   },
   {
     name: "Manchas",
@@ -161,8 +163,9 @@ const petsData = [
     color: "gris",
     sex: "macho",
     temperament: "relajado",
-    adopted: "no",
+    adopted: "si",
     userId: 15,
+    adoptanteId: 9
   },
   {
     name: "Minnie",

@@ -2,13 +2,12 @@ import React from "react";
 import { Icon } from "@iconify/react";
 import { Link } from "react-router-dom";
 import { useAuth0 } from "@auth0/auth0-react";
+import UserBaneado from "../UserBanedo/UserBaneado";
 import styles from "./footer.module.css";
 import swal from "sweetalert";
-
 import Swal from 'sweetalert2'
-
 import axios from "axios"
-
+import { LINK_BACK } from "../../Utils/variablesDeploy";
 
 const ADMIN_ID = 1;
 
@@ -17,6 +16,7 @@ function Footer() {
   let user = JSON.parse(window.localStorage.getItem("loggedUser"));
 
   const handleContact = () => {
+    user.data.status === 'baneado' ? <UserBaneado/> :
     swal({
       title: "No es posible contactarse.",
       text: "Debe iniciar sesión para hacerlo.",
@@ -26,6 +26,7 @@ function Footer() {
   }
 
   const handleNotReview = () => {
+    user.data.status === 'baneado' ? <UserBaneado/> :
     swal({
       title: "No puede dar su opinión.",
       text: "Debe iniciar sesión para hacerlo.",
@@ -35,8 +36,8 @@ function Footer() {
   }
 
   const handleReview = async () => {
-
-    let {value : stars} = await Swal.fire({
+    if (user.data?.status === 'baneado') return null
+    else {let {value : stars} = await Swal.fire({
       title: 'Puntúanos',
       input: 'range',
       inputAttributes: {
@@ -61,12 +62,12 @@ function Footer() {
     if (review || stars) {
       if (!review) review = ""
       if (!stars) stars = 0
-      await axios.put(`http://localhost:3001/users/${user.data.id}`, {stars, review})
+      await axios.put(`${LINK_BACK}/users/${user.data.id}`, {stars, review})
       Swal.fire('Datos enviados', '', 'success')
     }
     else {
       Swal.fire('Datos no enviados', '', 'info')
-    }
+    }}
   }
 
   return (
@@ -81,14 +82,14 @@ function Footer() {
         {
         user?.data?.id ?
           <>
-          <h4 onClick={handleReview} className={styles.texts} style={{cursor:"pointer"}}>¡Dejanos tu opinión! 🤔</h4>
+          <h4 onClick={handleReview} className={styles.texts} style={{cursor:"pointer"}}>¡Déjanos tu opinión! ♥</h4>
           <Link to={`/chat/${user.data.id}/${ADMIN_ID}`} className={styles.texts}>
-            <h4 className={styles.texts}>Contactanos 💬</h4>
+            <h4 className={styles.texts}>Contáctanos 💬</h4>
           </Link></>
           :
           <>
-          <h4 onClick={handleNotReview} className={styles.texts} style={{cursor:"pointer"}}>¡Dejanos tu opinión! 🤔</h4>
-          <h4 onClick={handleContact} className={styles.texts} style={{cursor:"pointer"}}>Contactanos 💬</h4>
+          <h4 onClick={handleNotReview} className={styles.texts} style={{cursor:"pointer"}}>¡Déjanos tu opinión! ♥</h4>
+          <h4 onClick={handleContact} className={styles.texts} style={{cursor:"pointer"}}>Contáctanos 💬</h4>
           </>
         }
       </div>
