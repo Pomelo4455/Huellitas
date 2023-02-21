@@ -1,6 +1,11 @@
 import styles from "./DetailCampaign.module.css";
-
+import { useEffect } from "react";
 const DetailCampaign = ({ dataModal, defaultData, setModalDetailCampaign }) => {
+  useEffect(() => {
+    return () => {
+      localStorage.setItem("dataChange", JSON.stringify({}));
+    };
+  }, []);
   return (
     <div className={styles.modalUser}>
       <div className={styles.container}>
