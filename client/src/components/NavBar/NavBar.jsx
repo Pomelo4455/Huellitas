@@ -121,20 +121,23 @@ const NavBar = ({ loggedUser, setLoggedUser }) => {
 
                         // FAVS
                         <li>
+                          
                             <Icon
                                 onClick={handleViewFavorites}
                                 className={styles.followButton}
                                 icon="ph:heart"
                             />
+
                             <div>
                               <div className={styles.infoSession}>
                                   <RenderFavorites
-                                      handleOcultFavorites={
-                                        handleViewFavorites
-                                      }
-                                      />
+                                    handleOcultFavorites={
+                                      handleViewFavorites
+                                    }
+                                  />
                               </div>
                             </div>
+                            
                         </li>
                       
                       ) 
@@ -175,7 +178,6 @@ const NavBar = ({ loggedUser, setLoggedUser }) => {
                               
                               <ProfileSideBar 
                                 handleEdit={handleEdit}
-                                noLeidos={noLeidos}
                               />
                                         
                               </div>
@@ -183,7 +185,6 @@ const NavBar = ({ loggedUser, setLoggedUser }) => {
                             ) : (
                                 <>
                                     <LoginButton />
-
                                 </>
                             )}
                         </div>
