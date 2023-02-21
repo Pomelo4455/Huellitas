@@ -2,6 +2,8 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import Campaña from "../Campaigns/Campaing";
 import { LINK_BACK } from "../../Utils/variablesDeploy";
+import './RenderCampaings.css'
+import { Icon } from '@iconify/react'
 
 const renderizarCampaignsCards = (allCampaigns, cantidad) => {
     return allCampaigns.slice(0, cantidad).map((camp) => {
@@ -28,28 +30,33 @@ export default function RenderizarCampaigns({user}) {
     useEffect(() => {
         axios(`${LINK_BACK}/users/${user.id}`)
         .then(data => setCampaigns(data.data.campaigns));
+        console.log(setCampaigns)
     }, [])
 
     const handleShowMore = () => {
         setMore(!more)
     } 
-
+    if (campaigns.length > 1) {
     return (
         <>
-        <h1>Campañas:</h1>
-        <div style={{display: "flex"}}>
+        
+        <h2 >Campañas</h2>
+        
+        <div className="campañascontainer">
         {more ? 
                 <>
                 {renderizarCampaignsCards(campaigns, campaigns.length)}
-                <button onClick={handleShowMore}>VER MENOS</button>
+                <button className="buttonCamapañasView" onClick={handleShowMore}><Icon icon="material-symbols:keyboard-double-arrow-left-sharp" /></button>
                 </>
             :
                 <>
                 {renderizarCampaignsCards(campaigns, 1)}
-                <button onClick={handleShowMore}>VER MAS</button>
+                <button className="buttonCamapañasView" onClick={handleShowMore}> <Icon icon="material-symbols:keyboard-double-arrow-right" /></button>
                 </>
             }
         </div>
+        
         </>
     )
+}
 }
