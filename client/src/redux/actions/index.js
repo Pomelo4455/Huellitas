@@ -35,6 +35,7 @@ export const UPDATE_NOT_READ_CHATS = "UPDATE_NOT_READ_CHATS";
 export const GET_THIS_USER = "GET_THIS_USER";
 export const GET_USERS_DETAIL = "GET_USERS_DETAIL";
 export const RESET_USER_DETAIL = "RESET_USER_DETAIL";
+export const RESET_PET_DETAIL = "RESET_PET_DETAIL";
 
 export const getPets = () => {
   return async function (dispatch) {
@@ -62,10 +63,10 @@ export const getPetsDetail = (id) => {
       });
     } catch (error) {
       console.log(error);
-      return dispatch({
-        type: GET_PETS_DETAIL,
-        payload: [],
-      });
+      // return dispatch({
+      //   type: GET_PETS_DETAIL,
+      //   payload: [],
+      // });
     }
   };
 };
@@ -504,9 +505,9 @@ export function getProvincias() {
 export function getCiudades(id) {
   return async function (dispatch) {
     const resp = await axios.get(
-      `https://apis.datos.gob.ar/georef/api/municipios?provincia=${id}&campos=id,nombre,centroide&max=150`
+      `https://apis.datos.gob.ar/georef/api/localidades?provincia=${id}&campos=id,nombre,centroide&max=5000`
     );
-    const ciudades = resp.data.municipios;
+    const ciudades = resp.data.localidades;
 
     return dispatch({
       type: GET_CIUDADES,
@@ -568,4 +569,8 @@ export const getDetail = (id) => {
 
 export const resetDetail = () => {
   return { type: RESET_USER_DETAIL };
+};
+
+export const resetPetDetail = () => {
+  return { type: RESET_PET_DETAIL };
 };

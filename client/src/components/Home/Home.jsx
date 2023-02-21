@@ -41,7 +41,7 @@ const Home = () => {
 
     const handleOnClick = (e) => {
         e.preventDefault();
-        if (isAuth) navigate("/PublicarAdopcion");
+        if (user?.data?.id) navigate("/PublicarAdopcion");
         else {
             swal({
                 title: "Sorry!",
