@@ -505,9 +505,9 @@ export function getProvincias() {
 export function getCiudades(id) {
   return async function (dispatch) {
     const resp = await axios.get(
-      `https://apis.datos.gob.ar/georef/api/municipios?provincia=${id}&campos=id,nombre,centroide&max=150`
+      `https://apis.datos.gob.ar/georef/api/localidades?provincia=${id}&campos=id,nombre,centroide&max=5000`
     );
-    const ciudades = resp.data.municipios;
+    const ciudades = resp.data.localidades;
 
     return dispatch({
       type: GET_CIUDADES,
