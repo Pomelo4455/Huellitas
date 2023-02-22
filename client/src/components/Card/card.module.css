@@ -12,6 +12,8 @@
   background: #f8f8f8;
   height: 32em;
   width:  18.7em;
+  height: 32em;
+  width:  18.7em;
   background: linear-gradient(360deg, #c7eaff, #059ff6);
   transition: 0.5s;
   cursor: pointer;
@@ -47,6 +49,10 @@
   margin: 0 auto;
   font-family: "Noto Sans JP";
   font-weight: 400;
+  width: 90%;
+  height: auto;
+  margin: .2em auto;
+  /* background-color: #caf605; */
   width: 90%;
   height: auto;
   margin: .2em auto;
@@ -89,6 +95,20 @@
 
 .card:hover .corazonFollow {
   display: flex;
+}
+
+
+@media (max-width: 768px) {
+  .img {
+    width: 250px;
+    height: 188px;
+  }
+}
+@media (max-width: 768px) {
+  .card {
+    height: 350px;
+    width: 250px;
+  }
 }
 
 
@@ -182,4 +202,5 @@
     display: flex;
   }
 }
+
 

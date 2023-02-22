@@ -33,7 +33,15 @@ const Detail = (props) => {
           <div className={style.container}>
 
 
+
+
             <h1>{campaignId[0].title}</h1>
+
+            <div>
+              <Link to={`../userDetail/${campaignId[0].userId}`}>
+                <p>Ver persona creadora de la campaña </p>
+              </Link>
+            </div>
 
             <div>
               <Link to={`../userDetail/${campaignId[0].userId}`}>
@@ -74,6 +82,12 @@ const Detail = (props) => {
               labelColor="#000000"
             />
 
+            <div className={style.campaignInfo}>
+              <h3>Descripción:</h3>
+              <p className={style.textbox}> {campaignId[0].description}</p>
+            </div>
+
+            
             <div className={style.campaignInfo}>
               <h3>Descripción:</h3>
               <p className={style.textbox}> {campaignId[0].description}</p>
@@ -151,6 +165,7 @@ const Detail = (props) => {
                     >
                       Donar
                     </button>
+                    
                     
                     <ErrorMessage
                       name="quantity"
