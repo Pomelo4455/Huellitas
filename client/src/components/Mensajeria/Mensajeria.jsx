@@ -50,7 +50,6 @@ export default function Mensajeria() {
   let screenWidth = useScreenSize().width
 
   if (validar_url(emisorId, receptorId, userId)) {
-    console.log("entre");
     return (
       <NotFound/>
     )

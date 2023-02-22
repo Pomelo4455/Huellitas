@@ -75,7 +75,6 @@ const EditPet = ({ dataModal, setModalEditPet }) => {
           return errors;
         }}
         onSubmit={(values, { resetForm }) => {
-          // console.log(valuess);
           dispatch(updatePetAdm(dataModal.id, valuess));
           resetForm();
           setSent(true);

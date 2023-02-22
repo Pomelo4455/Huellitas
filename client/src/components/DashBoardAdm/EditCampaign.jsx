@@ -72,7 +72,6 @@ const EditCampaign = ({ dataModal, setModalEditCampaign }) => {
           return errors;
         }}
         onSubmit={(values, { resetForm }) => {
-          // console.log(valuess);
           dispatch(updateCampaignAdm(dataModal.id, valuess));
           resetForm();
           setSent(true);

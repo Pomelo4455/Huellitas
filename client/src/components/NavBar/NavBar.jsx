@@ -24,13 +24,14 @@ import ProfileSideBar from "../ProfileSideBar/ProfileSideBar";
 
 import styles from "./navBar.module.css";
 
-const NavBar = ({ loggedUser, setLoggedUser }) => {
-    // console.log(loggedUser)
-    const dispatch = useDispatch();
-    const { user, isAuthenticated, isLoading } = useAuth0();
-    const noLeidos = useSelector((state) => state.noLeidos);
-    const profile = useSelector((state) => state.profile);
-    useEffect(() => {}, [profile]);
+const NavBar = (
+  {loggedUser,setLoggedUser}
+  ) => {
+  const dispatch = useDispatch();
+  const { user, isAuthenticated, isLoading } = useAuth0();
+  const noLeidos = useSelector(state => state.noLeidos);
+  const profile = useSelector((state) => state.profile);
+  useEffect(() => {}, [profile]);
 
     useEffect(() => {
         if (loggedUser?.id) {
@@ -40,21 +41,15 @@ const NavBar = ({ loggedUser, setLoggedUser }) => {
         }
     }, []);
 
-    useEffect(() => {
-        if (isAuthenticated) {
-            let prof = profileCreationInfo(user);
-            // console.log(user)
-            // localStorage.setItem('user', JSON.stringify(prof))
-            // console.log(prof)
-            dispatch(sendProfileToDb(prof, setLoggedUser));
-            dispatch(login_success());
-        } else {
-            // localStorage.setItem('user', JSON.stringify({}))
-            // localStorage.setItem("loggedUser", JSON.stringify({}));
-            // console.log("not logged in");
-            // clearProfile()
-        }
-    }, [isAuthenticated]);
+  useEffect(() => {
+    if (isAuthenticated) {
+      let prof = profileCreationInfo(user);
+      dispatch(sendProfileToDb(prof,setLoggedUser));
+      dispatch(login_success());
+    } else {
+      console.log("not logged in");
+    }
+  }, [isAuthenticated]);
 
     // useEffect(()=>
     // setLoggedUser(JSON.parse(window.localStorage.getItem('loggedUser'))),
