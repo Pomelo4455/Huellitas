@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.4f111d6b.css",
-    "main.js": "/static/js/main.ff8a3b85.js",
+    "main.css": "/static/css/main.a01a0064.css",
+    "main.js": "/static/js/main.d9a28ae4.js",
     "ucare-widget-chunk.js": "/static/js/ucare-widget-chunk.7d5a5f4a.chunk.js",
     "ucare-panel-chunk.js": "/static/js/ucare-panel-chunk.b2657a2a.chunk.js",
     "static/js/787.c4e7f8f9.chunk.js": "/static/js/787.c4e7f8f9.chunk.js",
@@ -15,15 +15,15 @@
     "static/media/perro7.jpg": "/static/media/perro7.6f5cba7aa63a57c09b3a.jpg",
     "static/media/perro1.jpg": "/static/media/perro1.283a3dd152465aecceea.jpg",
     "index.html": "/index.html",
-    "main.4f111d6b.css.map": "/static/css/main.4f111d6b.css.map",
-    "main.ff8a3b85.js.map": "/static/js/main.ff8a3b85.js.map",
+    "main.a01a0064.css.map": "/static/css/main.a01a0064.css.map",
+    "main.d9a28ae4.js.map": "/static/js/main.d9a28ae4.js.map",
     "ucare-widget-chunk.7d5a5f4a.chunk.js.map": "/static/js/ucare-widget-chunk.7d5a5f4a.chunk.js.map",
     "ucare-panel-chunk.b2657a2a.chunk.js.map": "/static/js/ucare-panel-chunk.b2657a2a.chunk.js.map",
     "787.c4e7f8f9.chunk.js.map": "/static/js/787.c4e7f8f9.chunk.js.map",
     "294.499e59b0.chunk.js.map": "/static/js/294.499e59b0.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.4f111d6b.css",
-    "static/js/main.ff8a3b85.js"
+    "static/css/main.a01a0064.css",
+    "static/js/main.d9a28ae4.js"
   ]
 }
