@@ -43,12 +43,6 @@ const Detail = (props) => {
               </Link>
             </div>
 
-            <div>
-              <Link to={`../userDetail/${campaignId[0].userId}`}>
-                <p>Ver persona creadora de la campaña </p>
-              </Link>
-            </div>
-
             <img
               src={campaignId[0].image}
               alt={campaignId[0].id}
@@ -86,14 +80,6 @@ const Detail = (props) => {
               <h3>Descripción:</h3>
               <p className={style.textbox}> {campaignId[0].description}</p>
             </div>
-
-            
-            <div className={style.campaignInfo}>
-              <h3>Descripción:</h3>
-              <p className={style.textbox}> {campaignId[0].description}</p>
-            </div>
-
-            
 
             <Formik
               initialValues={{

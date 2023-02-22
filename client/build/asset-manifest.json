@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.742b3604.css",
-    "main.js": "/static/js/main.fa753298.js",
+    "main.js": "/static/js/main.33a723bf.js",
     "ucare-widget-chunk.js": "/static/js/ucare-widget-chunk.7d5a5f4a.chunk.js",
     "ucare-panel-chunk.js": "/static/js/ucare-panel-chunk.b2657a2a.chunk.js",
     "static/js/787.c4e7f8f9.chunk.js": "/static/js/787.c4e7f8f9.chunk.js",
@@ -16,7 +16,7 @@
     "static/media/perro1.jpg": "/static/media/perro1.283a3dd152465aecceea.jpg",
     "index.html": "/index.html",
     "main.742b3604.css.map": "/static/css/main.742b3604.css.map",
-    "main.fa753298.js.map": "/static/js/main.fa753298.js.map",
+    "main.33a723bf.js.map": "/static/js/main.33a723bf.js.map",
     "ucare-widget-chunk.7d5a5f4a.chunk.js.map": "/static/js/ucare-widget-chunk.7d5a5f4a.chunk.js.map",
     "ucare-panel-chunk.b2657a2a.chunk.js.map": "/static/js/ucare-panel-chunk.b2657a2a.chunk.js.map",
     "787.c4e7f8f9.chunk.js.map": "/static/js/787.c4e7f8f9.chunk.js.map",
@@ -24,6 +24,6 @@
   },
   "entrypoints": [
     "static/css/main.742b3604.css",
-    "static/js/main.fa753298.js"
+    "static/js/main.33a723bf.js"
   ]
 }
