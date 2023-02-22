@@ -45,7 +45,7 @@
 }
 
 .name {
-  margin: 0px;
+  margin: 0 auto;
   font-family: "Noto Sans JP";
   font-weight: 400;
   width: 80%;
