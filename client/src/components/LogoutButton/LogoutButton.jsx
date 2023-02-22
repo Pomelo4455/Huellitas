@@ -3,8 +3,8 @@ import { useAuth0 } from "@auth0/auth0-react";
 import { useDispatch } from "react-redux";
 import { login_failure } from "../../redux/actions";
 import { LINK_FRONT } from "../../Utils/variablesDeploy";
-
 import styles from "./LogoutButton.module.css";
+import { Icon } from "@iconify/react";
 
 const LogoutButton = () => {
   const dispatch = useDispatch();
@@ -17,7 +17,10 @@ const LogoutButton = () => {
   return (
     <>
       <button className={styles.button} onClick={handleinput}>
-        Cerrar sesión
+        <Icon 
+          className={styles.logOutBtn}
+          icon="simple-line-icons:logout" 
+        />
       </button>
     </>
   );

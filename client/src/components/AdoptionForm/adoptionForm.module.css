@@ -250,6 +250,23 @@
     height: 20px;
     width: 20px;
   }
+
+  .geo {
+    margin: 0 auto;
+  }
+  
+  .region {
+    
+    /* background-color: #a80202; */
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    text-align: center;
+  }
+
+  .input2 {
+    width: 70%;
+  }
   
   .exito {
     text-align: center;
