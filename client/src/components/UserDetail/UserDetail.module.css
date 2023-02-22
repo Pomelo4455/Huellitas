@@ -115,8 +115,8 @@
   gap: 15px;
 }
 
-/* RESPONSIVE PARA DISPOSITIVOS HASTA 760PX */
-@media (max-width: 760px) {
+/* RESPONSIVE PARA DISPOSITIVOS HASTA 1040PX */
+@media (max-width: 1040px) {
   .adoptar {
     /* background-color: #ef6c6c; */
     display: flex;
