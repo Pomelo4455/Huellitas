@@ -112,9 +112,9 @@ export default function AdoptionForm() {
           return errors;
         }}
         onSubmit={(values, { resetForm }) => {
-          if(userLocation.latitude === 0 && userLocation.longitude === 0){
-            dispatch(postNewPet(values))
-          } else{
+          if (userLocation.latitude === 0 && userLocation.longitude === 0) {
+            dispatch(postNewPet(values));
+          } else {
             dispatch(postNewPet(values, userLocation));
           }
           resetForm();
@@ -304,10 +304,14 @@ export default function AdoptionForm() {
                   {ciudades
                     ?.filter((city) => city.id === values.ciudad)
                     .map((ciudad) => {
-                      if (values.latitude === 0 || values.latitude !== ciudad.centroide.lat) setFieldValue("latitude", ciudad.centroide.lat);
+                      if (
+                        values.latitude === 0 ||
+                        values.latitude !== ciudad.centroide.lat
+                      )
+                        setFieldValue("latitude", ciudad.centroide.lat);
                     })}
                   <Field
-                 hidden
+                    hidden
                     type="number"
                     name="latitude"
                     value={values.latitude}
@@ -315,12 +319,15 @@ export default function AdoptionForm() {
                   {ciudades
                     ?.filter((city) => city.id === values.ciudad)
                     .map((ciudad) => {
-                      if (values.longitude === 0 || values.longitude !== ciudad.centroide.lon) 
+                      if (
+                        values.longitude === 0 ||
+                        values.longitude !== ciudad.centroide.lon
+                      )
                         setFieldValue("longitude", ciudad.centroide.lon);
-                        })}
+                    })}
 
                   <Field
-                 hidden
+                    hidden
                     type="number"
                     name="longitude"
                     value={values.longitude}

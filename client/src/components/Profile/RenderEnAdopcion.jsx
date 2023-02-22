@@ -2,10 +2,13 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import Card from "../Card/Card.jsx";
 import { LINK_BACK } from "../../Utils/variablesDeploy.js";
+import './RenderEnAdopcion.css'
+import { Icon } from '@iconify/react'
 
 const renderizarPetCards = (allPets, cantidad) => {
+    allPets = allPets.filter(pet => pet.adopted === "no" && pet.deleted === "no")
     return allPets.slice(0, cantidad).map((pet) => {
-      return <Card pets={pet} key={pet.id} />;
+        return <Card pets={pet} key={pet.id} />;
     });
   };
 
@@ -26,22 +29,24 @@ export default function RenderizarEnAdopcion({user}) {
     if (pets.length > 0) {
         return (
             <>
-            <h1>En adopcion:</h1>
-            <div style={{display: "flex"}}>
+            <h2>En adopcion</h2>
+            {pets.length > 0 && 
+            <div className="containerAdopciones">
                 {more ? 
                     <>
                     {renderizarPetCards(pets, pets.length)}
-                    <button onClick={handleShowMore}>VER MENOS</button>
+                    <button className="buttonViewMore" onClick={handleShowMore}><Icon icon="material-symbols:keyboard-double-arrow-left-sharp" /></button>
                     </>
                 :
                     <>
                     {renderizarPetCards(pets, 1)}
-                    <button onClick={handleShowMore}>VER MAS</button>
+                    <button className="buttonViewMore" onClick={handleShowMore}><Icon icon="material-symbols:keyboard-double-arrow-right" /></button>
                     </>
                 }
             </div>
-
+        }
             </>
+
         )
     }
     else return null
