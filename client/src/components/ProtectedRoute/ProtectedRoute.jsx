@@ -14,7 +14,7 @@ export const FoundationProtectedRoute=({children})=>{
     let profile=JSON.parse(window.localStorage.getItem('loggedUser'))
     console.log(profile.data && profile.data.type)
 
-    if (!profile.data || profile.data.type!=="fundacion") {return <Navigate to="/unauthRedirect/foundation"/>}
+    if (!profile.data || profile.data.type==="usuario") {return <Navigate to="/unauthRedirect/foundation"/>}
     return children
 }
 
