@@ -56,7 +56,6 @@ const EditProfile = ({ dataModal, setModalEditProfile }) => {
           return errors;
         }}
         onSubmit={(values, { resetForm }) => {
-          // console.log(valuess);
           dispatch(updateUsersAdm(dataModal.id, valuess));
           resetForm();
           setSent(true);

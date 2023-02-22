@@ -16,7 +16,6 @@ import styles from "./fundations.module.css";
 
 export default function Fundations() {
   const allFundaciones = useSelector((state) => state.fundaciones);
-  console.log(allFundaciones);
   const dispatch = useDispatch();
   const [searchFund, setSearchFund] = useState("");
 

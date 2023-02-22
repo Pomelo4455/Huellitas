@@ -256,21 +256,41 @@ export default function AdoptionForm() {
                   )}
                 />
               </div>
-              <label>¿Donde se encuentra nuestro amiguito? </label>
               <div className={styles.divinput}>
+
+                <label>
+                  ¿Donde se encuentra nuestro amiguito? 
+                </label>
                 <button
                   onClick={(event) => handleGeo(event)}
                   className={styles.geo}
                 >
-                  <div className={styles.btntxt}>Usar mi ubicación</div>
+                  <div 
+                    className={styles.btntxt}
+                  >
+                    Usar mi ubicación
+                  </div>
                   <Icon
                     icon="material-symbols:location-on"
                     color="#788eff"
                     height="40px"
                   />
                 </button>
-                {userLocation.latitude !== 0 ?<Icon icon="material-symbols:check-circle-rounded" color="#025c4c" width="30" height="30" />:null}
+
+                {
+                  userLocation.latitude !== 0 
+                  ?
+                  <Icon         
+                    icon="material-symbols:check-circle-rounded" color="#025c4c" 
+                    width="30" 
+                    height="30" 
+                  />
+                  :
+                  null
+                }
+
               </div>
+              
               <label>o seleccionar </label>
               <div className={styles.region}>
                 <div>

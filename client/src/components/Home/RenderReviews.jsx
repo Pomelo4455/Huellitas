@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import styles from "./home.module.css";
 import styles2 from "./renderReviews.module.css";
 import { Icon } from '@iconify/react';
@@ -19,7 +20,9 @@ const renderizarReviews = (allReviews, cantidad) => {
     return allReviews.slice(0, cantidad).map((review, index) => {
       return (
         <div key={index} className={styles2.reviewContainer} data-aos="fade-up" style={{background: backgrounds[index%3]}}>
-            <img src={review.image} alt="nf" className={styles2.userImg} />
+            <Link to ={`/userDetail/${review.id}`}>
+              <img src={review.image} alt="nf" className={styles2.userImg} />
+            </Link>
             <div>
               <h2 className={styles2.opinion}>{review.name}:</h2>
               <h4 className={styles2.opinion}>{review.review.slice(0, MAX_CHARACTERS)}</h4>

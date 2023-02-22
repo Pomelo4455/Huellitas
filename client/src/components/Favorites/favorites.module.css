@@ -1,0 +1,105 @@
+.listContainer {
+    background-color: #fff;
+    width: 100%;
+    height: auto;
+}
+
+.textNoList {
+    /* color: #464646; */
+    text-align: center;
+    font-size: 2em;
+}
+
+.allList {
+    /* background-color: #7d4f4f; */
+    width: 90%;
+    height: auto;
+    margin: 1em auto;
+}
+
+.listItem {
+    /* background-color: aquamarine; */
+    display: flex;
+    flex-direction: column;
+    width: 95%;
+    height: auto;
+    margin: 0 auto;
+}
+
+.petInList {
+    /* background-color: blanchedalmond; */
+    box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.2);
+    margin: 1em 0;
+    height: 8em;
+    display: flex;
+    flex-direction: row;
+    cursor: pointer;
+}
+
+.petImage {
+    /* background-color: #917272; */
+    width: 25%;
+}
+
+.petImage img {
+    display: block;
+    margin: 0 auto;
+    padding: 0;
+    height: 8em;
+    width: 200px;
+}
+
+.petInfo {
+    /* background-color: coral; */
+    width: 75%;
+}
+
+.petInfoName {
+    margin: .2em;
+    /* background-color: cornflowerblue; */
+    font-size: 2em;
+    font-weight: bold;
+    text-align: center;
+}
+
+.petInfoAdopted {
+    margin: .2em;
+    /* background-color: darkolivegreen; */
+    font-size: 1.6em;
+    text-align: center;
+
+}
+
+
+
+/* RESPONSIVE PARA DISPOSITIVOS HASTA 760PX */
+@media (max-width: 760px) {
+
+    
+    .petInList {
+
+        height: 17em;
+        flex-direction: column;
+    }
+    
+    .petImage {
+        background-color: #91727234;
+        width: 100%;
+    }
+    
+    .petImage img {
+        display: block;
+        margin: 0 auto;
+        padding: 0;
+        height: 8em;
+        width: 200px;
+    }
+    
+    .petInfo {
+        width: 100%;
+        height: auto;
+        text-align: center;
+    }
+    
+}
+
