@@ -51,8 +51,8 @@ const ProfileSideBar = ({ handleEdit, noLeidos }) => {
                         icon="ic:baseline-message" 
                     />
                 
-
-                    {/* {
+                    {console.log(noLeidos)}
+                    {
                         noLeidos <= 0 ? null : noLeidos <= 9 ? 
                         (
                             <div>
@@ -79,7 +79,7 @@ const ProfileSideBar = ({ handleEdit, noLeidos }) => {
                                 />
                             </div>
                         )
-                    } */}
+                    }
 
                 </Link>
 

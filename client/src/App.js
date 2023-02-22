@@ -131,7 +131,12 @@ function App() {
           loggedUser.data?.status === 'baneado' ? <UserBaneado /> :
           <Fundaciones />} 
         />
-        <Route path="/seguimiento" element={<Favorites />} />
+        <Route path="/seguimiento" element={
+            <UserProtectedRoute>
+              <Favorites />
+            </UserProtectedRoute>
+          } 
+        />
         <Route path="/:any" element={<NotFound />} />
       </Routes>
       <Footer/>
