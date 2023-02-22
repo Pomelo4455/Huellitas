@@ -12,11 +12,6 @@ import {
     clearProfile,
     login_success,
     updateNotReadChats,
-    restoreSearch,
-    sendProfileToDb,
-    clearProfile,
-    login_success,
-    updateNotReadChats,
 } from "../../redux/actions";
 import swal from "sweetalert";
 import { profileCreationInfo } from "../../Utils/profileFunctions";
@@ -25,13 +20,8 @@ import axios from "axios";
 import RenderFavorites from "./RenderFavorites";
 import { LINK_BACK } from "../../Utils/variablesDeploy";
 import ProfileSideBar from "../ProfileSideBar/ProfileSideBar";
-
-
 import styles from "./navBar.module.css";
-import ProfileSideBar from "../ProfileSideBar/ProfileSideBar";
 
-
-import styles from "./navBar.module.css";
 
 const NavBar = (
   {loggedUser,setLoggedUser}
@@ -49,13 +39,7 @@ const NavBar = (
             ).then((data) => dispatch(updateNotReadChats(data.data.cantidad)));
         }
     }, []);
-    useEffect(() => {
-        if (loggedUser?.id) {
-            axios(
-                `${LINK_BACK}/message/noleidos?userId=${loggedUser?.id}`
-            ).then((data) => dispatch(updateNotReadChats(data.data.cantidad)));
-        }
-    }, []);
+
 
   useEffect(() => {
     if (isAuthenticated) {
