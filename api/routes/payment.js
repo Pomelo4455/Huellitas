@@ -31,7 +31,6 @@ binary_mode: true,
 }
 mercadopago.preferences.create(preference).then(function(response){
   res.status(200).send({response})
-  // console.log(preference.items);
 });
     } catch (error) {
       res.status(404).send({error:error.message});
