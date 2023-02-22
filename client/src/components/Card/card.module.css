@@ -8,14 +8,13 @@
 .card {
   display: flex;
   justify-content: center;
-  margin: 1rem;
+  margin-left: 1rem;
   background: #f8f8f8;
   height: 400px;
   width: 300px;
   background: linear-gradient(360deg, #c7eaff, #059ff6);
   transition: 0.5s;
   cursor: pointer;
-  border-radius: 0% 0% 0% 0% / 0% 0% 0% 0%;
   color: white;
   box-shadow: 10px 20px rgba(0, 0, 0, 0.15);
   transition: all 0.4s ease;
@@ -27,15 +26,16 @@
   box-shadow: 10px 10px rgba(0, 0, 0, 0.25);
 }
 .center{
+ margin-left: 30px;
  display: flex;
  text-align: center;
  flex-direction: column;
 }
 .img {
+  margin-left: -30px;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin-left: auto;
   margin-right: auto;
   width: 300px;
   height: 225px;
