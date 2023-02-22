@@ -30,7 +30,6 @@ export default function RenderizarCampaigns({user}) {
     useEffect(() => {
         axios(`${LINK_BACK}/users/${user.id}`)
         .then(data => setCampaigns(data.data.campaigns));
-        console.log(setCampaigns)
     }, [])
 
     const handleShowMore = () => {
