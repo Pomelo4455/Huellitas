@@ -1,4 +1,4 @@
-import React, { useEffect, useCallback, useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import { Formik, Form, Field, ErrorMessage, useField } from "formik";
 import styles from "./adoptionForm.module.css";
 import { useNavigate } from "react-router-dom";
@@ -261,6 +261,7 @@ export default function AdoptionForm() {
                 <label>
                   ¿Donde se encuentra nuestro amiguito? 
                 </label>
+                <div className={styles.contGeo2}>
                 <button
                   onClick={(event) => handleGeo(event)}
                   className={styles.geo}
@@ -280,7 +281,7 @@ export default function AdoptionForm() {
                 {
                   userLocation.latitude !== 0 
                   ?
-                  <Icon         
+                  <Icon   className={styles.iconChk}
                     icon="material-symbols:check-circle-rounded" color="#025c4c" 
                     width="30" 
                     height="30" 
@@ -290,7 +291,7 @@ export default function AdoptionForm() {
                 }
 
               </div>
-              
+              </div>
               <label>o seleccionar </label>
               <div className={styles.region}>
                 <div>
@@ -354,7 +355,7 @@ export default function AdoptionForm() {
                   ></Field>
                 </div>
               </div>
-              <label>Sube una linda foto (o varias):</label>
+              <label>Sube una linda foto:</label>
               <div className={styles.divinput}>
                 <hr />
                 <Widget
