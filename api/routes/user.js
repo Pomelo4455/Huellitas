@@ -31,7 +31,6 @@ router.get("/", async (req, res) => {
 router.post("/", async (req, res) => {
   try {
     const data = req.body;
-    // console.log(data)
     const newUser = await createUser(data);
     res.status(200).send(newUser);
   } catch (error) {

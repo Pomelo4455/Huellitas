@@ -43,7 +43,6 @@ export const getPets = () => {
   return async function (dispatch) {
     try {
       const pets = await axios.get("/pets");
-      // console.log(pets.data)
 
       return dispatch({
         type: GET_PETS,
@@ -81,9 +80,6 @@ export const getPetName = (name) => {
 };
 
 export const sendProfileToDb = (prof, setLoggedUser) => {
-  // console.log(prof)
-  // let prof=JSON.parse(localStorage.getItem('user'))
-  // console.log(prof)
   return async function (dispatch) {
     try {
       let loggedUser = await axios.post("/users", prof);
@@ -105,7 +101,6 @@ export const clearProfile = () => {
 
 export function postNewPet(values, userLocation) {
   let payload = { ...values, ...userLocation };
-  console.log(payload);
   return async function () {
     const newDog = await axios.post("/pets", payload);
     return newDog;
