@@ -5,7 +5,8 @@
   flex-direction: column;
   align-content: center;
   width: 300px;
-  height: 550px;
+  height: fit-content;
+  padding-bottom: 30px;
   background: #c2f4ff;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 0px 0px 100px 0px;
@@ -129,6 +130,45 @@
   flex-direction: row;
 }
 
+.kms{
+  background-color: #44b7ff;
+  border: none;
+  border-radius: 10px;
+  padding: 10px 10px;
+  font-size: 110%;
+  color: rgb(255, 255, 255);
+  outline: none;
+  margin-right: 20px;
+  margin-left: -10px;
+  width: 20%;
+  text-align: center;
+}
+.kms::placeholder {
+  color: white;
+  font-family: "Poppins";
+  font-weight: 300;
+}
+.kmsbtn{
+  width: 80px;
+  height: 44px;
+  background: #44b7ff;
+  border-radius: 14px;
+  border: none;
+  font-family: "Ubuntu";
+  font-weight: 400;
+  font-size: 100%;
+  color: #ffffff;
+}
+.kmsbtn:hover {
+  background-color: #5dc1ff;
+  transition: 0.2s;
+}
+.formkms{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-top: 20px;
+}
 /* RESPONSIVE PARA DISPOSITIVOS HASTA 760PX */
 @media (max-width: 768px) {
   .container {
@@ -299,5 +339,44 @@
   .sidebar.expanded {
     transform: translateY(491px);
   }
-
+  .kms{
+    background-color: #44b7ff;
+    border: none;
+    border-radius: 10px;
+    font-size: 110%;
+    color: rgb(255, 255, 255);
+    outline: none;
+    margin-right: 20px;
+    margin-left: -10px;
+    width: 20%;
+    height: 15px ;
+    text-align: center;
+  }
+  .kms::placeholder {
+    color: white;
+    font-family: "Poppins";
+    
+  }
+  .kmsbtn{
+    width: fit-content;
+    height: 35px;
+    background: #31a7f1;
+    border-radius: 8px;
+    border: none;
+    font-family: "Ubuntu";
+    font-weight: 400;
+    font-size: 100%;
+    color: #ffffff;
+  }
+  .kmsbtn:hover {
+    background-color: #5dc1ff;
+    transition: 0.2s;
+  }
+  .formkms{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 10px;
+   margin-bottom: 10px;
+  }
 }
