@@ -174,9 +174,13 @@ const UserDetail = () => {
           </div>
           <div className={styles.container}>
             <div className={styles.adoptar}>
-              {detail.giver.map((pet) => (
+              {
+              detail.giver
+              .filter(pet => (pet.adopted === "no" && pet.deleted === "no"))
+              .map((pet) => (
                 <Card pets={pet} key={pet.id} />
-              ))}
+              ))
+              }
             </div>
           </div>
         </div>

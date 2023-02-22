@@ -8,8 +8,9 @@ const Message = require("./message.js")
 const Donations = require("./donations.js")
 const Follow = require("./follow.js")
 const Reviews = require("./review.js")
+const Adoption = require("./adoption.js")
 
-const { User, Pet, Campaign, Adoption } = require('../db.js');
+const { User, Pet, Campaign } = require('../db.js');
 const {loadUsers,loadPets,loadCampaigns}= require("../controllers/index.js")
 const {petsData,usersData,campaignsData} = require("../utils/data.js")
 
@@ -42,5 +43,7 @@ router.use("/message", Message)
 router.use("/donations",Donations)
 router.use("/follow",Follow)
 router.use("/reviews",Reviews)
+router.use("/adoption",Adoption)
+
 
 module.exports = router;

@@ -6,8 +6,9 @@ import './RenderEnAdopcion.css'
 import { Icon } from '@iconify/react'
 
 const renderizarPetCards = (allPets, cantidad) => {
+    allPets = allPets.filter(pet => pet.adopted === "no" && pet.deleted === "no")
     return allPets.slice(0, cantidad).map((pet) => {
-      return <Card pets={pet} key={pet.id} />;
+        return <Card pets={pet} key={pet.id} />;
     });
   };
 
