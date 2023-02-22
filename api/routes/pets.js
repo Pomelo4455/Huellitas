@@ -17,8 +17,8 @@ const router = Router();
 
 router.get("/", async (req, res) => {
   try {
-    const { name, species, sex, size, order, adopted } = req.query;
-    const filtersPet = createFilters(species, sex, size, adopted);
+    const { name, species, sex, size, order, adopted, giverId } = req.query;
+    const filtersPet = createFilters(species, sex, size, adopted, giverId);
     const orderPets = setOrder(order);
     let pets = await getAllPets(filtersPet, orderPets);
     if (req.query && !pets.length) throw new Error("No se encontro perritos");

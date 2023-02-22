@@ -16,6 +16,6 @@ export const handleCleanFilter = (e, filtros, dispatch) => {
 }
 
 export const combinarFiltros = (filtros) => {
-    return `${LINK_BACK}/pets?sex=${filtros.sex}&size=${filtros.size}&species=${filtros.species}&order=${filtros.order}&name=${filtros.name}&adopted=no`;
+    return `${LINK_BACK}/pets?sex=${filtros.sex}&size=${filtros.size}&species=${filtros.species}&order=${filtros.order}&name=${filtros.name}&giverId=${filtros.giverId}&adopted=no`;
 }
   
