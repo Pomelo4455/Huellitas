@@ -4,7 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import BtnHome from "../BtnHome/BtnHome";
 import Card from "../Card/Card";
 import CardFundacion from "../Card/CardFundacion";
-import { getPets, getCampaigns, getFundaciones, setCurrentPage } from "../../redux/actions";
+import { getPets, getCampaigns, getFundaciones, setCurrentPage, setUserLocation } from "../../redux/actions";
 import swal from "sweetalert";
 import { useAuth0 } from "@auth0/auth0-react";
 import Landing from "../Landing/Landing";
@@ -37,6 +37,29 @@ const Home = () => {
         AOS.init({ duration: 1000 });
     }, []);
     useEffect(() => {}, [profile]);
+
+    useEffect(() => {
+ 
+        if (navigator.geolocation) {
+           navigator.geolocation.getCurrentPosition(
+             (position) => {
+               
+               dispatch(setUserLocation({
+                 latitude: position.coords.latitude,
+                 longitude: position.coords.longitude,
+               }));
+             },
+             (error) => {
+               console.log(error);
+             }
+           );
+         } else {
+           return "no tenés geolocalización";
+         }
+       
+    }, [])
+
+
 
     const handleOnClick = (e) => {
         e.preventDefault();
