@@ -43,7 +43,7 @@ const NavBar = (
       dispatch(sendProfileToDb(prof,setLoggedUser));
       dispatch(login_success());
     } else {
-      // console.log("not logged in");
+      console.log("not logged in");
     }
   }, [isAuthenticated]);
 

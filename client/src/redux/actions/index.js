@@ -105,7 +105,6 @@ export const clearProfile = () => {
 
 export function postNewPet(values, userLocation) {
   let payload = { ...values, ...userLocation };
-  console.log(payload);
   return async function () {
     const newDog = await axios.post("/pets", payload);
     return newDog;
