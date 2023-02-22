@@ -19,7 +19,6 @@
   color: white;
   box-shadow: 10px 20px rgba(0, 0, 0, 0.15);
   transition: all 0.4s ease;
-
 }
 
 .card:hover {
@@ -27,8 +26,8 @@
   box-shadow: 10px 10px rgba(0, 0, 0, 0.25);
 }
 .center{
- display: flex;
- text-align: center;
+  display: flex;
+  text-align: center;
  flex-direction: column;
 }
 .img {
@@ -48,9 +47,10 @@
   margin: 0px;
   font-family: "Noto Sans JP";
   font-weight: 400;
-  width: 80%;
-  padding-left: 10px;
-  padding-right: 10px;
+  width: 90%;
+  height: auto;
+  margin: .2em auto;
+  /* background-color: #caf605; */
 }
 
 .corazonUnfollow {
@@ -89,4 +89,96 @@
 
 .card:hover .corazonFollow {
   display: flex;
+}
+
+
+/* RESPONSIVE PARA DISPOSITIVOS HASTA 760PX */
+@media (max-width: 760px) {
+
+  
+  .card {
+    display: flex;
+    justify-content: center;
+    margin: 1rem;
+    background: #f8f8f8;
+    height: 32em;
+    width: 16em;
+    background: linear-gradient(360deg, #c7eaff, #059ff6);
+    transition: 0.5s;
+    cursor: pointer;
+    border-radius: 0% 0% 0% 0% / 0% 0% 0% 0%;
+    color: white;
+    box-shadow: 10px 20px rgba(0, 0, 0, 0.15);
+    transition: all 0.4s ease;
+  }
+  
+  .card:hover {
+    border-radius: 0% 0% 50% 50% / 0% 0% 5% 5%;
+    box-shadow: 10px 10px rgba(0, 0, 0, 0.25);
+  }
+  .center{
+    display: flex;
+    text-align: center;
+   flex-direction: column;
+  }
+  .img {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+    width: 16em;
+    height: 225px;
+    object-fit: cover;
+    align-content: center;
+    border-radius: 0px;
+  }
+  
+  .name {
+    margin: 0px;
+    font-family: "Noto Sans JP";
+    font-weight: 400;
+    width: 90%;
+    height: auto;
+    margin: .2em auto;
+    /* background-color: #caf605; */
+  }
+  
+  .corazonUnfollow {
+    position: absolute;
+    z-index: 1;
+    font-size: 50px;
+    display: none;
+    margin-top: -15px;
+    color: #C2F4FF;
+    pointer-events: all;
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .card:hover .corazonUnfollow {
+    display: flex;
+  }
+  
+  .corazonUnfollow:hover {
+    color: #ECA0A0;
+  }
+  
+  .corazonFollow {
+    position: absolute;
+    z-index: 1;
+    font-size: 45px;
+    display: none;
+    margin-top: -10px;
+    color: #ECA0A0;
+    pointer-events: all;
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .card:hover .corazonFollow {
+    display: flex;
+  }
 }

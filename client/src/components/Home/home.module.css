@@ -221,12 +221,13 @@
   /* ESTILOS PARA LA PRESENTACION */
   
   .landingInHome {
+    /* background-color: #75e3ea; */
     display: flex;
     flex-direction: column;
-    /* background-color: #75e3ea; */
-    height: 80%;
-    overflow-y: visible;
+    height: auto;
+    overflow-y: none;
     z-index: 0;
+    
   }
 
   .imagesLanding {

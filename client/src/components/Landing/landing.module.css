@@ -170,7 +170,6 @@
     position: relative;
     overflow-x: hidden;
     box-sizing: content-box;
-    z-index: 1;
   }
 
   .text {
@@ -181,6 +180,7 @@
     font-family: "Noto Sans JP";
     font-weight: 800;
     color: rgb(33, 31, 31);
+
   }
   
   .subtitle {
@@ -203,6 +203,19 @@
     font-family: "Poppins", sans-serif;
     font-weight: 400;
     text-align: left;
+  }
+
+  .Circle {
+    position: absolute;
+    top: -500px;
+    right: -250px;
+    width: 1000px;
+    height: 1000px;
+    background-color: #04a3ffbc;
+    z-index: -1;
+    opacity: 0.5;
+    border-radius: 50%;
+    overflow: hidden;
   }
 }
 
@@ -242,6 +255,19 @@
     font-family: "Poppins", sans-serif;
     font-weight: 400;
     text-align: left;
+  }
+
+  .Circle {
+    position: absolute;
+    top: -500px;
+    right: -250px;
+    width: 1000px;
+    height: 1000px;
+    background-color: #04a3ffbc;
+    z-index: -1;
+    opacity: 0.5;
+    border-radius: 50%;
+    overflow: hidden;
   }
   
   

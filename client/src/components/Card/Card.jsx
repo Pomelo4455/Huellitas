@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
-import styles from "./card.module.css";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import swal from "sweetalert";
 import { LINK_BACK } from "../../Utils/variablesDeploy";
 import { useAuth0 } from "@auth0/auth0-react";
+
+import styles from "./card.module.css";
 
 export default function Card({ pets, distancia }) {
   let user = JSON.parse(window.localStorage.getItem("loggedUser"))?.data;
