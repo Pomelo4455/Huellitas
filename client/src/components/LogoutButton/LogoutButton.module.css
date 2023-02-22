@@ -1,27 +1,88 @@
 @import url('https://fonts.googleapis.com/css2?family=Dosis&family=Noto+Sans+JP:wght@500;900&family=Noto+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Ubuntu&display=swap');
 
 .button {
+  background-color: #8b90ff;
+  color: white;
+  border: #646BFF 1px solid;
+  border-radius: 8px;
+  padding: 10px 20px;
+  font-family: "Ubuntu";
+  font-weight: 400;
+  font-size: 110%;
+  text-align: center;
+  text-decoration: none;
+  width: 15%;
+  white-space: nowrap;
+  cursor: pointer;
+  margin-left: 1%;
+}
+
+.button:hover {
+  background-color: #9ca1ff;
+  transition: 0.25s;
+  color: white;
+}
+.button:active {
+  transform: scale(0.97);
+  box-shadow: 3px 2px 22px 1px rgba(0, 0, 0, 0.24);
+}
+
+.logOutBtn {
+  width: 4em;
+  color: #FFF;
+}
+
+/* RESPONSIVE PARA DISPOSITIVOS HASTA 760PX */
+@media (max-width: 760px) {
+
+  .button {
     background-color: #8b90ff;
     color: white;
     border: #646BFF 1px solid;
     border-radius: 8px;
-    padding: 10px 20px;
+    padding: 10px 0px;
     font-family: "Ubuntu";
     font-weight: 400;
     font-size: 110%;
     text-align: center;
     text-decoration: none;
-    width: fit-content;
+    width: 30%;
     white-space: nowrap;
-    margin-right: 5%;
     cursor: pointer;
+    margin-left: 0%;
   }
-  .button:hover {
-    background-color: #9ca1ff;
-    transition: 0.25s;
+  .logOutBtn {
+    /* background-color: aliceblue; */
+    width: 5em;
+    color: #FFF;
+  }
+
+}
+
+
+/* RESPONSIVE PARA DISPOSITIVOS DE 760PX HASTA 1024*/
+@media (min-width: 760px) and (max-width: 1024px) {
+  .button {
+    background-color: #8b90ff;
     color: white;
+    border: #646BFF 1px solid;
+    border-radius: 8px;
+    padding: 10px 0px;
+    font-family: "Ubuntu";
+    font-weight: 400;
+    font-size: 110%;
+    text-align: center;
+    text-decoration: none;
+    width: 15%;
+    white-space: nowrap;
+    cursor: pointer;
+    
+    margin: .5em 1em;
   }
-  .button:active {
-    transform: scale(0.97);
-    box-shadow: 3px 2px 22px 1px rgba(0, 0, 0, 0.24);
+  .logOutBtn {
+    /* background-color: aliceblue; */
+    width: 5em;
+    color: #FFF;
   }
+
+}

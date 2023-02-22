@@ -167,6 +167,12 @@
     z-index: 3;
     width: 300px;
   }
+
+  .nolink p {
+    /* background-color: #36b5ff; */
+    width: 90%;
+    margin: 0 auto;
+  }
   
   .circle2 {
     position: absolute;

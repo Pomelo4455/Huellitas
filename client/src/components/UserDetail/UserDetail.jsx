@@ -1,4 +1,3 @@
-import styles from "./UserDetail.module.css";
 import { useParams, useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
@@ -10,6 +9,8 @@ import instagramIcon from "../../img/instagramIcon.webp";
 import tiktokIcon from "../../img/tiktokIcon.png";
 import swal from "sweetalert";
 import { useAuth0 } from "@auth0/auth0-react";
+
+import styles from "./UserDetail.module.css";
 
 const UserDetail = () => {
   const { id } = useParams();
