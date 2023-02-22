@@ -1,4 +1,4 @@
-.buttonCamapañasView{
+.buttonDonationsView{
     display: flex;
     background: linear-gradient(360deg, #c7eaff, #059ff6);
     justify-content: center;
@@ -12,10 +12,10 @@
     width: 49px;
     cursor: pointer;
 }
-.buttonCamapañasView:hover{
+.buttonDonationsView:hover{
     background-color: blue;
     color: white
 }
-.campañascontainer{
+.donationsContainer{
     display: flex;
 }

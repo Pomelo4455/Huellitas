@@ -1,6 +1,8 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import Card from "../Card/Card.jsx";
+import { Icon } from '@iconify/react'
+import './RenderAdoptados.css'
 import { LINK_BACK } from "../../Utils/variablesDeploy.js";
 
 const renderizarPetCards = (allPets, cantidad) => {
@@ -25,17 +27,17 @@ export default function RenderizarEnAdopcion({user}) {
     if (pets.length > 0) {
         return (
             <>
-            <h1>Adoptados:</h1>
+            <h2 >Adoptados</h2>
             <div style={{display: "flex"}}>
                 {more ? 
                     <>
                     {renderizarPetCards(pets, pets.length)}
-                    <button onClick={handleShowMore}>VER MENOS</button>
+                    <button onClick={handleShowMore} className="Buttonshowadoption"><Icon icon="material-symbols:keyboard-double-arrow-left-sharp" /></button>
                     </>
                 :
                     <>
                     {renderizarPetCards(pets, 1)}
-                    <button onClick={handleShowMore}>VER MAS</button>
+                    <button onClick={handleShowMore} className="Buttonshowadoption"><Icon icon="material-symbols:keyboard-double-arrow-right" /></button>
                     </>
                 }
             </div>
