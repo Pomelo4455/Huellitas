@@ -38,7 +38,7 @@ const initialState = {
   pets: [],
   allPets: [],
   pet: [],
-  filters: { sex: "", species: "", size: "", name: "", order: "" },
+  filters: { sex: "", species: "", size: "", name: "", order: "", giverId: "" },
   campaigns: [],
   fundaciones: [],
   detailCamp: [],
