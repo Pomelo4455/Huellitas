@@ -9,7 +9,7 @@ const LogoutButton = () => {
   const dispatch = useDispatch();
   const { logout } = useAuth0();
   const handleinput = () => {
-    logout({ returnTo: window.location.origin });
+    logout({ returnTo: "https://huellitasapp.netlify.app" });
     localStorage.setItem("loggedUser", JSON.stringify({}));
     dispatch(login_failure());
   };
