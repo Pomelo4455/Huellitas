@@ -1,4 +1,4 @@
-import React, { useEffect, useCallback, useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import { Formik, Form, Field, ErrorMessage, useField } from "formik";
 import styles from "./adoptionForm.module.css";
 import { useNavigate } from "react-router-dom";
@@ -256,20 +256,41 @@ export default function AdoptionForm() {
                   )}
                 />
               </div>
-              <label>¿Donde se encuentra nuestro amiguito? </label>
               <div className={styles.divinput}>
+
+                <label>
+                  ¿Donde se encuentra nuestro amiguito? 
+                </label>
+                <div className={styles.contGeo2}>
                 <button
                   onClick={(event) => handleGeo(event)}
                   className={styles.geo}
                 >
-                  <div className={styles.btntxt}>Usar mi ubicación</div>
+                  <div 
+                    className={styles.btntxt}
+                  >
+                    Usar mi ubicación
+                  </div>
                   <Icon
                     icon="material-symbols:location-on"
                     color="#788eff"
                     height="40px"
                   />
                 </button>
-                {userLocation.latitude !== 0 ?<Icon icon="material-symbols:check-circle-rounded" color="#025c4c" width="30" height="30" />:null}
+
+                {
+                  userLocation.latitude !== 0 
+                  ?
+                  <Icon   className={styles.iconChk}
+                    icon="material-symbols:check-circle-rounded" color="#025c4c" 
+                    width="30" 
+                    height="30" 
+                  />
+                  :
+                  null
+                }
+
+              </div>
               </div>
               <label>o seleccionar </label>
               <div className={styles.region}>
@@ -334,7 +355,7 @@ export default function AdoptionForm() {
                   ></Field>
                 </div>
               </div>
-              <label>Sube una linda foto (o varias):</label>
+              <label>Sube una linda foto:</label>
               <div className={styles.divinput}>
                 <hr />
                 <Widget

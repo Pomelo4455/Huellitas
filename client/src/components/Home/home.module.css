@@ -221,12 +221,13 @@
   /* ESTILOS PARA LA PRESENTACION */
   
   .landingInHome {
+    /* background-color: #75e3ea; */
     display: flex;
     flex-direction: column;
-    /* background-color: #75e3ea; */
-    height: 80%;
-    overflow-y: visible;
+    height: auto;
+    overflow-y: none;
     z-index: 0;
+    
   }
 
   .imagesLanding {
@@ -296,6 +297,14 @@
     flex-direction: row;
     justify-content: space-around;
     flex-wrap: wrap;
+    /* background-color: #059ff6; */
+  }
+
+  .moreCards {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-auto-rows: auto;
+    grid-gap: 2rem;
   }
   
   .button {
@@ -485,6 +494,13 @@
     flex-direction: row;
     justify-content: space-around;
     flex-wrap: wrap;
+  }
+
+  .moreCards {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: auto;
+    grid-gap: 2rem;
   }
   
   .button {

@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import styles from "./card.module.css";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import swal from "sweetalert";
@@ -7,6 +6,7 @@ import { LINK_BACK } from "../../Utils/variablesDeploy";
 import { useAuth0 } from "@auth0/auth0-react";
 import stylesSideBar from "../Sidebar/sidebar.module.css"
 
+import styles from "./card.module.css";
 const renderizarSolicitantes = (solicitantes) => {
   return solicitantes.map(solicitante => {
     return <option key={solicitante.id} value={solicitante.id}>{solicitante.name}</option>

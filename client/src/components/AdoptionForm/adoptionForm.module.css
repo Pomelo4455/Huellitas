@@ -68,12 +68,20 @@
   text-align: center;
  display: flex;
  flex-direction: row;
- justify-content: space-evenly;
+ justify-content: center;
 }
 .geo:hover{
   background-color: #EDEDED
 }
-
+.contGeo2{
+display: flex;
+flex-direction: row;
+justify-content: center;
+}
+.iconChk{
+  margin-top: 3%;
+  margin-left:2%;
+}
 .btn {
   background-color: #000000;
   width: 331px;
@@ -249,6 +257,32 @@
     margin: 0px 10px;
     height: 20px;
     width: 20px;
+  }
+
+  .geo {
+    margin: 0 auto;
+  }
+  .contGeo2{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    }
+    .iconChk{
+  display: flex;
+  margin: auto;
+  margin-top: 2%;
+    }
+  .region {
+    
+    /* background-color: #a80202; */
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    text-align: center;
+  }
+
+  .input2 {
+    width: 70%;
   }
   
   .exito {
