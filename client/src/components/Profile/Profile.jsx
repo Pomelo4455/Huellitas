@@ -118,7 +118,6 @@ const Profile = ({setLoggedUser}) => {
   
     const handleSave = () => {
       setEditMode(false);
-      console.log(userId.data);
       dispatch(updateUsers(userId.data.id, formData, setLoggedUser));
       dispatch(sendProfileToDb(formData, setLoggedUser));
       localStorage.setItem("loggedUser", JSON.stringify({data: formData}));

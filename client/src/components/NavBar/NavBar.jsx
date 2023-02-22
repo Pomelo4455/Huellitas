@@ -24,7 +24,6 @@ import { LINK_BACK } from "../../Utils/variablesDeploy";
 const NavBar = (
   {loggedUser,setLoggedUser}
   ) => {
-  // console.log(loggedUser)
   const dispatch = useDispatch();
   const { user, isAuthenticated, isLoading } = useAuth0();
   const noLeidos = useSelector(state => state.noLeidos);
@@ -41,23 +40,12 @@ const NavBar = (
   useEffect(() => {
     if (isAuthenticated) {
       let prof = profileCreationInfo(user);
-      // console.log(user)
-      // localStorage.setItem('user', JSON.stringify(prof))
-      // console.log(prof)
       dispatch(sendProfileToDb(prof,setLoggedUser));
       dispatch(login_success());
     } else {
-      // localStorage.setItem('user', JSON.stringify({}))
-      // localStorage.setItem("loggedUser", JSON.stringify({}));
       // console.log("not logged in");
-      // clearProfile()
     }
   }, [isAuthenticated]);
-
-  // useEffect(()=>
-  // setLoggedUser(JSON.parse(window.localStorage.getItem('loggedUser'))),
-  // [window.localStorage]
-  // )
 
   const [showDropdown, setShowDropdown] = useState(false);
 

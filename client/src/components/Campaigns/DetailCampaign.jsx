@@ -145,7 +145,6 @@ const Detail = (props) => {
                         <div className={style.error}>{errors.quantity}</div>
                       )}
                     />
-                    {console.log(campaignId)}
                     <Link to={`../userDetail/${campaignId[0].userId}`}>
                       <p>Creador de la campaña </p>
                     </Link>

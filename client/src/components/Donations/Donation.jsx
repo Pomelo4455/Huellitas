@@ -3,7 +3,6 @@ import styles from "./donation.module.css";
 import { Link } from "react-router-dom";
 
 const Donation = ({ status, amount, campaign, campaignId }) => {
-    console.log({ status: status, amount: amount, campaign: campaign, campaignId: campaignId });
 
     return (
         <div className={styles.container}>

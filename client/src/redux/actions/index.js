@@ -43,7 +43,6 @@ export const getPets = () => {
   return async function (dispatch) {
     try {
       const pets = await axios.get("/pets");
-      // console.log(pets.data)
 
       return dispatch({
         type: GET_PETS,

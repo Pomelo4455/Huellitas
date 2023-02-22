@@ -9,7 +9,6 @@ const createDonation = async (status, amount, userId, campaignId) => {
 
 
 const putCollected = (id, collected) => {
- // console.log(collected, id)
   if (id != "undefined") Campaign.increment({collected},{where: { id }});
   else throw new Error("No hay id")
 };
