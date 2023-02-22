@@ -91,3 +91,15 @@
   display: flex;
 }
 
+@media (max-width: 768px) {
+  .img {
+    width: 250px;
+    height: 188px;
+  }
+}
+@media (max-width: 768px) {
+  .card {
+    height: 350px;
+    width: 250px;
+  }
+}
