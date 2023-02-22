@@ -107,7 +107,7 @@ export default function Mensajeria() {
                 <div className={styles.chat}>
                     <RenderizarMensajes/>
                     <div className={styles.inputContainer}>
-                        <input onChange={handleChange} onClick={handleVaciar} onKeyDown={handleEnviar} className={styles.input} value={message} name="message"></input>
+                        <input onChange={handleChange} onClick={handleVaciar} onKeyDown={handleEnviar} className={styles.input} value={message} name="message" autoComplete="off"></input>
                         <button className={styles.enviarMensaje} onClick={handleEnviar}>Enviar</button>
                     </div>
                 </div> : 
