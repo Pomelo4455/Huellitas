@@ -73,6 +73,9 @@ Pet.belongsTo(User, {as: "giver", foreignKey: 'GiverId'});
 User.hasMany(Pet, {as: "adoptante", foreignKey: 'AdoptanteId'});
 Pet.belongsTo(User, {as: "adoptante", foreignKey: 'AdoptanteId'});
 
+User.belongsToMany(Pet, {as: "solicitante", through: "solicitantes", foreignKey: 'SolicitanteId'});
+Pet.belongsToMany(User, {as: "solicitante", through: "solicitantes", foreignKey: 'MascotaId'})
+
 User.hasMany(Donation, {as: "donante", foreignKey: 'userId'});
 Donation.belongsTo(User, {as: "donante", foreignKey: 'userId'});
 Campaign.hasMany(Donation, {as: "campania", foreignKey: 'campaignId'});

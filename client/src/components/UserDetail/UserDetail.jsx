@@ -60,16 +60,16 @@ const UserDetail = () => {
             <img src={detail.image} alt={detail.name} />
           </div>
           <div className={styles.btnContainer}>
+            <button onClick={contact} className={styles.btnContactBack}>
+              CONTACTAR
+            </button>
+          </div>
+          <div className={styles.btnContainer}>
             <button
               onClick={() => window.history.back()}
               className={styles.btnContactBack}
             >
               VOLVER
-            </button>
-          </div>
-          <div className={styles.btnContainer}>
-            <button onClick={contact} className={styles.btnContactBack}>
-              CONTACTAR
             </button>
           </div>
         </div>
@@ -174,9 +174,13 @@ const UserDetail = () => {
           </div>
           <div className={styles.container}>
             <div className={styles.adoptar}>
-              {detail.giver.map((pet) => (
+              {
+              detail.giver
+              .filter(pet => (pet.adopted === "no" && pet.deleted === "no"))
+              .map((pet) => (
                 <Card pets={pet} key={pet.id} />
-              ))}
+              ))
+              }
             </div>
           </div>
         </div>

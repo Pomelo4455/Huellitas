@@ -5,16 +5,19 @@
 .page-container{
   display: flex;
   height: auto;
+  background-color: rgb(237, 246, 246);
 }
 
 .profile-container {
-  max-width: 800px;
+  max-width: 800px; 
   margin: 0 auto;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   padding: 50px;
+  height: auto;
+  margin-bottom: 0;
 }
 
 .profile-avatar {
@@ -29,14 +32,17 @@
   flex-direction: column;
   align-items: flex-start;
   margin-top: 30px;
+  font-weight: 400;
 }
 
 .profile-name {
   margin: 0;
-  font-size: 36px;
-  font-weight: bold;
+  font-size: 42px;
+  font-weight: 600;
   margin-bottom: 30px;
   font-family: "Poppins";
+  margin-left: 15px;
+  color: rgb(53, 52, 52);
 }
 
 .profile-email,
@@ -46,35 +52,39 @@
   color: #333;
   margin-bottom: 20px;
   font-family: "Poppins";
+  font-weight: 450;
 }
 
 .profile-actions {
   margin-left: auto;
   display: flex;
+ height: 200px;
 }
 
 .profile-action-button {
-  padding: 20px 40px;
+  padding: 8px 40px;
   background-color: #4caf50;
   color: #fff;
   border-radius: 10px;
   border: none;
-  font-size: 24px;
-  font-weight: bold;
+  font-size: 22px;
+  font-weight: 300;
   cursor: pointer;
   margin-top: 20px;
   margin-right: 10px;
+  height: 70px;
   font-family: "Poppins";
 }
 
 .profile-action-button2 {
-  padding: 20px 40px;
+  padding: 8px 40px;
   background-color: #e71f1f;
   color: #fff;
   border-radius: 10px;
+  height: 70px;
   border: none;
-  font-size: 24px;
-  font-weight: bold;
+  font-size: 22px;
+  font-weight: 300;
   cursor: pointer;
   margin-top: 20px;
   font-family: "Poppins";
@@ -103,8 +113,9 @@
   color: #fff;
   border-radius: 10px;
   border: none;
-  font-size: 24px;
-  font-weight: bold;
+  font-size: 22px;
+  font-weight: 300;
+  height: 70px;
   cursor: pointer;
   margin-top: 20px;
   font-family: "Poppins";
@@ -113,3 +124,43 @@
 .profile-action-button3:hover {
   background-color: #db8f16;
 }
+
+@media screen and (max-width: 600px) {
+  .page-container {
+  flex-direction: column;
+  height: auto;
+  }
+  .profile-container {
+  padding: 20px;
+  }
+  .profile-avatar {
+  width: 150px;
+  height: 150px;
+  margin-top: 30px;
+  }
+  .profile-info {
+  align-items: center;
+  text-align: center;
+  }
+  .profile-name {
+  font-size: 30px;
+  margin-left: 0;
+  margin-bottom: 10px;
+  }
+  .profile-email,
+  .profile-phone {
+  font-size: 18px;
+  margin-bottom: 10px;
+  }
+  .profile-actions {
+  margin-top: 20px;
+  justify-content: center;
+  }
+  .profile-action-button,
+  .profile-action-button2,
+  .profile-action-button3 {
+  padding: 10px 20px;
+  font-size: 18px;
+  margin: 0 5px 10px 5px;
+  }
+  }

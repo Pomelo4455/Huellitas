@@ -38,15 +38,7 @@
   margin: 10px;
   text-align: center;
 }
-.inputAge {
-  width: 100px;
-  height: 40px;
-  background-color: #f7f8f9;
-  border-radius: 8px;
-  border: none;
-  margin: 10px;
-  text-align: center;
-}
+
 .input2 {
   
   
@@ -61,7 +53,8 @@
 .region{
   display: flex;
   flex-direction: row;
-  width: 50%;
+  width: fit-content;
+  
   
 }
 
@@ -225,6 +218,7 @@
   .divinput {
     text-align: center;
     margin-top: 5px;
+   
   }
   
   .divradio {

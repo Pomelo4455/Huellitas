@@ -4,7 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import BtnHome from "../BtnHome/BtnHome";
 import Card from "../Card/Card";
 import CardFundacion from "../Card/CardFundacion";
-import { getPets, getCampaigns, getFundaciones, setCurrentPage } from "../../redux/actions";
+import { getPets, getCampaigns, getFundaciones, setCurrentPage, setUserLocation } from "../../redux/actions";
 import swal from "sweetalert";
 import { useAuth0 } from "@auth0/auth0-react";
 import Landing from "../Landing/Landing";
@@ -24,7 +24,6 @@ const Home = () => {
     const navigate = useNavigate();
     const profile = useSelector((state) => state.profile);
     const isAuth = useSelector((state) => state.is_authenticated);
-    const [userLocation, setLocation] = useState({ lat: 0, lng: 0 });
     const { loginWithPopup } = useAuth0();
     let user = JSON.parse(window.localStorage.getItem("loggedUser"));
 
@@ -38,6 +37,29 @@ const Home = () => {
         AOS.init({ duration: 1000 });
     }, []);
     useEffect(() => {}, [profile]);
+
+    useEffect(() => {
+ 
+        if (navigator.geolocation) {
+           navigator.geolocation.getCurrentPosition(
+             (position) => {
+               
+               dispatch(setUserLocation({
+                 latitude: position.coords.latitude,
+                 longitude: position.coords.longitude,
+               }));
+             },
+             (error) => {
+               console.log(error);
+             }
+           );
+         } else {
+           return "no tenés geolocalización";
+         }
+       
+    }, [])
+
+
 
     const handleOnClick = (e) => {
         e.preventDefault();
@@ -95,7 +117,7 @@ const Home = () => {
                     </Link>
                 ) : null}
           </div>
-          <RenderPets />
+          <RenderPets/>
           <RenderCampaigns />
           <RenderFoundations />
           <RenderReviews />

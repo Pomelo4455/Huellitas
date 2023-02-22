@@ -62,42 +62,44 @@ const CardDetail = () => {
 
   const handleSendMail = async () => {
     try {
-      const userLocalStorage = JSON.parse(localStorage.getItem("loggedUser"));
-      const userId = userLocalStorage.data.id;
-      swal("¿Cómo desea contactarse?", {
-        buttons: {
-          email: {
-            text: "Email",
-            value: "email",
-          },
-          chat: {
-            text: "Chat en vivo",
-            value: "chat",
-          },
+    const userLocalStorage = JSON.parse(localStorage.getItem("loggedUser"));
+    const userId = userLocalStorage.data.id;
+    swal("¿Cómo desea contactarse?", {
+      buttons: {
+        email: {
+          text: "Email",
+          value: "email",
         },
-      }).then((value) => {
-        switch (value) {
-          case "email":
-            axios
-              .post(`${LINK_BACK}/mails`, {
-                idUser: userId,
-                idGiver: pet.userId,
-                idPet: pet.id,
-              })
-              .then(() => {
-                swal(
-                  "Enviado.",
-                  "Se ha informado su interés hacia la mascota.",
-                  "success"
-                );
-              });
-            break;
-          case "chat":
-            navigate(`../chat/${userId}/${pet.userId}`);
-            break;
-          default:
-        }
-      });
+        chat: {
+          text: "Chat en vivo",
+          value: "chat",
+        },
+      },
+    }).then((value) => {
+      switch (value) {
+        case "email":
+          axios
+            .post(`${LINK_BACK}/mails`, {
+              idUser: userId,
+              idGiver: pet.userId,
+              idPet: pet.id,
+            })
+            .then(() => {
+              swal(
+                "Enviado.",
+                "Se ha informado su interés hacia la mascota.",
+                "success"
+              );
+            });
+          break;
+        case "chat":
+          navigate(`../chat/${userId}/${pet.userId}`);
+          break;
+        default:
+      }
+    }).then(()=>{
+      axios.post(`http://localhost:3001/adoption/solicitud/${userId}/${pet.id}`)
+    })
     } catch (error) {
       swal(
         "No es posible contactarse con el dueño de la mascota.",

@@ -1,7 +1,12 @@
 import Ordenamientos from "./Ordenamientos";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { getFilterPets, restoreSearch } from "../../redux/actions";
+import {
+  getFilterPets,
+  restoreSearch,
+  filterByDistance,
+  setUserLocation,
+} from "../../redux/actions";
 import { useState, useEffect } from "react";
 import { Icon } from "@iconify/react";
 import {
@@ -15,7 +20,9 @@ import styles from "./sidebar.module.css";
 
 export default function Sidebar() {
   const [searchTerm, setSearchTerm] = useState("");
+  const [distancia, setDistancia] = useState("");
   const filtros = useSelector((state) => state.filters);
+  const userLocation = useSelector((state) => state.userLocation);
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const [isMobile, setIsMobile] = useState(false);
@@ -39,12 +46,40 @@ export default function Sidebar() {
     };
   }, []);
 
+  useEffect(() => {
+ if(!userLocation.length) {locateUser()
+console.log("buscando");}
+  }, []);
   let value = "default";
+
+function locateUser() {
+  
+    if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(
+      (position) => {
+        
+        dispatch(setUserLocation({
+          latitude: position.coords.latitude,
+          longitude: position.coords.longitude,
+        }));
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
+  } else {
+    console.log("no tenés geolocalización"); ;
+  }
+}
+
+
 
   const handleSearch = (event) => {
     setSearchTerm(event.target.value);
   };
-
+  const handleDistancia = (event) => {
+    setDistancia(event.target.value);
+  };
   const inputSearch = (e) => {
     e.preventDefault();
     if (searchTerm === "") {
@@ -66,11 +101,26 @@ export default function Sidebar() {
     e.preventDefault();
     dispatch(restoreSearch());
   };
-
+  function handleSubmit(e) {
+    e.preventDefault();
+    if (distancia !== "") {
+      dispatch(filterByDistance(distancia));
+      setSearchTerm("");
+    } else {
+      swal({
+        title: "Sorry!",
+        text: "Debe ingresar un numero válido",
+        icon: "warning",
+        button: "Ok",
+      });
+    }
+  }
   return (
     <div>
       {isMobile ? (
-        <div className={`${styles.sidebar} ${isExpanded ? styles.expanded : ''}`}>
+        <div
+          className={`${styles.sidebar} ${isExpanded ? styles.expanded : ""}`}
+        >
           <div className={styles.container}>
             <select
               onChange={(e) => handleSelectedFilter(e, filtros, dispatch)}
@@ -83,7 +133,7 @@ export default function Sidebar() {
               </option>
               <option value="perro">Perro</option>
               <option value="gato">Gato</option>
-              {/* <option value="conejo">Conejoo</option>
+              {/* <option value="conejo">Conejo</option>
                     <option value="tortuga">Tortuga</option>
                     <option value="cobayo">Cobayo</option> */}
             </select>
@@ -119,6 +169,18 @@ export default function Sidebar() {
             <option value="2plus">Más de dos años</option>
         </select> */}
             <Ordenamientos />
+            {userLocation? <form onSubmit={handleSubmit} className={styles.formkms}>
+              <input
+                type="number"
+                placeholder="kms"
+                value={distancia}
+                className={styles.kms}
+                onChange={handleDistancia}
+              />
+              <button type="submit" className={styles.kmsbtn}>
+                Distancia Max
+              </button>
+            </form> : null}
             <button
               name="delete filters"
               onClick={(e) => handleCleanFilter(e, filtros, dispatch)}
@@ -145,12 +207,17 @@ export default function Sidebar() {
                     <Icon icon="fa6-solid:magnifying-glass" />
                   </button>
                 </div>
-              <button className={styles.restoreButton} onClick={resetSearch}>
-                Eliminar Búsqueda
-              </button>
-            </div>
+                <button className={styles.restoreButton} onClick={resetSearch}>
+                  Eliminar Búsqueda
+                </button>
+              </div>
             </form>
-          <button className={`${styles.toggle} ${isExpanded ? styles.visible : ''}`} onClick={toggleSidebar}><Icon icon="material-symbols:arrow-drop-down-circle-outline" /></button>
+            <button
+              className={`${styles.toggle} ${isExpanded ? styles.visible : ""}`}
+              onClick={toggleSidebar}
+            >
+              <Icon icon="material-symbols:arrow-drop-down-circle-outline" />
+            </button>
           </div>
         </div>
       ) : (
@@ -202,6 +269,20 @@ export default function Sidebar() {
             <option value="2plus">Más de dos años</option>
         </select> */}
           <Ordenamientos />
+          {userLocation?
+          <form onSubmit={handleSubmit} className={styles.formkms}>
+            <input
+              type="number"
+              placeholder="kms"
+              value={distancia}
+              className={styles.kms}
+              onChange={handleDistancia}
+            />
+            <button type="submit" className={styles.kmsbtn}>
+              Distancia Max
+            </button>
+          </form> : null}
+
           <button
             name="delete filters"
             onClick={(e) => handleCleanFilter(e, filtros, dispatch)}

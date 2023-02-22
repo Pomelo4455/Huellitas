@@ -1,13 +1,12 @@
 const { Op } = require("sequelize");
 
-const createFilters = (species, sex, size, adopted) => {
+const createFilters = (species, sex, size, adopted, giverId) => {
   let filters = { deleted: "no" };
-  if (species && ["perro", "gato", "otros"].includes(species))
-    filters.species = species;
+  if (species && ["perro", "gato", "otros"].includes(species)) filters.species = species;
   if (sex && ["hembra", "macho"].includes(sex)) filters.sex = sex;
-  if (size && ["pequeño", "mediano", "grande"].includes(size))
-    filters.size = size;
+  if (size && ["pequeño", "mediano", "grande"].includes(size)) filters.size = size;
   if (adopted && ["si", "no"].includes(adopted)) filters.adopted = adopted
+  if (giverId) filters.GiverId = {[Op.not]: [Number(giverId)]}
   return filters;
 };
 
