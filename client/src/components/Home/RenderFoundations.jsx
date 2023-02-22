@@ -25,7 +25,7 @@ export default function RenderFoundations() {
       </div>
       <div data-aos="fade-up" className={styles.cards}>
         {more.fundacion ? (
-          <>{renderizarFundacionesCards(allFundaciones, 6)}</>
+          <div className={styles.moreCards}>{renderizarFundacionesCards(allFundaciones, 8)}</div>
         ) : (
           <>{renderizarFundacionesCards(allFundaciones, 3)}</>
         )}
