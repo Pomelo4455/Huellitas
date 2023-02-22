@@ -53,6 +53,27 @@ const EditProfile = ({ dataModal, setModalEditProfile }) => {
           } else if (!/^[a-zA-ZÀ-ÿ\s]{1,40}$/.test(valuess.name)) {
             errors.name = "El nombre solo puede contener letras y espacios";
           }
+          if (valuess.phone && !/^[0-9,-]+$/.test(valuess.phone)) {
+            errors.phone = "Solo debe escribir numeros";
+          }
+          if (valuess.address && !/^[A-Za-z0-9,\s.-]+$/.test(valuess.address)) {
+            errors.address = "Debe escribir una direccion valida";
+          } else if (valuess.address && valuess.address.length < 10) {
+            errors.address = "La direccion es muy corta";
+          } else if (valuess.address && valuess.address.length > 40) {
+            errors.address = "La direccion es muy larga";
+          }
+          if (
+            valuess.description &&
+            !/^[a-zA-ZáéíóúÁÉÍÓÚüÜñÑ\s.]+$/.test(valuess.description)
+          ) {
+            errors.description = "La descripcion no debe contener simbolo";
+          } else if (valuess.description && valuess.description.length > 250) {
+            errors.description = "La descripcion es muy larga";
+          }
+          if (valuess.CVU && !/^([0-9])*$/.test(valuess.CVU)) {
+            errors.CVU = "Solo debe escribir numeros";
+          }
           return errors;
         }}
         onSubmit={(values, { resetForm }) => {
@@ -101,6 +122,12 @@ const EditProfile = ({ dataModal, setModalEditProfile }) => {
                   onChange={checkChange}
                   value={valuess.phone}
                 ></Field>
+                <ErrorMessage
+                  name="phone"
+                  component={() => (
+                    <div className={styles.error}>{errors.phone}</div>
+                  )}
+                />
               </div>
               <div className={styles.divinput}>
                 <label htmlFor="">Direccion : </label>
@@ -112,12 +139,17 @@ const EditProfile = ({ dataModal, setModalEditProfile }) => {
                   onChange={checkChange}
                   value={valuess.address}
                 ></Field>
+                <ErrorMessage
+                  name="address"
+                  component={() => (
+                    <div className={styles.error}>{errors.address}</div>
+                  )}
+                />
               </div>
               <div className={styles.divinput}>
                 <label htmlFor="">Descripcion : </label>
                 <br />
                 <Field
-                  // className={styles.input}
                   type="text"
                   name="description"
                   as="textarea"
@@ -127,6 +159,12 @@ const EditProfile = ({ dataModal, setModalEditProfile }) => {
                   value={valuess.description}
                   maxLength="255"
                 ></Field>
+                <ErrorMessage
+                  name="description"
+                  component={() => (
+                    <div className={styles.error}>{errors.description}</div>
+                  )}
+                />
               </div>
               <div className={styles.divinput}>
                 <label htmlFor="">Facebook : </label>
@@ -171,6 +209,12 @@ const EditProfile = ({ dataModal, setModalEditProfile }) => {
                   onChange={checkChange}
                   value={valuess.CVU}
                 ></Field>
+                <ErrorMessage
+                  name="CVU"
+                  component={() => (
+                    <div className={styles.error}>{errors.CVU}</div>
+                  )}
+                />
               </div>
               <div className={styles.divinput}>
                 <label htmlFor="">Imagen de Perfil : </label>
