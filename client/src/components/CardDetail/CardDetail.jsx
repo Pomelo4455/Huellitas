@@ -159,18 +159,17 @@ const CardDetail = () => {
               </p>
             </div>
             <div className={style.favs}>
-              {seguido ? (
-                <button onClick={handleFollow} className={style.corazonFollow}>
-                  ❤
-                </button>
-              ) : (
-                <button
-                  onClick={handleFollow}
-                  className={style.corazonUnfollow}
-                >
-                  ♡
-                </button>
-              )}
+            {!user || user.id === pet.GiverId?  (
+              null
+            ) : seguido ? (
+              <button onClick={handleFollow} className={style.corazonFollow}>
+                ❤
+              </button>
+            ) : (
+              <button onClick={handleFollow} className={style.corazonUnfollow}>
+                ♡
+              </button>
+            )}
             </div>
           </div>
         </div>

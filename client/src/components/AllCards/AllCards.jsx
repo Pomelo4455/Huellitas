@@ -24,10 +24,11 @@ function Adoptar() {
   const indexFirstProduct = indexLastProduct - dogsPerPage;
   const currentDogs = allPets.slice(indexFirstProduct, indexLastProduct);
   const petMax = Math.ceil(allPets.length / dogsPerPage);
+  let user = JSON.parse(window.localStorage.getItem("loggedUser"))?.data;
 
   useEffect(() => {
     // creamos url
-    const url = combinarFiltros(filters);
+    const url = combinarFiltros({...filters, giverId: user ? user.id : ""});
     // peticion a la api con la url.
     dispatch(getFilterPets(url));
   }, [filters, dispatch]);
