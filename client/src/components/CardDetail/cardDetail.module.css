@@ -282,10 +282,12 @@ cursor: pointer;
     }
     
     .descriptionContainer p {
-        font-size: 175%;
+        /* background-color: #ECA0A0; */
+        margin: .4em .3em;
+        font-size: 100%;
         font-family: "Poppins";
         font-weight: 400;
-        text-align: center;
+        /* text-align: center; */
     }
     
     .descriptionContainer p span {
@@ -335,7 +337,7 @@ cursor: pointer;
     }
     
     .petImage img {
-        width: 90%;
+        width: 60%;
         height: auto;
         box-shadow: 2px 2px 5px 2px rgba(0, 0, 0, 0.246);
         border-radius: 10px;
@@ -415,10 +417,11 @@ cursor: pointer;
     }
     
     .descriptionContainer p {
-        font-size: 175%;
+        font-size: 105%;
         font-family: "Poppins";
         font-weight: 400;
-        text-align: center;
+        margin: .3em .5em;
+        /* text-align: center; */
     }
     
     .descriptionContainer p span {

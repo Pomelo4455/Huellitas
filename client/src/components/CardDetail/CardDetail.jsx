@@ -3,12 +3,13 @@ import { useEffect, useRef, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { getPetsDetail, getUsers, resetPetDetail } from "../../redux/actions";
-import style from "./cardDetail.module.css";
 import axios from "axios";
 import swal from "sweetalert";
 import MapView from "../MapView/MapView";
 import { LINK_BACK } from "../../Utils/variablesDeploy";
 import { useAuth0 } from "@auth0/auth0-react";
+
+import style from "./cardDetail.module.css";
 
 const CardDetail = () => {
   const mapRef = useRef();
