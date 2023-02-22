@@ -14,7 +14,7 @@
   text-decoration: none;
   justify-content: center;
   margin: 1rem;
-  height: 650px;
+  height: 700px;
   width: 400px;
   transition: 0.5s;
   background: linear-gradient(360deg, #d8f0ff, #8dd5ff);
@@ -97,13 +97,11 @@
   transform: rotate(-90deg);
 }
 
-
-
 /* RESPONSIVE PARA DISPOSITIVOS HASTA 760PX */
 @media (max-width: 760px) {
   .container {
     background-color: #0098f1;
-    
+
     margin-top: 1rem;
     width: fit-content;
     display: grid;
@@ -111,7 +109,7 @@
     align-content: center;
     height: 100%;
   }
-  
+
   .camp {
     display: grid;
     flex-direction: column;
@@ -132,7 +130,7 @@
     border-radius: 0% 0% 50% 50% / 0% 0% 5% 5%;
     box-shadow: 10px 10px rgba(0, 0, 0, 0.25);
   }
-  
+
   .title {
     text-decoration: none;
     color: #000000;
@@ -142,7 +140,7 @@
     z-index: 3;
     width: 300px;
   }
-  
+
   .img {
     display: flex;
     position: relative;
@@ -173,7 +171,7 @@
     width: 90%;
     margin: 0 auto;
   }
-  
+
   .circle2 {
     position: absolute;
     width: 90px;
@@ -184,7 +182,7 @@
     margin-left: 40px;
     margin-top: 200px;
   }
-  
+
   .circle1 {
     position: absolute;
     width: 120px;
@@ -195,7 +193,7 @@
     margin-left: 130px;
     margin-top: 400px;
   }
-  
+
   .circle3 {
     position: absolute;
     width: 200px;
