@@ -10,8 +10,8 @@
   justify-content: center;
   margin: 1rem;
   background: #f8f8f8;
-  height: 400px;
-  width: 300px;
+  height: 32em;
+  width:  18.7em;
   background: linear-gradient(360deg, #c7eaff, #059ff6);
   transition: 0.5s;
   cursor: pointer;
@@ -182,3 +182,4 @@
     display: flex;
   }
 }
+
