@@ -38,7 +38,7 @@ const initialState = {
   pets: [],
   allPets: [],
   pet: [],
-  filters: { sex: "", species: "", size: "", name: "", order: "", giverId: "" },
+  filters: { sex: "", species: "", size: "", name: "", order: "", giverId: "", distance:"" },
   campaigns: [],
   fundaciones: [],
   detailCamp: [],
@@ -57,6 +57,15 @@ const initialState = {
   userDetail: {},
   userLocation:{},
 };
+
+function getDistance(latitude1, longitude1, latitude2, longitude2) {
+  let theta = longitude1 - longitude2;
+  let distance = 60 * 1.1515 * (180/Math.PI) * Math.acos(
+    Math.sin(latitude1 * (Math.PI/180)) * Math.sin(latitude2 * (Math.PI/180)) + 
+    Math.cos(latitude1 * (Math.PI/180)) * Math.cos(latitude2 * (Math.PI/180)) * Math.cos(theta * (Math.PI/180))
+    );
+    return Math.round(distance * 1.609344, 2);
+  }
 
 const rootReducer = (state = initialState, action) => {
   switch (action.type) {
@@ -82,9 +91,11 @@ const rootReducer = (state = initialState, action) => {
         pets: action.payload,
       };
     case GET_FILTER_PETS:
-      return {
-        ...state,
-        pets: action.payload,
+        let todos = action.payload;
+        if(state.filters.distance !== ""){
+        todos = todos.filter((e) => e.dist = getDistance(state.userLocation.latitude, state.userLocation.longitude,e.latitude,e.longitude) <= state.filters.distance)
+        }
+          return { ...state, pets: todos
       };
     case UPDATE_FILTERS:
       return {
@@ -249,15 +260,7 @@ const rootReducer = (state = initialState, action) => {
       };
     case FILTER_BY_DISTANCE:
         const all = state.pets;
-        function getDistance(latitude1, longitude1, latitude2, longitude2) {
-          let theta = longitude1 - longitude2;
-          let distance = 60 * 1.1515 * (180/Math.PI) * Math.acos(
-              Math.sin(latitude1 * (Math.PI/180)) * Math.sin(latitude2 * (Math.PI/180)) + 
-              Math.cos(latitude1 * (Math.PI/180)) * Math.cos(latitude2 * (Math.PI/180)) * Math.cos(theta * (Math.PI/180))
-          );
-            return Math.round(distance * 1.609344, 2);
-          }
-          const distancia = all.filter((e) => e.dist = getDistance(state.userLocation.latitude, state.userLocation.longitude,e.latitude,e.longitude) < action.payload)
+        const distancia = all.filter((e) => e.dist = getDistance(state.userLocation.latitude, state.userLocation.longitude,e.latitude,e.longitude) < action.payload)
 
       return { ...state, pets: distancia 
       };

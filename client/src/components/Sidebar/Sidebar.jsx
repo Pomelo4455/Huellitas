@@ -103,18 +103,11 @@ function locateUser() {
   };
   function handleSubmit(e) {
     e.preventDefault();
-    if (distancia !== "") {
-      dispatch(filterByDistance(distancia));
-      setSearchTerm("");
-    } else {
-      swal({
-        title: "Sorry!",
-        text: "Debe ingresar un numero válido",
-        icon: "warning",
-        button: "Ok",
-      });
+    e.target.value = distancia
+    dispatch(handleSelectedFilter(e, filtros, dispatch));
+    setDistancia("");
     }
-  }
+  
   return (
     <div>
       {isMobile ? (
@@ -270,13 +263,15 @@ function locateUser() {
         </select> */}
           <Ordenamientos />
           {userLocation?
-          <form onSubmit={handleSubmit} className={styles.formkms}>
+          <form onSubmit={handleSubmit} className={styles.formkms} name="distance" value={distancia}>
             <input
               type="number"
+              min="1"
               placeholder="kms"
               value={distancia}
               className={styles.kms}
               onChange={handleDistancia}
+              
             />
             <button type="submit" className={styles.kmsbtn}>
               Distancia Max
