@@ -29,6 +29,9 @@ import {
   UPDATE_NOT_READ_CHATS,
   GET_USERS_DETAIL,
   RESET_USER_DETAIL,
+  RESET_PET_DETAIL,
+  FILTER_BY_DISTANCE,
+  SET_USER_LOCATION,
 } from "../actions";
 
 const initialState = {
@@ -52,6 +55,7 @@ const initialState = {
   noLeidos: 0,
   thisUser: [],
   userDetail: {},
+  userLocation:{},
 };
 
 const rootReducer = (state = initialState, action) => {
@@ -238,8 +242,29 @@ const rootReducer = (state = initialState, action) => {
         userDetail: action.payload,
       };
     case RESET_USER_DETAIL:
-      return { ...state, userDetail: {} };
+      return { ...state, userDetail: {} 
+    };
+    case RESET_PET_DETAIL:
+      return { ...state, pet: [] 
+      };
+    case FILTER_BY_DISTANCE:
+        const all = state.pets;
+        function getDistance(latitude1, longitude1, latitude2, longitude2) {
+          let theta = longitude1 - longitude2;
+          let distance = 60 * 1.1515 * (180/Math.PI) * Math.acos(
+              Math.sin(latitude1 * (Math.PI/180)) * Math.sin(latitude2 * (Math.PI/180)) + 
+              Math.cos(latitude1 * (Math.PI/180)) * Math.cos(latitude2 * (Math.PI/180)) * Math.cos(theta * (Math.PI/180))
+          );
+            return Math.round(distance * 1.609344, 2);
+          }
+          const distancia = all.filter((e) => e.dist = getDistance(state.userLocation.latitude, state.userLocation.longitude,e.latitude,e.longitude) < action.payload)
 
+      return { ...state, pets: distancia 
+      };
+      case SET_USER_LOCATION:
+        return { ...state, 
+          userLocation: action.payload 
+        };
     default:
       return {
         ...state,

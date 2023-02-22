@@ -38,6 +38,7 @@
   margin: 10px;
   text-align: center;
 }
+
 .input2 {
   
   
@@ -52,7 +53,8 @@
 .region{
   display: flex;
   flex-direction: row;
-  width: 50%;
+  width: fit-content;
+  
   
 }
 
@@ -216,6 +218,7 @@
   .divinput {
     text-align: center;
     margin-top: 5px;
+   
   }
   
   .divradio {

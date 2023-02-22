@@ -2,7 +2,7 @@ import React from "react";
 import { useEffect, useRef, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { getPetsDetail, getUsers } from "../../redux/actions";
+import { getPetsDetail, getUsers, resetPetDetail } from "../../redux/actions";
 import style from "./cardDetail.module.css";
 import axios from "axios";
 import swal from "sweetalert";
@@ -32,6 +32,10 @@ const CardDetail = () => {
         setSeguido(data.data.seguir)
       );
     }
+
+    return () => {
+      dispatch(resetPetDetail());
+    }
   }, [dispatch, id]);
 
   useEffect(() => {
@@ -54,42 +58,44 @@ const CardDetail = () => {
 
   const handleSendMail = async () => {
     try {
-      const userLocalStorage = JSON.parse(localStorage.getItem("loggedUser"));
-      const userId = userLocalStorage.data.id;
-      swal("¿Cómo desea contactarse?", {
-        buttons: {
-          email: {
-            text: "Email",
-            value: "email",
-          },
-          chat: {
-            text: "Chat en vivo",
-            value: "chat",
-          },
+    const userLocalStorage = JSON.parse(localStorage.getItem("loggedUser"));
+    const userId = userLocalStorage.data.id;
+    swal("¿Cómo desea contactarse?", {
+      buttons: {
+        email: {
+          text: "Email",
+          value: "email",
         },
-      }).then((value) => {
-        switch (value) {
-          case "email":
-            axios
-              .post(`${LINK_BACK}/mails`, {
-                idUser: userId,
-                idGiver: pet.userId,
-                idPet: pet.id,
-              })
-              .then(() => {
-                swal(
-                  "Enviado.",
-                  "Se ha informado su interés hacia la mascota.",
-                  "success"
-                );
-              });
-            break;
-          case "chat":
-            navigate(`../chat/${userId}/${pet.userId}`);
-            break;
-          default:
-        }
-      });
+        chat: {
+          text: "Chat en vivo",
+          value: "chat",
+        },
+      },
+    }).then((value) => {
+      switch (value) {
+        case "email":
+          axios
+            .post(`${LINK_BACK}/mails`, {
+              idUser: userId,
+              idGiver: pet.userId,
+              idPet: pet.id,
+            })
+            .then(() => {
+              swal(
+                "Enviado.",
+                "Se ha informado su interés hacia la mascota.",
+                "success"
+              );
+            });
+          break;
+        case "chat":
+          navigate(`../chat/${userId}/${pet.userId}`);
+          break;
+        default:
+      }
+    }).then(()=>{
+      axios.post(`http://localhost:3001/adoption/solicitud/${userId}/${pet.id}`)
+    })
     } catch (error) {
       swal(
         "No es posible contactarse con el dueño de la mascota.",

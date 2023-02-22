@@ -103,7 +103,7 @@ const getAllUserFund = async (filters) => {
       where: filters,
       include: [
         {
-          model: Pet,
+          model: Pet, as:"giver"
         },
         {
           model: Campaign,

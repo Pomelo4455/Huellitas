@@ -25,8 +25,6 @@ export default function AdoptionForm() {
   useEffect(() => {
     if (isMounted.current === true) {
       dispatch(getProvincias());
-
-      console.log("cargado");
     } else isMounted.current = true;
   }, []);
 
@@ -35,8 +33,7 @@ export default function AdoptionForm() {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(
         (position) => {
-          console.log(position.coords.latitude, position.coords.longitude);
-          setLocation({
+           setLocation({
             latitude: position.coords.latitude,
             longitude: position.coords.longitude,
           });
@@ -115,10 +112,9 @@ export default function AdoptionForm() {
           return errors;
         }}
         onSubmit={(values, { resetForm }) => {
-          console.log(values);
-          if(userLocation.latitude === 0 && userLocation.longitude === 0){
-            dispatch(postNewPet(values))
-          } else{
+          if (userLocation.latitude === 0 && userLocation.longitude === 0) {
+            dispatch(postNewPet(values));
+          } else {
             dispatch(postNewPet(values, userLocation));
           }
           resetForm();
@@ -161,9 +157,9 @@ export default function AdoptionForm() {
                   </option>
                   <option value="perro">Perro</option>
                   <option value="gato">Gato</option>
-                  <option value="conejo">Conejo</option>
+                  {/* <option value="conejo">Conejo</option>
                   <option value="tortuga">Tortuga</option>
-                  <option value="cobayo">Cobayo</option>
+                  <option value="cobayo">Cobayo</option> */}
                 </Field>
                 <ErrorMessage
                   name="species"
@@ -273,6 +269,7 @@ export default function AdoptionForm() {
                     height="40px"
                   />
                 </button>
+                {userLocation.latitude !== 0 ?<Icon icon="material-symbols:check-circle-rounded" color="#025c4c" width="30" height="30" />:null}
               </div>
               <label>o seleccionar </label>
               <div className={styles.region}>
@@ -307,10 +304,14 @@ export default function AdoptionForm() {
                   {ciudades
                     ?.filter((city) => city.id === values.ciudad)
                     .map((ciudad) => {
-                      if (values.latitude === 0) setFieldValue("latitude", ciudad.centroide.lat);
+                      if (
+                        values.latitude === 0 ||
+                        values.latitude !== ciudad.centroide.lat
+                      )
+                        setFieldValue("latitude", ciudad.centroide.lat);
                     })}
                   <Field
-                  hidden
+                    hidden
                     type="number"
                     name="latitude"
                     value={values.latitude}
@@ -318,12 +319,15 @@ export default function AdoptionForm() {
                   {ciudades
                     ?.filter((city) => city.id === values.ciudad)
                     .map((ciudad) => {
-                      if (values.longitude === 0) 
+                      if (
+                        values.longitude === 0 ||
+                        values.longitude !== ciudad.centroide.lon
+                      )
                         setFieldValue("longitude", ciudad.centroide.lon);
-                        })}
+                    })}
 
                   <Field
-                  hidden
+                    hidden
                     type="number"
                     name="longitude"
                     value={values.longitude}
