@@ -1,19 +1,24 @@
 const { Router } = require("express");
-const { getAllPets, getPetById } = require("../controllers/petControllers.js");
-const { getAllUser } = require("../controllers/userControllers.js");
+const {
+  getAllPets,
+  getPetById,
+  getAllPetsAdm,
+} = require("../controllers/petControllers.js");
+const { getAllUser, updateUser } = require("../controllers/userControllers.js");
 const { User, Pet, Campaign, Adoption } = require("../db.js");
 const {
   createFilters,
   setOrder,
   userFilters,
+  filterAdmPet,
 } = require("../utils/functions.js");
 
 const router = Router();
 
 router.get("/", async (req, res) => {
   try {
-    const { name, species, sex, size, order } = req.query;
-    const filtersPet = createFilters(species, sex, size);
+    const { name, species, sex, size, order, adopted, giverId } = req.query;
+    const filtersPet = createFilters(species, sex, size, adopted, giverId);
     const orderPets = setOrder(order);
     let pets = await getAllPets(filtersPet, orderPets);
     if (req.query && !pets.length) throw new Error("No se encontro perritos");
@@ -22,9 +27,10 @@ router.get("/", async (req, res) => {
       let filtersUser = userFilters(name);
       let users = await getAllUser(filtersUser);
       let userIds = users.map((user) => user.id);
-      if (!userIds.length) throw new Error("No se encontro la fundacion");
+      // if (!userIds.length) throw new Error("No se encontro la fundacion");
       // console.log("soy el userId", userIds);
-      pets = pets.filter((pet) => userIds.includes(pet.userId));
+      pets = pets.filter((pet) => userIds.includes(pet.GiverId));
+      if (!pets.length) throw new Error("No se encontro la fundacion");
     }
     res.status(200).send(pets);
   } catch (error) {
@@ -46,6 +52,8 @@ router.post("/", async (req, res) => {
       adopted,
       deleted,
       userId,
+      latitude,
+      longitude
     } = req.body;
     let newPet = await Pet.create({
       name,
@@ -58,8 +66,16 @@ router.post("/", async (req, res) => {
       temperament,
       adopted,
       deleted,
-    });
-    await newPet.setUser(userId);
+      }
+    );
+
+    const data = {latitude, longitude};
+
+    if (data) {
+      await updateUser(userId, data);
+    }
+
+    await newPet.setGiver(userId);
     res.status(200).send("La mascota fue creada");
   } catch (error) {
     res.status(400).send(error.message);
@@ -139,11 +155,24 @@ router.get("/:id", async (req, res) => {
 });
 
 router.get("/Adm/Admin", async (req, res) => {
+  const { name } = req.query;
   try {
-    let pets = await getAllPets();
-    res.status(200).send(pets);
+    let allPets;
+    if (name) {
+      const filters = filterAdmPet(name);
+      allPets = await getAllPetsAdm(filters);
+    } else {
+      allPets = await getAllPetsAdm();
+    }
+    if (!allPets.length) {
+      res.status(404).send({
+        Error: "No se encontraron mascotas con el nombre proporcionado",
+      });
+    } else {
+      res.status(200).send(allPets);
+    }
   } catch (error) {
-    res.status(404).send(error.message);
+    res.status(404).send({ error: error.message });
   }
 });
 

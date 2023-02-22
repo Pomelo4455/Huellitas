@@ -1,7 +1,59 @@
 const petsData = [
   {
+    name: "Grace",
+    age: "6 meses",
+    species: "gato",
+    image:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTZNQZI9chyqtlvn6KNfid_ACsf4O-NiKn9Cw&usqp=CAU",
+    size: "mediano",
+    color: "gris",
+    sex: "hembra",
+    temperament: "Mimosa y muy compañera",
+    adopted: "no",
+    userId: 2,
+  },
+  {
+    name: "Moro",
+    age: "Menos de un año",
+    species: "perro",
+    image:
+      "https://images.hola.com/imagenes/mascotas/20221020219416/razas-perros-toy/1-154-385/razas-de-perro-toy-t.jpg",
+    size: "pequeño",
+    color: "negro",
+    sex: "hembra",
+    temperament: "tranquilo",
+    adopted: "no",
+    userId: 11,
+  },
+  {
+    name: "Caramelo",
+    age: "Menos de un año",
+    species: "perro",
+    image:
+      "https://phantom-marca.unidadeditorial.es/5f35dc7ba0a175d12db238a6c6e8d549/resize/1320/f/jpg/assets/multimedia/imagenes/2022/02/24/16456899624763.jpg",
+    size: "grande",
+    color: "marron",
+    sex: "macho",
+    temperament: "tranquilo",
+    adopted: "no",
+    userId: 11,
+  },
+  {
+    name: "Purr",
+    age: "6 meses",
+    species: "gato",
+    image:
+      "https://okdiario.com/img/2022/10/18/los-gatos-pueden-ver-en-color-1.jpg",
+    size: "pequeño",
+    color: "blanco y amarillo",
+    sex: "hembra",
+    temperament: "Se lleva muy bien con todos los animales, es muy cariñoso",
+    adopted: "no",
+    userId: 11,
+  },
+  {
     name: "Toby",
-    age: "8 años",
+    age: "Mas de 2 años",
     species: "perro",
     image:
       "https://cdnb.20m.es/animalesenadopcion/files/2015/04/a1-620x465.jpg",
@@ -10,11 +62,11 @@ const petsData = [
     sex: "macho",
     temperament: "tranquilo",
     adopted: "no",
-    userId: 3,
+    userId: 12,
   },
   {
     name: "Thor",
-    age: "1 año",
+    age: "Entre 1 y 2 años",
     species: "perro",
     image: "https://acortar.link/iPCotm",
     size: "pequeño",
@@ -22,11 +74,24 @@ const petsData = [
     sex: "macho",
     temperament: "inquieto",
     adopted: "no",
-    userId: 2,
+    userId: 13,
+  },
+  {
+    name: "Ghost",
+    age: "1 mes",
+    species: "gato",
+    image:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRKoippBHSrNU9cylLy0BTtLTsdrT4pad0KiJLhhmB3KmAYkDcggtVeLEJY1VSqqj8v_rg&usqp=CAU",
+    size: "mediano",
+    color: "blanco",
+    sex: "hembra",
+    temperament: "Es un gatito muy juguetón y que necesita mucho amor",
+    adopted: "no",
+    userId: 14,
   },
   {
     name: "Chipirón",
-    age: "6 meses",
+    age: "Menos de un año",
     species: "perro",
     image:
       "https://thumbs.dreamstime.com/z/perro-mezclado-blanco-y-negro-de-la-raza-96823458.jpg",
@@ -35,11 +100,11 @@ const petsData = [
     sex: "macho",
     temperament: "alegre",
     adopted: "no",
-    userId: 3,
+    userId: 14,
   },
   {
     name: "Bimba",
-    age: "3 años",
+    age: "Mas de 2 años",
     species: "perro",
     image:
       "https://www.molaunhuevo.com/wp-content/uploads/2014/06/border-collie.jpg",
@@ -47,12 +112,27 @@ const petsData = [
     color: "blanco y negro",
     sex: "hembra",
     temperament: "confiable",
-    adopted: "no",
+    adopted: "si",
     userId: 4,
+    adoptanteId: 11,
+  },
+  {
+    name: "Timmy",
+    age: "2 años",
+    species: "gato",
+    image:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSD7rRDCDpXDo9GYFrJ-ypV7nILr6z1zRe03j1W4EIAlohxpwSsczPCk2DfKESQ9yW0k6o&usqp=CAU",
+    size: "mediano",
+    color: "amarillo",
+    sex: "macho",
+    temperament: "Confiable, muy mimoso t compañero",
+    adopted: "si",
+    userId: 4,
+    adoptanteId: 11,
   },
   {
     name: "Trufa",
-    age: "3 años",
+    age: "Mas de 2 años",
     species: "perro",
     image:
       "https://t1.ea.ltmcdn.com/es/posts/0/2/5/16_pastor_leones_24520_15_600.jpg",
@@ -61,11 +141,25 @@ const petsData = [
     sex: "hembra",
     temperament: "cuidadora",
     adopted: "no",
-    userId: 5,
+    userId: 17,
+  },
+  {
+    name: "Amada",
+    age: "3 años",
+    species: "gato",
+    image:
+      "https://images.hola.com/imagenes/mascotas/20211028198573/hogar-seguro-para-gatos/1-13-239/red-gatos-t.jpg?tx=w_680",
+    size: "mediano",
+    color: "marron atigrado con manchas blancas",
+    sex: "hembra",
+    temperament:
+      "Es muy mimosa y dormilona, ama el invierno y una dormit una buena siesta con su humanx",
+    adopted: "no",
+    userId: 17,
   },
   {
     name: "Pupi",
-    age: "9 meses",
+    age: "Menos de un año",
     species: "perro",
     image: "https://acortar.link/BuCrm0",
     size: "pequeño",
@@ -73,23 +167,24 @@ const petsData = [
     sex: "hembra",
     temperament: "afable",
     adopted: "no",
-    userId: 6,
+    userId: 16,
   },
   {
     name: "Bigotes",
-    age: "2 años",
+    age: "Mas de 2 años",
     species: "gato",
     image: "https://t2.ea.ltmcdn.com/es/posts/8/1/2/maine_coon_25218_3_600.jpg",
     size: "mediano",
     color: "anaranjado",
     sex: "hembra",
     temperament: "jugueton",
-    adopted: "no",
+    adopted: "si",
     userId: 7,
+    adoptanteId: 11,
   },
   {
     name: "Manchas",
-    age: "4 años",
+    age: "Mas de 2 años",
     species: "gato",
     image:
       "https://image.europafm.com//clipping/cmsimages01//2015/12/29/E3CDD244-FAC7-45D1-B33D-7032A7C22C49/30.jpg",
@@ -101,7 +196,7 @@ const petsData = [
     userId: 8,
   },
   {
-    name: "Café con leche",
+    name: "Chespirito",
     age: "6 años",
     species: "perro",
     image: "https://pbs.twimg.com/media/DcjV8GyXUAI7P-u.jpg",
@@ -110,11 +205,11 @@ const petsData = [
     sex: "macho",
     temperament: "jugueton",
     adopted: "no",
-    userId: 5,
+    userId: 18,
   },
   {
     name: "Ron",
-    age: "3 años",
+    age: "Entre 1 y 2 años",
     species: "gato",
     image:
       "https://static.vecteezy.com/system/resources/previews/002/857/818/non_2x/orange-tabby-cat-photo.jpg",
@@ -126,8 +221,21 @@ const petsData = [
     userId: 2,
   },
   {
+    name: "Spell",
+    age: "2 semanas",
+    species: "gato",
+    image:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSsxOyGk8uH1JfUk5Dv3ajSTCZXthJzj5iMUg&usqp=CAU",
+    size: "pequeño",
+    color: "amarillo",
+    sex: "macho",
+    temperament: "Es un bebé que necesita mucho amor y cuidado",
+    adopted: "no",
+    userId: 2,
+  },
+  {
     name: "Simba",
-    age: "1 año",
+    age: "Entre 1 y 2 años",
     species: "gato",
     image:
       "https://www.feelcats.com/wp-content/uploads/2018/10/gato-atigrado-tic-ticked.jpg",
@@ -135,12 +243,13 @@ const petsData = [
     color: "gris",
     sex: "macho",
     temperament: "relajado",
-    adopted: "no",
-    userId: 3,
+    adopted: "si",
+    userId: 15,
+    adoptanteId: 9,
   },
   {
     name: "Minnie",
-    age: "3 meses",
+    age: "Menos de un año",
     species: "gato",
     image:
       "https://i.pinimg.com/474x/e3/98/64/e39864f7f4f7c3ae41e7a009379d8721.jpg",
@@ -149,7 +258,7 @@ const petsData = [
     sex: "hembra",
     temperament: "juguetona",
     adopted: "no",
-    userId: 5,
+    userId: 17,
   },
 ];
 
@@ -168,8 +277,7 @@ const usersData = [
     tiktok: "no",
     description:
       "Administrador global, todos podemos usar este usuario como admin. Para iniciar sesión debemos cargarlo a la base de datos con un post a / y luego en el login ingresar por gmail con huellitas",
-    image:
-      "https://ucarecdn.com/c7c6c96a-edae-49bb-a723-a040d408ee16/",
+    image: "https://ucarecdn.com/c7c6c96a-edae-49bb-a723-a040d408ee16/",
     CVU: "826221765285480",
     status: "activo",
     password: "#huellitas1919",
@@ -187,7 +295,9 @@ const usersData = [
     tiktok: "ErvinMiRey",
     description: "Almorcé con una llama debajo de tu cama porque puedo",
     image:
-      "https://this-person-does-not-exist.com/img/avatar-6be0ff0121b792fe397ba3e3b96e28fb.jpg",
+      "https://ucarecdn.com/fc4aae84-317c-4330-9407-d8f6c12081ad/f608x342sf.jpg",
+    latitude: -31.41555,
+    longitude: -64.186793,
     CVU: "",
     status: "activo",
     password: "1234",
@@ -206,7 +316,9 @@ const usersData = [
     tiktok: "ClemBauch",
     description: "Recibí una fuerte multa pero no logró aplastar mi espíritu",
     image:
-      "https://this-person-does-not-exist.com/img/avatar-e49f2c746f6d712ce4261659c0430d79.jpg",
+      "https://ucarecdn.com/5c8c24ae-6895-4849-8301-793e868819cd/pngtransparentfemaleavatargirlfacewomanuserflatclassyusersicon.png",
+    latitude: -36.624463,
+    longitude: -64.284073,
     CVU: "",
     status: "activo",
     password: "1234",
@@ -227,13 +339,15 @@ const usersData = [
     description:
       "Ella insistió en que limpiar tu armario era la clave para una buena conducción",
     image:
-      "https://this-person-does-not-exist.com/img/avatar-ab54e9a5a41010f6a08b075319bd36e4.jpg",
+      "https://ucarecdn.com/dd6d52be-5c97-4f44-9b51-cdc96130712d/avatarperfilusuariofemeninoesmujerpersonajeprotectorpantallaemociones_505620617.avif",
+    latitude: -26.184669,
+    longitude: -58.174414,
     CVU: "",
     password: "1234",
   },
   {
     type: "usuario",
-    name: "Chelsey Dietrich",
+    name: "José Dietrich",
     username: "Kamren",
     email: "Lucio_Hettinger@annie.ca",
     address: "Skiles Walks Suite 351, Roscoeview, Santa Fe",
@@ -247,13 +361,15 @@ const usersData = [
     description:
       "Ella le pidió prestado el libro hace muchos años y aún no lo ha devuelto",
     image:
-      "https://this-person-does-not-exist.com/img/avatar-dc4c055e1246d39761bd6af9381a1ae9.jpg",
+      "https://ucarecdn.com/ca905753-2a96-44c2-b997-f7a8d3fd352f/pngtreeuservectoravatarpngimage_1541962.jpg",
+    latitude: -31.619454,
+    longitude: -60.697159,
     CVU: "",
     password: "1234",
   },
   {
     type: "usuario",
-    name: "Mrs. Dennis Schulist",
+    name: "Mrs. Juan Schulist",
     username: "Leopoldo_Corkery",
     email: "Karley_Dach@jasper.info",
     address: "Norberto Crossing 950, South Christy, Buenos Aires",
@@ -267,13 +383,18 @@ const usersData = [
     description:
       "Tu novia compró tu cereal crujiente de galleta favorito pero se olvidó de comprar leche",
     image:
-      "https://this-person-does-not-exist.com/img/avatar-105b76fcb7bc230cbb0368d85d72621d.jpg",
+      "https://ucarecdn.com/5868696c-47b5-4569-88b9-13d4011d4533/kisspnguserprofileavatarcomputericons5affbbaf05c5a47133825315267091670237.jpg",
+    latitude: -34.796194,
+    longitude: -58.278075,
     CVU: "",
     password: "1234",
+    review:
+      "Aquí en esta app pude encontrar a mi mejor amigo perruno, muchas gracias ❤",
+    stars: 5,
   },
   {
     type: "usuario",
-    name: "Kurtis Weissnat",
+    name: "Juana Weissnat",
     username: "Elwyn.Skiles",
     email: "Telly.Hoeger@billy.biz",
     address: "Rex Trail 280, Howemouth, Capital Federal",
@@ -287,9 +408,14 @@ const usersData = [
     description:
       "Seamos todos únicos juntos hasta que nos demos cuenta de que todos somos iguales",
     image:
-      "https://this-person-does-not-exist.com/img/avatar-6b8e21a0a1a6b92dee39b6b8aa7c592e.jpg",
+      "https://ucarecdn.com/18bf0fce-eb8c-49b0-a192-d2a9bae859be/pngclipartcomputericonsavataruseravatarheroeswoman.png",
+    latitude: -34.608052,
+    longitude: -58.376166,
     CVU: "",
     password: "1234",
+    review:
+      "Muy necesaria esta app que visibiliza a todas las patitas sin voz que necesitan ayuda, muy buena!",
+    stars: 3,
   },
   {
     type: "usuario",
@@ -307,9 +433,14 @@ const usersData = [
     description:
       "Aunque pensaba que el mundo era plano, no veía la ironía de querer viajar alrededor del mundo",
     image:
-      "https://this-person-does-not-exist.com/img/avatar-f5a693b6ed7623e837d11f04015a9c06.jpg",
+      "https://ucarecdn.com/6d7c0e44-12e6-4719-ae35-908b9e5b4037/pngtransparentcomputericonsuserprofileavataruserheroesbusinessuser.png",
+    latitude: -34.608052,
+    longitude: -58.376166,
     CVU: "",
     password: "1234",
+    review:
+      "Muy buena app, encontré a mi mejor amiga gatuna y fue muy agradable la forma de contactar a la persona que daba en adopción, que además fue muy amable. 10/10",
+    stars: 4,
   },
   {
     type: "usuario",
@@ -326,7 +457,9 @@ const usersData = [
     description:
       "Solo quería decirte que pude ver el amor que sientes por tu hija por la forma en que la miras",
     image:
-      "https://this-person-does-not-exist.com/img/avatar-2bb874b50c274716b5a6e3e6e41ec0ae.jpg",
+      "https://ucarecdn.com/6af60d4b-3444-43f5-bdc1-db12f38085f8/images.png",
+    latitude: -31.41555,
+    longitude: -64.186793,
     CVU: "",
     password: "1234",
   },
@@ -345,7 +478,9 @@ const usersData = [
     description:
       "En el momento en que aterrizó comprendió la razón por la que se trataba de un estado de sobrevuelo",
     image:
-      "https://this-person-does-not-exist.com/img/avatar-b43dff51af55240892c6c1505327b914.jpg",
+      "https://ucarecdn.com/6d71e24b-53e7-4fbb-b4ab-7b9813d05154/images1.png",
+    latitude: -34.608052,
+    longitude: -58.376166,
     CVU: "",
     password: "1234",
   },
@@ -364,7 +499,9 @@ const usersData = [
     description:
       "Nuestro Centro de Adopciones está siempre abierto a quienes estén buscando una mascota para amar y cuidar.  Durante todo el año hay perritos de todas las edades, tamaños y colores esperando que lleguen sus nuevos humanos. ",
     image:
-      "https://png.pngtree.com/template/20191017/ourlarge/pngtree-logo-illustration-dog-outline-pet-design-on-white-background-image_319750.jpg",
+      "https://ucarecdn.com/6bc03969-82d2-4ee3-8325-a5c0bbf6c226/exampleimage.jpg",
+    latitude: -32.175477,
+    longitude: -64.111845,
     CVU: "596013402768904",
     password: "1234",
   },
@@ -383,7 +520,9 @@ const usersData = [
     description:
       "AYUDANOS A AYUDAR!Somos un Grupo que trabaja Ad Honorem, RESCATANDO,AYUDANDO ,CONCIENTIZANDO,",
     image:
-      "https://villaelisacdn.s3.fr-par.scw.cloud/municipalidad/feriapatitas.jpg",
+      "https://ucarecdn.com/a58ebf1f-6c9e-444b-a752-df49492839a5/kisspngdoglogopetkennelclubbonedog5abebc30c2c1138323652015224494567977.jpg",
+    latitude: -26.826678,
+    longitude: -65.187033,
     CVU: "948360284814368",
     password: "1234",
   },
@@ -402,7 +541,9 @@ const usersData = [
     description:
       "El rescate y adopción de gatos es una experiencia gratificante y gratificante. Como todos los animales, los gatos requieren cuidado y atención. También son una delicia para tener en la familia.",
     image:
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRSOP2ddW8Ud2NC3k7zuo3PvCPESmflx5WLEQ&usqp=CAU",
+      "https://ucarecdn.com/8c49d528-e5cf-4e72-83cb-0879b1bb47b8/1151150090_goggglogosdefundacionesdeanimales.png",
+    latitude: -24.816949,
+    longitude: -65.410718,
     CVU: "842254369748662",
     password: "1234",
   },
@@ -421,9 +562,233 @@ const usersData = [
     description:
       "Fundación Vidanimal es una organización no gubernamental sin fines de lucro abocada a difundir, proteger y promover los derechos de los animales.",
     image:
-      "https://www.vidanimal.org.ar/wp-content/uploads/2019/04/logo-vidanimal-blanco-original-300x268.png",
+      "https://ucarecdn.com/e0a51a6f-adf4-4596-af49-b861fdb29483/perromascotasconceptologotipoiconovectorconceptodiseno2dh318m.jpg",
+    latitude: -36.624463,
+    longitude: -64.284073,
     CVU: "106672908060515",
     password: "1234",
+  },
+  {
+    type: "fundacion",
+    name: "Fundacion Adoptemos",
+    username: "adop",
+    email: "adop@gmail.com",
+    address: "Buenos aires 963, santa Rosa, La Pampa",
+    phone: "11-6248-3804",
+    website: "adopt.org.ar",
+    facebook: "adop123",
+    instagram: "aoptFund",
+    twitter: "adopte",
+    tiktok: "adopte",
+    description:
+      "Fundación adoptemos es una organización no gubernamental sin fines de lucro abocada a difundir, proteger y promover los derechos de los animales.",
+    image:
+      "https://ucarecdn.com/2eacd4d1-6f11-4dee-a67e-9b2fbbcd6aa6/logofpai001.jpg",
+    latitude: -36.624463,
+    longitude: -64.284073,
+    CVU: "106672908063515",
+    password: "1234",
+  },
+  {
+    type: "fundacion",
+    name: "Futuro Ideal",
+    username: "Ideal",
+    email: "Ideal@gmail.com",
+    address: "Buenos Fe 968, Santa Rosa, La Pampa",
+    phone: "11-6438-3804",
+    website: "Ideal.org.ar",
+    facebook: "Ideal Vida Animal",
+    instagram: "Ideal123",
+    twitter: "@idealVida",
+    tiktok: "vida_ideal",
+    description:
+      "Fundación futuro ideal es una organización no gubernamental sin fines de lucro abocada a difundir, proteger y promover los derechos de los animales.",
+    image:
+      "https://ucarecdn.com/e885f955-e0be-47a6-b36b-d2233ea0b92f/handlovesignwithincircle260nw1970062876.webp",
+    latitude: -36.624463,
+    longitude: -64.284073,
+    CVU: "106672908560515",
+    password: "1234",
+    review:
+      "Dimos a todos los cachorritos de la perrita que encontramos en adopción por esta página y todos fueron adoptados por personas muy amables y llenas de amor. Muchas gracias por facilitar su adopción con esta sombrosa app❣️",
+    stars: 5,
+  },
+  {
+    type: "fundacion",
+    name: "Fundacion patitas cortas y largas",
+    username: "patis",
+    email: "patis@gmail.com",
+    address: "patis 968, Santa Rosa, La Pampa",
+    phone: "11-41-3804",
+    website: "patis.org.ar",
+    facebook: "patisPa",
+    instagram: "patis__",
+    twitter: "@patiss",
+    tiktok: "pa_tis",
+    description:
+      "Fundación patitas cortas y largas es una organización no gubernamental sin fines de lucro abocada a difundir, proteger y promover los derechos de los animales.",
+    image:
+      "https://ucarecdn.com/b12b8881-581e-4956-bde2-9f68c2fb251e/caridadfundacionlogovector_23987228.avif",
+    latitude: -36.624463,
+    longitude: -64.284073,
+    CVU: "133372908060515",
+    password: "1234",
+  },
+  {
+    type: "fundacion",
+    name: "Fundacion por la naturaleza",
+    username: "naturaleza",
+    email: "naturaleza@gmail.com",
+    address: "naturaleza 968, Santa Rosa, La Pampa",
+    phone: "11-134-3804",
+    website: "naturaleza.org.ar",
+    facebook: "naturalezaA",
+    instagram: "naturaleza__",
+    twitter: "@naturaleza",
+    tiktok: "natur_aleza",
+    description:
+      "Fundación naturaleza es una organización no gubernamental sin fines de lucro abocada a difundir, proteger y promover los derechos de los animales.",
+    image:
+      "https://ucarecdn.com/4f4c1644-9b38-4da5-86db-f3b7bdd6a9c6/e36255a93896664d4f7f9c439e311721.jpg",
+    latitude: -36.624463,
+    longitude: -64.284073,
+    CVU: "106672908060515",
+    password: "1234",
+    review:
+      "Nos ayudó muchísimo esta plataforma para visibilizar la ayuda económica que tanto necesitamos para cuidar a tantos peluditos en nuestro refugio, muchísimas gracias ❤️",
+    stars: 5,
+  },
+  {
+    type: "fundacion",
+    name: "Fundacion por Animalitos perdidos",
+    username: "perdidos",
+    email: "perdidos@gmail.com",
+    address: "perdidos 968, Santa Rosa, La Pampa",
+    phone: "01-030-0814",
+    website: "perdidos.org.ar",
+    facebook: "perdidosA",
+    instagram: "perdidos__",
+    twitter: "@perdidos",
+    tiktok: "per_didos",
+    description:
+      "Fundación perdidos es una organización no gubernamental sin fines de lucro abocada a encontrar, proteger y ayudar a todas las mascotas perdidas.",
+    image:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQfqHWzT4EwugUZKSKC5_aEwQs5JUVMrSuPvg&usqp=CAU",
+    latitude: -36.72751003983717,
+    longitude: -64.36201824330612,
+    CVU: "106672909863542",
+    password: "6523",
+  },
+  {
+    type: "fundacion",
+    name: "Huellitas con frio",
+    username: "HuelliF",
+    email: "HuelliF@gmail.com",
+    address: "HuelliF 968, Santa Rosa, La Pampa",
+    phone: "12-184-1894",
+    website: "HuelliF.org.ar",
+    facebook: "HuelliFA",
+    instagram: "HuelliF__",
+    twitter: "@HuelliF",
+    tiktok: "Huellita_frio",
+    description:
+      "Huellitas con frio es una organización no gubernamental sin fines de lucro encontrar a los perritos de la calle y darles un lugar agradable para vivir.",
+    image:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRG3Dg4FIUCnxkBjfeIhXyI3IfMuXibsceQ8w&usqp=CAU",
+    latitude: -28.97288586921666,
+    longitude: -65.6408826471163,
+    CVU: "105622908987654",
+    password: "9654",
+  },
+  {
+    type: "fundacion",
+    name: "El refugio",
+    username: "refugio",
+    email: "refugio@gmail.com",
+    address: "refugio 968, Santa Rosa, La Pampa",
+    phone: "02-034-3254",
+    website: "refugio.org.ar",
+    facebook: "refugioA",
+    instagram: "refugio__",
+    twitter: "@refugio",
+    tiktok: "natur_aleza",
+    description:
+      "El refugio es una organización no gubernamental sin fines de lucro abocada a darles un techo donde vivir a las mascotas encontradas en la calle.",
+    image:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQadt9nbBCbz8w4WpFrHCmvSmZf2v1EAkolFw&usqp=CAU",
+    latitude: -37.55617368401427,
+    longitude: -67.55250375022077,
+    CVU: "103542908654321",
+    password: "4563",
+  },
+  {
+    type: "fundacion",
+    name: "Huellitas seguras",
+    username: "HuellitasSegu",
+    email: "HuellitasSegu@gmail.com",
+    address: "HuellitasSegu 968, Santa Rosa, La Pampa",
+    phone: "11-134-3804",
+    website: "HuellitasSegu.org.ar",
+    facebook: "HuellitasSeguA",
+    instagram: "HuellitasSegu",
+    twitter: "@HuellitasSegu",
+    tiktok: "huellitas_segura",
+    description:
+      "Huellitas seguras es una organización no gubernamental sin fines de lucro enfocada proteger y promover los derechos de los animales que son maltratados por sus dueños",
+    image:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTDVzB7wkD1uZEFMFjedXee-VL03R1usXD5UQ&usqp=CAU",
+    latitude: -40.2906834495888,
+    longitude: -68.91480844438716,
+    CVU: "546322908984651",
+    password: "3524",
+    review:
+      "Gracias a esta app fue posible visibilizar la campaña que lideramos para recaudar fondos para perritos necesitados de hogar, para alimentarlos con comida de calidad y comprarles frazadas para que no pasen frío <3. Y para que cada uno vaya encontrando un hogar lleno de amor y para siempre. Excelente app",
+    stars: 5,
+  },
+  {
+    type: "fundacion",
+    name: "Refugio Apanot",
+    username: "Apanot",
+    email: "Apanot@gmail.com",
+    address: "Apanot 968, Santa Rosa, La Pampa",
+    phone: "19-134-7821",
+    website: "Apanot.org.ar",
+    facebook: "ApanotA",
+    instagram: "Apanot__",
+    twitter: "@Apanot",
+    tiktok: "refugio_Apanot",
+    description:
+      "La fundacion refugio Apanot es una organización no gubernamental sin fines de lucro que busca darles un nuevo comienzo a las mascotas rescatadas.",
+    image:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTP0Q5zbwhgcJs4EbLexxlAqKJahKKIvkTSOQ&usqp=CAU",
+    latitude: -54.325054318930945,
+    longitude: -67.42066783099962,
+    CVU: "107871908047424",
+    password: "7841",
+  },
+  {
+    type: "fundacion",
+    name: "Refugio Canino la reserva",
+    username: "Lareserva",
+    email: "Lareserva@gmail.com",
+    address: "Lareserva 968, Santa Rosa, La Pampa",
+    phone: "17-114-1814",
+    website: "Lareserva.org.ar",
+    facebook: "LareservaA",
+    instagram: "Lareserva__",
+    twitter: "@Lareserva",
+    tiktok: "La_reserva",
+    description:
+      "Fundación La reserva es una organización no gubernamental sin fines de lucro enfocada en ayudar a los perros encontrados en la calle, dandoles un nuevo hogar.",
+    image:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR5nvblnKdH3OWaJ2Omq8MHlUIcjyRRrauTzQ&usqp=CAU",
+    latitude: -42.10907484676562,
+    longitude: -70.05738659390231,
+    CVU: "101112908078454",
+    password: "7871",
+    review:
+      "Pudimos encontrar muchas personas muy amables y llenas de amor a quien dar a nuestros preciados peluditos <3. Muy contenta con esta idea de visibilizar campañas para ayudas económicas como para dar en adopción a amorosos animalitos.",
+    stars: 5,
   },
 ];
 
@@ -447,6 +812,162 @@ const campaignsData = [
     image:
       "https://diarioresumen.com.ar/static/old/uploads/2020/01/Perros-calle-web.jpg",
     userId: 12,
+  },
+  {
+    title: "Refugio necesita dinero para perros lisiados",
+    reason: "Recaudar fondos para comprar suministros médicos",
+    description:
+      "La cantidad de mascotas enfermas y heridas nos excede y necesitamos su ayuda!",
+    goal: 175000,
+    image:
+      "https://ucarecdn.com/b1678ac5-096e-4879-87b4-e66e5a5d8d7c/H1xYGQ60ml_1256x620.webp",
+    userId: 13,
+  },
+  {
+    title: "Necesitan un techo",
+    reason: "Pasan la noche afuera y se viene el invierno",
+    description:
+      "No contamos con un techo, nuestros animales se encuentran al aire libre y se acerca el invierno",
+    goal: 670000,
+    image:
+      "https://ucarecdn.com/ae9337bf-41bd-4e67-a48d-5ec34fc6ccd3/Portoalegreperros.jpg",
+    userId: 16,
+  },
+  {
+    title: "Compra de alimentos",
+    reason: "Necesitamos alimento para nuestros animales",
+    description:
+      "La comision se está quedando sin recursos, necesitamos su ayuda, ellos necesitan su ayuda.",
+    goal: 175000,
+    image:
+      "https://ucarecdn.com/ebf9e838-8211-42c8-957d-208ec972278e/dia_mundial_de_los_animales.jpg",
+    userId: 18,
+  },
+  {
+    title: "Necesitamos 20 bolsas de comida",
+    reason:
+      "20 bolsas de comida para repartir a diferentes pequeños refugios de la zona",
+    description:
+      "Muchos refugios cerca del nuestro nos pidieron ayuda y estamos tratando de ayudarlos.",
+    goal: 175000,
+    image:
+      "https://ucarecdn.com/53e16bb7-c749-486a-a16a-7019a65a1a16/PostDonacionesPerro.jpg",
+    userId: 17,
+  },
+  {
+    title: "Refugio necesita ampliar su refugio",
+    reason:
+      "Recaudar fondos para comprar un nuevo terreno para nuestras mascotas.",
+    description:
+      "Nuestro refugio es muy pequeño y tenemos muchos animales. Necesitamos ampliarnos.",
+    goal: 125456,
+    image:
+      "https://ucarecdn.com/c3e8aa64-4d0b-4f18-bec8-72220743f30a/000767173W.jpg",
+    userId: 15,
+  },
+  {
+    title: "Refugios de perros y gatos por separado",
+    reason: "Nuestros perros y gatos no pueden convivir juntos.",
+    description:
+      "Debido a las peleas entre los perros y gatos, para mantener su integridad física estamos en campaña para hacerles refugios separados.",
+    goal: 300000,
+    image: "https://ucarecdn.com/b2eb3317-65d9-4bcb-8267-264a506c31bb/mas.jpg",
+    userId: 13,
+  },
+  {
+    title: "Gastos varios para refugio",
+    reason: "Recaudar fondos para medicina y alimento",
+    description:
+      "Este mes encontramos muchos perritos abandonados y no los podemos cuidar como nos gustaria.",
+    goal: 75000,
+    image:
+      "https://ucarecdn.com/3506f523-7f91-48ad-8427-835bed78b485/jcr_content.png",
+    userId: 14,
+  },
+  {
+    title: "Necesitamos ayuda para gastos veterinarios",
+    reason: "Cuidar y currar a animalitos heridos",
+    description:
+      "Los gastos veterinarios no son baratos y necesitamos ayuda para seguir ayudando.",
+    goal: 150000,
+    image:
+      "https://is2.sosvox.net/petitions/b/ff/ffbea41b5cae8de4a663670de9d71c23.jpg",
+    userId: 19,
+  },
+  {
+    title: "Necesitamos comprar productos de limpieza",
+    reason: "Se necesita un ambiente limpio para los animalitos rescatados",
+    description:
+      "Muchos de nuestros rescatados vienen heridos, por lo que es necesario un ambiente higienizado y bien cuidado.",
+    goal: 100000,
+    image:
+      "https://selecciones.com.mx/wp-content/uploads/2021/10/con-que-frecuencia-lbanar-a-tus-mascotas.jpg",
+    userId: 20,
+  },
+  {
+    title: "Necesitamos comprar medicamentos",
+    reason: "Se necesitan medicamentos",
+    description:
+      "Se necesitan medicamentos para mantener estables a algunos de los peluditos enfermos/tratados de condición especial.",
+    goal: 175000,
+    image:
+      "https://klean-vet.com/wp-content/uploads/2022/01/cbd-para-mascotas.jpg",
+    userId: 21,
+  },
+  {
+    title: "Donaciones para rescates",
+    reason: "Comprar materiales para realizar rescates de mascotas ",
+    description:
+      "Estamos buscando recaudar fondos para adquirir los materiales necesarios para llevar a cabo rescates de mascotas abandonadas y brindarles el cuidado que merecen. Con tu generosa contribución, podremos obtener los recursos que necesitamos para llevar a cabo estas misiones de manera efectiva y brindar atención médica, alimento y refugio a estas mascotas desprotegidas. Tu donación ayudará a marcar la diferencia en la vida de estas mascotas y les dará una segunda oportunidad para tener un hogar amoroso. ¡Gracias por tu apoyo!",
+    goal: 150000,
+    image:
+      "https://cdn.cnn.com/cnnnext/dam/assets/201014193505-coronavirus-rescate-de-animales-abandonados-a-nivel-mundial-perros-gatos-pandemia-pkg-original-digital-patino-00012911.jpg",
+    userId: 22,
+  },
+
+  {
+    title: "Ayuda a nuestros amigos peludos en necesidad",
+    reason:
+      "Hay muchos perros y gatos abandonados o sin hogar que necesitan atención médica, alimento y amor",
+    description:
+      "Esta campaña busca recaudar fondos para ayudar a los perros y gatos que están en situaciones precarias. Cada donación ayuda a proporcionar alimento, atención médica y refugio para estas mascotas necesitadas. ¡Únete a nosotros para ayudar a nuestros amigos peludos a encontrar hogares amorosos y cariñosos!",
+    goal: 115000,
+    image:
+      "https://diariocorreo.pe/resizer/AgcmGB6FJtQiRr_SiFW1BbnoGGw=/580x330/smart/filters:format(jpeg):quality(75)/cloudfront-us-east-1.images.arcpublishing.com/elcomercio/3KY2TU2U65HTRA6QNZBYV42QK4.jpg",
+    userId: 23,
+  },
+  {
+    title: "Un hogar para cada mascota",
+    reason:
+      "Hay muchos perros y gatos que necesitan hogares amorosos y permanentes.",
+    description:
+      "Esta campaña tiene como objetivo ayudar a encontrar hogares amorosos y permanentes para perros y gatos que necesitan un lugar donde vivir. Cada donación ayuda a cubrir los costos asociados con la atención médica, vacunación, esterilización y otros gastos necesarios para preparar a estos animales para ser adoptados. ¡Ayuda a hacer posible que cada mascota tenga un hogar amoroso y permanente!",
+    goal: 150000,
+    image:
+      "https://elcomercio.pe/resizer/fVOzIUcSefdkJF2uwOkIoF-j4Sw=/580x330/smart/filters:format(jpeg):quality(75)/cloudfront-us-east-1.images.arcpublishing.com/elcomercio/AOWDTIZ6AJEZ5HT76BUIQLPCBA.jpg",
+    userId: 24,
+  },
+  {
+    title: "Dona para salvar una vida",
+    reason:
+      "Muchos perros y gatos necesitan atención médica urgente para salvar sus vidas.",
+    description:
+      "Esta campaña busca recaudar fondos para ayudar a proporcionar atención médica a perros y gatos que necesitan ayuda urgente para salvar sus vidas. Cada donación ayuda a cubrir los costos de tratamiento y cuidado, lo que puede marcar la diferencia en la vida de estos animales. ¡Ayuda a salvar una vida hoy con tu donación!",
+    goal: 90000,
+    image:
+      "https://pampermut.com/blog/wp-content/uploads/2020/07/Disen%CC%83o-sin-ti%CC%81tulo-2020-07-06T160520.987-1155x770.jpg",
+    userId: 19,
+  },
+  {
+    title: "Ayuda a nuestros amigos de cuatro patas",
+    reason:
+      "Hay muchos perros y gatos que necesitan alimento y suministros para sobrevivir",
+    description:
+      "Esta campaña tiene como objetivo recaudar fondos y suministros para ayudar a los perros y gatos que necesitan alimento y suministros para sobrevivir. Cada donación ayuda a proporcionar comida, juguetes, mantas y otros suministros necesarios para mantener a estos animales felices y saludables. ¡Únete a nosotros para ayudar a nuestros amigos de cuatro patas!",
+    goal: 130000,
+    image:
+      "https://www.enexclusiva.com/wp-content/uploads/2019/09/GettyImages-981844828-1-724x375.jpg",
+    userId: 20,
   },
 ];
 

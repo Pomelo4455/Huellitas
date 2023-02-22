@@ -1,15 +1,14 @@
-import React from "react";
-import { Formik, Form, Field, ErrorMessage } from "formik";
+import React, { useEffect, useCallback, useRef } from "react";
+import { Formik, Form, Field, ErrorMessage, useField } from "formik";
 import styles from "./adoptionForm.module.css";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Widget } from "@uploadcare/react-widget";
-import { postNewPet } from "../../redux/actions";
+import { postNewPet, getProvincias, getCiudades } from "../../redux/actions";
 import effects from "uploadcare-widget-tab-effects/react";
-// import Footer from "../Footer/Footer";
-// import NavBar from "../NavBar/NavBar";
 import swal from "sweetalert";
+import { Icon } from "@iconify/react";
 
 export default function AdoptionForm() {
   const [sent, setSent] = useState(false);
@@ -17,12 +16,49 @@ export default function AdoptionForm() {
   const navigate = useNavigate();
   let userId = JSON.parse(localStorage.getItem("loggedUser"));
   let newid = userId.data ? userId.data.id : null;
-  // newid ? (newid = newid) : (newid = null);
-  console.log(newid);
+  const [userLocation, setLocation] = useState({ latitude: 0, longitude: 0 });
+  const provincias = useSelector((state) => state.provincias);
+  const ciudades = useSelector((state) => state.ciudades);
+  const isMounted = useRef(false);
+  const formRef = useRef();
+
+  useEffect(() => {
+    if (isMounted.current === true) {
+      dispatch(getProvincias());
+    } else isMounted.current = true;
+  }, []);
+
+  const handleGeo = (event) => {
+    event.preventDefault();
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+           setLocation({
+            latitude: position.coords.latitude,
+            longitude: position.coords.longitude,
+          });
+        },
+        (error) => {
+          console.log(error);
+        }
+      );
+    } else {
+      return "no tenés geolocalización";
+    }
+  };
+
+  let aux1 = "";
+  const handleChangeProv = (provincia) => {
+    if (provincia !== aux1) {
+      dispatch(getCiudades(provincia));
+      aux1 = provincia;
+    }
+  };
+
   return (
     <div className={styles.body}>
-      {/* <NavBar /> */}
       <Formik
+        innerRef={formRef}
         initialValues={{
           name: "",
           age: "",
@@ -32,6 +68,10 @@ export default function AdoptionForm() {
           color: "",
           sex: "",
           temperament: "",
+          provincia: "",
+          ciudad: "",
+          latitude: 0,
+          longitude: 0,
           userId: newid,
         }}
         validate={(values) => {
@@ -72,7 +112,11 @@ export default function AdoptionForm() {
           return errors;
         }}
         onSubmit={(values, { resetForm }) => {
-          dispatch(postNewPet(values));
+          if (userLocation.latitude === 0 && userLocation.longitude === 0) {
+            dispatch(postNewPet(values));
+          } else {
+            dispatch(postNewPet(values, userLocation));
+          }
           resetForm();
           setSent(true);
           setTimeout(() => setSent(false), 2000);
@@ -85,11 +129,11 @@ export default function AdoptionForm() {
         }}
         validateOnMount
       >
-        {({ errors, setFieldValue }) => (
+        {({ values, errors, setFieldValue }) => (
           <div className={styles.container}>
             <Form className={styles.form}>
               <div className={styles.divinput}>
-                <label>¿Como se llama? </label>
+                <label>¿Cómo se llama?</label>
                 <br />
                 <Field
                   className={styles.input}
@@ -105,7 +149,7 @@ export default function AdoptionForm() {
                 />
               </div>
               <div className={styles.divinput}>
-                <label>¿Que tipo de mascota es? </label>
+                <label>¿Qué tipo de mascota es?</label>
                 <br />
                 <Field as="select" className={styles.input} name="species">
                   <option disabled hidden value="">
@@ -113,9 +157,9 @@ export default function AdoptionForm() {
                   </option>
                   <option value="perro">Perro</option>
                   <option value="gato">Gato</option>
-                  <option value="conejo">Conejo</option>
+                  {/* <option value="conejo">Conejo</option>
                   <option value="tortuga">Tortuga</option>
-                  <option value="cobayo">Cobayo</option>
+                  <option value="cobayo">Cobayo</option> */}
                 </Field>
                 <ErrorMessage
                   name="species"
@@ -125,13 +169,13 @@ export default function AdoptionForm() {
                 />
               </div>
               <div className={styles.divinput}>
-                <label>¿De que color es? </label>
+                <label>¿De qué color es?</label>
                 <br />
                 <Field
                   className={styles.input}
                   type="text"
                   name="color"
-                  placeholder="color"
+                  placeholder="Color"
                 ></Field>
                 <ErrorMessage
                   name="color"
@@ -141,7 +185,7 @@ export default function AdoptionForm() {
                 />
               </div>
               <div className={styles.divinput}>
-                <label>¿Que rango de edad tiene? </label>
+                <label>¿Qué rango de edad tiene?</label>
                 <br />
                 <Field as="select" className={styles.input} name="age">
                   <option disabled hidden value="">
@@ -159,7 +203,7 @@ export default function AdoptionForm() {
                 />
               </div>
               <div className={styles.divinput}>
-                <label>¿Que tamaño alcanzará? </label>
+                <label>¿Qué tamaño alcanzará?</label>
                 <br />
                 <Field as="select" className={styles.input} name="size">
                   <option disabled hidden value="">
@@ -176,7 +220,7 @@ export default function AdoptionForm() {
                   )}
                 />
               </div>
-              <label>¿De que sexo es? </label>
+              <label>¿De qué sexo es?</label>
               <div className={styles.divradio}>
                 <hr />
                 <label>
@@ -202,8 +246,8 @@ export default function AdoptionForm() {
                   cols="50"
                   name="temperament"
                   className={styles.textArea}
-                  placeholder="Descripción"
-                  maxlength="255"
+                  placeholder="Descripción..."
+                  maxLength="255"
                 ></Field>
                 <ErrorMessage
                   name="temperament"
@@ -212,7 +256,85 @@ export default function AdoptionForm() {
                   )}
                 />
               </div>
-              <label>Sube una linda foto (o varias): </label>
+              <label>¿Donde se encuentra nuestro amiguito? </label>
+              <div className={styles.divinput}>
+                <button
+                  onClick={(event) => handleGeo(event)}
+                  className={styles.geo}
+                >
+                  <div className={styles.btntxt}>Usar mi ubicación</div>
+                  <Icon
+                    icon="material-symbols:location-on"
+                    color="#788eff"
+                    height="40px"
+                  />
+                </button>
+                {userLocation.latitude !== 0 ?<Icon icon="material-symbols:check-circle-rounded" color="#025c4c" width="30" height="30" />:null}
+              </div>
+              <label>o seleccionar </label>
+              <div className={styles.region}>
+                <div>
+                  <Field as="select" name="provincia" className={styles.input2}>
+                    <option disabled hidden value="">
+                      Provincia
+                    </option>
+                    {provincias.map((prov) => {
+                      return (
+                        <option key={prov.id} value={prov.id}>
+                          {prov.nombre}
+                        </option>
+                      );
+                    })}
+                  </Field>
+                  {handleChangeProv(values.provincia)}
+                </div>
+                <div>
+                  <Field as="select" name="ciudad" className={styles.input2}>
+                    <option disabled hidden value="">
+                      Ciudad
+                    </option>
+                    {ciudades.map((ciudad) => {
+                      return (
+                        <option key={ciudad.id} value={ciudad.id}>
+                          {ciudad.nombre}
+                        </option>
+                      );
+                    })}
+                  </Field>
+                  {ciudades
+                    ?.filter((city) => city.id === values.ciudad)
+                    .map((ciudad) => {
+                      if (
+                        values.latitude === 0 ||
+                        values.latitude !== ciudad.centroide.lat
+                      )
+                        setFieldValue("latitude", ciudad.centroide.lat);
+                    })}
+                  <Field
+                    hidden
+                    type="number"
+                    name="latitude"
+                    value={values.latitude}
+                  ></Field>
+                  {ciudades
+                    ?.filter((city) => city.id === values.ciudad)
+                    .map((ciudad) => {
+                      if (
+                        values.longitude === 0 ||
+                        values.longitude !== ciudad.centroide.lon
+                      )
+                        setFieldValue("longitude", ciudad.centroide.lon);
+                    })}
+
+                  <Field
+                    hidden
+                    type="number"
+                    name="longitude"
+                    value={values.longitude}
+                  ></Field>
+                </div>
+              </div>
+              <label>Sube una linda foto (o varias):</label>
               <div className={styles.divinput}>
                 <hr />
                 <Widget
@@ -242,7 +364,6 @@ export default function AdoptionForm() {
                     <div className={styles.error}>{errors.image}</div>
                   )}
                 />
-                
               </div>
               {sent && (
                 <p className={styles.exito}>Formulario enviado con exito!</p>
@@ -283,7 +404,6 @@ export default function AdoptionForm() {
           </div>
         )}
       </Formik>
-      {/* <Footer /> */}
     </div>
   );
 }

@@ -53,7 +53,7 @@
 
 - Chequear que en el "scripts" del package.json de /api el comando "start" ejecute lo siguiente: "node ./index.js".
 - Agregar las siguientes variables de entorno al .env que está adentro de /api:
-    - DB_DEPLOY=postgresql://postgres:L1ytoWiC2Pfpuf7GGmzR@containers-us-west-183.railway.app:7249/railway
+    - DB_DEPLOY=postgresql://postgres:wVjSqTA5KOet3Xrpzz4j@containers-us-west-17.railway.app:6312/railway
     - PORT=3001
 - Descomentar la opción 2 dentro de "db.js", y comentar la opción 1.
 - Ir a postman o la aplicación que usen para cargar los datos y hacer un post a "http://localhost:3001/".
@@ -62,3 +62,17 @@
 ### Agregar las siguientes variables al archivo .env de api:
 - APP_PASSWORD_NODEMAILER = gdmrvfsbqonuieih
 - MERCADOPAGO_KEY= TEST-293281331158507-020717-70b9282513602337f43a8d61500c40f9-1305153224
+
+## Para usar el deploy cambiar los siguientes links en "variablesDeploy.js"
+
+- LINK_FRONT=https://huellitasapp.netlify.app
+- LINK_BACK=https://huellitas-production.up.railway.app
+- En "payment.js" asegurarse que la siguiente linea coincida: const LINK_FRONT = "https://huellitasapp.netlify.app"
+- En "index.js" dentro de src asegurarse que la siguiente linea coincida: axios.defaults.baseURL = 'https://huellitas-production.up.railway.app';
+
+## Para usar los servidores locales:
+
+- LINK_FRONT=http://localhost:3000
+- LINK_BACK=http://localhost:3001
+- En "payment.js" asegurarse que la siguiente linea coincida: const LINK_FRONT = "http://localhost:3000"
+- En "index.js" dentro de src asegurarse que la siguiente linea coincida: axios.defaults.baseURL = 'http://localhost:3001';

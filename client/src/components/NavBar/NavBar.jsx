@@ -11,13 +11,15 @@ import {
   sendProfileToDb,
   clearProfile,
   login_success,
+  updateNotReadChats,
 } from "../../redux/actions";
 import swal from "sweetalert";
 import { profileCreationInfo } from "../../Utils/profileFunctions";
 // import { Icon } from '@iconify/react';
-
+import axios from "axios";
 import styles from "./navBar.module.css";
-
+import RenderFavorites from "./RenderFavorites";
+import { LINK_BACK } from "../../Utils/variablesDeploy";
 
 const NavBar = (
   {loggedUser,setLoggedUser}
@@ -25,9 +27,16 @@ const NavBar = (
   // console.log(loggedUser)
   const dispatch = useDispatch();
   const { user, isAuthenticated, isLoading } = useAuth0();
-  
+  const noLeidos = useSelector(state => state.noLeidos);
   const profile = useSelector((state) => state.profile);
-    useEffect(() => {}, [profile]);
+  useEffect(() => {}, [profile]);
+
+  useEffect(() => {
+    if (loggedUser?.id) {
+      axios(`${LINK_BACK}/message/noleidos?userId=${loggedUser?.id}`)
+      .then(data => dispatch(updateNotReadChats(data.data.cantidad)))
+    }
+  }, [])
 
   useEffect(() => {
     if (isAuthenticated) {
@@ -40,8 +49,7 @@ const NavBar = (
     } else {
       // localStorage.setItem('user', JSON.stringify({}))
       // localStorage.setItem("loggedUser", JSON.stringify({}));
-
-      console.log("not logged in");
+      // console.log("not logged in");
       // clearProfile()
     }
   }, [isAuthenticated]);
@@ -63,6 +71,12 @@ const NavBar = (
     setShowEdit(!showEdit);
   };
 
+  const [viewFavorites, setViewFavorites] = useState(false);
+
+  const handleViewFavorites = () => {
+    setViewFavorites(!viewFavorites)
+  }
+ 
 
   return (
     <nav className={styles.nav}>
@@ -101,44 +115,52 @@ const NavBar = (
         </ul>
       </div>
 
-        <div className={styles.title}>
-          <Icon className={styles.img} icon="material-symbols:pets"  />
-          <div className={styles.txt}>
-            <Link to="/home" className={styles.txt}>
-              Huellitas
-            </Link>
-          </div>
+      <div className={styles.title}>
+        <Icon className={styles.img} icon="material-symbols:pets"  />
+        <div className={styles.txt}>
+          <Link to="/home" className={styles.txt}>
+            Huellitas
+          </Link>
         </div>
+      </div>
 
+      <div className={styles.rightContainer}>
+        {
+          loggedUser && viewFavorites ?
+          <><Icon onClick={handleViewFavorites} className={styles.followButton} icon="ph:heart" />
+          <div>
+            <div className={styles.infoSession}>
+            <RenderFavorites handleOcultFavorites={handleViewFavorites}/>
+            </div>
+          </div></>
+          :
+          loggedUser ?
+            <Icon onClick={handleViewFavorites} className={styles.followButton} icon="ph:heart" />
+          :
+          null
+        }
         <div className={styles.buttonContainer}>
           {loggedUser ? (
             <div className={styles.infoSession}>
-              {/* <h4>Ha iniciado sesión como: {loggedUser.name.toUpperCase()}</h4> */}
-              <img 
-                src={loggedUser.image}
-                onClick={handleEdit}
-              />
-              <div 
-                className=
-                {
-                  showEdit ? styles.toggleUser : styles.toggleUserNone
-                }
-              >
+              <img src={loggedUser.image}onClick={handleEdit}/>
+              <div className={showEdit ? styles.toggleUser : styles.toggleUserNone}>
                 <div>
-                  <Link 
-                    to='/Profile' 
-                    onClick={handleEdit}
-                    className={styles.editBtnContainer}
-                  >
-                    <button className={styles.buttonEdit}>
-                      Editar perfil
-                    </button>
+                  <Link to='/Profile' onClick={handleEdit} className={styles.editBtnContainer}>
+                    <button className={styles.buttonEdit}> Editar perfil</button>
                   </Link>
                 </div>
-                <div 
-                  className={styles.logoutContainer} 
-                  onClick={handleEdit}
-                >
+                <Link to='/chats' onClick={handleEdit} className={styles.editBtnContainer}>
+                  <button className={styles.buttonEdit}>
+                    Ver mensajes
+                    {noLeidos <= 0 ?
+                      null :
+                    noLeidos <= 9 ?
+                      <div><Icon icon={`mdi:number-${noLeidos}-circle`} width={"30px"} height={"30px"} style={{marginTop:"10px"}}/></div> :
+                      <div><Icon icon="mdi:number-9-plus-circle" width={"30px"} height={"30px"} style={{marginTop:"10px"}}/></div>
+                    }
+                  </button>
+                </Link>
+                <div className={styles.logoutContainer} onClick={handleEdit}>
                   <LogoutButton />
                 </div>
               </div>
@@ -149,6 +171,7 @@ const NavBar = (
             </>
           )}
         </div>
+      </div> 
 
     </nav>
   );

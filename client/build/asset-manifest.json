@@ -1,0 +1,30 @@
+{
+  "files": {
+    "main.css": "/static/css/main.9a807f40.css",
+    "main.js": "/static/js/main.af4d246d.js",
+    "ucare-widget-chunk.js": "/static/js/ucare-widget-chunk.7d5a5f4a.chunk.js",
+    "ucare-panel-chunk.js": "/static/js/ucare-panel-chunk.b2657a2a.chunk.js",
+    "static/js/787.c4e7f8f9.chunk.js": "/static/js/787.c4e7f8f9.chunk.js",
+    "static/js/294.499e59b0.chunk.js": "/static/js/294.499e59b0.chunk.js",
+    "static/media/sadDog.jpg": "/static/media/sadDog.ded554b6dcaf82e5e3fb.jpg",
+    "static/media/ObjetivoCumplido.png": "/static/media/ObjetivoCumplido.5f38e3879ce3ad39cc56.png",
+    "static/media/jpg": "/static/media/e17e13c695f6c35d4756d7da29b6bf7f.493474d93d38c3851fd4.jpg",
+    "static/media/FlowerDog.jpg": "/static/media/FlowerDog.bb7c9824a4afbb137a8f.jpg",
+    "static/media/facebookIcon.jpg": "/static/media/facebookIcon.53728ac30c824e2d7f3c.jpg",
+    "static/media/instagramIcon.webp": "/static/media/instagramIcon.fc459b5633f7e1fe3969.webp",
+    "static/media/tiktokIcon.png": "/static/media/tiktokIcon.eb3d45dae5fd8df29809.png",
+    "static/media/perro7.jpg": "/static/media/perro7.6f5cba7aa63a57c09b3a.jpg",
+    "static/media/perro1.jpg": "/static/media/perro1.283a3dd152465aecceea.jpg",
+    "index.html": "/index.html",
+    "main.9a807f40.css.map": "/static/css/main.9a807f40.css.map",
+    "main.af4d246d.js.map": "/static/js/main.af4d246d.js.map",
+    "ucare-widget-chunk.7d5a5f4a.chunk.js.map": "/static/js/ucare-widget-chunk.7d5a5f4a.chunk.js.map",
+    "ucare-panel-chunk.b2657a2a.chunk.js.map": "/static/js/ucare-panel-chunk.b2657a2a.chunk.js.map",
+    "787.c4e7f8f9.chunk.js.map": "/static/js/787.c4e7f8f9.chunk.js.map",
+    "294.499e59b0.chunk.js.map": "/static/js/294.499e59b0.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.9a807f40.css",
+    "static/js/main.af4d246d.js"
+  ]
+}

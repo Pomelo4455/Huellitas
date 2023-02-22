@@ -6,22 +6,22 @@ const { DB_USER, DB_PASSWORD, DB_HOST, DB_PORT, DB_NAME, DB_DEPLOY} = process.en
 
 /* OPCION 1: Descomentar esta opción para hacer los pedidos localmente*/
 
-/* const sequelize = new Sequelize(
+const sequelize = new Sequelize(
   `postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}:${DB_PORT}/${DB_NAME}`,
   {
     logging: false, // set to console.log to see the raw SQL queries
     native: false, // lets Sequelize know we can use pg-native for ~30% more speed
   }
-); */
+);
 
 /* OPCION 2: Descomentar esta opción para hacer los pedidos a railway(server deployado) */
 
-const sequelize = new Sequelize(DB_DEPLOY,
-  {
-    logging: false, // set to console.log to see the raw SQL queries
-    native: false, // lets Sequelize know we can use pg-native for ~30% more speed
-  }
-);
+/*  const sequelize = new Sequelize(DB_DEPLOY,
+   {
+     logging: false, // set to console.log to see the raw SQL queries
+     native: false, // lets Sequelize know we can use pg-native for ~30% more speed
+   }
+ ); */
 
 const basename = path.basename(__filename);
 
@@ -50,13 +50,14 @@ sequelize.models = Object.fromEntries(capsEntries);
 // En sequelize.models están todos los modelos importados como propiedades
 // Para relacionarlos hacemos un destructuring
 
-const { User, Pet, Campaign, Adoption, Message, Donation } = sequelize.models;
+const { User, Pet, Campaign, Message, Donation, Follow } = sequelize.models;
 
 // Aca vendrian las relaciones
 // Product.hasMany(Reviews);
-
-Pet.belongsToMany(User, { through: "favorites" });
-User.belongsToMany(Pet, { through: "favorites" });
+User.hasMany(Follow, {as: "seguidor", foreignKey: 'userId'});
+Follow.belongsTo(User, {as: "seguidor", foreignKey: 'userId'});
+Pet.hasMany(Follow, {as: "seguido", foreignKey: 'petId'});
+Follow.belongsTo(Pet, {as: "seguido", foreignKey: "petId"});
 
 User.hasMany(Message, {as: "emisor", foreignKey: 'EmisorId'});
 Message.belongsTo(User, {as: "emisor", foreignKey: 'EmisorId'});
@@ -66,17 +67,19 @@ Message.belongsTo(User, {as: "receptor", foreignKey: "ReceptorId"})
 User.hasMany(Campaign);
 Campaign.belongsTo(User);
 
-User.hasMany(Pet);
-Pet.belongsTo(User);
+User.hasMany(Pet, {as: "giver", foreignKey: 'GiverId'});
+Pet.belongsTo(User, {as: "giver", foreignKey: 'GiverId'});
 
-User.hasOne(Adoption);
-Adoption.belongsTo(User);
+User.hasMany(Pet, {as: "adoptante", foreignKey: 'AdoptanteId'});
+Pet.belongsTo(User, {as: "adoptante", foreignKey: 'AdoptanteId'});
 
-Pet.hasOne(Adoption);
-Adoption.belongsTo(Pet);
+User.belongsToMany(Pet, {as: "solicitante", through: "solicitantes", foreignKey: 'SolicitanteId'});
+Pet.belongsToMany(User, {as: "solicitante", through: "solicitantes", foreignKey: 'MascotaId'})
 
-User.belongsToMany(Campaign, {through: Donation});
-Campaign.belongsTo(User, {through: Donation});
+User.hasMany(Donation, {as: "donante", foreignKey: 'userId'});
+Donation.belongsTo(User, {as: "donante", foreignKey: 'userId'});
+Campaign.hasMany(Donation, {as: "campania", foreignKey: 'campaignId'});
+Donation.belongsTo(Campaign, {as: "campania", foreignKey: "campaignId"});
 
 module.exports = {
   ...sequelize.models, // para poder importar los modelos así: const { Product, User } = require('./db.js');

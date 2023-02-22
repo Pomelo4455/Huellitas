@@ -5,7 +5,8 @@
   flex-direction: column;
   align-content: center;
   width: 300px;
-  height: 550px;
+  height: fit-content;
+  padding-bottom: 30px;
   background: #c2f4ff;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 0px 0px 100px 0px;
@@ -129,22 +130,59 @@
   flex-direction: row;
 }
 
+.kms{
+  background-color: #44b7ff;
+  border: none;
+  border-radius: 10px;
+  padding: 10px 10px;
+  font-size: 110%;
+  color: rgb(255, 255, 255);
+  outline: none;
+  margin-right: 20px;
+  margin-left: -10px;
+  width: 20%;
+  text-align: center;
+}
+.kms::placeholder {
+  color: white;
+  font-family: "Poppins";
+  font-weight: 300;
+}
+.kmsbtn{
+  width: 80px;
+  height: 44px;
+  background: #44b7ff;
+  border-radius: 14px;
+  border: none;
+  font-family: "Ubuntu";
+  font-weight: 400;
+  font-size: 100%;
+  color: #ffffff;
+}
+.kmsbtn:hover {
+  background-color: #5dc1ff;
+  transition: 0.2s;
+}
+.formkms{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-top: 20px;
+}
 /* RESPONSIVE PARA DISPOSITIVOS HASTA 760PX */
-@media (max-width: 760px) {
+@media (max-width: 768px) {
   .container {
+    position: absolute;
     width: 100%;
-    
     display: flex;
-    flex-direction: column;
-    align-content: center;
+    flex-direction: grid;
     height: 550px;
     background: #c2f4ff;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 0;
   }
   
   .selectBox {
-    width: 70%;
+    width: 80%;
     height: 44px;
     margin: 1em auto;
     background-color: #44b7ff;
@@ -158,20 +196,17 @@
   }
   
   .btn {
-    width: 70%;
-    height: 44px;
-    margin-top: 30px;
-    background: #44b7ff;
-    /* box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); */
-    border-radius: 14px;
+    width: 80%;
+    height: 100px;
+    margin: 1em auto;
+    background-color: #44b7ff;
+    border-radius: 8px;
     border: none;
-    font-family: "Ubuntu";
+    color: #ffffff;
+    text-align: center;
+    font-family: "Poppins";
     font-weight: 400;
     font-size: 100%;
-
-    margin: 1em auto;
-
-    color: #ffffff;
   }
   
   .btn:hover {
@@ -184,17 +219,20 @@
     box-shadow: 3px 2px 22px 1px rgba(0, 0, 0, 0.24);
   }
   
+  .searchContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
+
   .search {
     background-color: #44b7ff;
     border: none;
-    border-radius: 10px;
-    padding: 10px 10px;
-    /* margin-left: 0%; */
     font-size: 110%;
     color: rgb(255, 255, 255);
-    outline: none;
-    margin-top: 30px;
-    margin-left: 10px;
+    width: 76%;
   }
   
   .search::placeholder {
@@ -202,6 +240,7 @@
     font-family: "Poppins";
     font-weight: 400;
     font-size: .8em;
+    width: 100%;
   }
   
   .searchButton {
@@ -209,34 +248,64 @@
     scale: 150%;
     color: black;
     border: none;
+    top: -62px;
+    left: 150px;
     border-radius: 5px;
     padding-top: 5px;
     padding-bottom: 5px;
     margin-left: -12%;
     position: relative;
     cursor: pointer;
-    margin-top: 30px;
   }
   
   .searchButton:hover {
     color: white;
   }
   
-  .restoreButton {
+  .toggle {
+    width: 10%;
+    margin: 2em auto;
     background-color: #44b7ff;
-    color: white;
+    border-radius: 50%;
     border: none;
-    border-radius: 10px;
-    padding: 10px;
+    color: #ffffff;
+    text-align: center;
+    font-family: "Poppins";
+    font-weight: 400;
+    font-size: 150%;
+    line-height: 10px;
+    padding: 5px;
+  }
+
+  .toggle.visible {
+    width: 10%;
+    margin: 1em auto;
+    background-color: #44b7ff;
+    border-radius: 50%;
+    border: none;
+    color: #ffffff;
+    text-align: center;
+    font-family: "Poppins";
+    font-weight: 400;
+    font-size: 150%;
+    line-height: 10px;
+    padding: 5px;
+    rotate: 180deg;
+  }
+
+  .restoreButton {
+    width: 80%;
+    height: 44px;
+    margin: 1em auto;
+    background-color: #44b7ff;
+    border-radius: 8px;
+    border: none;
+    color: #ffffff;
+    text-align: center;
     font-family: "Poppins";
     font-weight: 400;
     font-size: 100%;
-    text-align: middle;
-    text-decoration: none;
-    width: 184px;
-    white-space: nowrap;
-    margin-left: -5%;
-    margin-top: 30px;
+    margin-top: -10px;
   }
   
   .restoreButton:hover {
@@ -249,16 +318,65 @@
     transform: scale(0.97);
   }
   
-  .searchContainer {
-    display: flex;
-    flex-direction: column;
-    /* background-color: red; */
-    justify-content: center;
-    align-items: center;
-  }
   
   .newsearch {
     display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
+
+  .sidebar {
+    position: absolute;
+    top: -220px;
+    height: 100%;
+    width: 100%;
+    background-color: transparent;
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .sidebar.expanded {
+    transform: translateY(491px);
+  }
+  .kms{
+    background-color: #44b7ff;
+    border: none;
+    border-radius: 10px;
+    font-size: 110%;
+    color: rgb(255, 255, 255);
+    outline: none;
+    margin-right: 20px;
+    margin-left: -10px;
+    width: 20%;
+    height: 15px ;
+    text-align: center;
+  }
+  .kms::placeholder {
+    color: white;
+    font-family: "Poppins";
+    
+  }
+  .kmsbtn{
+    width: fit-content;
+    height: 35px;
+    background: #31a7f1;
+    border-radius: 8px;
+    border: none;
+    font-family: "Ubuntu";
+    font-weight: 400;
+    font-size: 100%;
+    color: #ffffff;
+  }
+  .kmsbtn:hover {
+    background-color: #5dc1ff;
+    transition: 0.2s;
+  }
+  .formkms{
+    display: flex;
     flex-direction: row;
+    justify-content: center;
+    margin-top: 10px;
+   margin-bottom: 10px;
   }
 }

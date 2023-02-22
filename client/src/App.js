@@ -21,6 +21,7 @@ import {
   AdminProtectedRoute,
   FoundationProtectedRoute,
   UserProtectedRoute,
+  UserBaneadoRoute
 } from "./components/ProtectedRoute/ProtectedRoute";
 import UnauthRedirect from "./components/UnauthRedirect/UnauthRedirect";
 import Profile from "./components/Profile/Profile";
@@ -38,6 +39,9 @@ import {
 import DashBoardAdm from "./components/DashBoardAdm/DashBoardAdm";
 import { User } from "@auth0/auth0-react";
 import Mensajeria from "./components/Mensajeria/Mensajeria";
+import Fundaciones from "./components/Fundaciones/Fundaciones";
+import UserDetail from "./components/UserDetail/UserDetail";
+import UserBaneado from "./components/UserBanedo/UserBaneado";
 
 export const auth = new Auth();
 
@@ -50,67 +54,85 @@ function App() {
   const profile = useSelector((state) => state.profile);
   useEffect(() => {}, [profile]);
 
-  // console.log(loggedUser)
-  // const handleAuthentication = (props) => {
-  //   if (props.location.hash) {
-  //     auth.handleAuth();
-  //   }
-  // };
-  // const dispatch = useDispatch();
-
-  // useEffect(()=>{
-  //   if(auth.isAuthenticated()) {
-  //     dispatch(login_success())
-  //     auth.getProfile()
-  //     console.log(auth.profile)
-  //     // setTimeout(() => {dispatch(add_profile(auth.userProfile))}, 400)
-  //   }
-  //   else {
-  //     console.log("not logged in")
-  //     // dispatch(login_failure())
-  //     // dispatch(remove_profile())
-  //   }
-  // },[])
-
   return (
     <>
-      <NavBar
-      loggedUser={loggedUser.data} setLoggedUser={setLoggedUser}
-      />
+      <NavBar loggedUser={loggedUser.data} setLoggedUser={setLoggedUser} />
       <Routes>
-        <Route path="/" element={<Navigate to="/home" />} />
-        {/* <Route path="/Footer" element={<Footer />} /> */}
-        <Route path="/SobreNosotros" element={<SobreNosotros />} />
-        <Route path="/home" element={<Home />} />
-        <Route path="/detail/:id" element={<CardDetail />} />
-        <Route path="/Adoptar" element={<AllCards />} />
-        <Route
-          path="/PublicarAdopcion"
-          element={
+        <Route path="/" element={
+          loggedUser.data?.status === 'baneado' ? <UserBaneado /> :
+          <Navigate to="/home" />}
+        />
+        <Route path="/SobreNosotros" element={
+          loggedUser.data?.status === 'baneado' ? <UserBaneado /> :
+          <SobreNosotros />} 
+        />
+        <Route path="/home" element={
+          loggedUser.data?.status === 'baneado' ? <UserBaneado /> 
+          : <Home/>} 
+        />
+        <Route path="/detail/:id" element={
+          loggedUser.data?.status === 'baneado' ? <UserBaneado /> 
+          : <CardDetail />} 
+        />
+        <Route path="/Adoptar" element={
+          loggedUser.data?.status === 'baneado' ? <UserBaneado /> 
+          : <AllCards />} 
+        />
+        <Route path="/userDetail/:id" element={
+          loggedUser.data?.status === 'baneado' ? <UserBaneado /> 
+          : <UserDetail />} 
+        />
+        <Route path="/PublicarAdopcion" element={
+            loggedUser.data?.status === 'baneado' ? <UserBaneado /> :
             <UserProtectedRoute>
               <AdoptionForm />
             </UserProtectedRoute>
           }
         />
-        <Route path="/campañas" element={<Campañas />} />
-        <Route path="/campañas/:id" element={<Detail />} />
-        <Route
-          path="/PublicarCampaña"
-          element={
+        <Route path="/campañas" element={
+          loggedUser.data?.status === 'baneado' ? <UserBaneado /> 
+          : <Campañas />} 
+        />
+        <Route path="/campañas/:id" element={
+          loggedUser.data?.status === 'baneado' ? <UserBaneado /> 
+          : <Detail />} 
+        />
+        <Route path="/PublicarCampaña" element={
+            loggedUser.data?.status === 'baneado' ? <UserBaneado /> :
             <FoundationProtectedRoute>
               <CampaignForm />
             </FoundationProtectedRoute>
           }
         />
-        <Route path="/payment/error" element={<Fail/>} />
+        <Route path="/payment/error" element={<Fail />} />
         <Route path="payment/gracias" element={<Gratitude />} />
-        <Route path="/DashBoardAdm" element={<AdminProtectedRoute><DashBoardAdm /></AdminProtectedRoute>}/>
+        <Route path="/DashBoardAdm" element={
+          loggedUser.data?.status === 'baneado' ? <UserBaneado /> :
+            <AdminProtectedRoute>
+              <DashBoardAdm />
+            </AdminProtectedRoute>
+          }
+        />
         <Route path="/unauthRedirect/:props" element={<UnauthRedirect />} />
-        <Route path="/Profile" element={<Profile setLoggedUser={setLoggedUser} />}/>
-        <Route path="/chat/:emisorId/:receptorId" element={<Mensajeria/>}/>
+        <Route path="/Profile" element={
+            loggedUser.data?.status === 'baneado' ? <UserBaneado /> 
+            : <Profile setLoggedUser={setLoggedUser} />}
+        />
+        <Route path="/chats" element={
+          loggedUser.data?.status === 'baneado' ? <UserBaneado /> 
+          : <Mensajeria />} 
+        />
+        <Route path="/chat/:emisorId/:receptorId" element={
+          loggedUser.data?.status === 'baneado' ? <UserBaneado /> 
+          : <Mensajeria />} 
+        />
+        <Route path="/fundaciones" element={
+          loggedUser.data?.status === 'baneado' ? <UserBaneado /> :
+          <Fundaciones />} 
+        />
         <Route path="/:any" element={<NotFound />} />
       </Routes>
-      <Footer />
+      <Footer/>
     </>
   );
 }

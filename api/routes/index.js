@@ -6,7 +6,11 @@ const Payment = require("./payment.js")
 const Mails = require("./mail.js")
 const Message = require("./message.js")
 const Donations = require("./donations.js")
-const { User, Pet, Campaign, Adoption } = require('../db.js');
+const Follow = require("./follow.js")
+const Reviews = require("./review.js")
+const Adoption = require("./adoption.js")
+
+const { User, Pet, Campaign } = require('../db.js');
 const {loadUsers,loadPets,loadCampaigns}= require("../controllers/index.js")
 const {petsData,usersData,campaignsData} = require("../utils/data.js")
 
@@ -26,7 +30,7 @@ router.post('/', async (req, res) => {
     await loadCampaigns();
     res.status(200).send("Datos cargados correctamente")
    }catch(error){
-    res.status(400).send("error en la carga de datos")
+    res.status(400).send(error.message)
    }
 });
 
@@ -37,5 +41,9 @@ router.use("/payment",Payment)
 router.use("/mails", Mails)
 router.use("/message", Message)
 router.use("/donations",Donations)
+router.use("/follow",Follow)
+router.use("/reviews",Reviews)
+router.use("/adoption",Adoption)
+
 
 module.exports = router;

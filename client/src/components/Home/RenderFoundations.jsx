@@ -40,7 +40,7 @@ export default function RenderFoundations() {
               VER MENOS
             </button>
             <button className={styles.claseboton}>
-              <Link to="/:any" className={styles.linkText}>
+              <Link to="/fundaciones" className={styles.linkText}>
                 VER TODOS
               </Link>
             </button>
@@ -48,7 +48,7 @@ export default function RenderFoundations() {
         ) : (
           <>
             <button
-              className={styles.claseUltimoBoton}
+              className={styles.claseboton}
               onClick={() => setMore({ ...more, fundacion: true })}
             >
               VER MAS

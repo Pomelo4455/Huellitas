@@ -1,12 +1,13 @@
 import React from "react";
 import Card from "../Card/Card";
-// import Footer from "../Footer/Footer";
-// import NavBar from "../NavBar/NavBar";
 import Paginado from "../Paginado/Paginado";
 import Sidebar from "../Sidebar/Sidebar";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
-import { getFilterPets, getPets, setCurrentPage } from "../../redux/actions";
+import {
+  getFilterPets,
+  setCurrentPage,
+  } from "../../redux/actions";
 import { all } from "axios";
 import { combinarFiltros } from "../Sidebar/handlersSideBar";
 
@@ -17,19 +18,36 @@ function Adoptar() {
   const allPets = useSelector((state) => state.pets);
   const filters = useSelector((state) => state.filters);
   const currentPage = useSelector((state) => state.page);
-  // const [currentPage, setCurrentPage] = useState(1);
-  const [dogsPerPage, setdogsPerPage] = useState(6);
+  const userLocation = useSelector((state) => state.userLocation);
+  const [dogsPerPage] = useState(6);
   const indexLastProduct = currentPage * dogsPerPage;
   const indexFirstProduct = indexLastProduct - dogsPerPage;
   const currentDogs = allPets.slice(indexFirstProduct, indexLastProduct);
   const petMax = Math.ceil(allPets.length / dogsPerPage);
+  let user = JSON.parse(window.localStorage.getItem("loggedUser"))?.data;
 
   useEffect(() => {
     // creamos url
-    const url = combinarFiltros(filters);
-    // peticion a la api con la url
+    const url = combinarFiltros({...filters, giverId: user ? user.id : ""});
+    // peticion a la api con la url.
     dispatch(getFilterPets(url));
-  }, [filters]);
+  }, [filters, dispatch]);
+
+  function getDistance(latitude1, longitude1, latitude2, longitude2) {
+    let theta = longitude1 - longitude2;
+    let distance =
+      60 *
+      1.1515 *
+      (180 / Math.PI) *
+      Math.acos(
+        Math.sin(latitude1 * (Math.PI / 180)) *
+          Math.sin(latitude2 * (Math.PI / 180)) +
+          Math.cos(latitude1 * (Math.PI / 180)) *
+            Math.cos(latitude2 * (Math.PI / 180)) *
+            Math.cos(theta * (Math.PI / 180))
+      );
+    return Math.round(distance * 1.609344, 2);
+  }
 
   function setPage(pageNumber) {
     dispatch(setCurrentPage(pageNumber));
@@ -41,18 +59,24 @@ function Adoptar() {
 
   return (
     <div className={styles.body}>
-      {/* <NavBar /> */}
       <div className={styles.container}>
         <Sidebar />
         <div className={styles.adoptar}>
-          {/* reemplazar tarjetas por una sola cuando este la logica resuelta */}
           {currentDogs.map((pet) => (
-            <Card pets={pet} key={pet.id} />
+            <Card
+              pets={pet}
+              key={pet.id}
+              distancia={getDistance(
+                userLocation.latitude,
+                userLocation.longitude,
+                pet.latitude,
+                pet.longitude
+              )}
+            />
           ))}
         </div>
       </div>
       <Paginado paginado={paginado} currentPage={currentPage} petMax={petMax} />
-      {/* <Footer /> */}
     </div>
   );
 }

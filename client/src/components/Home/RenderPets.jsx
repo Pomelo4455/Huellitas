@@ -24,7 +24,7 @@ export default function RenderPets() {
       </div>
       <div data-aos="fade-up" className={styles.cards}>
         {more.pet ? (
-          <>{renderizarPetCards(allPets, 6)}</>
+          <div className={styles.moreCards}>{renderizarPetCards(allPets, 8)}</div>
         ) : (
           <>{renderizarPetCards(allPets, 3)}</>
         )}

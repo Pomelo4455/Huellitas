@@ -18,6 +18,11 @@
   box-shadow: 10px 10px rgba(0, 0, 0, 0.25);
 }
 
+.link_detail {
+  text-decoration: none;
+  color: #000000;
+}
+
 .title {
   color: #000000;
   text-align: center;

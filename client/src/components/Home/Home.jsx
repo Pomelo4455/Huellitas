@@ -4,7 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import BtnHome from "../BtnHome/BtnHome";
 import Card from "../Card/Card";
 import CardFundacion from "../Card/CardFundacion";
-import { getPets, getCampaigns, getFundaciones } from "../../redux/actions";
+import { getPets, getCampaigns, getFundaciones, setCurrentPage, setUserLocation } from "../../redux/actions";
 import swal from "sweetalert";
 import { useAuth0 } from "@auth0/auth0-react";
 import Landing from "../Landing/Landing";
@@ -17,49 +17,53 @@ import RenderPets from "./RenderPets";
 import RenderFoundations from "./RenderFoundations";
 
 import styles from "./home.module.css";
+import RenderReviews from "./RenderReviews";
 
 const Home = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const profile = useSelector((state) => state.profile);
     const isAuth = useSelector((state) => state.is_authenticated);
-    const [userLocation, setLocation] = useState({ lat: 0, lng: 0 });
     const { loginWithPopup } = useAuth0();
     let user = JSON.parse(window.localStorage.getItem("loggedUser"));
 
     useEffect(() => {
-        if (navigator.geolocation) {
-            navigator.geolocation.getCurrentPosition(
-                (position) => {
-                    console.log(
-                        position.coords.latitude,
-                        position.coords.longitude
-                    );
-                    setLocation({
-                        lat: position.coords.latitude,
-                        lng: position.coords.longitude,
-                    });
-                },
-                (error) => {
-                    console.log(error);
-                }
-            );
-        } else {
-            return "no tenés geolocalización";
-        }
-
         dispatch(getPets());
         dispatch(getCampaigns());
         dispatch(getFundaciones());
+        dispatch(setCurrentPage(1))
     }, [dispatch]);
     useEffect(() => {
         AOS.init({ duration: 1000 });
     }, []);
     useEffect(() => {}, [profile]);
 
+    useEffect(() => {
+ 
+        if (navigator.geolocation) {
+           navigator.geolocation.getCurrentPosition(
+             (position) => {
+               
+               dispatch(setUserLocation({
+                 latitude: position.coords.latitude,
+                 longitude: position.coords.longitude,
+               }));
+             },
+             (error) => {
+               console.log(error);
+             }
+           );
+         } else {
+           return "no tenés geolocalización";
+         }
+       
+    }, [])
+
+
+
     const handleOnClick = (e) => {
         e.preventDefault();
-        if (isAuth) navigate("/PublicarAdopcion");
+        if (user?.data?.id) navigate("/PublicarAdopcion");
         else {
             swal({
                 title: "Sorry!",
@@ -71,7 +75,7 @@ const Home = () => {
     };
 
     return (
-      <div className={styles.home}>
+        <div className={styles.home}>
           <div className={styles.landingInHome}>
               <Landing />
                 <div className={styles.imagesLanding}>
@@ -113,9 +117,10 @@ const Home = () => {
                     </Link>
                 ) : null}
           </div>
-          <RenderPets />
+          <RenderPets/>
           <RenderCampaigns />
           <RenderFoundations />
+          <RenderReviews />
       </div>
     );
 };

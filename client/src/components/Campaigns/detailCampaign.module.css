@@ -64,6 +64,11 @@
   box-shadow: none;
 }
 
+.button:disabled{
+  background-color: #717171;
+  box-shadow: none;
+}
+
 .form {
   display: flex;
   flex-wrap: wrap;
@@ -128,4 +133,11 @@
 .bar{
     width: 60%;
     height: 30px;
+}
+
+.cumplido{
+  position: absolute;
+  z-index: 1;
+  width: 25%;
+
 }

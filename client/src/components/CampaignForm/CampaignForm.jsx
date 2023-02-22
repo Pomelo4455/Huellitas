@@ -15,6 +15,7 @@ export default function CampaignForm() {
     const [inputs, setInputs] = useState(false);
     const dispatch = useDispatch();
     const navigate = useNavigate();
+    let user = JSON.parse(window.localStorage.getItem("loggedUser"));
 
     return (
     <div className={style.campaign}>
@@ -55,10 +56,9 @@ export default function CampaignForm() {
             }}
 
             onSubmit={(values, { resetForm }) => {
-                dispatch(postNewCampaign(values));
+                dispatch(postNewCampaign({...values, userId : user?.data?.id}));
                 resetForm();
                 setInputs(true);
-                console.log(values)
                 setTimeout(() => setInputs(false), 2000);
                 swal({
                     title: "¡Felicidades!",
@@ -68,7 +68,7 @@ export default function CampaignForm() {
                 }).then(() => navigate("/home"));
             }}
         >
-        {({ errors, setFieldValue }) => (
+        {({ errors, setFieldValue}) => (
 
         <div className={style.container}>
             <Form className={style.form}>

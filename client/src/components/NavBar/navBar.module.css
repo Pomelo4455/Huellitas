@@ -140,10 +140,6 @@
     cursor: pointer;
   }
 
-  .infoSession img:hover {
-    
-  }
-
   .editBtnContainer {
     /* background-color: #8b90ff; */
     display: block;
@@ -165,7 +161,6 @@
     text-decoration: none;
     width: fit-content;
     white-space: nowrap;
-    margin-right: 5%;
     cursor: pointer;
   }
   .buttonEdit:hover {
@@ -200,6 +195,71 @@
     height: auto;
     margin: 1em auto;
   }
+
+  .rightContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: -20%;
+    margin-right: 5%;
+  }
+
+  .followButton {
+    width:50px;
+    height:50px;
+    margin-right: 50px;
+    pointer-events: all;
+    cursor: pointer;
+  }
+
+  .listFavorites {
+    background-color: rgba(3, 3, 3, 0.875);
+    border-radius: 16px;
+    width: 10em;
+    height: auto;
+    margin-top: 0.5em;
+    margin-left: -9.5em;
+    z-index: 100;
+    position: absolute;
+  }
+
+  .petInList {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background: rgb(139,144,255);
+    width: 80%;
+    height: auto;
+    margin-bottom: 10px;
+    padding: 0px;
+    margin-left: 5%;
+    margin-right: 5%;
+    padding-left: 5%;
+    padding-right: 5%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+    
+    color: white;
+    font-family: "Ubuntu";
+    font-weight: 400;
+    text-align: center;
+    text-decoration: none;
+  }
+
+  .petInList:hover {
+    background-color: #9ca1ff;
+    transition: 0.25s;
+    color: white;
+  }
+
+  .petInList:active {
+    transform: scale(0.97);
+    box-shadow: 3px 2px 22px 1px rgba(0, 0, 0, 0.24);
+  }
+
+
 
 /* RESPONSIVE PARA DISPOSITIVOS HASTA 760PX */
 @media (max-width: 760px) {
@@ -296,8 +356,7 @@
   .buttonContainer {
     display: flex;
     align-items: center;
-    width: 35%;
-    margin: 1em auto;
+    justify-content: center;
   }
   
   .infoSession {
@@ -363,6 +422,30 @@
     z-index: 10;
     position: absolute;
   }
+
+  .rightContainer {
+    display: block;
+    margin-left: 0px;
+    margin-right: 0px;
+  }
+
+  .followButton {
+    width:50px;
+    height:50px;
+    margin-right: 0px;
+  }
+
+  .listFavorites {
+    background-color: rgba(3, 3, 3, 0.875);
+    border-radius: 16px;
+    width: 10em;
+    height: auto;
+    margin-top: -2em;
+    margin-left: -3.5em;
+    z-index: 100;
+    position: absolute;
+  }
+
 }
 
 /* RESPONSIVE PARA DISPOSITIVOS DE 760PX HASTA 1024*/

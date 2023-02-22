@@ -1,5 +1,9 @@
 const { Router } = require("express");
-const { userFilters } = require("../utils/functions");
+const {
+  userFilters,
+  filterAdmPet,
+  filterFundacion,
+} = require("../utils/functions");
 const { User, Pet, Campaign, Adoption } = require("../db.js");
 const {
   createUser,
@@ -7,6 +11,8 @@ const {
   getUserDetail,
   deleteUser,
   updateUser,
+  getAllUserAdm,
+  getAllUserFund,
 } = require("../controllers/userControllers");
 
 const router = Router();
@@ -63,6 +69,50 @@ router.get("/:id", async (req, res) => {
     res.status(200).send(detail);
   } catch (error) {
     res.status(404).send(error.message);
+  }
+});
+
+router.get("/Adm/Admin", async (req, res) => {
+  const { name } = req.query;
+  try {
+    let allUsers;
+    if (name) {
+      const filters = filterAdmPet(name);
+      allUsers = await getAllUserAdm(filters);
+    } else {
+      allUsers = await getAllUserAdm();
+    }
+    if (!allUsers.length) {
+      res.status(404).send({
+        Error: "No se encontraron usuarios con el nombre proporcionado",
+      });
+    } else {
+      res.status(200).send(allUsers);
+    }
+  } catch (error) {
+    res.status(404).send({ error: error.message });
+  }
+});
+
+router.get("/Fundacion/Fund", async (req, res) => {
+  const { name } = req.query;
+  try {
+    let allUsers;
+    if (name) {
+      const filters = filterFundacion(name);
+      allUsers = await getAllUserFund(filters);
+    } else {
+      allUsers = await getAllUserFund();
+    }
+    if (!allUsers.length) {
+      res.status(404).send({
+        Error: "No se encontraron fundaciones con el nombre proporcionado",
+      });
+    } else {
+      res.status(200).send(allUsers);
+    }
+  } catch (error) {
+    res.status(404).send({ error: error.message });
   }
 });
 

@@ -7,6 +7,10 @@ module.exports = (sequelize) => {
       message: {
         type: DataTypes.TEXT,
       },
+      leido: {
+        type: DataTypes.BOOLEAN,
+        defaultValue: false,
+      },
     },
   );
 };

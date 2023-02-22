@@ -55,7 +55,21 @@ module.exports = (sequelize) => {
         type: DataTypes.STRING,
         defaultValue: "https://acortar.link/JjnSW3",
       },
+      latitude: {
+        type: DataTypes.FLOAT,
+      },
+      longitude: {
+        type: DataTypes.FLOAT,
+      },
       CVU: {
+        type: DataTypes.STRING,
+        defaultValue: "",
+      },
+      longitude: {
+        type: DataTypes.STRING,
+        defaultValue: "",
+      },
+      latitude: {
         type: DataTypes.STRING,
         defaultValue: "",
       },
@@ -63,6 +77,18 @@ module.exports = (sequelize) => {
         type: DataTypes.ENUM("activo", "inactivo", "baneado"),
         defaultValue: "activo",
       },
+      review: {
+        type: DataTypes.TEXT,
+        defaultValue: ""
+      },
+      stars: {
+        type: DataTypes.INTEGER,
+        validate: {
+          min: 0,
+          max: 5
+        },
+        defaultValue: 0
+      }
     },
     {
       timestamps: false,

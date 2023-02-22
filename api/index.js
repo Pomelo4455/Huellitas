@@ -30,13 +30,16 @@ const server = http.createServer(app);
 const io = new SocketIO.Server(server, {
   cors: {
     origin: "*",
-  }
+  },
 });
-io.on('connection', (socket) => {
-  socket.on('message', (message) => {
-    socket.broadcast.emit('message', message);
-  })
-})
+io.on("connection", (socket) => {
+  socket.on("message", (message) => {
+    socket.broadcast.emit("message", message);
+  });
+  socket.on("chats", (data) => {
+    console.log(data);
+  });
+});
 
 // Syncing all the models at once.
 // conn.sync({ force: true });

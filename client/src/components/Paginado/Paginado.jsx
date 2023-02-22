@@ -27,7 +27,7 @@ function Paginado({ paginado, currentPage, petMax }) {
     pageNumber.push(i + 1);
   }
   return (
-    <box className={styles.paginado}>
+    <div className={styles.paginado}>
       <button
         title="firstPage"
         onClick={firstPage}
@@ -45,7 +45,7 @@ function Paginado({ paginado, currentPage, petMax }) {
       </button>
       <ul className={styles.paginacion}>
         {pageNumber?.map((number, index) => (
-          <li className={styles.numberPaginado}>
+          <li key={index} className={styles.numberPaginado}>
             <button
               className={
                 index === currentPage - 1
@@ -75,7 +75,7 @@ function Paginado({ paginado, currentPage, petMax }) {
       >
         {">>"}
       </button>
-    </box>
+    </div>
   );
 }
 

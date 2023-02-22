@@ -1,0 +1,239 @@
+.fundaciones {
+  margin-top: 2rem;
+  margin-left: 5.5rem;
+  width: 100%;
+  padding-top: 0rem;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, auto);
+  grid-gap: 10px;
+  height: 100%;
+  min-height: 80vh;
+}
+
+.body {
+  background-color: #ededed;
+}
+
+.search {
+  background-color: #44b7ff;
+  border: none;
+  border-radius: 10px;
+  padding: 10px 10px;
+  font-size: 110%;
+  color: rgb(255, 255, 255);
+  outline: none;
+  margin-top: 30px;
+  margin-left: 10px;
+}
+
+.search::placeholder {
+  color: white;
+  font-family: "Poppins";
+  font-weight: 400;
+}
+
+.searchButton {
+  background: #44b7ff;
+  scale: 150%;
+  color: black;
+  border: none;
+  border-radius: 5px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  position: relative;
+  cursor: pointer;
+  margin-right: -120px;
+  margin-top: 28px;
+}
+
+.searchButton:hover {
+  color: white;
+}
+
+.restoreButton {
+  background-color: #44b7ff;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-family: "Poppins";
+  font-weight: 400;
+  font-size: 100%;
+  text-align: middle;
+  text-decoration: none;
+  width: 150px;
+  white-space: nowrap;
+}
+
+.restoreButton:hover {
+  background-color: #5dc1ff;
+  color: white;
+  transition: 0.2s;
+}
+
+.restoreButton:active {
+  transform: scale(0.97);
+}
+
+.newsearch {
+  display: flex;
+  flex-direction: row;
+}
+
+/* RESPONSIVE PARA DISPOSITIVOS HASTA 760PX */
+@media (max-width: 760px) {
+  .container {
+    display: flex;
+    flex-direction: row-reverse;
+  }
+
+  .fundaciones {
+    width: 100%;
+    margin: 1em auto;
+    padding-top: 0rem;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: repeat(1, auto);
+    grid-gap: 0;
+    height: 100%;
+    min-height: 80vh;
+  }
+
+  .body {
+    background-color: #ededed;
+  }
+}
+
+.restoreButton {
+  width: 12%;
+  height: 44px;
+  margin: 1em auto;
+  background-color: #44b7ff;
+  border-radius: 8px;
+  border: none;
+  color: #ffffff;
+  text-align: center;
+  font-family: "Poppins";
+  font-weight: 400;
+  font-size: 100%;
+  margin-top: -10px;
+}
+
+.restoreButton:hover {
+  background-color: #5dc1ff;
+  color: white;
+  transition: 0.2s;
+}
+
+.restoreButton:active {
+  transform: scale(0.97);
+}
+
+.searchContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.search {
+  background-color: #44b7ff;
+  border: none;
+  font-size: 130%;
+  color: rgb(255, 255, 255);
+  width: 15%;
+}
+
+.search::placeholder {
+  color: white;
+  font-family: "Poppins";
+  font-weight: 400;
+  font-size: 0.8em;
+  width: 100%;
+}
+
+.searchButton {
+  background-color: transparent;
+  scale: 150%;
+  color: black;
+  border: none;
+  top: -62px;
+  left: 200px;
+  bottom: -62px;
+  border-radius: 5px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  margin-left: -12%;
+  position: relative;
+  cursor: pointer;
+}
+
+.searchButton:hover {
+  color: white;
+}
+
+.newsearch {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+/* RESPONSIVE PARA DISPOSITIVOS DE 760PX HASTA 1024*/
+@media (min-width: 760px) and (max-width: 1200px) {
+  .container {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .fundaciones {
+    /* background-color: aquamarine; */
+    margin: 0 18%;
+    width: 45%;
+    padding-top: 0rem;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: repeat(2, auto);
+    grid-gap: 10px;
+    height: 100%;
+    min-height: 80vh;
+  }
+
+  .body {
+    background-color: #ededed;
+  }
+}
+
+/* RESPONSIVE PARA DISPOSITIVOS DESPUES DE 1024PX*/
+@media (min-width: 1200px) and (max-width: 1600px) {
+  .fundaciones {
+    /* background-color: aquamarine; */
+    margin: 0 18%;
+    width: 45%;
+    padding-top: 0rem;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, auto);
+    grid-gap: 10px;
+    height: 100%;
+    min-height: 80vh;
+  }
+}
+
+/* RESPONSIVE PARA DISPOSITIVOS DESPUES DE 1600PX*/
+@media (min-width: 1600px) {
+  .fundaciones {
+    /* background-color: aquamarine; */
+    margin: 0 18%;
+    width: 45%;
+    padding-top: 0rem;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, auto);
+    grid-gap: 10px;
+    height: 100%;
+    min-height: 80vh;
+  }
+}

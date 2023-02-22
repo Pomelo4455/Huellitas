@@ -1,5 +1,6 @@
 import axios from "axios";
 import swal from "sweetalert";
+import { LINK_BACK } from "../../Utils/variablesDeploy";
 export const GET_PETS = "GET_PETS";
 export const GET_PETS_DETAIL = "GET_PETS_DETAIL";
 export const GET_PET_NAME = "GET_PET_NAME";
@@ -26,12 +27,22 @@ export const DELETE_PETS = "DELETE_PETS";
 export const UPDATE_USERS = "UPDATE_USERS";
 export const UPDATE_USERS_ADM = "UPDATE_USERS_ADM";
 export const DONATION = "DONATION";
-
+export const SEARCH_CAMPAIGN = "SEARCH_CAMPAIGN";
+export const GET_PROVINCIAS = "GET_PROVINCIAS";
+export const GET_CIUDADES = "GET_CIUDADES";
+export const GET_DONATIONS = "GET_DONATIONS";
+export const UPDATE_NOT_READ_CHATS = "UPDATE_NOT_READ_CHATS";
+export const GET_THIS_USER = "GET_THIS_USER";
+export const GET_USERS_DETAIL = "GET_USERS_DETAIL";
+export const RESET_USER_DETAIL = "RESET_USER_DETAIL";
+export const RESET_PET_DETAIL = "RESET_PET_DETAIL";
+export const FILTER_BY_DISTANCE = "FILTER_BY_DISTANCE";
+export const SET_USER_LOCATION = "SET_USER_LOCATION";
 
 export const getPets = () => {
   return async function (dispatch) {
     try {
-      const pets = await axios.get("http://localhost:3001/pets");
+      const pets = await axios.get("/pets");
       // console.log(pets.data)
 
       return dispatch({
@@ -47,17 +58,17 @@ export const getPets = () => {
 export const getPetsDetail = (id) => {
   return async function (dispatch) {
     try {
-      const { data } = await axios.get(`http://localhost:3001/pets/${id}`);
+      const { data } = await axios.get(`/pets/${id}`);
       return dispatch({
         type: GET_PETS_DETAIL,
         payload: data,
       });
     } catch (error) {
       console.log(error);
-      return dispatch({
-        type: GET_PETS_DETAIL,
-        payload: [],
-      });
+      // return dispatch({
+      //   type: GET_PETS_DETAIL,
+      //   payload: [],
+      // });
     }
   };
 };
@@ -75,7 +86,7 @@ export const sendProfileToDb = (prof, setLoggedUser) => {
   // console.log(prof)
   return async function (dispatch) {
     try {
-      let loggedUser = await axios.post("http://localhost:3001/users", prof);
+      let loggedUser = await axios.post("/users", prof);
       localStorage.setItem("loggedUser", JSON.stringify(loggedUser));
       setLoggedUser(loggedUser);
       return dispatch({
@@ -92,16 +103,18 @@ export const clearProfile = () => {
   return { type: CLEAR_PROFILE };
 };
 
-export function postNewPet(payload) {
+export function postNewPet(values, userLocation) {
+  let payload = { ...values, ...userLocation };
+  console.log(payload);
   return async function () {
-    const newDog = await axios.post("http://localhost:3001/pets", payload);
+    const newDog = await axios.post("/pets", payload);
     return newDog;
   };
 }
 
 export function postNewImage(payload) {
   return async function () {
-    const newImage = await axios.post("http://localhost:3001/users", payload);
+    const newImage = await axios.post("/users", payload);
     return newImage;
   };
 }
@@ -136,7 +149,7 @@ export function updateFilters(filtros) {
 export function getCampaigns() {
   return async function (dispatch) {
     try {
-      const response = await axios.get("http://localhost:3001/campaigns");
+      const response = await axios.get("/campaigns");
       const allCampaigns = response.data;
 
       return dispatch({
@@ -152,7 +165,7 @@ export function getCampaigns() {
 export const getDetailCamp = (id) => {
   return async function (dispatch) {
     try {
-      const response = await axios.get(`http://localhost:3001/campaigns/${id}`);
+      const response = await axios.get(`/campaigns/${id}`);
       const campaign = response.data;
 
       return dispatch({
@@ -168,10 +181,7 @@ export const getDetailCamp = (id) => {
 export function postNewCampaign(payload) {
   return async function () {
     try {
-      const newCampaign = await axios.post(
-        "http://localhost:3001/campaigns",
-        payload
-      );
+      const newCampaign = await axios.post("/campaigns", payload);
 
       return newCampaign;
     } catch (error) {
@@ -230,7 +240,7 @@ export function donate(payload) {
   return async function () {
     try {
       const donation = await axios
-        .post("http://localhost:3001/payment", payload)
+        .post("/payment", payload)
         .then(
           (response) =>
             (window.location.href = response.data.response.body.init_point)
@@ -244,9 +254,7 @@ export function donate(payload) {
 export const getFundaciones = () => {
   return async function (dispatch) {
     try {
-      const fundaciones = await axios.get(
-        "http://localhost:3001/users?type=fundacion"
-      );
+      const fundaciones = await axios.get("/users?type=fundacion");
       return dispatch({
         type: GET_FUNDACIONES,
         payload: fundaciones.data,
@@ -260,7 +268,7 @@ export const getFundaciones = () => {
 export const getUsers = () => {
   return async function (dispatch) {
     try {
-      const users = await axios.get("http://localhost:3001/users");
+      const users = await axios.get("/users");
       return dispatch({
         type: GET_USERS,
         payload: users.data,
@@ -290,13 +298,26 @@ export const deleteCampaigns = (url) => {
     }
   };
 };
+export function getUsersAdm() {
+  return async function (dispatch) {
+    try {
+      const response = await axios.get(`${LINK_BACK}/users/Adm/Admin`);
+      const allUsersAdm = response.data;
+
+      return dispatch({
+        type: GET_USERS,
+        payload: allUsersAdm,
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+}
 
 export function getCampaignsAdm() {
   return async function (dispatch) {
     try {
-      const response = await axios.get(
-        "http://localhost:3001/campaigns/Adm/Admin"
-      );
+      const response = await axios.get("/campaigns/Adm/Admin");
       const allCampaignsAdm = response.data;
 
       return dispatch({
@@ -312,7 +333,7 @@ export function getCampaignsAdm() {
 export function getPetsAdm() {
   return async function (dispatch) {
     try {
-      const response = await axios.get("http://localhost:3001/pets/Adm/Admin");
+      const response = await axios.get("/pets/Adm/Admin");
       const allPetsAdm = response.data;
       return dispatch({
         type: GET_PETS,
@@ -338,10 +359,7 @@ export const deletePets = (url) => {
 export const updateUsers = (id, data, setLoggedUser) => {
   return async function (dispatch) {
     try {
-      const response = await axios.put(
-        `http://localhost:3001/users/${id}`,
-        data
-      );
+      const response = await axios.put(`/users/${id}`, data);
       localStorage.setItem("loggedUser", JSON.stringify(response));
       setLoggedUser(response);
       console.log(response);
@@ -356,10 +374,7 @@ export const updateUsers = (id, data, setLoggedUser) => {
 export const updateUsersAdm = (id, data) => {
   return async function (dispatch) {
     try {
-      const response = await axios.put(
-        `http://localhost:3001/users/${id}`,
-        data
-      );
+      const response = await axios.put(`/users/${id}`, data);
       return response;
     } catch (error) {
       console.log(error);
@@ -370,10 +385,7 @@ export const updateUsersAdm = (id, data) => {
 export const updateCampaignAdm = (id, data) => {
   return async function () {
     try {
-      const response = await axios.put(
-        `http://localhost:3001/campaigns/${id}`,
-        data
-      );
+      const response = await axios.put(`/campaigns/${id}`, data);
       return response;
     } catch (error) {
       console.log(error);
@@ -384,10 +396,7 @@ export const updateCampaignAdm = (id, data) => {
 export const updatePetAdm = (id, data) => {
   return async function () {
     try {
-      const response = await axios.put(
-        `http://localhost:3001/pets/${id}`,
-        data
-      );
+      const response = await axios.put(`/pets/${id}`, data);
       return response;
     } catch (error) {
       console.log(error);
@@ -398,10 +407,7 @@ export const updatePetAdm = (id, data) => {
 export const donation = (data) => {
   return async function () {
     try {
-      const response = await axios.post(
-        `http://localhost:3001/donations`,
-        data
-      );
+      const response = await axios.post(`/donations`, data);
       return response;
     } catch (error) {
       console.log(error);
@@ -412,13 +418,176 @@ export const donation = (data) => {
 export const updateCollected = (id, data) => {
   return async function () {
     try {
-      const response = await axios.put(
-        `http://localhost:3001/donations/${id}`,
-        data
-      );
+      const response = await axios.put(`/donations/${id}`, data);
       return response;
     } catch (error) {
       console.log(error);
     }
   };
 };
+
+export function getSearchCampaign(title) {
+  return async function (dispatch) {
+    try {
+      const response = await axios.get(`/campaigns/Adm/Admin?title=${title}`);
+      const allCampaignsAdm = response.data;
+
+      return dispatch({
+        type: GET_CAMPAIGNS,
+        payload: allCampaignsAdm,
+      });
+    } catch (error) {
+      swal({
+        title: "Sorry!",
+        text: "No se encontraron campañas con el título proporcionado",
+        icon: "error",
+        button: "Ok",
+      });
+      dispatch(getCampaignsAdm());
+    }
+  };
+}
+
+export function getSearchPet(name) {
+  return async function (dispatch) {
+    try {
+      const response = await axios.get(`/pets/Adm/Admin?name=${name}`);
+      const allPetsAdm = response.data;
+      return dispatch({
+        type: GET_PETS,
+        payload: allPetsAdm,
+      });
+    } catch (error) {
+      swal({
+        title: "Sorry!",
+        text: "No se encontraron mascotas con el nombre proporcionado",
+        icon: "error",
+        button: "Ok",
+      });
+      dispatch(getPetsAdm());
+    }
+  };
+}
+
+export function getSearchUser(name) {
+  return async function (dispatch) {
+    try {
+      const response = await axios.get(`/users/Adm/Admin?name=${name}`);
+      const allUsersAdm = response.data;
+      return dispatch({
+        type: GET_USERS,
+        payload: allUsersAdm,
+      });
+    } catch (error) {
+      swal({
+        title: "Sorry!",
+        text: "No se encontraron usuarios con el nombre proporcionado",
+        icon: "error",
+        button: "Ok",
+      });
+      dispatch(getUsersAdm());
+    }
+  };
+}
+
+export function getProvincias() {
+  return async function (dispatch) {
+    const resp = await axios.get(
+      "https://apis.datos.gob.ar/georef/api/provincias"
+    );
+    const provincias = resp.data.provincias;
+
+    return dispatch({
+      type: GET_PROVINCIAS,
+      payload: provincias,
+    });
+  };
+}
+
+export function getCiudades(id) {
+  return async function (dispatch) {
+    const resp = await axios.get(
+      `https://apis.datos.gob.ar/georef/api/localidades?provincia=${id}&campos=id,nombre,centroide&max=5000`
+    );
+    const ciudades = resp.data.localidades;
+
+    return dispatch({
+      type: GET_CIUDADES,
+      payload: ciudades,
+    });
+  };
+}
+
+export const getDonations = () => {
+  return async function (dispatch) {
+    try {
+      const donation = await axios.get("/donations");
+
+      return dispatch({
+        type: GET_DONATIONS,
+        payload: donation.data,
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+};
+
+export function getSearchFundation(name) {
+  return async function (dispatch) {
+    try {
+      const response = await axios.get(`/users/Fundacion/Fund?name=${name}`);
+      const allFundations = response.data;
+      return dispatch({
+        type: GET_FUNDACIONES,
+        payload: allFundations,
+      });
+    } catch (error) {
+      swal({
+        title: "Sorry!",
+        text: "No se encontraron fundaciones con el nombre proporcionado",
+        icon: "error",
+        button: "Ok",
+      });
+      dispatch(getFundaciones());
+    }
+  };
+}
+export function updateNotReadChats(cantidad) {
+  return { type: UPDATE_NOT_READ_CHATS, payload: cantidad };
+}
+
+export const getDetail = (id) => {
+  return async function (dispatch) {
+    try {
+      const get_detail = await axios.get(`/users/${id}`);
+      const detailAll = get_detail.data;
+      return dispatch({ type: GET_USERS_DETAIL, payload: detailAll });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+};
+
+export const resetDetail = () => {
+  return { type: RESET_USER_DETAIL };
+};
+
+export const resetPetDetail = () => {
+  return { type: RESET_PET_DETAIL };
+};
+
+
+export function filterByDistance(kms) {
+  return {
+    type: "FILTER_BY_DISTANCE",
+    payload: kms,
+  };
+}
+
+export function setUserLocation(payload) {
+  return {
+    type: "SET_USER_LOCATION",
+    payload,
+  };
+}

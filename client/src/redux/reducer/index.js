@@ -23,13 +23,22 @@ import {
   DELETE_CAMPAINGS,
   DELETE_PETS,
   UPDATE_USERS,
+  GET_PROVINCIAS,
+  GET_CIUDADES,
+  GET_DONATIONS,
+  UPDATE_NOT_READ_CHATS,
+  GET_USERS_DETAIL,
+  RESET_USER_DETAIL,
+  RESET_PET_DETAIL,
+  FILTER_BY_DISTANCE,
+  SET_USER_LOCATION,
 } from "../actions";
 
 const initialState = {
   pets: [],
   allPets: [],
   pet: [],
-  filters: { sex: "", species: "", size: "", name: "", order: "" },
+  filters: { sex: "", species: "", size: "", name: "", order: "", giverId: "" },
   campaigns: [],
   fundaciones: [],
   detailCamp: [],
@@ -40,6 +49,13 @@ const initialState = {
   users: [],
   campaignsAdm: [],
   petsAdm: [],
+  provincias: [],
+  ciudades: [],
+  donations: [],
+  noLeidos: 0,
+  thisUser: [],
+  userDetail: {},
+  userLocation:{},
 };
 
 const rootReducer = (state = initialState, action) => {
@@ -117,36 +133,36 @@ const rootReducer = (state = initialState, action) => {
         profile: {},
       };
     case LOGIN_SUCCESS:
-        return {
-          ...state,
-          is_authenticated: true
-        }
-      case LOGIN_FAILURE:
-        return {
-          ...state,
-          is_authenticated: false
-        }
-      case ADD_PROFILE:
-        return {
-          ...state,
-          profile: action.payload
-        }
-      case REMOVE_PROFILE:
-        return {
-          ...state,
-          profile: null
-        }
-      case SET_DB_PROFILE:
-        return {
-          ...state,
-          db_profile: action.payload
-        }
-      case REMOVE_DB_PROFILE:
-        return {
-          ...state,
-          db_profile: null
-        }
-        return {
+      return {
+        ...state,
+        is_authenticated: true,
+      };
+    case LOGIN_FAILURE:
+      return {
+        ...state,
+        is_authenticated: false,
+      };
+    case ADD_PROFILE:
+      return {
+        ...state,
+        profile: action.payload,
+      };
+    case REMOVE_PROFILE:
+      return {
+        ...state,
+        profile: null,
+      };
+    case SET_DB_PROFILE:
+      return {
+        ...state,
+        db_profile: action.payload,
+      };
+    case REMOVE_DB_PROFILE:
+      return {
+        ...state,
+        db_profile: null,
+      };
+      return {
         ...state,
         is_authenticated: true,
       };
@@ -198,6 +214,57 @@ const rootReducer = (state = initialState, action) => {
         ...state,
       };
 
+    case GET_PROVINCIAS:
+      return {
+        ...state,
+        provincias: action.payload,
+      };
+
+    case GET_CIUDADES:
+      return {
+        ...state,
+        ciudades: action.payload,
+      };
+
+    case UPDATE_NOT_READ_CHATS:
+      return {
+        ...state,
+        noLeidos: action.payload,
+      };
+    case GET_DONATIONS:
+      return {
+        ...state,
+        donations: action.payload,
+      };
+    case GET_USERS_DETAIL:
+      return {
+        ...state,
+        userDetail: action.payload,
+      };
+    case RESET_USER_DETAIL:
+      return { ...state, userDetail: {} 
+    };
+    case RESET_PET_DETAIL:
+      return { ...state, pet: [] 
+      };
+    case FILTER_BY_DISTANCE:
+        const all = state.pets;
+        function getDistance(latitude1, longitude1, latitude2, longitude2) {
+          let theta = longitude1 - longitude2;
+          let distance = 60 * 1.1515 * (180/Math.PI) * Math.acos(
+              Math.sin(latitude1 * (Math.PI/180)) * Math.sin(latitude2 * (Math.PI/180)) + 
+              Math.cos(latitude1 * (Math.PI/180)) * Math.cos(latitude2 * (Math.PI/180)) * Math.cos(theta * (Math.PI/180))
+          );
+            return Math.round(distance * 1.609344, 2);
+          }
+          const distancia = all.filter((e) => e.dist = getDistance(state.userLocation.latitude, state.userLocation.longitude,e.latitude,e.longitude) < action.payload)
+
+      return { ...state, pets: distancia 
+      };
+      case SET_USER_LOCATION:
+        return { ...state, 
+          userLocation: action.payload 
+        };
     default:
       return {
         ...state,

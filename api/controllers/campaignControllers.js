@@ -8,9 +8,9 @@ const getCampaign = async () => {
   return allCampaigns;
 };
 
-const getCampaignAdm = async () => {
+const getCampaignAdm = async (filters) => {
   const allCampaignsAdm = await Campaign.findAll({
-    where: {},
+    where: filters,
   });
   return allCampaignsAdm;
 };
@@ -39,7 +39,7 @@ const postCampaign = async ({
 const putCampaign = async (req) => {
   const { id } = req.params;
   const { title, reason, description, goal, collected, image } = req.body;
-  
+
   let edit = Campaign.update(
     {
       title,

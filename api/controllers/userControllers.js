@@ -1,4 +1,4 @@
-const { User, Pet, Campaign, Adoption } = require("../db.js");
+const { User, Pet, Campaign, Adoption, Donation } = require("../db.js");
 const transporter = require("../config/mailer");
 
 const createUser = async (Data) => {
@@ -25,38 +25,21 @@ const getAllUser = async (filters) => {
     include: [
       {
         model: Pet,
-        attributes: [
-          "name",
-          "age",
-          "species",
-          "image",
-          "size",
-          "color",
-          "sex",
-          "temperament",
-          "adopted",
-        ],
-        // through: {
-        //   model: Fav,
-        //   attributes: [],
-        // },
+        as: "giver"
       },
       {
         model: Campaign,
-        attributes: ["title", "reason", "description", "goal", "status"],
-        // where: {
-        //   status: "activo",
-        // },
       },
       {
-        model: Adoption,
-        attributes: ["date"],
+        model: Donation,
+        as: "donante",
+      },
+      {
+        model: Pet,
+        as: "adoptante"
       },
     ],
   });
-  // const userTotal = userData.concat(users)
-  // const usersActive = userTotal.filter(e=> e.status==="activo")
-  // return usersActive
   return users;
 };
 
@@ -88,10 +71,75 @@ const deleteUser = async (id, status, type) => {
   return userDelete;
 };
 
+const getAllUserAdm = async (filters) => {
+  const users = await User.findAll({
+    where: filters,
+    include: [
+      {
+        model: Pet,
+        as: "adoptante"
+      },
+      {
+        model: Pet,
+        as: "giver"
+      },
+      {
+        model: Campaign,
+      },
+      {
+        model: Donation,
+        as: "donante",
+      },
+    ],
+  });
+
+  return users;
+};
+
+const getAllUserFund = async (filters) => {
+  let users;
+  if (filters) {
+    users = await User.findAll({
+      where: filters,
+      include: [
+        {
+          model: Pet, as:"giver"
+        },
+        {
+          model: Campaign,
+        },
+        {
+          model: Donation,
+          as: "donante",
+        },
+      ],
+    });
+  } else {
+    users = await User.findAll({
+      where: { status: "activo", type: "fundacion" },
+      include: [
+        {
+          model: Pet,
+        },
+        {
+          model: Campaign,
+        },
+        {
+          model: Donation,
+          as: "donante",
+        },
+      ],
+    });
+  }
+
+  return users;
+};
 module.exports = {
   getAllUser,
   createUser,
   getUserDetail,
   deleteUser,
   updateUser,
+  getAllUserAdm,
+  getAllUserFund,
 };
