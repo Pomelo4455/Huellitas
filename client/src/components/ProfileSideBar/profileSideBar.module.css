@@ -4,11 +4,11 @@
     height: 100%;
     border-radius: 24px  0  0 24px;
     margin-top: -3.77em;
-    margin-left: -4em;
+    margin-left: -4.3em;
 
-    z-index: 100;
+    z-index: 10000;
     position: fixed;
-    overflow: unset;
+    /* overflow: unset; */
 }
 
 .profileCnt:hover .textCnt {

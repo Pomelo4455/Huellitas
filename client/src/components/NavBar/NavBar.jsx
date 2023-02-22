@@ -17,10 +17,12 @@ import swal from "sweetalert";
 import { profileCreationInfo } from "../../Utils/profileFunctions";
 // import { Icon } from '@iconify/react';
 import axios from "axios";
-import styles from "./navBar.module.css";
 import RenderFavorites from "./RenderFavorites";
 import { LINK_BACK } from "../../Utils/variablesDeploy";
 import ProfileSideBar from "../ProfileSideBar/ProfileSideBar";
+
+
+import styles from "./navBar.module.css";
 
 const NavBar = ({ loggedUser, setLoggedUser }) => {
     // console.log(loggedUser)
@@ -114,7 +116,7 @@ const NavBar = ({ loggedUser, setLoggedUser }) => {
                   </div>
 
                   <div className={styles.rightContainer}>
-                    {
+                    {/* {
                       loggedUser && viewFavorites ? 
                       (
                         
@@ -155,7 +157,7 @@ const NavBar = ({ loggedUser, setLoggedUser }) => {
                         </li>
                       ) 
                       : null
-                    }
+                    } */}
 
                       <div className={styles.buttonContainer}>
                         {

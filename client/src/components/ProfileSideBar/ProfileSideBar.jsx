@@ -52,7 +52,7 @@ const ProfileSideBar = ({ handleEdit, noLeidos }) => {
                     />
                 
 
-                    {
+                    {/* {
                         noLeidos <= 0 ? null : noLeidos <= 9 ? 
                         (
                             <div>
@@ -79,7 +79,7 @@ const ProfileSideBar = ({ handleEdit, noLeidos }) => {
                                 />
                             </div>
                         )
-                    }
+                    } */}
 
                 </Link>
 
@@ -87,6 +87,26 @@ const ProfileSideBar = ({ handleEdit, noLeidos }) => {
                     <p className={styles.textIcon}>Ver mensajes</p>
                 </div>
 
+            </div>
+
+            {/* FAVS */}
+            <div className={styles.profileCnt}>
+                <Link
+                    to="/seguimiento"
+                    onClick={handleEdit}
+                    className={styles.btnLink}
+                >
+
+                    <Icon 
+                        className={styles.profileBtn}
+                        icon="ph:heart"
+                    />
+
+                </Link>
+
+                <div className={styles.textCnt}> 
+                    <p className={styles.textIcon}>Mis seguimientos</p>
+                </div>
             </div>
 
             <div 
