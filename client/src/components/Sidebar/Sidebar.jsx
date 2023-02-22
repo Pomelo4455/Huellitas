@@ -1,12 +1,7 @@
 import Ordenamientos from "./Ordenamientos";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  getFilterPets,
-  restoreSearch,
-  filterByDistance,
-  setUserLocation,
-} from "../../redux/actions";
+import { restoreSearch, setUserLocation } from "../../redux/actions";
 import { useState, useEffect } from "react";
 import { Icon } from "@iconify/react";
 import {
@@ -47,32 +42,32 @@ export default function Sidebar() {
   }, []);
 
   useEffect(() => {
- if(!userLocation.length) {locateUser()
-console.log("buscando");}
+    if (!userLocation.length) {
+      locateUser();
+      console.log("buscando");
+    }
   }, []);
   let value = "default";
 
-function locateUser() {
-  
+  function locateUser() {
     if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(
-      (position) => {
-        
-        dispatch(setUserLocation({
-          latitude: position.coords.latitude,
-          longitude: position.coords.longitude,
-        }));
-      },
-      (error) => {
-        console.log(error);
-      }
-    );
-  } else {
-    console.log("no tenés geolocalización"); ;
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          dispatch(
+            setUserLocation({
+              latitude: position.coords.latitude,
+              longitude: position.coords.longitude,
+            })
+          );
+        },
+        (error) => {
+          console.log(error);
+        }
+      );
+    } else {
+      console.log("no tenés geolocalización");
+    }
   }
-}
-
-
 
   const handleSearch = (event) => {
     setSearchTerm(event.target.value);
@@ -103,18 +98,11 @@ function locateUser() {
   };
   function handleSubmit(e) {
     e.preventDefault();
-    if (distancia !== "") {
-      dispatch(filterByDistance(distancia));
-      setSearchTerm("");
-    } else {
-      swal({
-        title: "Sorry!",
-        text: "Debe ingresar un numero válido",
-        icon: "warning",
-        button: "Ok",
-      });
-    }
+    e.target.value = distancia;
+    handleSelectedFilter(e, filtros, dispatch);
+    setDistancia("");
   }
+
   return (
     <div>
       {isMobile ? (
@@ -169,9 +157,16 @@ function locateUser() {
             <option value="2plus">Más de dos años</option>
         </select> */}
             <Ordenamientos />
-            {userLocation? <form onSubmit={handleSubmit} className={styles.formkms}>
+            {userLocation?.latitude ? (
+            <form
+              onSubmit={handleSubmit}
+              className={styles.formkms}
+              name="distance"
+              value={distancia}
+            >
               <input
                 type="number"
+                min="1"
                 placeholder="kms"
                 value={distancia}
                 className={styles.kms}
@@ -180,7 +175,8 @@ function locateUser() {
               <button type="submit" className={styles.kmsbtn}>
                 Distancia Max
               </button>
-            </form> : null}
+            </form>
+          ) : null}
             <button
               name="delete filters"
               onClick={(e) => handleCleanFilter(e, filtros, dispatch)}
@@ -269,19 +265,26 @@ function locateUser() {
             <option value="2plus">Más de dos años</option>
         </select> */}
           <Ordenamientos />
-          {userLocation?
-          <form onSubmit={handleSubmit} className={styles.formkms}>
-            <input
-              type="number"
-              placeholder="kms"
+          {userLocation?.latitude ? (
+            <form
+              onSubmit={handleSubmit}
+              className={styles.formkms}
+              name="distance"
               value={distancia}
-              className={styles.kms}
-              onChange={handleDistancia}
-            />
-            <button type="submit" className={styles.kmsbtn}>
-              Distancia Max
-            </button>
-          </form> : null}
+            >
+              <input
+                type="number"
+                min="1"
+                placeholder="kms"
+                value={distancia}
+                className={styles.kms}
+                onChange={handleDistancia}
+              />
+              <button type="submit" className={styles.kmsbtn}>
+                Distancia Max
+              </button>
+            </form>
+          ) : null}
 
           <button
             name="delete filters"
