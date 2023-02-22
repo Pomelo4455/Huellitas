@@ -42,6 +42,7 @@ import Mensajeria from "./components/Mensajeria/Mensajeria";
 import Fundaciones from "./components/Fundaciones/Fundaciones";
 import UserDetail from "./components/UserDetail/UserDetail";
 import UserBaneado from "./components/UserBanedo/UserBaneado";
+import Favorites from "./components/Favorites/Favorites";
 
 export const auth = new Auth();
 
@@ -129,6 +130,12 @@ function App() {
         <Route path="/fundaciones" element={
           loggedUser.data?.status === 'baneado' ? <UserBaneado /> :
           <Fundaciones />} 
+        />
+        <Route path="/seguimiento" element={
+            <UserProtectedRoute>
+              <Favorites />
+            </UserProtectedRoute>
+          } 
         />
         <Route path="/:any" element={<NotFound />} />
       </Routes>

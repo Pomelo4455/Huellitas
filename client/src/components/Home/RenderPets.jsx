@@ -1,8 +1,9 @@
 import React, { useState } from "react";
-import styles from "./home.module.css";
 import Card from "../Card/Card.jsx";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
+
+import styles from "./home.module.css";
 
 const renderizarPetCards = (allPets, cantidad) => {
     return allPets.slice(0, cantidad).map((pet) => {
@@ -19,16 +20,31 @@ export default function RenderPets() {
   });
   return (
     <>
+
       <div data-aos="fade-up" className={styles.categoria}>
         ¡Amiguitos!
       </div>
+
       <div data-aos="fade-up" className={styles.cards}>
-        {more.pet ? (
-          <div className={styles.moreCards}>{renderizarPetCards(allPets, 8)}</div>
-        ) : (
-          <>{renderizarPetCards(allPets, 3)}</>
-        )}
+
+        {
+          more.pet ? 
+          (
+            <div 
+              className={styles.moreCards}
+            >
+              {renderizarPetCards(allPets, 8)}
+            </div>
+          ) : 
+          (
+            <>
+              {renderizarPetCards(allPets, 3)}
+            </>
+          )
+        }
+
       </div>
+
       <div data-aos="fade-up" className={styles.cards}>
         {more.pet ? (
           <>
