@@ -96,7 +96,9 @@ const NavBar = ({ loggedUser, setLoggedUser }) => {
             </button>
 
             <div className={styles.listContainer}>
-              <div className={showDropdown ? "" : styles.toggled}>
+              <div 
+                className={showDropdown ? "" : styles.toggled}
+              >
 
                 <ul className={styles.leftContainer}>
 

@@ -31,3 +31,58 @@
   width: 4em;
   color: #FFF;
 }
+
+/* RESPONSIVE PARA DISPOSITIVOS HASTA 760PX */
+@media (max-width: 760px) {
+
+  .button {
+    background-color: #8b90ff;
+    color: white;
+    border: #646BFF 1px solid;
+    border-radius: 8px;
+    padding: 10px 0px;
+    font-family: "Ubuntu";
+    font-weight: 400;
+    font-size: 110%;
+    text-align: center;
+    text-decoration: none;
+    width: 30%;
+    white-space: nowrap;
+    cursor: pointer;
+    margin-left: 0%;
+  }
+  .logOutBtn {
+    /* background-color: aliceblue; */
+    width: 5em;
+    color: #FFF;
+  }
+
+}
+
+
+/* RESPONSIVE PARA DISPOSITIVOS DE 760PX HASTA 1024*/
+@media (min-width: 760px) and (max-width: 1024px) {
+  .button {
+    background-color: #8b90ff;
+    color: white;
+    border: #646BFF 1px solid;
+    border-radius: 8px;
+    padding: 10px 0px;
+    font-family: "Ubuntu";
+    font-weight: 400;
+    font-size: 110%;
+    text-align: center;
+    text-decoration: none;
+    width: 15%;
+    white-space: nowrap;
+    cursor: pointer;
+    
+    margin: .5em 1em;
+  }
+  .logOutBtn {
+    /* background-color: aliceblue; */
+    width: 5em;
+    color: #FFF;
+  }
+
+}
