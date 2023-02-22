@@ -16,7 +16,6 @@ const createUser = async (Data) => {
           `,
     });
   }
-  console.log(foundUser)
   return foundUser;
 };
 

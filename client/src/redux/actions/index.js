@@ -84,7 +84,7 @@ export const sendProfileToDb = (prof, setLoggedUser) => {
    return async function (dispatch) {
     try {
       let loggedUser = await axios.post("/users", prof);
-      console.log(loggedUser)
+      delete loggedUser.data.password;
       localStorage.setItem("loggedUser", JSON.stringify(loggedUser));
       setLoggedUser(loggedUser);
       return dispatch({
