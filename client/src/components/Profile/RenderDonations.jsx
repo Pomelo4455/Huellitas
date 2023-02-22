@@ -10,13 +10,16 @@ import { Icon } from '@iconify/react'
 const renderizarDonationsCards = (donations, campaign, cantidad) => {
     return donations.slice(0, cantidad).map((donation, i) => {
         return (
+            <>
             <Donation
                 key={donation.id}
                 id={donation.id}
                 status={donation.status}
                 amount={donation.amount}
                 campaign={campaign[i].title}
+                campaignId={donation.campaignId}
             />
+            </>
         );
     });
 };
