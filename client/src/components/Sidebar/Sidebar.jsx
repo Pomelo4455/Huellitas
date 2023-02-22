@@ -1,7 +1,7 @@
 import Ordenamientos from "./Ordenamientos";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { getFilterPets, restoreSearch } from "../../redux/actions";
+import { getFilterPets, restoreSearch,filterByDistance } from "../../redux/actions";
 import { useState, useEffect } from "react";
 import { Icon } from "@iconify/react";
 import {
@@ -15,6 +15,7 @@ import styles from "./sidebar.module.css";
 
 export default function Sidebar() {
   const [searchTerm, setSearchTerm] = useState("");
+  const [distancia, setDistancia] = useState("");
   const filtros = useSelector((state) => state.filters);
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -44,7 +45,9 @@ export default function Sidebar() {
   const handleSearch = (event) => {
     setSearchTerm(event.target.value);
   };
-
+  const handleDistancia = (event) => {
+    setDistancia(event.target.value);
+  };
   const inputSearch = (e) => {
     e.preventDefault();
     if (searchTerm === "") {
@@ -66,7 +69,19 @@ export default function Sidebar() {
     e.preventDefault();
     dispatch(restoreSearch());
   };
-
+  function handleSubmit(e) {
+    e.preventDefault();
+    if(distancia !== ""){
+    dispatch(filterByDistance(distancia))
+    setSearchTerm("")} else {
+       swal({
+          title: "Sorry!",
+          text: "Debe ingresar un numero válido",
+          icon: "warning",
+          button: "Ok",
+        });
+    }
+  }
   return (
     <div>
       {isMobile ? (
@@ -83,7 +98,7 @@ export default function Sidebar() {
               </option>
               <option value="perro">Perro</option>
               <option value="gato">Gato</option>
-              {/* <option value="conejo">Conejoo</option>
+              {/* <option value="conejo">Conejo</option>
                     <option value="tortuga">Tortuga</option>
                     <option value="cobayo">Cobayo</option> */}
             </select>
@@ -119,6 +134,11 @@ export default function Sidebar() {
             <option value="2plus">Más de dos años</option>
         </select> */}
             <Ordenamientos />
+            <form onSubmit={handleSubmit} className={styles.formkms}>
+            <input type="number" placeholder="kms" value={distancia}
+                   className={styles.kms} onChange={handleDistancia}/>
+            <button type="submit" className={styles.kmsbtn}>Distancia Max</button>
+            </form>
             <button
               name="delete filters"
               onClick={(e) => handleCleanFilter(e, filtros, dispatch)}
@@ -202,6 +222,12 @@ export default function Sidebar() {
             <option value="2plus">Más de dos años</option>
         </select> */}
           <Ordenamientos />
+          <form onSubmit={handleSubmit} className={styles.formkms}>
+            <input type="number" placeholder="kms" value={distancia}
+                   className={styles.kms} onChange={handleDistancia}/>
+            <button type="submit" className={styles.kmsbtn}>Distancia Max</button>
+            </form>
+
           <button
             name="delete filters"
             onClick={(e) => handleCleanFilter(e, filtros, dispatch)}

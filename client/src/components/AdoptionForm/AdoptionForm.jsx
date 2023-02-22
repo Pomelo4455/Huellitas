@@ -157,9 +157,9 @@ export default function AdoptionForm() {
                   </option>
                   <option value="perro">Perro</option>
                   <option value="gato">Gato</option>
-                  <option value="conejo">Conejo</option>
+                  {/* <option value="conejo">Conejo</option>
                   <option value="tortuga">Tortuga</option>
-                  <option value="cobayo">Cobayo</option>
+                  <option value="cobayo">Cobayo</option> */}
                 </Field>
                 <ErrorMessage
                   name="species"
