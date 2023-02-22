@@ -19,3 +19,9 @@
 .campañascontainer{
     display: flex;
 }
+@media (min-width: 768px) {
+    .buttonCamapañasView {
+        font-size: 50px;
+        height: 120px;
+    }
+}
