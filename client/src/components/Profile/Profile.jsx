@@ -14,6 +14,7 @@ import {useNavigate, navigate } from 'react-router-dom';
 import RenderizarEnAdopcion from './RenderEnAdopcion';
 import RenderizarAdoptados from './RenderAdoptados';
 import RenderizarCampaigns from './RenderCampaigns';
+import RenderizarDonations from './RenderDonations';
 import { LINK_BACK } from '../../Utils/variablesDeploy';
 
 
@@ -156,6 +157,7 @@ const Profile = ({setLoggedUser}) => {
       }
       <RenderizarEnAdopcion user={formData}/>
       <RenderizarAdoptados user={formData}/>
+      <RenderizarDonations user={formData}/>
       {formData.type === "fundacion" && <RenderizarCampaigns user={formData}/>}
           </React.Fragment>
         )}

@@ -1,7 +1,7 @@
 const petsData = [
   {
     name: "Grace",
-    age: "6 meses",
+    age: "Menos de un año",
     species: "gato",
     image:
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTZNQZI9chyqtlvn6KNfid_ACsf4O-NiKn9Cw&usqp=CAU",
@@ -40,7 +40,7 @@ const petsData = [
   },
   {
     name: "Purr",
-    age: "6 meses",
+    age: "Menos de un año",
     species: "gato",
     image:
       "https://okdiario.com/img/2022/10/18/los-gatos-pueden-ver-en-color-1.jpg",
@@ -78,7 +78,7 @@ const petsData = [
   },
   {
     name: "Ghost",
-    age: "1 mes",
+    age: "Menos de un año",
     species: "gato",
     image:
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRKoippBHSrNU9cylLy0BTtLTsdrT4pad0KiJLhhmB3KmAYkDcggtVeLEJY1VSqqj8v_rg&usqp=CAU",
@@ -114,11 +114,11 @@ const petsData = [
     temperament: "confiable",
     adopted: "si",
     userId: 4,
-    adoptanteId: 11,
+    adoptanteId: 2,
   },
   {
     name: "Timmy",
-    age: "2 años",
+    age: "Entre 1 y 2 años",
     species: "gato",
     image:
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSD7rRDCDpXDo9GYFrJ-ypV7nILr6z1zRe03j1W4EIAlohxpwSsczPCk2DfKESQ9yW0k6o&usqp=CAU",
@@ -128,7 +128,7 @@ const petsData = [
     temperament: "Confiable, muy mimoso t compañero",
     adopted: "si",
     userId: 4,
-    adoptanteId: 11,
+    adoptanteId: 6,
   },
   {
     name: "Trufa",
@@ -145,7 +145,7 @@ const petsData = [
   },
   {
     name: "Amada",
-    age: "3 años",
+    age: "Mas de 2 años",
     species: "gato",
     image:
       "https://images.hola.com/imagenes/mascotas/20211028198573/hogar-seguro-para-gatos/1-13-239/red-gatos-t.jpg?tx=w_680",
@@ -180,7 +180,7 @@ const petsData = [
     temperament: "jugueton",
     adopted: "si",
     userId: 7,
-    adoptanteId: 11,
+    adoptanteId: 3,
   },
   {
     name: "Manchas",
@@ -197,7 +197,7 @@ const petsData = [
   },
   {
     name: "Chespirito",
-    age: "6 años",
+    age: "Mas de 2 años",
     species: "perro",
     image: "https://pbs.twimg.com/media/DcjV8GyXUAI7P-u.jpg",
     size: "mediano",
@@ -222,7 +222,7 @@ const petsData = [
   },
   {
     name: "Spell",
-    age: "2 semanas",
+    age: "Menos de 1 año",
     species: "gato",
     image:
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSsxOyGk8uH1JfUk5Dv3ajSTCZXthJzj5iMUg&usqp=CAU",
