@@ -1,6 +1,6 @@
 .campaign {
     max-width: 100%;
-    max-height: 100%;
+    min-height: 85vh;
 }
 
 .container {
@@ -54,6 +54,7 @@
     box-shadow: 2px 2px 5px 2px rgba(0, 0, 0, 0.246);
     cursor: pointer;
     font-size: 17px;
+    margin: .8em auto;
 
 }
 
@@ -90,4 +91,45 @@
     font-size: 14px;
     font-weight: bold;
     color: #010c01;
+}
+
+/* RESPONSIVE PARA DISPOSITIVOS HASTA 760PX */
+@media (max-width: 760px) {
+    .campaign {
+        min-height: 85vh;
+    }
+    
+    .form {
+        margin: 5% auto;
+        width: 90%;
+        border-top-left-radius: 0;
+        border-bottom-right-radius: 0;
+        border-bottom-left-radius: 0;
+        
+    }
+    
+    .input{
+        width: 90%;
+    }
+    
+    .btn {
+        width: 100%;
+        margin: .8em auto;
+    }
+    
+    .textArea{
+        width: 90%;
+        margin: 10px auto;
+    }
+}
+
+/* RESPONSIVE PARA DISPOSITIVOS DE 760PX HASTA 1024*/
+@media (min-width: 760px) and (max-width: 1024px) {
+    .form {
+        width: 90%;
+    }
+
+    .btn {
+        margin: .8em auto;
+    }
 }
