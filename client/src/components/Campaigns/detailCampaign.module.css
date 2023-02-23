@@ -84,8 +84,13 @@
   font-size: 13px;
   font-weight: 400;
 }
-
+.campaignInfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 .textbox {
+  display: flex;
   width: 70%;
   min-height: fit-content;
   margin-bottom: 40px;
@@ -93,6 +98,7 @@
   border: #0D8BCD 2px solid;
   font-size: large;
   background-color: #fff;
+
 }
 
 .error {
