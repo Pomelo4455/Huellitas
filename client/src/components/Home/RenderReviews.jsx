@@ -5,8 +5,10 @@ import styles2 from "./renderReviews.module.css";
 import { Icon } from '@iconify/react';
 import axios from "axios";
 import { LINK_BACK } from "../../Utils/variablesDeploy";
+import { useSelector } from "react-redux";
 const backgrounds = ["rgba(54,181,255,0.2)", "rgba(120,142,255,0.2)", "rgba(117,227,234,0.2)"]
 const MAX_CHARACTERS = 250;
+
 
 const renderStars = (cantidad) => {
     let stars = []
@@ -41,11 +43,12 @@ export default function RenderReviews() {
 
   let [reviews, setReviews] = useState([])
   let [more, setMore] = useState(false)
+  let flagReview = useSelector(state => state.flagReview)
 
   useEffect(() => {
     axios(`${LINK_BACK}/reviews`)
     .then(data => setReviews(data.data))
-  }, [reviews])
+  }, [flagReview])
 
   const handleShow = () => {
     setMore(!more)
