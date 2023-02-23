@@ -29,7 +29,7 @@ function Gratitude() {
         <h1>¡¡¡Gracias por tu generosidad!!!</h1>
         <p></p>
       </div>
-      <Link to={"/campañas"} className={styles.icon}>
+      <Link to={`/campañas/${datos ? datos.campaignId : ""}`} className={styles.icon}>
         <Icon icon="pajamas:go-back" width="80px" />
       </Link>
     </div>
