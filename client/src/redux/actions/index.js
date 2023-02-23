@@ -38,6 +38,7 @@ export const RESET_USER_DETAIL = "RESET_USER_DETAIL";
 export const RESET_PET_DETAIL = "RESET_PET_DETAIL";
 export const FILTER_BY_DISTANCE = "FILTER_BY_DISTANCE";
 export const SET_USER_LOCATION = "SET_USER_LOCATION";
+export const UPDATE_REVIEW = "UPDATE_REVIEW"
 
 export const getPets = () => {
   return async function (dispatch) {
@@ -585,4 +586,12 @@ export function setUserLocation(payload) {
     type: "SET_USER_LOCATION",
     payload,
   };
+}
+
+export function updateReview(flagReview) {
+  console.log("me actualice")
+  return {
+    type: UPDATE_REVIEW,
+    payload: !flagReview
+  }
 }
