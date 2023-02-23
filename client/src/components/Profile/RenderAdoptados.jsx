@@ -2,7 +2,8 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import Card from "../Card/Card.jsx";
 import { Icon } from '@iconify/react'
-import './RenderAdoptados.css'
+import './RenderEnAdopcion.css'
+import styles from "../Home/home.module.css"
 
 
 const renderizarPetCards = (allPets, cantidad) => {
@@ -27,21 +28,21 @@ export default function RenderizarEnAdopcion({user}) {
     if (pets.length > 0) {
         return (
             <>
-            <h2 >Adoptados</h2>
-            <div style={{display: "flex"}}>
+            <h2 >ADOPTADOS: </h2>
                 {more ? 
-                    <>
-                    {renderizarPetCards(pets, pets.length)}
-                    <button onClick={handleShowMore} className="Buttonshowadoption"><Icon icon="material-symbols:keyboard-double-arrow-left-sharp" /></button>
-                    </>
+                    <div className="containerAdopciones">
+                        {renderizarPetCards(pets, pets.length)}
+                    </div>
                 :
-                    <>
-                    {renderizarPetCards(pets, 1)}
-                    <button onClick={handleShowMore} className="Buttonshowadoption"><Icon icon="material-symbols:keyboard-double-arrow-right" /></button>
-                    </>
+                    <div className="containerAdopciones">
+                        {renderizarPetCards(pets, 1)}
+                    </div>
                 }
-            </div>
-
+                {more ?
+                    <button onClick={handleShowMore} className={styles.claseboton}>ʌ</button>
+                :
+                    <button onClick={handleShowMore} className={styles.claseboton}>v</button>
+                }
             </>
         )
     }
