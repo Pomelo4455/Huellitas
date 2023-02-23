@@ -7,14 +7,16 @@ import { useEffect, useState } from "react";
 import {
   getFilterPets,
   setCurrentPage,
+  resetCards,
   } from "../../redux/actions";
 import { all } from "axios";
-import { combinarFiltros } from "../Sidebar/handlersSideBar";
-
+import { combinarFiltros, handleCleanFilter } from "../Sidebar/handlersSideBar";
+import swal from "sweetalert";
 import styles from "./allcards.module.css";
 
 function Adoptar() {
   const dispatch = useDispatch();
+  
   const allPets = useSelector((state) => state.pets);
   const filters = useSelector((state) => state.filters);
   const currentPage = useSelector((state) => state.page);
@@ -22,10 +24,10 @@ function Adoptar() {
   const [dogsPerPage] = useState(6);
   const indexLastProduct = currentPage * dogsPerPage;
   const indexFirstProduct = indexLastProduct - dogsPerPage;
-  const currentDogs = allPets.slice(indexFirstProduct, indexLastProduct);
-  const petMax = Math.ceil(allPets.length / dogsPerPage);
+  const currentDogs = allPets?.slice(indexFirstProduct, indexLastProduct);
+  const petMax = Math.ceil(allPets?.length / dogsPerPage);
   let user = JSON.parse(window.localStorage.getItem("loggedUser"))?.data;
-
+  const filtros = useSelector((state) => state.filters);
   useEffect(() => {
     // creamos url
     const url = combinarFiltros({...filters, giverId: user ? user.id : ""});
@@ -57,12 +59,13 @@ function Adoptar() {
     setPage(pageNumber);
   };
 
+
   return (
     <div className={styles.body}>
       <div className={styles.container}>
         <Sidebar />
         <div className={styles.adoptar}>
-          {currentDogs.map((pet) => (
+          {currentDogs?.map((pet) => (
             <Card
               pets={pet}
               key={pet.id}

@@ -1,3 +1,4 @@
+import swal from "sweetalert";
 import {
   GET_FILTER_PETS,
   GET_PETS,
@@ -30,7 +31,6 @@ import {
   GET_USERS_DETAIL,
   RESET_USER_DETAIL,
   RESET_PET_DETAIL,
-  FILTER_BY_DISTANCE,
   SET_USER_LOCATION,
   UPDATE_REVIEW,
 } from "../actions";
@@ -94,11 +94,28 @@ const rootReducer = (state = initialState, action) => {
       };
     case GET_FILTER_PETS:
         let todos = action.payload;
+        const backup = action.payload
         if(state.filters.distance !== ""){
         todos = todos.filter((e) => e.dist = getDistance(state.userLocation.latitude, state.userLocation.longitude,e.latitude,e.longitude) <= state.filters.distance)
         }
-          return { ...state, pets: todos
-      };
+        if (!todos.length){ 
+          swal({
+            title: "Sorry!",
+            text: "No se encontraron mascotas que coincidan",
+            icon: "error",
+            button: "Ok",
+          })
+          
+          return { ...state, pets: backup , filters: {
+            sex: "",
+            species: "",
+            size: "",
+            name: "",
+            order: "",
+            distance:"",
+          },}}
+         else return { ...state, pets: todos,  
+              };
     case UPDATE_FILTERS:
       return {
         ...state,
@@ -114,6 +131,7 @@ const rootReducer = (state = initialState, action) => {
           size: "",
           name: "",
           order: "",
+          distance:"",
         },
       };
 
@@ -260,13 +278,7 @@ const rootReducer = (state = initialState, action) => {
     case RESET_PET_DETAIL:
       return { ...state, pet: [] 
       };
-    case FILTER_BY_DISTANCE:
-        const all = state.pets;
-        const distancia = all.filter((e) => e.dist = getDistance(state.userLocation.latitude, state.userLocation.longitude,e.latitude,e.longitude) < action.payload)
-
-      return { ...state, pets: distancia 
-      };
-    case SET_USER_LOCATION:
+       case SET_USER_LOCATION:
       return { ...state, 
         userLocation: action.payload 
       };
