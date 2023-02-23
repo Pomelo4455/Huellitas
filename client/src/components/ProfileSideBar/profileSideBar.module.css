@@ -25,15 +25,20 @@
 
 .btnLink {
     /* background-color: rgb(167, 116, 50); */
-    display: inline-block;
-    width: 4%;
+    display: flex;
+    width: 100%;
     height: auto;
     margin: 1em .5em;
+    text-decoration: none;
+    color: #FFF;
+   
+
 }
 
 .textCnt .textIcon {
     color: #FFF;
     font-size: 1.4em;
+    text-align: end;
 }
 
 
@@ -44,16 +49,18 @@
 }
 
 .profileBtn {
+    margin-top: 1em;
     padding-left: .5em;
     height: 3em;
     width: 2em;
     color: #FFF;
+    
 }
 
 
 .chatsBtn {
     padding-left: .8em;
-
+    margin-top: 1em;
     height: 3em;
     width: 2em;
     color: #FFF;

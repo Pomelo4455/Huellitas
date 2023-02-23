@@ -30,11 +30,11 @@ const ProfileSideBar = ({ handleEdit, noLeidos }) => {
                         icon="carbon:user-profile" 
                     />
 
-                </Link>
 
                 <div className={styles.textCnt}> 
                     <p className={styles.textIcon}>Editar perfil</p>
                 </div>
+                </Link>
             </div>
 
             {/* CHATS */}
@@ -51,7 +51,7 @@ const ProfileSideBar = ({ handleEdit, noLeidos }) => {
                         icon="ic:baseline-message" 
                     />
                 
-                    {console.log(noLeidos)}
+                    
                     {
                         noLeidos <= 0 ? null : noLeidos <= 9 ? 
                         (
@@ -81,11 +81,11 @@ const ProfileSideBar = ({ handleEdit, noLeidos }) => {
                         )
                     }
 
-                </Link>
 
                 <div className={styles.textCnt}> 
                     <p className={styles.textIcon}>Ver mensajes</p>
                 </div>
+                </Link>
 
             </div>
 
@@ -102,11 +102,11 @@ const ProfileSideBar = ({ handleEdit, noLeidos }) => {
                         icon="ph:heart"
                     />
 
-                </Link>
 
                 <div className={styles.textCnt}> 
                     <p className={styles.textIcon}>Mis seguimientos</p>
                 </div>
+                </Link>
             </div>
 
             <div 

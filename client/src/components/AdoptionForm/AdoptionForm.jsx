@@ -23,9 +23,9 @@ export default function AdoptionForm() {
   const formRef = useRef();
 
   useEffect(() => {
-    if (isMounted.current === true) {
+    //if (isMounted.current === true) {
       dispatch(getProvincias());
-    } else isMounted.current = true;
+   // } else isMounted.current = true;
   }, []);
 
   const handleGeo = (event) => {
