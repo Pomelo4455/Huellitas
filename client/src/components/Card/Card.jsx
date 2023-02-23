@@ -65,7 +65,7 @@ export default function Card({ pets, distancia }) {
     })
     .then((e) => {
       if (e === true) {
-        axios.post(`http://localhost:3001/adoption/${adoptanteId}/${pets.id}`)
+        axios.post(`${LINK_BACK}/adoption/${adoptanteId}/${pets.id}`)
         .then(() => {
           swal({
             title: "Adopción confirmada", 
