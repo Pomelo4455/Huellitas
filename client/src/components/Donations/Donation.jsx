@@ -12,7 +12,6 @@ const Donation = ({ status, amount, campaign, campaignId }) => {
                     <div className={styles.name}>
                         <h3>Campaña: </h3>
             
-                        <Link to={`/campañas/${campaignId}`} className={styles.link_detail}>
                             <p>{campaign}</p>
 
                         <h3>Monto:</h3>
@@ -20,7 +19,6 @@ const Donation = ({ status, amount, campaign, campaignId }) => {
 
                         <h3>Estado: </h3>
                         <p>{status}</p>
-                        </Link>
                     </div>
                 </div>
             </div>

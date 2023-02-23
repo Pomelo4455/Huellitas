@@ -16,6 +16,8 @@ import RenderizarAdoptados from './RenderAdoptados';
 import RenderizarCampaigns from './RenderCampaigns';
 import RenderizarDonations from './RenderDonations';
 import { LINK_BACK } from '../../Utils/variablesDeploy';
+import effects from "uploadcare-widget-tab-effects/react";
+
 
 
 const Profile = ({setLoggedUser}) => {
@@ -91,6 +93,10 @@ const Profile = ({setLoggedUser}) => {
       setEditMode(true);
     };
     const handleFileChange = (file) => {
+      if (!file) {
+        setFormData({ ...formData, image: "" });
+        return
+      }
       setFormData({ ...formData, image: file.cdnUrl });
     };
 
@@ -133,9 +139,21 @@ const Profile = ({setLoggedUser}) => {
      <div className='page-container'>
         <img src={formData.image} className="profile-avatar"/>
           {editMode ? (
-            <React.Fragment>
+            <React.Fragment> 
               <div className="widget-container">
-                <Widget publicKey="d00f029a60bdde9dafab" id='image' onChange={handleFileChange} value={formData.image}  />
+
+                <Widget 
+                locale="es"
+                name="image"
+                publicKey="d00f029a60bdde9dafab"
+                previewStep
+                customTabs={{ preview: effects }}
+                clearable
+                id='image' 
+                value={formData.image}
+                onChange={handleFileChange} 
+                />
+                {/* <div className={style.error}>{errors.image}</div> */}
               </div>
               <input type="text" name="name" value={formData.name} placeholder="Agregar Nombre" onChange={handleChange} className="profile-input"/>
               <input type="text" name="phone" placeholder='agregar telefono' value={formData.phone} onChange={handleChange} className="profile-input"/>
