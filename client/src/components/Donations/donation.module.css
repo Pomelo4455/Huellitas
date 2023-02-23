@@ -22,16 +22,10 @@
   width:  18.7em;
   background: linear-gradient(360deg, #c7eaff, #059ff6);
   transition: 0.5s;
-  cursor: pointer;
   border-radius: 0% 0% 0% 0% / 0% 0% 0% 0%;
   color: rgb(0, 0, 0);
   box-shadow: 10px 20px rgba(0, 0, 0, 0.15);
   transition: all 0.4s ease;
-}
-
-.card:hover {
-  border-radius: 0% 0% 50% 50% / 0% 0% 5% 5%;
-  box-shadow: 10px 10px rgba(0, 0, 0, 0.25);
 }
 .center{
   display: flex;
@@ -76,17 +70,12 @@
     width: 16em;
     background: linear-gradient(360deg, #c7eaff, #059ff6);
     transition: 0.5s;
-    cursor: pointer;
     border-radius: 0% 0% 0% 0% / 0% 0% 0% 0%;
     color: white;
     box-shadow: 10px 20px rgba(0, 0, 0, 0.15);
     transition: all 0.4s ease;
   }
   
-  .card:hover {
-    border-radius: 0% 0% 50% 50% / 0% 0% 5% 5%;
-    box-shadow: 10px 10px rgba(0, 0, 0, 0.25);
-  }
   .center{
     display: flex;
     text-align: center;
