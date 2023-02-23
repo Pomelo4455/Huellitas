@@ -100,6 +100,7 @@ function Footer() {
             </h4>
             <Link
               to={`/chat/${user.data.id}/${ADMIN_ID}`}
+              target="_blank"
               className={styles.texts}
             >
               <h4 className={styles.texts}>Contactanos 💬</h4>
