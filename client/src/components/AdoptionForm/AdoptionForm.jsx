@@ -80,9 +80,8 @@ export default function AdoptionForm() {
           // Validacion name
           if (!values.name) {
             errors.name = "Por favor ingresa un nombre";
-          } else if (!/^[a-zA-ZÀ-ÿ\s]{1,40}$/.test(values.name)) {
-            errors.name = "El nombre solo puede contener letras y espacios";
-          }
+          } else if (values.name.length > 15) {errors.name = "Debe tener menos de 15 carácteres";
+          } 
           if (!values.age) {
             errors.age = "Por favor selecciona un rango de edad";
           }
@@ -94,17 +93,17 @@ export default function AdoptionForm() {
           }
           if (!values.color) {
             errors.color = "Por favor escribe un color";
-          } else if (!/^[a-zA-ZÀ-ÿ\s]{1,40}$/.test(values.color)) {
-            errors.color = "El color solo puede contener letras y espacios";
+          } else if (values.color.length > 10) {
+            errors.color = "Debe tener menos de 10 carácteres";
           }
           if (!values.sex) {
             errors.sex = "Por favor selecciona una opción";
           }
           if (!values.temperament) {
             errors.temperament = "Por favor escribe una descripcion";
-          } else if (values.temperament.length < 80) {
+          } else if (values.temperament.length < 40) {
             errors.temperament =
-              "Por favor escribe una descripcion más detallada (80 caracteres al menos)";
+              "Por favor escribe una descripcion más detallada (40 caracteres al menos)";
           }
           if (!values.image) {
             errors.image = "Por favor selecciona una imagen";

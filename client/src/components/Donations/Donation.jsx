@@ -7,20 +7,22 @@ const Donation = ({ status, amount, campaign, campaignId }) => {
 
     return (
         <div className={styles.container}>
-            <Link to={`/campañas/${campaignId}`}>
-                <div className={styles.title}>
-                    <h3>Campaña: </h3>
-                    <p>{campaign}</p>
-                </div>
-            </Link>
+            <div className={styles.card}>
+                <div className={styles.center}>
+                    <div className={styles.name}>
+                        <h3>Campaña: </h3>
             
-            <div className={styles.title}>
-                <h3>Monto:</h3>
-                <p> ${amount}</p>
-            </div>
-            <div className={styles.title}>
-                <h3>Estado: </h3>
-                <p>{status}</p>
+                        <Link to={`/campañas/${campaignId}`} className={styles.link_detail}>
+                            <p>{campaign}</p>
+
+                        <h3>Monto:</h3>
+                        <p> ${amount}</p> 
+
+                        <h3>Estado: </h3>
+                        <p>{status}</p>
+                        </Link>
+                    </div>
+                </div>
             </div>
         </div>
     );
