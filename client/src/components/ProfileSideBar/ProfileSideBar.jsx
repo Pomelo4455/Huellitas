@@ -48,7 +48,7 @@ const ProfileSideBar = ({ handleEdit, noLeidos }) => {
                 >
 
                     <Icon 
-                        className={styles.chatsBtn}    
+                        className={styles.profileBtn}    
                         icon="ic:baseline-message" 
                     />
                 
