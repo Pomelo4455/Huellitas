@@ -32,6 +32,7 @@ import {
   RESET_USER_DETAIL,
   RESET_PET_DETAIL,
   SET_USER_LOCATION,
+  UPDATE_REVIEW,
 } from "../actions";
 
 const initialState = {
@@ -56,6 +57,7 @@ const initialState = {
   thisUser: [],
   userDetail: {},
   userLocation:{},
+  flagReview:true,
 };
 
 function getDistance(latitude1, longitude1, latitude2, longitude2) {
@@ -276,11 +278,15 @@ const rootReducer = (state = initialState, action) => {
     case RESET_PET_DETAIL:
       return { ...state, pet: [] 
       };
-    case SET_USER_LOCATION:
-        return { ...state, 
-          userLocation: action.payload 
-        };
-      default:
+       case SET_USER_LOCATION:
+      return { ...state, 
+        userLocation: action.payload 
+      };
+    case UPDATE_REVIEW:
+      return { ...state, 
+        flagReview: action.payload 
+      };
+    default:
       return {
         ...state,
       };

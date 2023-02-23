@@ -1,110 +1,105 @@
+@import url("https://fonts.googleapis.com/css2?family=Dosis&family=Noto+Sans+JP:wght@500;900&family=Noto+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Ubuntu&display=swap");
+
+.link_detail {
+  text-decoration: none;
+  color: #000000;
+}
+
 .container {
-    margin-top: 1px;
-    width: fit-content;
-    display: grid;
-    justify-content: center;
-    align-content: center;
+  text-align: justify;
+  display: flex;
+  flex-direction: row;
+}
+
+.card {
+  display: flex;
+  justify-content: center;
+  margin: 1rem;
+  margin-right: 0%;
+  margin-bottom: 10px;
+  background: #f8f8f8;
+  height: 22em;
+  width:  18.7em;
+  background: linear-gradient(360deg, #c7eaff, #059ff6);
+  transition: 0.5s;
+  cursor: pointer;
+  border-radius: 0% 0% 0% 0% / 0% 0% 0% 0%;
+  color: rgb(0, 0, 0);
+  box-shadow: 10px 20px rgba(0, 0, 0, 0.15);
+  transition: all 0.4s ease;
+}
+
+.card:hover {
+  border-radius: 0% 0% 50% 50% / 0% 0% 5% 5%;
+  box-shadow: 10px 10px rgba(0, 0, 0, 0.25);
+}
+.center{
+  display: flex;
+  text-align: center;
+  flex-direction: column;
+}
+
+.name {
+  margin: 0 auto;
+  font-family: "Noto Sans JP";
+  font-weight: 400;
+  width: 90%;
+  height: auto;
+  margin: .2em auto;
+  /* background-color: #caf605; */
+}
+
+@media (max-width: 768px) {
+  .img {
+    width: 250px;
+    height: 188px;
   }
+}
+@media (max-width: 768px) {
+  .card {
+    height: 350px;
+    width: 250px;
+  }
+}
+
+
+/* RESPONSIVE PARA DISPOSITIVOS HASTA 760PX */
+@media (max-width: 760px) {
+
   
-  .donat {
-    display: grid;
-    flex-direction: column;
-    text-align: center;
-    text-decoration: none;
+  .card {
+    display: flex;
     justify-content: center;
     margin: 1rem;
-    height: 650px;
-    width: 400px;
+    background: #f8f8f8;
+    height: 32em;
+    width: 16em;
+    background: linear-gradient(360deg, #c7eaff, #059ff6);
     transition: 0.5s;
-    background: linear-gradient(360deg, #d8f0ff, #8dd5ff);
-    background-color: #ffff;
-    color: black;
+    cursor: pointer;
+    border-radius: 0% 0% 0% 0% / 0% 0% 0% 0%;
+    color: white;
     box-shadow: 10px 20px rgba(0, 0, 0, 0.15);
+    transition: all 0.4s ease;
   }
-  .donat:hover {
+  
+  .card:hover {
     border-radius: 0% 0% 50% 50% / 0% 0% 5% 5%;
     box-shadow: 10px 10px rgba(0, 0, 0, 0.25);
   }
-  
-  .title {
-    text-decoration: none;
-    color: #000000;
-    font-family: "Poppins";
-    font-weight: 700;
-    font-size: 15px;
-    z-index: 3;
-    width: 300px;
-}
-  
-  .img {
+  .center{
     display: flex;
-    position: relative;
+    text-align: center;
     flex-direction: column;
-    justify-content: center;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 1rem;
-    width: 260px;
-    height: 238px;
-    object-fit: cover;
-    align-content: center;
-    border-radius: 5%;
-    /* transform: rotate(-5deg); */
-    z-index: 3;
   }
-  .nolink {
-    text-decoration: none;
-    color: #000000;
-    font-family: "Poppins";
+
+  .name {
+    margin: 0px;
+    font-family: "Noto Sans JP";
     font-weight: 400;
-    z-index: 3;
-    width: 300px;
+    width: 90%;
+    height: auto;
+    margin: .2em auto;
+    /* background-color: #caf605; */
   }
-  
-  
-  
-  /* RESPONSIVE PARA DISPOSITIVOS HASTA 760PX */
-  @media (max-width: 760px) {
-    .container {
-      background-color: #0098f1;
-      
-      margin-top: 1rem;
-      width: fit-content;
-      display: grid;
-      justify-content: center;
-      align-content: center;
-      height: 100%;
-    }
-    
-    .donat {
-      display: grid;
-      flex-direction: column;
-      text-align: center;
-      text-decoration: none;
-      justify-content: center;
-      margin: 1rem auto;
-      height: 650px;
-      width: 90%;
-      transition: 0.5s;
-      background: linear-gradient(360deg, #d8f0ff, #8dd5ff);
-      background-color: #ffff;
-      border-radius: 0% 0% 0% 0% / 0% 0% 0% 0%;
-      color: black;
-      box-shadow: 10px 20px rgba(0, 0, 0, 0.15);
-    }
-    .donat:hover {
-      border-radius: 0% 0% 50% 50% / 0% 0% 5% 5%;
-      box-shadow: 10px 10px rgba(0, 0, 0, 0.25);
-    }
-    
-    .title {
-      text-decoration: none;
-      color: #000000;
-      font-family: "Poppins";
-      font-weight: 700;
-      font-size: 5px;
-      z-index: 3;
-      width: 300px;
-    }
-    
-  }
+}

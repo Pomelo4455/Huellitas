@@ -37,6 +37,7 @@ export const GET_USERS_DETAIL = "GET_USERS_DETAIL";
 export const RESET_USER_DETAIL = "RESET_USER_DETAIL";
 export const RESET_PET_DETAIL = "RESET_PET_DETAIL";
 export const SET_USER_LOCATION = "SET_USER_LOCATION";
+export const UPDATE_REVIEW = "UPDATE_REVIEW"
 
 
 export const getPets = () => {
@@ -579,3 +580,10 @@ export function setUserLocation(payload) {
   };
 }
 
+export function updateReview(flagReview) {
+  console.log("me actualice")
+  return {
+    type: UPDATE_REVIEW,
+    payload: !flagReview
+  }
+}
