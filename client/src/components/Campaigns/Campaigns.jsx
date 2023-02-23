@@ -12,7 +12,7 @@ const Campañas = () => {
   const allCampaigns = useSelector((state) => state.campaigns);
 
   const currentPage = useSelector((state) => state.page);
-    const [campPerPage, setCampPerPage] = useState(6);
+    const [campPerPage, setCampPerPage] = useState(8);
     const indexLastCamp = currentPage * campPerPage;
     const indexFirstCamp = indexLastCamp - campPerPage;
     const currentCamp = allCampaigns.slice(indexFirstCamp, indexLastCamp);
