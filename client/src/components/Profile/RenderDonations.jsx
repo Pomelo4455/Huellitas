@@ -4,22 +4,20 @@ import Donation from "../Donations/Donation";
 import { LINK_BACK } from "../../Utils/variablesDeploy";
 import { getCampaigns } from "../../redux/actions";
 import { useDispatch, useSelector } from "react-redux";
-import './renderDonations.module.css'
-import { Icon } from '@iconify/react'
+import styles from "../Home/home.module.css"
+
 
 const renderizarDonationsCards = (donations, campaign, cantidad) => {
     return donations.slice(0, cantidad).map((donation, i) => {
         return (
-            <>
             <Donation
                 key={donation.id}
                 id={donation.id}
                 status={donation.status}
                 amount={donation.amount}
-                campaign={campaign[i].title}
+                campaign={campaign[i]?.title}
                 campaignId={donation.campaignId}
             />
-            </>
         );
     });
 };
@@ -55,24 +53,23 @@ export default function RenderizarDonations({user}) {
     } 
     if (donations?.length > 0) {
         return (
-        <div>
+        <>
             <h2>Mis donaciones: </h2>
-            <div className="containerDonations">
                 {more ? 
-                    <div className="containerDonations">
-
+                    <div className={styles.cards}>
                         {renderizarDonationsCards(donations, campaign, donations.length)}
-                        <button className="buttonViewMore" onClick={handleShowMore}><Icon icon="material-symbols:keyboard-double-arrow-left-sharp" /></button>
                     </div>
                 :
-                    <div className="containerDonations">
-
+                    <div className={styles.cards}>
                         {renderizarDonationsCards(donations, campaign, 1)}
-                        <button className="buttonViewMore" onClick={handleShowMore}> <Icon icon="material-symbols:keyboard-double-arrow-right" /></button>
                     </div>
                 }
-            </div>
-        </div>
+                {more ? 
+                    <button className={styles.claseboton} onClick={handleShowMore}>ʌ</button>
+                :
+                    <button className={styles.claseboton} onClick={handleShowMore}>v</button>
+                }
+        </>
         )
     }
 }

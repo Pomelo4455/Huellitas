@@ -75,7 +75,6 @@ const Profile = ({setLoggedUser}) => {
         //       })
               // break;
             case "chat":
-              console.log("entre");
               navigate(`../chat/${userId}/${adminId}`)
               break;
           }
@@ -132,51 +131,42 @@ const Profile = ({setLoggedUser}) => {
 
     return(
      <div className='page-container'>
-     
-      <div className="profile-container">
-         
-      <img src={formData.image} className="profile-avatar"/>
-      <div className="profile-info">
-        {editMode ? (
-          <React.Fragment>
-            <Widget publicKey="d00f029a60bdde9dafab" id='image' onChange={handleFileChange} value={formData.image}  />
-            <input type="text" name="name" value={formData.name} placeholder="Agregar Nombre" onChange={handleChange} className="profile-input"/>
-            <input type="text" name="phone" placeholder='agregar telefono' value={formData.phone} onChange={handleChange} className="profile-input"/>
-            {/* <button onClick={handleStatusChange} className="profile-action-button">{formData.status}</button> */}
-            
-          </React.Fragment>
-        ) : (
-          <React.Fragment>
-            <h1 className="profile-name">{formData.name}</h1>
-            <p className="profile-email"><strong>Email:</strong> {formData.email}</p>
-            <p className="profile-phone" ><strong>Telefono:</strong> {formData.phone}</p>
-            {/* <p className="profile-phone"><strong>Status:</strong> {formData.status} </p> */}
-            {latitude && longitude ? <MapView latitude={latitude} longitude={longitude}/>
-      : null
-      }
-      <RenderizarEnAdopcion user={formData}/>
-      <RenderizarAdoptados user={formData}/>
-      <RenderizarDonations user={formData}/>
-      {formData.type === "fundacion" && <RenderizarCampaigns user={formData}/>}
-          </React.Fragment>
-        )}
-      </div>
-      <div className="profile-actions">
-        {editMode ? (
-          <React.Fragment>
-            
-            <button onClick={handleSave} className="profile-action-button">Save</button>
-            <button onClick={handleCancel} className="profile-action-button2">Cancel</button>
-            { formData.type === "usuario" && <button onClick={handleSendMail} className="profile-action-button3"> Solicitar cambio a fundacion</button>}
-          </React.Fragment>
-        ) : (
-          <React.Fragment>
-          <button onClick={handleEdit} className="profile-action-button">Edit</button>
-
-          </React.Fragment>
-        )}
-      </div>
-    </div>
+        <img src={formData.image} className="profile-avatar"/>
+          {editMode ? (
+            <React.Fragment>
+              <div className="widget-container">
+                <Widget publicKey="d00f029a60bdde9dafab" id='image' onChange={handleFileChange} value={formData.image}  />
+              </div>
+              <input type="text" name="name" value={formData.name} placeholder="Agregar Nombre" onChange={handleChange} className="profile-input"/>
+              <input type="text" name="phone" placeholder='agregar telefono' value={formData.phone} onChange={handleChange} className="profile-input"/>
+              {/* <button onClick={handleStatusChange} className="profile-action-button">{formData.status}</button> */}
+            </React.Fragment>
+          ) : (
+            <React.Fragment>
+              <h1 className="profile-name">{formData.name}</h1>
+              <p className="profile-email"><strong>Email:</strong> {formData.email}</p>
+              {formData?.phone?.length > 0 ? <p className="profile-phone" ><strong>Telefono:</strong> {formData.phone}</p> : null}
+              {/* <p className="profile-phone"><strong>Status:</strong> {formData.status} </p> */}
+              {latitude && longitude ? <div style={{width: "100vw"}}><MapView latitude={latitude} longitude={longitude}/></div>: null}
+              <RenderizarEnAdopcion user={formData}/>
+              <RenderizarAdoptados user={formData}/>
+              <RenderizarDonations user={formData}/>
+              {formData.type === "fundacion" && <RenderizarCampaigns user={formData}/>}
+            </React.Fragment>
+          )}
+        <div className="profile-actions">
+          {editMode ? (
+            <React.Fragment>
+              <button onClick={handleSave} className="profile-action-button">Save</button>
+              <button onClick={handleCancel} className="profile-action-button2">Cancel</button>
+              { formData.type === "usuario" && <button onClick={handleSendMail} className="profile-action-button3"> Solicitar cambio a fundacion</button>}
+            </React.Fragment>
+          ) : (
+            <React.Fragment>
+            <button onClick={handleEdit} className="profile-action-button">Edit</button>
+            </React.Fragment>
+          )}
+        </div>
     </div>
       
 )}
