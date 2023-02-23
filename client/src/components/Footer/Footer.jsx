@@ -154,13 +154,13 @@ function Footer() {
           >
             <Icon className={styles.iconSocial} icon="mdi:twitter" />
           </a>
-          <Link
-            to={
-              "https://www.facebook.com/profile.php?viewas=100000686899395&id=100090543606081"
-            }
+          <a
+            href={"https://m.facebook.com/profile.php?id=100090543606081&eav=AfZvCxGXfZIvIDuYNKG4ZTXMkCOFY5epT8AovCVUrjNWRp867UiakdDekvKNFkrGWAE&ref=wizard&paipv=0"}
+            target="_blank"
+            rel="noreferrer"
           >
             <Icon className={styles.iconSocial} icon="ic:baseline-facebook" />
-          </Link>
+          </a>
         </div>
       </div>
     </div>
