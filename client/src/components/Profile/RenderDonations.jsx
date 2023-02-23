@@ -55,23 +55,24 @@ export default function RenderizarDonations({user}) {
     } 
     if (donations?.length > 0) {
         return (
-        <>
-            <h2>Donaciones: </h2>
-        
-            <div className="donationsContainer">
+        <div>
+            <h2>Mis donaciones: </h2>
+            <div className="containerDonations">
                 {more ? 
-                    <>
+                    <div className="containerDonations">
+
                         {renderizarDonationsCards(donations, campaign, donations.length)}
-                        <button className="buttonDonationsView" onClick={handleShowMore}><Icon icon="material-symbols:keyboard-double-arrow-left-sharp" /></button>
-                    </>
+                        <button className="buttonViewMore" onClick={handleShowMore}><Icon icon="material-symbols:keyboard-double-arrow-left-sharp" /></button>
+                    </div>
                 :
-                    <>
+                    <div className="containerDonations">
+
                         {renderizarDonationsCards(donations, campaign, 1)}
-                        <button className="buttonDonationsView" onClick={handleShowMore}> <Icon icon="material-symbols:keyboard-double-arrow-right" /></button>
-                    </>
+                        <button className="buttonViewMore" onClick={handleShowMore}> <Icon icon="material-symbols:keyboard-double-arrow-right" /></button>
+                    </div>
                 }
             </div>
-        </>
+        </div>
         )
     }
 }
