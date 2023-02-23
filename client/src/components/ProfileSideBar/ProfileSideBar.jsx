@@ -42,6 +42,7 @@ const ProfileSideBar = ({ handleEdit, noLeidos }) => {
 
                 <Link
                     to="/chats"
+                    target="_blank"
                     onClick={handleEdit}
                     className={styles.btnLink}
                 >
