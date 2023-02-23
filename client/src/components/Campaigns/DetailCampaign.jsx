@@ -31,7 +31,15 @@ const Detail = (props) => {
             <Icon icon="pajamas:go-back" width="100%" />
           </Link>
           <div className={style.container}>
+
+
             <h1>{campaignId[0].title}</h1>
+
+            <div>
+              <Link to={`../userDetail/${campaignId[0].userId}`}>
+                <p>Ver persona creadora de la campaña </p>
+              </Link>
+            </div>
 
             <img
               src={campaignId[0].image}
@@ -66,8 +74,12 @@ const Detail = (props) => {
               labelColor="#000000"
             />
 
-            <h3>Descripción:</h3>
-            <p className={style.textbox}> {campaignId[0].description}</p>
+            <div className={style.campaignInfo}>
+              <h3>Descripción:</h3>
+              <p className={style.textbox}> {campaignId[0].description}</p>
+            </div>
+
+            
 
             <Formik
               initialValues={{
@@ -139,6 +151,7 @@ const Detail = (props) => {
                     >
                       Donar
                     </button>
+                    
                     <ErrorMessage
                       name="quantity"
                       component={() => (
@@ -146,9 +159,7 @@ const Detail = (props) => {
                       )}
                     />
                     {console.log(campaignId)}
-                    <Link to={`../userDetail/${campaignId[0].userId}`}>
-                      <p>Creador de la campaña </p>
-                    </Link>
+                    
                   </Form>
                 );
               }}

@@ -1,0 +1,138 @@
+@import url("https://fonts.googleapis.com/css2?family=Dosis&family=Noto+Sans+JP:wght@500;900&family=Noto+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Ubuntu&display=swap");
+
+.listContainer {
+    background-color: #fff;
+    width: 100%;
+    height: auto;
+    min-height: 100vh;
+}
+
+.textNoList {
+    /* color: #464646; */
+    text-align: center;
+    font-family: "Poppins";
+    font-weight: 600;
+    font-size: 2em;
+}
+
+.allList {
+    /* background-color: #7d4f4f; */
+    width: 35%;
+    height: auto;
+    margin: 1em auto;
+}
+
+.listItem {
+    /* background-color: aquamarine; */
+    display: flex;
+    flex-direction: column;
+    width: 95%;
+    height: auto;
+    margin: 0 auto;
+    justify-content: center;
+    align-items: center;
+}
+
+.petInList {
+    /* background-color: blanchedalmond; */
+    box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.2);
+    width: 600px;
+    margin: 1em 0;
+    height: 8em;
+    display: flex;
+    flex-direction: row;
+    cursor: pointer;
+    background: radial-gradient(circle, #c7eaff, #89d4ff);
+    border-radius: 30px;
+}
+
+.petImage {
+    /* background-color: #917272; */
+    width: 25%;
+    border-radius: 30px;
+    overflow: hidden;
+}
+
+.petImage img {
+    display: block;
+    margin-left: -20px;
+    padding: 0;
+    height: 8em;
+    width: 200px;
+}
+
+.petInfo {
+    /* background-color: coral; */
+    width: 75%;
+}
+
+.petInfoName {
+    margin-top: 20px;
+    font-family: "Ubuntu";
+    font-size: 2em;
+    font-weight: bold;
+    text-align: center;
+}
+
+.petInfoAdopted {
+    margin: .2em;
+    /* background-color: darkolivegreen; */
+    font-size: 1.6em;
+    text-align: center;
+}
+
+.buttonEdit {
+    background-color: #ffffff;
+    border: 2px solid #2AADF6;
+    border-radius: 5px;
+    margin-top: 50px;
+    color: #2AADF6;
+    width: 100px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+    font-family: "Ubuntu";
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    transition: background-color 0.3s ease-in-out;
+  }
+  
+  .buttonEdit:hover {
+    background-color: #2AADF6;
+    color: #ffffff;
+  }
+
+
+
+/* RESPONSIVE PARA DISPOSITIVOS HASTA 760PX */
+@media (max-width: 760px) {
+
+    
+    .petInList {
+
+        height: 17em;
+        flex-direction: column;
+    }
+    
+    .petImage {
+        background-color: #91727234;
+        width: 100%;
+    }
+    
+    .petImage img {
+        display: block;
+        margin: 0 auto;
+        padding: 0;
+        height: 8em;
+        width: 200px;
+    }
+    
+    .petInfo {
+        width: 100%;
+        height: auto;
+        text-align: center;
+    }
+    
+}
+

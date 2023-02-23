@@ -1,27 +1,9 @@
-.buttonViewMore{
-    display: flex;
-    background: linear-gradient(360deg, #c7eaff, #059ff6);
-    justify-content: center;
-    text-align: center;
-    padding: 200px 10px;
-    height: 10px;
-    margin-top: 15px;
-    font-size: 50px;
-    border: transparent;
-    border-radius: 25px;
-    width: 49px;
-    cursor: pointer;
-}
-.buttonViewMore:hover{
-    background-color: blue;
-    color: white
-}
 .containerAdopciones{
+    width: 85%;
+    margin: 2em auto;
     display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    flex-wrap: wrap;
 }
-@media screen and (max-width: 600px) {
-    .containerAdopciones {
-      display: inline-flex;
-    }
-    
-  }
+  

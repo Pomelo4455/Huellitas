@@ -1,27 +1,28 @@
-.buttonCamapañasView{
+.Buttonshowadoption{
     display: flex;
     background: linear-gradient(360deg, #c7eaff, #059ff6);
     justify-content: center;
     text-align: center;
-    padding: 300px 10px;
+    padding: 200px 10px;
     height: 10px;
-    margin-top: 55px;
+    margin-top: 15px;
     font-size: 50px;
     border: transparent;
     border-radius: 25px;
     width: 49px;
     cursor: pointer;
 }
-.buttonCamapañasView:hover{
+.buttonViewMore:hover{
     background-color: blue;
     color: white
 }
-.campañascontainer{
+.containerAdopciones{
     display: flex;
 }
 @media (min-width: 768px) {
-    .buttonCamapañasView {
+    .buttonViewMore {
         font-size: 50px;
         height: 120px;
     }
-}
+    
+  }

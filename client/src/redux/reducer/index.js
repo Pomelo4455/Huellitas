@@ -1,3 +1,4 @@
+import swal from "sweetalert";
 import {
   GET_FILTER_PETS,
   GET_PETS,
@@ -30,15 +31,15 @@ import {
   GET_USERS_DETAIL,
   RESET_USER_DETAIL,
   RESET_PET_DETAIL,
-  FILTER_BY_DISTANCE,
   SET_USER_LOCATION,
+  UPDATE_REVIEW,
 } from "../actions";
 
 const initialState = {
   pets: [],
   allPets: [],
   pet: [],
-  filters: { sex: "", species: "", size: "", name: "", order: "", giverId: "" },
+  filters: { sex: "", species: "", size: "", name: "", order: "", giverId: "", distance:"" },
   campaigns: [],
   fundaciones: [],
   detailCamp: [],
@@ -56,7 +57,17 @@ const initialState = {
   thisUser: [],
   userDetail: {},
   userLocation:{},
+  flagReview:true,
 };
+
+function getDistance(latitude1, longitude1, latitude2, longitude2) {
+  let theta = longitude1 - longitude2;
+  let distance = 60 * 1.1515 * (180/Math.PI) * Math.acos(
+    Math.sin(latitude1 * (Math.PI/180)) * Math.sin(latitude2 * (Math.PI/180)) + 
+    Math.cos(latitude1 * (Math.PI/180)) * Math.cos(latitude2 * (Math.PI/180)) * Math.cos(theta * (Math.PI/180))
+    );
+    return Math.round(distance * 1.609344, 2);
+  }
 
 const rootReducer = (state = initialState, action) => {
   switch (action.type) {
@@ -82,10 +93,29 @@ const rootReducer = (state = initialState, action) => {
         pets: action.payload,
       };
     case GET_FILTER_PETS:
-      return {
-        ...state,
-        pets: action.payload,
-      };
+        let todos = action.payload;
+        const backup = action.payload
+        if(state.filters.distance !== ""){
+        todos = todos.filter((e) => e.dist = getDistance(state.userLocation.latitude, state.userLocation.longitude,e.latitude,e.longitude) <= state.filters.distance)
+        }
+        if (!todos.length){ 
+          swal({
+            title: "Sorry!",
+            text: "No se encontraron mascotas que coincidan",
+            icon: "error",
+            button: "Ok",
+          })
+          
+          return { ...state, pets: backup , filters: {
+            sex: "",
+            species: "",
+            size: "",
+            name: "",
+            order: "",
+            distance:"",
+          },}}
+         else return { ...state, pets: todos,  
+              };
     case UPDATE_FILTERS:
       return {
         ...state,
@@ -101,6 +131,7 @@ const rootReducer = (state = initialState, action) => {
           size: "",
           name: "",
           order: "",
+          distance:"",
         },
       };
 
@@ -247,24 +278,14 @@ const rootReducer = (state = initialState, action) => {
     case RESET_PET_DETAIL:
       return { ...state, pet: [] 
       };
-    case FILTER_BY_DISTANCE:
-        const all = state.pets;
-        function getDistance(latitude1, longitude1, latitude2, longitude2) {
-          let theta = longitude1 - longitude2;
-          let distance = 60 * 1.1515 * (180/Math.PI) * Math.acos(
-              Math.sin(latitude1 * (Math.PI/180)) * Math.sin(latitude2 * (Math.PI/180)) + 
-              Math.cos(latitude1 * (Math.PI/180)) * Math.cos(latitude2 * (Math.PI/180)) * Math.cos(theta * (Math.PI/180))
-          );
-            return Math.round(distance * 1.609344, 2);
-          }
-          const distancia = all.filter((e) => e.dist = getDistance(state.userLocation.latitude, state.userLocation.longitude,e.latitude,e.longitude) < action.payload)
-
-      return { ...state, pets: distancia 
+       case SET_USER_LOCATION:
+      return { ...state, 
+        userLocation: action.payload 
       };
-      case SET_USER_LOCATION:
-        return { ...state, 
-          userLocation: action.payload 
-        };
+    case UPDATE_REVIEW:
+      return { ...state, 
+        flagReview: action.payload 
+      };
     default:
       return {
         ...state,

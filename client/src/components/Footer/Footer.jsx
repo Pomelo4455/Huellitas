@@ -5,16 +5,21 @@ import { useAuth0 } from "@auth0/auth0-react";
 import styles from "./footer.module.css";
 import swal from "sweetalert";
 import UserBaneado from '../UserBanedo/UserBaneado';
+import {useDispatch, useSelector} from "react-redux"
 
 import Swal from "sweetalert2";
 
 import axios from "axios";
+import { updateReview } from "../../redux/actions";
 
 const ADMIN_ID = 1;
 
 function Footer() {
   let user = JSON.parse(window.localStorage.getItem("loggedUser"));
   const { loginWithPopup } = useAuth0();
+  const dispatch = useDispatch();
+  const flagReview = useSelector(state => state.flagReview);
+
   const handleContact = () => {
     user.data?.status === 'baneado' ? <UserBaneado /> :
     swal({
@@ -68,11 +73,12 @@ function Footer() {
         review,
       });
       Swal.fire("Datos enviados", "", "success");
+      dispatch(updateReview(flagReview))
     } else {
       Swal.fire("Datos no enviados", "", "info");
     }
   }
-  };
+};
 
   return (
     <div className={styles.footer}>
@@ -148,13 +154,13 @@ function Footer() {
           >
             <Icon className={styles.iconSocial} icon="mdi:twitter" />
           </a>
-          <Link
-            to={
-              "https://www.facebook.com/profile.php?viewas=100000686899395&id=100090543606081"
-            }
+          <a
+            href={"https://m.facebook.com/profile.php?id=100090543606081&eav=AfZvCxGXfZIvIDuYNKG4ZTXMkCOFY5epT8AovCVUrjNWRp867UiakdDekvKNFkrGWAE&ref=wizard&paipv=0"}
+            target="_blank"
+            rel="noreferrer"
           >
             <Icon className={styles.iconSocial} icon="ic:baseline-facebook" />
-          </Link>
+          </a>
         </div>
       </div>
     </div>

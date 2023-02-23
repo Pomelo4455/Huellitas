@@ -3,12 +3,12 @@ import React, { useEffect, useState } from "react";
 import Card from "../Card/Card.jsx";
 import { LINK_BACK } from "../../Utils/variablesDeploy.js";
 import './RenderEnAdopcion.css'
-import { Icon } from '@iconify/react'
+import styles from "../Home/home.module.css"
 
 const renderizarPetCards = (allPets, cantidad) => {
     allPets = allPets.filter(pet => pet.adopted === "no" && pet.deleted === "no")
     return allPets.slice(0, cantidad).map((pet) => {
-        return <Card pets={pet} key={pet.id} />;
+        return <Card pets={pet} key={pet.id} />
     });
   };
 
@@ -29,24 +29,22 @@ export default function RenderizarEnAdopcion({user}) {
     if (pets.length > 0) {
         return (
             <>
-            <h2>En adopcion</h2>
-            {pets.length > 0 && 
-            <div className="containerAdopciones">
-                {more ? 
-                    <>
-                    {renderizarPetCards(pets, pets.length)}
-                    <button className="buttonViewMore" onClick={handleShowMore}><Icon icon="material-symbols:keyboard-double-arrow-left-sharp" /></button>
-                    </>
-                :
-                    <>
-                    {renderizarPetCards(pets, 1)}
-                    <button className="buttonViewMore" onClick={handleShowMore}><Icon icon="material-symbols:keyboard-double-arrow-right" /></button>
-                    </>
+                <h2>EN ADOPCIÓN: </h2>
+                {pets.length > 0 && more ? 
+                        <div className="containerAdopciones">
+                            {renderizarPetCards(pets, pets.length)}
+                        </div>
+                    :
+                        <div className="containerAdopciones">
+                            {renderizarPetCards(pets, 1)}
+                        </div>
                 }
-            </div>
-        }
+                {more ? 
+                    <button className={styles.claseboton} onClick={handleShowMore}>ʌ</button>
+                :
+                    <button className={styles.claseboton} onClick={handleShowMore}>v</button>
+                }
             </>
-
         )
     }
     else return null

@@ -3,12 +3,13 @@ import { useEffect, useRef, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { getPetsDetail, getUsers, resetPetDetail } from "../../redux/actions";
-import style from "./cardDetail.module.css";
 import axios from "axios";
 import swal from "sweetalert";
 import MapView from "../MapView/MapView";
 import { LINK_BACK } from "../../Utils/variablesDeploy";
 import { useAuth0 } from "@auth0/auth0-react";
+
+import style from "./cardDetail.module.css";
 
 const CardDetail = () => {
   const mapRef = useRef();
@@ -28,7 +29,7 @@ const CardDetail = () => {
     dispatch(getUsers());
     dispatch(getPetsDetail(id));
     if (user?.id && pet?.id) {
-      axios(`http://localhost:3001/follow/${user.id}/${pet.id}`).then((data) =>
+      axios(`${LINK_BACK}/follow/${user.id}/${pet.id}`).then((data) =>
         setSeguido(data.data.seguir)
       );
     }
@@ -49,7 +50,7 @@ const CardDetail = () => {
   const handleFollow = () => {
     if (user?.id && pet?.id) {
       setSeguido(!seguido);
-      axios.put(`http://localhost:3001/follow?userId=${user.id}&petId=${pet.id}&seguir=${!seguido}`);
+      axios.put(`${LINK_BACK}/follow?userId=${user.id}&petId=${pet.id}&seguir=${!seguido}`);
     } else {
       swal("Inicia sesion para escoger favoritos", "", "error")
       .then(() => loginWithPopup());
@@ -94,7 +95,7 @@ const CardDetail = () => {
         default:
       }
     }).then(()=>{
-      axios.post(`http://localhost:3001/adoption/solicitud/${userId}/${pet.id}`)
+      axios.post(`${LINK_BACK}/adoption/solicitud/${userId}/${pet.id}`)
     })
     } catch (error) {
       swal(
@@ -158,18 +159,17 @@ const CardDetail = () => {
               </p>
             </div>
             <div className={style.favs}>
-              {seguido ? (
-                <button onClick={handleFollow} className={style.corazonFollow}>
-                  ❤
-                </button>
-              ) : (
-                <button
-                  onClick={handleFollow}
-                  className={style.corazonUnfollow}
-                >
-                  ♡
-                </button>
-              )}
+            {!user || user.id === pet.GiverId?  (
+              null
+            ) : seguido ? (
+              <button onClick={handleFollow} className={style.corazonFollow}>
+                ❤
+              </button>
+            ) : (
+              <button onClick={handleFollow} className={style.corazonUnfollow}>
+                ♡
+              </button>
+            )}
             </div>
           </div>
         </div>

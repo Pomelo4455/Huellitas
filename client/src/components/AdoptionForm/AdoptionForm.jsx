@@ -1,4 +1,4 @@
-import React, { useEffect, useCallback, useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import { Formik, Form, Field, ErrorMessage, useField } from "formik";
 import styles from "./adoptionForm.module.css";
 import { useNavigate } from "react-router-dom";
@@ -23,9 +23,9 @@ export default function AdoptionForm() {
   const formRef = useRef();
 
   useEffect(() => {
-    if (isMounted.current === true) {
+    //if (isMounted.current === true) {
       dispatch(getProvincias());
-    } else isMounted.current = true;
+   // } else isMounted.current = true;
   }, []);
 
   const handleGeo = (event) => {
@@ -80,9 +80,8 @@ export default function AdoptionForm() {
           // Validacion name
           if (!values.name) {
             errors.name = "Por favor ingresa un nombre";
-          } else if (!/^[a-zA-ZÀ-ÿ\s]{1,40}$/.test(values.name)) {
-            errors.name = "El nombre solo puede contener letras y espacios";
-          }
+          } else if (values.name.length > 15) {errors.name = "Debe tener menos de 15 carácteres";
+          } 
           if (!values.age) {
             errors.age = "Por favor selecciona un rango de edad";
           }
@@ -94,17 +93,17 @@ export default function AdoptionForm() {
           }
           if (!values.color) {
             errors.color = "Por favor escribe un color";
-          } else if (!/^[a-zA-ZÀ-ÿ\s]{1,40}$/.test(values.color)) {
-            errors.color = "El color solo puede contener letras y espacios";
+          } else if (values.color.length > 10) {
+            errors.color = "Debe tener menos de 10 carácteres";
           }
           if (!values.sex) {
             errors.sex = "Por favor selecciona una opción";
           }
           if (!values.temperament) {
             errors.temperament = "Por favor escribe una descripcion";
-          } else if (values.temperament.length < 80) {
+          } else if (values.temperament.length < 40) {
             errors.temperament =
-              "Por favor escribe una descripcion más detallada (80 caracteres al menos)";
+              "Por favor escribe una descripcion más detallada (40 caracteres al menos)";
           }
           if (!values.image) {
             errors.image = "Por favor selecciona una imagen";
@@ -256,20 +255,41 @@ export default function AdoptionForm() {
                   )}
                 />
               </div>
-              <label>¿Donde se encuentra nuestro amiguito? </label>
               <div className={styles.divinput}>
+
+                <label>
+                  ¿Donde se encuentra nuestro amiguito? 
+                </label>
+                <div className={styles.contGeo2}>
                 <button
                   onClick={(event) => handleGeo(event)}
                   className={styles.geo}
                 >
-                  <div className={styles.btntxt}>Usar mi ubicación</div>
+                  <div 
+                    className={styles.btntxt}
+                  >
+                    Usar mi ubicación
+                  </div>
                   <Icon
                     icon="material-symbols:location-on"
                     color="#788eff"
                     height="40px"
                   />
                 </button>
-                {userLocation.latitude !== 0 ?<Icon icon="material-symbols:check-circle-rounded" color="#025c4c" width="30" height="30" />:null}
+
+                {
+                  userLocation.latitude !== 0 
+                  ?
+                  <Icon   className={styles.iconChk}
+                    icon="material-symbols:check-circle-rounded" color="#025c4c" 
+                    width="30" 
+                    height="30" 
+                  />
+                  :
+                  null
+                }
+
+              </div>
               </div>
               <label>o seleccionar </label>
               <div className={styles.region}>
@@ -334,7 +354,7 @@ export default function AdoptionForm() {
                   ></Field>
                 </div>
               </div>
-              <label>Sube una linda foto (o varias):</label>
+              <label>Sube una linda foto:</label>
               <div className={styles.divinput}>
                 <hr />
                 <Widget

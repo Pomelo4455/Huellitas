@@ -7,10 +7,11 @@ import { useDispatch } from "react-redux";
 import { donation, updateCollected } from "../../redux/actions";
 import { Link } from "react-router-dom";
 import flowerDog from "../../img/FlowerDog.jpg"
+let datos = JSON.parse(localStorage.getItem('datosDonacion'))
+
 function Gratitude() {
   const dispatch = useDispatch();
   useEffect(() => {
-    let datos = JSON.parse(localStorage.getItem('datosDonacion'))
     if (datos?.campaignId) {
       dispatch(updateCollected(datos.campaignId, {collected: datos.amount}))
       dispatch(donation({...datos, status: "approved"}));
@@ -29,7 +30,7 @@ function Gratitude() {
         <h1>¡¡¡Gracias por tu generosidad!!!</h1>
         <p></p>
       </div>
-      <Link to={"/home"} className={styles.icon}>
+      <Link to={`/campañas/${datos?.campaignId ? datos.campaignId : ""}`} className={styles.icon}>
         <Icon icon="pajamas:go-back" width="80px" />
       </Link>
     </div>

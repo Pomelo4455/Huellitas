@@ -42,6 +42,8 @@ import Mensajeria from "./components/Mensajeria/Mensajeria";
 import Fundaciones from "./components/Fundaciones/Fundaciones";
 import UserDetail from "./components/UserDetail/UserDetail";
 import UserBaneado from "./components/UserBanedo/UserBaneado";
+import Favorites from "./components/Favorites/Favorites";
+import ScrollToTop from "./components/ScrollToTop/ScrollToTop"
 
 export const auth = new Auth();
 
@@ -53,10 +55,12 @@ function App() {
 
   const profile = useSelector((state) => state.profile);
   useEffect(() => {}, [profile]);
+  useEffect(() => {window.scrollTo(0, 0);}, []);
 
   return (
     <>
       <NavBar loggedUser={loggedUser.data} setLoggedUser={setLoggedUser} />
+      <ScrollToTop />
       <Routes>
         <Route path="/" element={
           loggedUser.data?.status === 'baneado' ? <UserBaneado /> :
@@ -129,6 +133,12 @@ function App() {
         <Route path="/fundaciones" element={
           loggedUser.data?.status === 'baneado' ? <UserBaneado /> :
           <Fundaciones />} 
+        />
+        <Route path="/seguimiento" element={
+            <UserProtectedRoute>
+              <Favorites />
+            </UserProtectedRoute>
+          } 
         />
         <Route path="/:any" element={<NotFound />} />
       </Routes>

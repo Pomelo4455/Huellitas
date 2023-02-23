@@ -142,8 +142,8 @@ export default function CampaignForm() {
                     />
                 </div>
 
-                <label>Sube una foto (o varias) sobre tu campaña: </label>
                 <div className={style.divInput}>
+                <label>Sube una foto sobre tu campaña: </label>
                     <hr />
                     <Widget
                         tabs="file url"
