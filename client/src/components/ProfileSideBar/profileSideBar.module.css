@@ -16,29 +16,33 @@
 }
 
 .textCnt {
-    width: 10%;
     /* background-color: aquamarine; */
+    width: 10%;
     text-align: center;
     /* display: none; */
 }
 
 
 .btnLink {
-    /* background-color: rgb(167, 116, 50); */
+    /* background-color: rgb(50, 159, 167); */
     display: flex;
     width: 100%;
     height: auto;
-    margin: 1em .5em;
+    margin: 1em auto;
     text-decoration: none;
     color: #FFF;
-   
+}
+
+.btnLink:hover {
+    background-color: rgba(255, 255, 255, 0.271);
 
 }
 
 .textCnt .textIcon {
     color: #FFF;
-    font-size: 1.4em;
-    text-align: end;
+    font-size: 1em;
+    font-weight: bold;
+    text-align: center;
 }
 
 
@@ -49,12 +53,12 @@
 }
 
 .profileBtn {
-    margin-top: 1em;
-    padding-left: .5em;
-    height: 3em;
+    /* background-color: red; */
+    display: inline-block;
+    padding: 0 .8em;
+    height: 100%;
     width: 2em;
     color: #FFF;
-    
 }
 
 
@@ -174,8 +178,8 @@
 
 }
 
-/* RESPONSIVE PARA DISPOSITIVOS DE 760PX HASTA 1024*/
-@media (min-width: 760px) and (max-width: 1024px) {
+/* RESPONSIVE PARA DISPOSITIVOS DE 760PX HASTA 1200px*/
+@media (min-width: 760px) and (max-width: 1200px) {
     .sideBar {
         background-color: rgba(3, 3, 3, 0.97);
         width: 100%;
