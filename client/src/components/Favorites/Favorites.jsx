@@ -45,7 +45,7 @@ const Favorites = ({handleOcultFavorites}) => {
           <h3 
             className={styles.textNoList}
           >
-            No tienes favoritos
+            No tienes favoritos aún...
           </h3>
         :
         <div 

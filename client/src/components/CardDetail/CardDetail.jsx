@@ -50,11 +50,7 @@ const CardDetail = () => {
   const handleFollow = () => {
     if (user?.id && pet?.id) {
       setSeguido(!seguido);
-      axios.put(
-        `${LINK_BACK}/follow?userId=${user.id}&petId=${
-          pet.id
-        }&seguir=${!seguido}`
-      );
+      axios.put(`${LINK_BACK}/follow?userId=${user.id}&petId=${pet.id}&seguir=${!seguido}`);
     } else {
       swal("Inicia sesion para escoger favoritos", "", "error")
       .then(() => loginWithPopup());
@@ -99,7 +95,7 @@ const CardDetail = () => {
         default:
       }
     }).then(()=>{
-      axios.post(`http://localhost:3001/adoption/solicitud/${userId}/${pet.id}`)
+      axios.post(`${LINK_BACK}/adoption/solicitud/${userId}/${pet.id}`)
     })
     } catch (error) {
       swal(
