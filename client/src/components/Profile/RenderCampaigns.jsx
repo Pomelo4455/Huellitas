@@ -27,7 +27,7 @@ export default function RenderizarCampaigns({user}) {
 
     let [campaigns, setCampaigns] = useState([])
     let [more, setMore] = useState(false);
-
+    console.log(campaigns);
     useEffect(() => {
         axios(`${LINK_BACK}/users/${user.id}`)
         .then(data => setCampaigns(data.data.campaigns));
@@ -36,7 +36,7 @@ export default function RenderizarCampaigns({user}) {
     const handleShowMore = () => {
         setMore(!more)
     } 
-    if (campaigns.length > 1) {
+    if (campaigns.length > 0) {
     return (
         <>
         <h2 >Campañas</h2>
