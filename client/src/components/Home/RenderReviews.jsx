@@ -45,7 +45,7 @@ export default function RenderReviews() {
   useEffect(() => {
     axios(`${LINK_BACK}/reviews`)
     .then(data => setReviews(data.data))
-  }, [reviews])
+  }, [])
 
   const handleShow = () => {
     setMore(!more)

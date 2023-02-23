@@ -36,8 +36,8 @@ export const GET_THIS_USER = "GET_THIS_USER";
 export const GET_USERS_DETAIL = "GET_USERS_DETAIL";
 export const RESET_USER_DETAIL = "RESET_USER_DETAIL";
 export const RESET_PET_DETAIL = "RESET_PET_DETAIL";
-export const FILTER_BY_DISTANCE = "FILTER_BY_DISTANCE";
 export const SET_USER_LOCATION = "SET_USER_LOCATION";
+
 
 export const getPets = () => {
   return async function (dispatch) {
@@ -572,17 +572,10 @@ export const resetPetDetail = () => {
   return { type: RESET_PET_DETAIL };
 };
 
-
-export function filterByDistance(kms) {
-  return {
-    type: "FILTER_BY_DISTANCE",
-    payload: kms,
-  };
-}
-
 export function setUserLocation(payload) {
   return {
     type: "SET_USER_LOCATION",
     payload,
   };
 }
+
