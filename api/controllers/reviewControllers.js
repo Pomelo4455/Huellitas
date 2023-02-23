@@ -7,7 +7,7 @@ const getReviews = async (userId) => {
     attributes: ["review", "stars", "image", "name", "id"],
     where: {[Op.or] : [{"review" : {[Op.not]: ""}}, {"stars" : {[Op.not]: 0}}]},
   })
-  return reviews
+  return reviews.reverse()
 };
 
 module.exports = {
