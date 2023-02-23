@@ -60,12 +60,12 @@ const EditProfile = ({ dataModal, setModalEditProfile }) => {
             errors.address = "Debe escribir una direccion valida";
           } else if (valuess.address && valuess.address.length < 10) {
             errors.address = "La direccion es muy corta";
-          } else if (valuess.address && valuess.address.length > 40) {
+          } else if (valuess.address && valuess.address.length > 60) {
             errors.address = "La direccion es muy larga";
           }
           if (
             valuess.description &&
-            !/^[a-zA-ZáéíóúÁÉÍÓÚüÜñÑ\s.]+$/.test(valuess.description)
+            !/^[a-zA-Z0-9,.;áéíóúÁÉÍÓÚüÜñÑ\s]+$/.test(valuess.description)
           ) {
             errors.description = "La descripcion no debe contener simbolo";
           } else if (valuess.description && valuess.description.length > 250) {

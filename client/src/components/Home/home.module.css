@@ -100,7 +100,7 @@
   font-family: "Noto Sans JP";
   font-weight: 600;
   color: rgb(33, 31, 31);
-  margin-top: 80px;
+  margin-top: 220px;
 }
 
 /* ESTILOS PARA MOSTRAR LOS BOTONES */
@@ -171,7 +171,7 @@
 }
 
 .claseboton:hover {
-  background-color:#43baf9;
+  background-color: #43baf9;
   color: white;
   transition: 0.2s;
   transform: translateY(-2px);
@@ -194,7 +194,7 @@
 }
 
 .claseUltimoBoton:hover {
-  background-color:#43baf9;
+  background-color: #43baf9;
   color: white;
   transition: 0.2s;
   transform: translateY(-2px);
@@ -217,9 +217,9 @@
     min-height: 100vh;
     margin-bottom: -30px;
   }
-  
+
   /* ESTILOS PARA LA PRESENTACION */
-  
+
   .landingInHome {
     /* background-color: #75e3ea; */
     display: flex;
@@ -227,42 +227,40 @@
     height: auto;
     overflow-y: none;
     z-index: 0;
-    
   }
 
   .imagesLanding {
     display: none;
   }
-  
-  
+
   .presentation {
     width: 70%;
     height: auto;
     margin: 1em auto;
     padding: 0.3em;
   }
-  
+
   .title {
     font-family: "Ubuntu";
   }
-  
+
   .title h1 {
     font-size: 3em;
     text-align: center;
     font-weight: 600;
   }
-  
+
   .description {
     width: 80%;
     margin: 0 auto;
   }
-  
+
   .description h4 {
     font-family: "Poppins";
     font-weight: 400;
     font-size: 1.4em;
   }
-  
+
   .categoria {
     display: flex;
     justify-content: center;
@@ -270,11 +268,11 @@
     font-family: "Noto Sans JP";
     font-weight: 600;
     color: rgb(33, 31, 31);
-    margin-top: 80px;
+    margin-top: 220px;
   }
-  
+
   /* ESTILOS PARA MOSTRAR LOS BOTONES */
-  
+
   .btnS {
     /* background-color: rgba(137, 43, 226, 0.568); */
     width: 80%;
@@ -285,11 +283,11 @@
   }
 
   .btnLanding {
-    margin: .6em auto;
+    margin: 0.6em auto;
   }
-  
+
   /* ESTILOS PARA MOSTRAR LAS TARJETAS */
-  
+
   .cards {
     width: 85%;
     margin: 2em auto;
@@ -306,7 +304,7 @@
     grid-auto-rows: auto;
     grid-gap: 2rem;
   }
-  
+
   .button {
     background-color: #2aadf6;
     width: 12em;
@@ -320,16 +318,16 @@
     transition: 0.2s;
     cursor: pointer;
   }
-  
+
   .button:hover {
     background-color: #43baf9;
   }
-  
+
   .button:active {
     transform: scale(0.97);
     box-shadow: 3px 2px 22px 1px rgba(0, 0, 0, 0.24);
   }
-  
+
   .claseboton {
     display: inline-block;
     padding: 10px 20px;
@@ -343,15 +341,15 @@
     cursor: pointer;
     transition: all 0.2s ease-in-out;
   }
-  
+
   .claseboton:hover {
-    background-color:#43baf9;
+    background-color: #43baf9;
     color: white;
     transition: 0.2s;
     transform: translateY(-2px);
     box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.2);
   }
-  
+
   .claseUltimoBoton {
     display: inline-block;
     padding: 10px 20px;
@@ -366,15 +364,15 @@
     transition: all 0.2s ease-in-out;
     margin-bottom: 25px;
   }
-  
+
   .claseUltimoBoton:hover {
-    background-color:#43baf9;
+    background-color: #43baf9;
     color: white;
     transition: 0.2s;
     transform: translateY(-2px);
     box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.2);
   }
-  
+
   .linkText {
     text-decoration: none;
     color: inherit;
@@ -383,9 +381,8 @@
 
 /* RESPONSIVE PARA DISPOSITIVOS DE 760PX HASTA 1024*/
 @media (min-width: 760px) and (max-width: 1024px) {
-  
   /* ESTILOS PARA LA PRESENTACION */
-  
+
   .landingInHome {
     /* background-color: #75e3ea; */
     display: flex;
@@ -394,7 +391,6 @@
     overflow-y: visible;
     z-index: 0;
   }
-
 
   .img1 {
     position: absolute;
@@ -409,7 +405,7 @@
     transform: rotate(-9deg);
     z-index: 1;
   }
-  
+
   .Circle2 {
     position: absolute;
     top: 40%;
@@ -420,7 +416,7 @@
     background-color: #75e3ea;
     z-index: 0;
   }
-  
+
   .Circle3 {
     position: absolute;
     top: 30%;
@@ -431,35 +427,35 @@
     background-color: #788eff;
     z-index: 0;
   }
-  
+
   .presentation {
     width: 70%;
     height: auto;
     margin: 1em auto;
     padding: 0.3em;
   }
-  
+
   .title {
     font-family: "Ubuntu";
   }
-  
+
   .title h1 {
     font-size: 3em;
     text-align: center;
     font-weight: 600;
   }
-  
+
   .description {
     width: 80%;
     margin: 0 auto;
   }
-  
+
   .description h4 {
     font-family: "Poppins";
     font-weight: 400;
     font-size: 1.4em;
   }
-  
+
   .categoria {
     display: flex;
     justify-content: center;
@@ -467,11 +463,11 @@
     font-family: "Noto Sans JP";
     font-weight: 600;
     color: rgb(33, 31, 31);
-    margin-top: 80px;
+    margin-top: 220px;
   }
-  
+
   /* ESTILOS PARA MOSTRAR LOS BOTONES */
-  
+
   .btnS {
     /* background-color: rgba(137, 43, 226, 0.568); */
     width: 80%;
@@ -482,11 +478,11 @@
   }
 
   .btnLanding {
-    margin: .6em auto;
+    margin: 0.6em auto;
   }
-  
+
   /* ESTILOS PARA MOSTRAR LAS TARJETAS */
-  
+
   .cards {
     width: 85%;
     margin: 2em auto;
@@ -502,7 +498,7 @@
     grid-auto-rows: auto;
     grid-gap: 2rem;
   }
-  
+
   .button {
     background-color: #2aadf6;
     width: 12em;
@@ -516,16 +512,16 @@
     transition: 0.2s;
     cursor: pointer;
   }
-  
+
   .button:hover {
     background-color: #43baf9;
   }
-  
+
   .button:active {
     transform: scale(0.97);
     box-shadow: 3px 2px 22px 1px rgba(0, 0, 0, 0.24);
   }
-  
+
   .claseboton {
     display: inline-block;
     padding: 10px 20px;
@@ -539,15 +535,15 @@
     cursor: pointer;
     transition: all 0.2s ease-in-out;
   }
-  
+
   .claseboton:hover {
-    background-color:#43baf9;
+    background-color: #43baf9;
     color: white;
     transition: 0.2s;
     transform: translateY(-2px);
     box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.2);
   }
-  
+
   .claseUltimoBoton {
     display: inline-block;
     padding: 10px 20px;
@@ -562,15 +558,15 @@
     transition: all 0.2s ease-in-out;
     margin-bottom: 25px;
   }
-  
+
   .claseUltimoBoton:hover {
-    background-color:#43baf9;
+    background-color: #43baf9;
     color: white;
     transition: 0.2s;
     transform: translateY(-2px);
     box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.2);
   }
-  
+
   .linkText {
     text-decoration: none;
     color: inherit;

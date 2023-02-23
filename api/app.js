@@ -4,12 +4,12 @@ const bodyParser = require("body-parser");
 const morgan = require("morgan");
 const routes = require("./routes/index.js");
 const cors =require("cors")
-
+ 
 require("./db.js");
 
 const server = express();
 
-server.name = "API";
+server.name = "API"; 
 
 var corsOptions= {
   origin: ["https://huellitas.us.auth0.com","http://localhost:3000", "https://huellitasapp.netlify.app"],
